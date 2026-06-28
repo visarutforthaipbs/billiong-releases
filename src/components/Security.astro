@@ -1,0 +1,120 @@
+---
+import { ShieldCheck, HardDrive, RefreshCcw, FolderSync, Lock } from '@lucide/astro';
+
+const title = "ข้อมูลของคุณ เป็นของคุณอย่างแท้จริง";
+const tagline = "Local-First Architecture";
+const paragraphs = [
+  "Billiong ทำงานแบบ No-Server ข้อมูลทั้งหมดจะถูกบันทึกอย่างปลอดภัยในไฟล์ billing.json บนเครื่องคอมพิวเตอร์ของคุณเอง ไม่มีใครสามารถเข้าถึงข้อมูลรายได้ของคุณได้นอกจากตัวคุณ",
+  "ปลอดภัยยิ่งขึ้นด้วยระบบ Auto Rolling Snapshot ที่จะคัดลอกสำรองข้อมูลให้ทุกๆ 30 นาที (เก็บย้อนหลังสูงสุด 14 เวอร์ชัน) ป้องกันข้อมูลสูญหาย และคุณยังสามารถเลือกเก็บไฟล์ไว้บน Google Drive หรือ Dropbox เพื่อซิงค์ระหว่างเครื่องได้อย่างอิสระ"
+];
+---
+
+<section id="security" class="py-20 md:py-28 bg-[#f6f4f0] relative overflow-hidden border-b border-border-custom">
+  
+  <!-- Apple-style radial glow -->
+  <div class="absolute bottom-[-20%] right-[-10%] w-[600px] h-[400px] bg-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      
+      <!-- Left Column: Content -->
+      <div class="lg:col-span-7 space-y-6">
+        <span class="text-xs font-bold text-primary bg-primary/10 border border-primary/20 px-3 py-1 rounded-full w-max block">
+          {tagline}
+        </span>
+        
+        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight flex items-center gap-2.5">
+          <Lock class="text-primary shrink-0" size={28} />
+          <span>{title}</span>
+        </h2>
+        
+        <div class="space-y-4 text-slate-500 text-base md:text-lg leading-relaxed">
+          {paragraphs.map((p) => (
+            <p>{p}</p>
+          ))}
+        </div>
+
+        <!-- Value list -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+          <div class="flex gap-3">
+            <div class="w-8 h-8 rounded-lg bg-white border border-border-custom flex items-center justify-center text-primary shrink-0 shadow-2xs">
+              <ShieldCheck size={16} />
+            </div>
+            <div>
+              <span class="font-bold text-slate-900 block text-sm">ความเป็นส่วนตัวสูงสุด</span>
+              <span class="text-xs text-slate-400">ข้อมูลไม่เคยผ่านเซิร์ฟเวอร์ใดๆ</span>
+            </div>
+          </div>
+          <div class="flex gap-3">
+            <div class="w-8 h-8 rounded-lg bg-white border border-border-custom flex items-center justify-center text-primary shrink-0 shadow-2xs">
+              <HardDrive size={16} />
+            </div>
+            <div>
+              <span class="font-bold text-slate-900 block text-sm">ทำงานออฟไลน์ 100%</span>
+              <span class="text-xs text-slate-400">ไม่มีอินเทอร์เน็ตก็ยังเปิดแอปออกบิลได้</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: CSS Visualization -->
+      <div class="lg:col-span-5 flex justify-center">
+        <div class="w-full max-w-sm rounded-2xl border border-border-custom bg-white p-6 shadow-sm relative">
+          
+          <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-5">Local Storage Schema</h4>
+          
+          <!-- File Visualizer -->
+          <div class="p-4 rounded-xl border border-border-custom bg-slate-50/50 flex items-center justify-between mb-6 shadow-2xs relative overflow-hidden">
+            <div class="flex items-center gap-3">
+              <!-- File icon -->
+              <div class="w-10 h-12 bg-white rounded-md border border-border-custom flex flex-col justify-between p-1.5 shadow-2xs relative">
+                <div class="w-4 h-1 bg-slate-300 rounded-xs"></div>
+                <div class="w-6 h-1 bg-slate-300 rounded-xs"></div>
+                <div class="w-5 h-1 bg-slate-300 rounded-xs"></div>
+                <span class="text-[7px] font-bold text-primary block text-right font-mono">JSON</span>
+              </div>
+              <div>
+                <span class="font-bold font-mono text-slate-800 text-xs block">billing.json</span>
+                <span class="text-[10px] text-slate-400">บันทึกรายได้, รายละเอียดลูกค้า, ภาษี</span>
+              </div>
+            </div>
+            <span class="text-[10px] font-bold text-primary bg-primary/10 px-2 py-0.5 rounded border border-primary/20">Active Database</span>
+          </div>
+
+          <!-- Connecting line and backup -->
+          <div class="space-y-4 pl-4 border-l-2 border-dashed border-primary/25 relative">
+            
+            <!-- Snapshot step -->
+            <div class="relative">
+              <span class="absolute -left-[21px] top-1.5 w-2 h-2 rounded-full bg-primary ring-4 ring-white"></span>
+              <div class="flex items-center gap-2 mb-1">
+                <RefreshCcw size={12} class="text-slate-400" />
+                <span class="text-xs font-bold text-slate-800">Auto rolling snapshot every 30 mins</span>
+              </div>
+              <p class="text-[11px] text-slate-400">เก็บไฟล์ย้อนหลังสูงสุด 14 เวอร์ชัน ป้องกันข้อมูลเสียหายจากการเผลอลบ</p>
+            </div>
+
+            <!-- Sync step -->
+            <div class="relative">
+              <span class="absolute -left-[21px] top-1.5 w-2 h-2 rounded-full bg-secondary ring-4 ring-white"></span>
+              <div class="flex items-center gap-2 mb-1">
+                <FolderSync size={12} class="text-slate-400" />
+                <span class="text-xs font-bold text-slate-800">Cloud Folder Linkage</span>
+              </div>
+              <p class="text-[11px] text-slate-400">บันทึกไฟล์ไว้ใน Google Drive หรือ Dropbox เพื่อซิงค์ใช้งานระหว่าง macOS และอุปกรณ์อื่น</p>
+              
+              <!-- Sync Badges -->
+              <div class="flex gap-2 mt-2">
+                <span class="text-[9px] font-semibold bg-slate-100 border border-border-custom rounded px-1.5 py-0.5 text-slate-500">Google Drive</span>
+                <span class="text-[9px] font-semibold bg-slate-100 border border-border-custom rounded px-1.5 py-0.5 text-slate-500">Dropbox</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

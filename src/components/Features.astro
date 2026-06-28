@@ -1,0 +1,89 @@
+---
+import { 
+  Calculator, 
+  FileCheck, 
+  QrCode, 
+  LayoutDashboard, 
+  Clock, 
+  FileSpreadsheet,
+  LayoutGrid
+} from '@lucide/astro';
+
+const sectionTitle = "ฟีเจอร์ที่คิดมาเพื่อ ธุรกิจและฟรีแลนซ์ไทย";
+const sectionSubtitle = "จัดการเรื่องภาษีและเอกสารที่น่าปวดหัว ให้เสร็จได้ในไม่กี่คลิก";
+
+const items = [
+  {
+    icon: Calculator,
+    title: "Thai Tax Engine",
+    description: "คำนวณ VAT (7%) และภาษีหัก ณ ที่จ่าย (3%) อัตโนมัติ พร้อมกฎพิเศษ: คำนวณ WHT เฉพาะยอดชำระสกุลเงินบาท (THB) เท่านั้น ป้องกันการคำนวณพลาด"
+  },
+  {
+    icon: FileCheck,
+    title: "50 ทวิ Tracking",
+    description: "ระบบติดตามใบหัก ณ ที่จ่าย (ใบ 50 ทวิ) จากลูกค้า หมดปัญหาลืมทวงเอกสาร เพื่อให้คุณนำไปใช้เคลมเครดิตภาษีได้อย่างครบถ้วนตอนสิ้นปี"
+  },
+  {
+    icon: QrCode,
+    title: "Native PromptPay QR",
+    description: "สร้างคิวอาร์โค้ดพร้อมเพย์ (EMVCo) รูปแบบ SVG ลงบนเอกสารทันที รันจาก Source Code ของแอป 100% ไม่มีการส่งข้อมูลผ่าน API หรือเซิร์ฟเวอร์ภายนอก"
+  },
+  {
+    icon: LayoutDashboard,
+    title: "Smart Dashboard",
+    description: "สรุปภาพรวมธุรกิจทันที: ยอดเงินที่ยังไม่ชำระ (Unpaid), ยอดเงินที่ได้รับแล้ว, ประมาณการยอดภาษีหัก ณ ที่จ่าย (Expected WHT) พร้อมกราฟรายเดือน"
+  },
+  {
+    icon: Clock,
+    title: "Recurring Invoices",
+    description: "สร้างเทมเพลตสำหรับบิลที่ต้องส่งซ้ำๆ รายเดือน รายไตรมาส หรือรายปี พร้อมระบบแจ้งเตือนเมื่อใกล้ถึงกำหนดชำระเงิน (Due-date Alerts)"
+  },
+  {
+    icon: FileSpreadsheet,
+    title: "Multi-Format Exports",
+    description: "ส่งออกข้อมูลเป็น JSON สำหรับ Backup, CSV สำหรับส่งต่อนักบัญชี และโครงร่างไฟล์ e-Tax XML Draft (ตามมาตรฐาน ETDA/UN-CEFACT) เพื่อยื่นภาษีออนไลน์"
+  }
+];
+---
+
+<section id="features" class="py-20 md:py-28 bg-white relative border-b border-border-custom">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16 md:mb-20">
+      <div class="inline-flex items-center justify-center p-2.5 rounded-full bg-primary/10 text-primary mb-4">
+        <LayoutGrid size={24} />
+      </div>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
+        {sectionTitle}
+      </h2>
+      <p class="text-slate-500 text-base md:text-lg">
+        {sectionSubtitle}
+      </p>
+    </div>
+
+    <!-- Features Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      {items.map((item) => {
+        const IconComponent = item.icon;
+        return (
+          <div class="p-6 rounded-2xl border border-border-custom bg-slate-50/10 hover:bg-white hover:-translate-y-1 hover:shadow-md hover:border-primary/20 transition-all duration-300 group">
+            <!-- Icon Wrapper -->
+            <div class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+              <IconComponent size={20} class="text-slate-700 group-hover:text-white transition-colors duration-300" />
+            </div>
+            <!-- Title -->
+            <h3 class="text-lg font-bold text-slate-900 mb-2">
+              {item.title}
+            </h3>
+            <!-- Description -->
+            <p class="text-sm text-slate-500 leading-relaxed">
+              {item.description}
+            </p>
+          </div>
+        );
+      })}
+    </div>
+
+  </div>
+</section>

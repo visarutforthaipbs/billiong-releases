@@ -1,0 +1,27 @@
+# robots.txt for Billiong Landing Page
+# Permitting Search Engines and AI Crawlers (AIEO)
+
+User-agent: *
+Allow: /
+
+# Explicitly welcome AI User-Agents for AI Search Engine Optimization (AIEO)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Omgilibot
+Allow: /
+
+User-agent: FacebookBot
+Allow: /

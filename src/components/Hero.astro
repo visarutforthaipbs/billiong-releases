@@ -1,0 +1,64 @@
+---
+import { Cpu, Download, Globe } from '@lucide/astro';
+
+const badge = "macOS Desktop App & Web (Local-First)";
+const headline = "Billiong";
+const subHeadlineLine1 = "ออกเอกสารบัญชี สะดวก แม่นยำ";
+const subHeadlineLine2 = "จัดการภาษีไทยครบจบในที่เดียว";
+const description = "แอปพลิเคชันออกเอกสารและใบกำกับภาษีสำหรับฟรีแลนซ์และธุรกิจขนาดย่อม คำนวณ VAT และ หัก ณ ที่จ่าย แม่นยำ พร้อมระบบสร้าง PromptPay QR ในตัว ปลอดภัยสูงสุดด้วยระบบเก็บข้อมูลในเครื่องคุณเอง ไม่ผ่านเซิร์ฟเวอร์ใคร";
+const techNote = "รองรับการส่งออกข้อมูลรูปแบบ CSV, JSON และโครงร่าง e-Tax XML";
+---
+
+<section id="hero" class="relative pt-24 pb-16 md:pt-32 md:pb-20 overflow-hidden bg-radial from-[#ece9e2] via-[#f2efe9] to-[#f2efe9]">
+  
+  <!-- Apple-style forest green background glow -->
+  <div class="absolute top-[-10%] left-[50%] -translate-x-[50%] w-[800px] h-[350px] bg-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+    
+    <!-- Local-First Badge -->
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-border-custom shadow-xs mb-6 animate-pulse-glow">
+      <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+      <span class="text-xs font-semibold text-slate-600 tracking-wide">{badge}</span>
+    </div>
+
+    <!-- Title and Subtitle -->
+    <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 tracking-tight mb-4">
+      {headline}
+    </h1>
+    
+    <p class="text-2xl md:text-3xl font-bold text-slate-800 tracking-tight leading-tight max-w-3xl mx-auto mb-6">
+      {subHeadlineLine1} <br /> {subHeadlineLine2}
+    </p>
+
+    <!-- Description -->
+    <p class="text-base md:text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed mb-10">
+      {description}
+    </p>
+
+    <!-- Call to Actions Buttons -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto mb-8">
+      <a
+        href="#download"
+        class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-sm font-semibold text-white bg-primary rounded-xl hover:bg-primary-hover transition-all duration-200 shadow-md hover:shadow-lg active:scale-98 cursor-pointer"
+      >
+        <Download size={16} />
+        ดาวน์โหลดสำหรับ macOS (.dmg)
+      </a>
+      <a
+        href="#web-app"
+        class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-sm font-semibold text-slate-700 bg-white border border-border-custom rounded-xl hover:bg-slate-50 hover:text-primary transition-all duration-200 shadow-xs active:scale-98 cursor-pointer"
+      >
+        <Globe size={16} />
+        ทดลองใช้งานบนเบราว์เซอร์
+      </a>
+    </div>
+
+    <!-- Tech Note -->
+    <div class="inline-flex items-center gap-2 text-xs font-medium text-slate-500 bg-white/70 border border-border-custom px-3 py-1.5 rounded-lg max-w-md mx-auto">
+      <Cpu size={12} class="text-primary shrink-0" />
+      <span>{techNote}</span>
+    </div>
+
+  </div>
+</section>

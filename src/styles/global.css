@@ -1,0 +1,1019 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "IBM Plex Sans Thai", "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: "Fraunces", Georgia, serif;
+  --color-primary: #1f5d43;
+  --color-primary-hover: #133d2c;
+  --color-secondary: #caa45a;
+  --color-accent-bg: #fcfbf7;
+  --color-text-dark: #26221a;
+  --color-text-muted: #5f594c;
+  --color-border-custom: #dcd5c5;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  body {
+    background-color: #ece7dc;
+    color: #26221a;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Font Display utility for numbers/currency */
+.font-display {
+  font-family: var(--font-serif);
+}
+
+/* Custom Utilities for macOS / Warm App Aesthetic */
+.mac-window-shadow {
+  box-shadow: 0 30px 80px rgba(60, 48, 24, 0.2), 0 0 1px rgba(60, 48, 24, 0.15);
+}
+
+.mac-popover-shadow {
+  box-shadow: 0 10px 30px rgba(60, 48, 24, 0.08), 0 0 1px rgba(60, 48, 24, 0.12);
+}
+
+.glass-navbar {
+  background: rgba(236, 231, 220, 0.78);
+  backdrop-filter: blur(20px) saturate(190%);
+  -webkit-backdrop-filter: blur(20px) saturate(190%);
+}
+
+.glass-panel {
+  background: rgba(252, 251, 247, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(252, 251, 247, 0.9);
+}
+
+.glass-panel-dark {
+  background: linear-gradient(155deg, #23332b, #16241d);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(252, 251, 247, 0.1);
+}
+
+/* Custom Scrollbar for macOS look */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d3ccba;
+  border: 2px solid #ece7dc;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c2b9a3;
+}
+
+/* Micro-animations */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(31, 93, 67, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 12px 4px rgba(31, 93, 67, 0.18);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s infinite ease-in-out;
+}
+
+@keyframes float-window {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float-window {
+  animation: float-window 6s infinite ease-in-out;
+}
+
+/* ============================================================
+   MOCK APP SIMULATOR STYLING (.billiong-app-sim)
+   Matches desktop app stylesheet (billing.html)
+   ============================================================ */
+.billiong-app-sim {
+  --bg: #ece7dc;
+  --surface: #fcfbf7;
+  --surface-2: #f4f1e8;
+  --surface-3: #e9e3d6;
+  --border: #dcd5c5;
+  --border-soft: #e7e1d3;
+  --text: #26221a;
+  --text-dim: #5f594c;
+  --text-faint: #968d7b;
+  --accent: #1f5d43;
+  --accent-bright: color-mix(in srgb, var(--accent), #fff 16%);
+  --accent-strong: color-mix(in srgb, var(--accent), #000 12%);
+  --accent-soft: color-mix(in srgb, var(--accent) 7%, transparent);
+  --accent-soft-2: color-mix(in srgb, var(--accent) 5%, transparent);
+  --accent-sel: color-mix(in srgb, var(--accent) 18%, transparent);
+  --accent-glow: color-mix(in srgb, var(--accent) 16%, transparent);
+  --green: #1f7a4d;
+  --green-bg: #e3efe5;
+  --blue: #35607f;
+  --blue-bg: #e6edf2;
+  --grey: #a59c89;
+  --grey-bg: #ebe6da;
+  --red: #b23a2c;
+  --red-bg: #f6e7e3;
+  --amber: #956414;
+  --amber-bg: #f4ebd6;
+  --radius: 13px;
+  --radius-sm: 9px;
+}
+
+.billiong-app-sim .app-body {
+  display: flex !important;
+  flex-direction: column !important;
+  background: var(--bg) !important;
+  color: var(--text) !important;
+  font-family: "IBM Plex Sans Thai", sans-serif !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim .app-body {
+    flex-direction: row !important;
+  }
+}
+
+.billiong-app-sim .sidebar {
+  width: 100% !important;
+  flex-shrink: 0 !important;
+  background: linear-gradient(180deg, #fbfaf5, #f5f1e7) !important;
+  border-bottom: 1px solid var(--border) !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim .sidebar {
+    width: 244px !important;
+    border-bottom: none !important;
+    border-right: 1px solid var(--border) !important;
+  }
+}
+
+.billiong-app-sim .brand {
+  padding: 16px 18px !important;
+  border-bottom: 1px solid var(--border-soft) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim .brand {
+    padding: 22px 18px 16px !important;
+  }
+}
+
+.billiong-app-sim .brand .mark {
+  width: 32px !important;
+  height: 32px !important;
+  flex-shrink: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim .brand .mark {
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
+
+.billiong-app-sim .brand .mark img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+
+.billiong-app-sim .brand h1 {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.1px !important;
+  line-height: 1.2 !important;
+  color: var(--text) !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim .brand h1 {
+    font-size: 15px !important;
+  }
+}
+
+.billiong-app-sim .brand .sub {
+  font-size: 10px !important;
+  color: var(--text-faint) !important;
+  margin-top: 2px !important;
+  letter-spacing: 0.2px !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim .brand .sub {
+    font-size: 11px !important;
+  }
+}
+
+.billiong-app-sim .nav {
+  padding: 10px !important;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  gap: 6px !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim .nav {
+    padding: 12px !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    gap: 2px !important;
+    flex: 1 !important;
+  }
+}
+
+.billiong-app-sim .nav button {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 6px 12px !important;
+  border-radius: 8px !important;
+  position: relative !important;
+  color: var(--text-dim) !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  transition: 0.16s ease !important;
+  border: none !important;
+  background: transparent !important;
+  cursor: pointer !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim .nav button {
+    gap: 11px !important;
+    width: 100% !important;
+    padding: 10px 12px !important;
+    border-radius: 10px !important;
+    font-size: 13.5px !important;
+    margin-bottom: 3px !important;
+    text-align: left !important;
+  }
+}
+
+.billiong-app-sim .nav button:hover:not(.active):not(.disabled-nav-btn) {
+  background: var(--accent-soft) !important;
+  color: var(--text) !important;
+}
+
+.billiong-app-sim .nav button.active {
+  background: var(--surface) !important;
+  color: var(--accent) !important;
+  font-weight: 600 !important;
+  box-shadow: 0 1px 2px rgba(60,48,24,.07) !important;
+}
+
+.billiong-app-sim .nav button.active::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 9px !important;
+  right: 9px !important;
+  bottom: -2px !important;
+  height: 2px !important;
+  background: var(--accent) !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim .nav button.active::before {
+    left: -2px !important;
+    right: auto !important;
+    top: 9px !important;
+    bottom: 9px !important;
+    width: 3px !important;
+    height: auto !important;
+    border-radius: 3px !important;
+  }
+}
+
+.billiong-app-sim .nav button .ico {
+  width: 16px !important;
+  text-align: center !important;
+  font-size: 13px !important;
+  opacity: 0.85 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim .nav button .ico {
+    width: 18px !important;
+    font-size: 15px !important;
+  }
+}
+
+.billiong-app-sim .nav .badge {
+  font-size: 9px !important;
+  background: var(--accent) !important;
+  color: #fff !important;
+  border-radius: 20px !important;
+  padding: 1px 5px !important;
+  font-weight: 600 !important;
+  min-width: 16px !important;
+  text-align: center !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim .nav .badge {
+    margin-left: auto !important;
+    font-size: 11px !important;
+    padding: 1px 7px !important;
+    min-width: 20px !important;
+  }
+}
+
+.billiong-app-sim .file-status {
+  display: none !important;
+  padding: 13px 18px !important;
+  border-top: 1px solid var(--border-soft) !important;
+  font-size: 11.5px !important;
+  color: var(--text-faint) !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim .file-status {
+    display: block !important;
+  }
+}
+
+.billiong-app-sim .file-status .dot {
+  display: inline-block !important;
+  width: 7px !important;
+  height: 7px !important;
+  border-radius: 50% !important;
+  background: var(--green) !important;
+  margin-right: 7px !important;
+  vertical-align: middle !important;
+  box-shadow: 0 0 0 3px rgba(31,122,77,.16) !important;
+}
+
+.billiong-app-sim .main-area {
+  flex: 1 !important;
+  min-width: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  background: var(--bg) !important;
+}
+
+.billiong-app-sim .topbar {
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+  padding: 14px 20px !important;
+  border-bottom: 1px solid var(--border-soft) !important;
+  position: sticky !important;
+  top: 0 !important;
+  background: rgba(236,231,220,.78) !important;
+  backdrop-filter: blur(12px) !important;
+  z-index: 20 !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim .topbar {
+    padding: 17px 30px !important;
+  }
+}
+
+.billiong-app-sim .topbar h2 {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.2px !important;
+  color: var(--text) !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim .topbar h2 {
+    font-size: 20px !important;
+  }
+}
+
+.billiong-app-sim .topbar .spacer {
+  flex: 1 !important;
+}
+
+.billiong-app-sim .content {
+  padding: 20px 16px 40px !important;
+  overflow-y: auto !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim .content {
+    padding: 26px 30px 60px !important;
+  }
+}
+
+.billiong-app-sim .btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+  padding: 8px 12px !important;
+  border-radius: 8px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  transition: 0.16s ease !important;
+  background: var(--surface) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: 0 1px 2px rgba(60,48,24,.07) !important;
+  cursor: pointer !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim .btn {
+    padding: 9px 15px !important;
+    border-radius: 10px !important;
+    font-size: 13px !important;
+  }
+}
+
+.billiong-app-sim .btn:hover {
+  border-color: #cdc4b0 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px -4px rgba(60,48,24,.18) !important;
+}
+
+.billiong-app-sim .btn-primary {
+  background: linear-gradient(160deg, var(--accent-bright), var(--accent-strong)) !important;
+  color: #f6f1e4 !important;
+  border-color: transparent !important;
+  box-shadow: 0 4px 14px -5px rgba(28,86,64,.55), inset 0 1px 0 rgba(255,255,255,.14) !important;
+  cursor: pointer !important;
+}
+
+.billiong-app-sim .btn-primary:hover {
+  background: linear-gradient(160deg, color-mix(in srgb, var(--accent), #fff 26%), var(--accent)) !important;
+  border-color: transparent !important;
+}
+
+.billiong-app-sim .btn-sm {
+  padding: 5px 9px !important;
+  font-size: 11px !important;
+  border-radius: 6px !important;
+}
+
+.billiong-app-sim .pillars {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 14px !important;
+  margin-bottom: 20px !important;
+}
+
+@media (min-width: 640px) {
+  .billiong-app-sim .pillars {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .billiong-app-sim .pillars {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 18px !important;
+    margin-bottom: 28px !important;
+  }
+}
+
+.billiong-app-sim .pillar {
+  background: var(--surface) !important;
+  border: 1px solid var(--border-soft) !important;
+  border-radius: var(--radius) !important;
+  padding: 18px !important;
+  position: relative !important;
+  overflow: hidden !important;
+  box-shadow: 0 1px 2px rgba(60,48,24,.07) !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim .pillar {
+    padding: 22px !important;
+  }
+}
+
+.billiong-app-sim .pillar .label {
+  font-size: 11px !important;
+  color: var(--text-dim) !important;
+  font-weight: 600 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim .pillar .label {
+    font-size: 12px !important;
+  }
+}
+
+.billiong-app-sim .pillar .val {
+  font-family: var(--font-serif) !important;
+  font-size: 28px !important;
+  font-weight: 605 !important;
+  margin-top: 10px !important;
+  letter-spacing: -0.5px !important;
+  line-height: 1 !important;
+  color: var(--text) !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim .pillar .val {
+    font-size: 36px !important;
+    margin-top: 12px !important;
+  }
+}
+
+.billiong-app-sim .pillar .sub {
+  font-size: 11px !important;
+  color: var(--text-faint) !important;
+  margin-top: 6px !important;
+  line-height: 1.4 !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim .pillar .sub {
+    font-size: 11.5px !important;
+    margin-top: 8px !important;
+    line-height: 1.5 !important;
+  }
+}
+
+.billiong-app-sim .pillar .accent-bar {
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  width: 4px !important;
+}
+
+.billiong-app-sim .pillar.owed .accent-bar {
+  background: var(--amber) !important;
+}
+
+.billiong-app-sim .pillar.received .accent-bar {
+  background: var(--green) !important;
+}
+
+.billiong-app-sim .pillar.wht {
+  background: linear-gradient(155deg, #23332b, #16241d) !important;
+  border-color: #16241d !important;
+  box-shadow: 0 14px 36px -14px rgba(15,36,28,.6) !important;
+}
+
+.billiong-app-sim .pillar.wht .accent-bar {
+  background: #caa45a !important;
+}
+
+.billiong-app-sim .pillar.wht .val {
+  color: #e6c477 !important;
+}
+
+.billiong-app-sim .pillar.wht .label {
+  color: #b7c8bd !important;
+}
+
+.billiong-app-sim .pillar.wht .sub {
+  color: #8ba093 !important;
+}
+
+.billiong-app-sim .section-title {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  color: var(--text-faint) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.2px !important;
+  margin: 20px 0 10px !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim .section-title {
+    font-size: 11.5px !important;
+    margin: 26px 0 13px !important;
+  }
+}
+
+.billiong-app-sim .mini-stats {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 10px !important;
+  margin-bottom: 8px !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim .mini-stats {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 13px !important;
+  }
+}
+
+.billiong-app-sim .mini-stat {
+  background: var(--surface) !important;
+  border: 1px solid var(--border-soft) !important;
+  border-radius: var(--radius-sm) !important;
+  padding: 12px 14px !important;
+  box-shadow: 0 1px 2px rgba(60,48,24,.07) !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim .mini-stat {
+    padding: 15px 16px !important;
+  }
+}
+
+.billiong-app-sim .mini-stat .v {
+  font-family: var(--font-serif) !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  color: var(--text) !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim .mini-stat .v {
+    font-size: 23px !important;
+  }
+}
+
+.billiong-app-sim .mini-stat .l {
+  font-size: 10.5px !important;
+  color: var(--text-faint) !important;
+  margin-top: 2px !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim .mini-stat .l {
+    font-size: 11.5px !important;
+    margin-top: 3px !important;
+  }
+}
+
+.billiong-app-sim .charts {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 16px !important;
+  margin-bottom: 8px !important;
+}
+
+@media (min-width: 900px) {
+  .billiong-app-sim .charts {
+    grid-template-columns: 1.3fr 1fr !important;
+  }
+}
+
+.billiong-app-sim .chart-card {
+  background: var(--surface) !important;
+  border: 1px solid var(--border-soft) !important;
+  border-radius: var(--radius) !important;
+  padding: 14px 16px !important;
+  box-shadow: 0 1px 2px rgba(60,48,24,.07) !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim .chart-card {
+    padding: 16px 18px !important;
+  }
+}
+
+.billiong-app-sim .chart-card .ch-title {
+  font-size: 11.5px !important;
+  font-weight: 700 !important;
+  color: var(--text-dim) !important;
+  margin-bottom: 12px !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim .chart-card .ch-title {
+    font-size: 12px !important;
+    margin-bottom: 14px !important;
+  }
+}
+
+.billiong-app-sim .cbars {
+  display: flex !important;
+  align-items: flex-end !important;
+  gap: 8px !important;
+  height: 140px !important;
+  padding-top: 6px !important;
+  justify-content: center !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim .cbars {
+    gap: 10px !important;
+    height: 170px !important;
+  }
+}
+
+.billiong-app-sim .cbar-col {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  height: 100% !important;
+}
+
+.billiong-app-sim .cbar {
+  width: 60% !important;
+  max-width: 30px !important;
+  background: linear-gradient(180deg, var(--accent-bright), var(--accent-strong)) !important;
+  border-radius: 4px 4px 0 0 !important;
+  transition: 0.2s ease !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim .cbar {
+    max-width: 34px !important;
+    border-radius: 5px 5px 0 0 !important;
+  }
+}
+
+.billiong-app-sim .cbar-val {
+  font-size: 9px !important;
+  color: var(--text-faint) !important;
+  margin-bottom: 3px !important;
+  font-family: var(--font-serif) !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim .cbar-val {
+    font-size: 9.5px !important;
+    margin-bottom: 4px !important;
+  }
+}
+
+.billiong-app-sim .cbar-lbl {
+  font-size: 9px !important;
+  color: var(--text-dim) !important;
+  margin-top: 5px !important;
+  text-align: center !important;
+  line-height: 1.1 !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim .cbar-lbl {
+    font-size: 10px !important;
+    margin-top: 7px !important;
+    line-height: 1.2 !important;
+  }
+}
+
+.billiong-app-sim .hbar-row {
+  display: grid !important;
+  grid-template-columns: 80px 1fr auto !important;
+  gap: 8px !important;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim .hbar-row {
+    grid-template-columns: 90px 1fr auto !important;
+    gap: 10px !important;
+    margin-bottom: 11px !important;
+  }
+}
+
+.billiong-app-sim .hbar-name {
+  font-size: 11px !important;
+  color: var(--text-dim) !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim .hbar-name {
+    font-size: 12px !important;
+  }
+}
+
+.billiong-app-sim .hbar-track {
+  height: 7px !important;
+  background: var(--surface-3) !important;
+  border-radius: 6px !important;
+  overflow: hidden !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim .hbar-track {
+    height: 9px !important;
+  }
+}
+
+.billiong-app-sim .hbar-fill {
+  height: 100% !important;
+  background: linear-gradient(90deg, var(--accent-strong), var(--accent-bright)) !important;
+  border-radius: 6px !important;
+}
+
+.billiong-app-sim .hbar-val {
+  font-size: 10.5px !important;
+  font-family: var(--font-serif) !important;
+  color: var(--text) !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim .hbar-val {
+    font-size: 11.5px !important;
+  }
+}
+
+.billiong-app-sim .table-container {
+  width: 100% !important;
+  overflow-x: auto !important;
+  border-radius: var(--radius) !important;
+  border: 1px solid var(--border-soft) !important;
+  box-shadow: 0 1px 2px rgba(60,48,24,.07) !important;
+  background: var(--surface) !important;
+}
+
+.billiong-app-sim table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  background: var(--surface) !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+.billiong-app-sim thead th {
+  text-align: left !important;
+  font-size: 10px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.7px !important;
+  color: var(--text-faint) !important;
+  font-weight: 700 !important;
+  padding: 10px 12px !important;
+  border-bottom: 1px solid var(--border-soft) !important;
+  background: var(--surface-2) !important;
+  white-space: nowrap !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim thead th {
+    font-size: 10.5px !important;
+    padding: 11px 14px !important;
+  }
+}
+
+.billiong-app-sim tbody td {
+  padding: 11px 12px !important;
+  border-bottom: 1px solid var(--border-soft) !important;
+  font-size: 12.5px !important;
+  color: var(--text-dim) !important;
+  white-space: nowrap !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim tbody td {
+    padding: 13px 14px !important;
+    font-size: 13.5px !important;
+  }
+}
+
+.billiong-app-sim tbody tr:last-child td {
+  border-bottom: none !important;
+}
+
+.billiong-app-sim tbody tr {
+  transition: 0.12s ease !important;
+}
+
+.billiong-app-sim tbody tr:hover {
+  background: var(--accent-soft-2) !important;
+}
+
+.billiong-app-sim td.num {
+  text-align: right !important;
+}
+
+.billiong-app-sim th.num {
+  text-align: right !important;
+}
+
+.billiong-app-sim .doc-no {
+  font-weight: 600 !important;
+  color: var(--accent) !important;
+  font-family: monospace !important;
+}
+
+.billiong-app-sim .muted {
+  color: var(--text-faint) !important;
+}
+
+.billiong-app-sim .badge-status {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  font-size: 10.5px !important;
+  font-weight: 600 !important;
+  padding: 2px 8px !important;
+  border-radius: 20px !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim .badge-status {
+    gap: 6px !important;
+    font-size: 11.5px !important;
+    padding: 3px 10px !important;
+  }
+}
+
+.billiong-app-sim .badge-status .d {
+  width: 5px !important;
+  height: 5px !important;
+  border-radius: 50% !important;
+}
+
+@media (min-width: 768px) {
+  .billiong-app-sim .badge-status .d {
+    width: 6px !important;
+    height: 6px !important;
+  }
+}
+
+.billiong-app-sim .s-draft {
+  background: var(--grey-bg) !important;
+  color: #6b6354 !important;
+}
+
+.billiong-app-sim .s-draft .d {
+  background: var(--grey) !important;
+}
+
+.billiong-app-sim .s-paid {
+  background: var(--green-bg) !important;
+  color: #176b41 !important;
+}
+
+.billiong-app-sim .s-paid .d {
+  background: var(--green) !important;
+}
+
+.billiong-app-sim .field {
+  margin-bottom: 16px !important;
+}
+
+.billiong-app-sim .field label {
+  display: block !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  color: var(--text-dim) !important;
+  margin-bottom: 7px !important;
+}
+
+.billiong-app-sim .field input,
+.billiong-app-sim .field select,
+.billiong-app-sim .field textarea {
+  width: 100% !important;
+  background: var(--surface-2) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 10px !important;
+  padding: 10px 13px !important;
+  color: var(--text) !important;
+  transition: 0.16s ease !important;
+}
+
+.billiong-app-sim .field input:focus,
+.billiong-app-sim .field select:focus,
+.billiong-app-sim .field textarea:focus {
+  outline: none !important;
+  border-color: var(--accent) !important;
+  background: var(--surface) !important;
+  box-shadow: 0 0 0 3px var(--accent-glow) !important;
+}
+
+.billiong-app-sim .grid-2 {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 14px !important;
+}

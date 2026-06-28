@@ -1,0 +1,351 @@
+---
+import { 
+  LayoutDashboard, 
+  FileText, 
+  Database, 
+  Plus, 
+  Trash2, 
+  Download, 
+  FileJson, 
+  FileSpreadsheet, 
+  AlertCircle, 
+  CheckCircle2, 
+  RefreshCw,
+  Clock,
+  Scissors,
+  Users,
+  TrendingUp,
+  Settings,
+  Laptop,
+  Lock,
+  ChevronDown
+} from '@lucide/astro';
+---
+
+<section id="web-app" class="py-16 md:py-24 bg-[#ece7dc] border-y border-border-custom">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Title Section (No Emojis) -->
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <div class="inline-flex items-center justify-center p-3 rounded-full bg-[#1f5d43]/15 text-[#1f5d43] mb-4">
+        <Laptop size={32} />
+      </div>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
+        ทดลองใช้งานระบบจัดการบัญชีและภาษีในเบราว์เซอร์
+      </h2>
+      <p class="text-slate-500 text-base md:text-lg font-medium">
+        จำลองการทำงานของแอปพลิเคชัน Billiong Desktop (macOS Local-First) ทุกฟังก์ชันรักษาความปลอดภัยและทำงานในเครื่องของคุณ 100%
+      </p>
+    </div>
+
+    <!-- macOS Window Container (Simulates App UI) -->
+    <div class="billiong-app-sim w-full max-w-7xl mx-auto rounded-2xl border border-[#dcd5c5] bg-[#ece7dc] mac-window-shadow overflow-hidden select-none animate-float-window">
+      
+      <!-- macOS Titlebar -->
+      <div class="titlebar flex items-center justify-between px-4 py-2.5 bg-[#f4f1e8] border-b border-[#dcd5c5]">
+        <!-- Traffic lights -->
+        <div class="flex items-center gap-1.5 w-24">
+          <div class="w-3 h-3 rounded-full bg-[#ff5f56] border border-[#e0443e]"></div>
+          <div class="w-3 h-3 rounded-full bg-[#ffbd2e] border border-[#df9e13]"></div>
+          <div class="w-3 h-3 rounded-full bg-[#27c93f] border border-[#1aab29]"></div>
+        </div>
+        <!-- Title -->
+        <div class="text-[11px] font-bold text-[#5f594c] flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#1f7a4d] animate-pulse"></span>
+          billing.json
+        </div>
+        <!-- Buffer -->
+        <div class="w-24"></div>
+      </div>
+
+      <div class="app-body flex flex-col md:flex-row min-h-[580px]">
+        
+        <!-- Sidebar (Matches screenshot) -->
+        <aside class="sidebar">
+          
+          <div class="brand">
+            <div class="mark">
+              <img src="/billiong-logo.png" alt="Billiong Logo" />
+            </div>
+            <div>
+              <h1>ระบบออกเอกสาร</h1>
+              <div class="sub">Billing • ผู้ทดสอบระบบ</div>
+            </div>
+          </div>
+
+          <nav class="nav">
+            <button id="btn-dashboard" class="active">
+              <span class="ico"><LayoutDashboard size={14} /></span>
+              แดชบอร์ด
+            </button>
+            <button id="btn-editor">
+              <span class="ico"><FileText size={14} /></span>
+              เอกสาร
+              <span class="badge">2</span>
+            </button>
+            <button class="disabled-nav-btn" disabled style="opacity: 0.45; cursor: not-allowed;">
+              <span class="ico"><RefreshCw size={14} /></span>
+              รายการประจำ
+            </button>
+            <button id="btn-snapshots">
+              <span class="ico"><Database size={14} /></span>
+              หัก ณ ที่จ่าย (50 ทวิ)
+              <span class="badge">1</span>
+            </button>
+            <button class="disabled-nav-btn" disabled style="opacity: 0.45; cursor: not-allowed;">
+              <span class="ico"><Users size={14} /></span>
+              ลูกค้า
+            </button>
+            <button class="disabled-nav-btn" disabled style="opacity: 0.45; cursor: not-allowed;">
+              <span class="ico"><TrendingUp size={14} /></span>
+              สรุปภาษี
+            </button>
+            <button class="disabled-nav-btn" disabled style="opacity: 0.45; cursor: not-allowed;">
+              <span class="ico"><Settings size={14} /></span>
+              ตั้งค่า
+            </button>
+          </nav>
+
+          <div class="file-status connected">
+            <span class="dot"></span>
+            บันทึกอัตโนมัติ • เก็บในแอป (อัตโนมัติ)
+          </div>
+        </aside>
+
+        <!-- Main Workspace -->
+        <div class="main-area flex-1 flex flex-col">
+          
+          <!-- Topbar -->
+          <div class="topbar">
+            <h2 id="topbar-title">แดชบอร์ด</h2>
+            <div class="spacer"></div>
+            <div id="topbar-actions">
+              <button id="dash-add-new-btn" class="btn btn-primary">+ เอกสารใหม่</button>
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="content">
+            
+            <!-- Tab 1: Dashboard (Mockup/Generic PDPA Compliant Data) -->
+            <div id="tab-dashboard" class="tab-content space-y-6">
+              
+              <!-- Pillars -->
+              <div class="pillars">
+                
+                <!-- Card 1: Unpaid (Gold left border) -->
+                <div class="pillar owed">
+                  <div class="accent-bar"></div>
+                  <div class="label"><Clock size={12} class="ic" /> ยอดค้างรับ (สุทธิ)</div>
+                  <div class="val font-display" id="dash-unpaid">฿15,000.00</div>
+                  <div class="sub">เงินที่จะเข้าบัญชีจากใบแจ้งหนี้ที่ยังไม่ชำระ</div>
+                </div>
+
+                <!-- Card 2: Received (Green left border) -->
+                <div class="pillar received">
+                  <div class="accent-bar"></div>
+                  <div class="label"><CheckCircle2 size={12} class="ic" /> รับแล้ว (สุทธิ)</div>
+                  <div class="val font-display" id="dash-received">฿35,000.00</div>
+                  <div class="sub">ยอดสุทธิจากใบเสร็จที่ออกแล้ว</div>
+                </div>
+
+                <!-- Card 3: WHT (Dark Green background, Gold text/border) -->
+                <div class="pillar wht">
+                  <div class="accent-bar"></div>
+                  <div class="label"><Scissors size={12} class="ic" /> ภาษีหัก ณ ที่จ่ายที่คาดว่าจะถูกหัก</div>
+                  <div class="val font-display" id="dash-wht">฿450.00</div>
+                  <div class="sub">ยอดที่ลูกค้าจะหักไว้ — ขอใบ 50 ทวิ เพื่อเครดิตภาษี</div>
+                </div>
+
+              </div>
+
+              <!-- Mini Stats (4 columns) -->
+              <div class="mini-stats">
+                <div class="mini-stat">
+                  <div class="v font-display">2</div>
+                  <div class="l font-sans">ใบเสนอราคาที่เปิดอยู่</div>
+                </div>
+                <div class="mini-stat">
+                  <div class="v font-display">฿12,000.00</div>
+                  <div class="l font-sans">มูลค่าใน pipeline</div>
+                </div>
+                <div class="mini-stat">
+                  <div class="v font-display" style="color: #956414;">1</div>
+                  <div class="l font-sans">รอใบ 50 ทวิ จากลูกค้า</div>
+                </div>
+                <div class="mini-stat">
+                  <div class="v font-display">5</div>
+                  <div class="l font-sans">ลูกค้า</div>
+                </div>
+              </div>
+
+              <!-- Charts Split Row -->
+              <div class="section-title font-sans">รายรับ (สุทธิจากใบเสร็จ)</div>
+              <div class="charts">
+                <div class="chart-card">
+                  <div class="ch-title font-sans">รายรับรายเดือน</div>
+                  <div class="cbars">
+                    <div class="cbar-col">
+                      <div class="cbar-val font-display">35k</div>
+                      <div class="cbar" style="height: 120px"></div>
+                      <div class="cbar-lbl font-display">มิ.ย.<br><span class="muted" style="font-size:9px">69</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="chart-card">
+                  <div class="ch-title font-sans">รายรับตามลูกค้า (สูงสุด 6)</div>
+                  <div class="hbar-row">
+                    <div class="hbar-name font-sans" title="บริษัท ลูกค้าตัวอย่าง A จำกัด">บริษัท ลูกค้าตัวอย่าง A จำกัด</div>
+                    <div class="hbar-track"><div class="hbar-fill" style="width:75%"></div></div>
+                    <div class="hbar-val font-display">฿20,000.00</div>
+                  </div>
+                  <div class="hbar-row">
+                    <div class="hbar-name font-sans" title="บริษัท ลูกค้าตัวอย่าง B จำกัด">บริษัท ลูกค้าตัวอย่าง B จำกัด</div>
+                    <div class="hbar-track"><div class="hbar-fill" style="width:38%"></div></div>
+                    <div class="hbar-val font-display">฿10,000.00</div>
+                  </div>
+                  <div class="hbar-row">
+                    <div class="hbar-name font-sans" title="บริษัท ลูกค้าตัวอย่าง C จำกัด">บริษัท ลูกค้าตัวอย่าง C จำกัด</div>
+                    <div class="hbar-track"><div class="hbar-fill" style="width:25%"></div></div>
+                    <div class="hbar-val font-display">฿5,000.00</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Documents Table -->
+              <div class="section-title font-sans">เอกสารล่าสุด</div>
+              <div class="table-container">
+                <table>
+                  <thead>
+                    <tr class="font-sans">
+                      <th>เลขที่</th>
+                      <th>ประเภท</th>
+                      <th>ลูกค้า</th>
+                      <th>วันที่</th>
+                      <th class="num">ยอดบิล</th>
+                      <th class="num">สุทธิ</th>
+                      <th style="text-align: center">สถานะ</th>
+                    </tr>
+                  </thead>
+                  <tbody class="font-sans">
+                    <tr>
+                      <td class="doc-no">INV-2026-002</td>
+                      <td style="font-weight: 600;">ใบแจ้งหนี้</td>
+                      <td>
+                        <div style="font-weight: 700; color: var(--text);">บริษัท ลูกค้าตัวอย่าง B จำกัด</div>
+                        <div class="muted" style="font-size: 11px; font-weight: 500;">บริการให้คำปรึกษาทางธุรกิจ</div>
+                      </td>
+                      <td class="muted font-display">28 มิ.ย. 2026</td>
+                      <td class="num font-display" style="font-weight: 600;">฿15,000.00</td>
+                      <td class="num font-display" style="font-weight: 600;">฿15,000.00</td>
+                      <td style="text-align: center">
+                        <span class="badge-status s-draft"><span class="d"></span>ร่าง</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="doc-no">INV-2026-001</td>
+                      <td style="font-weight: 600;">ใบแจ้งหนี้</td>
+                      <td>
+                        <div style="font-weight: 700; color: var(--text);">บริษัท ลูกค้าตัวอย่าง A จำกัด</div>
+                        <div class="muted" style="font-size: 11px; font-weight: 500;">บริการออกแบบสื่อประชาสัมพันธ์</div>
+                      </td>
+                      <td class="muted font-display">15 มิ.ย. 2026</td>
+                      <td class="num font-display" style="font-weight: 600;">฿35,000.00</td>
+                      <td class="num font-display" style="font-weight: 600;">฿35,000.00</td>
+                      <td style="text-align: center">
+                        <span class="badge-status s-paid"><span class="d"></span>จ่ายแล้ว</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+
+            <!-- Tab 2: Placeholder (Direct users to the Desktop App) -->
+            <div id="tab-placeholder" class="tab-content hidden flex flex-col items-center justify-center text-center py-16 px-6 font-sans">
+              <div class="inline-flex items-center justify-center p-4 rounded-full bg-[#1f5d43]/10 text-[#1f5d43] mb-5">
+                <Lock size={40} />
+              </div>
+              <h3 class="text-base md:text-lg font-bold text-slate-800 mb-2" id="placeholder-title">
+                ฟังก์ชันการออกเอกสารรองรับบนแอปพลิเคชันเท่านั้น
+              </h3>
+              <p class="text-xs md:text-sm text-slate-500 max-w-md leading-relaxed mb-6" id="placeholder-description">
+                ระบบจัดการฐานข้อมูล ตัวช่วยออกเอกสาร และระบบติดตามภาษีหัก ณ ที่จ่าย 50 ทวิ ทำงานโดยเก็บประวัติออฟไลน์ในเครื่องของคุณ 100% ผ่านโครงสร้าง Local-First บนแอปพลิเคชัน Billiong Desktop เพื่อความปลอดภัยและความเป็นส่วนตัวสูงสุดของข้อมูลทางธุรกิจ
+              </p>
+              <a href="#download" class="btn btn-primary inline-flex items-center gap-2">
+                <Download size={14} />
+                ดาวน์โหลดแอปสำหรับ macOS
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<script is:inline>
+  // Tab Navigation Handling for Dashboard & Placeholders
+  const tabs = {
+    dashboard: document.getElementById('tab-dashboard'),
+    placeholder: document.getElementById('tab-placeholder')
+  };
+
+  const btns = {
+    dashboard: document.getElementById('btn-dashboard'),
+    editor: document.getElementById('btn-editor'),
+    snapshots: document.getElementById('btn-snapshots'),
+    dashAddNew: document.getElementById('dash-add-new-btn')
+  };
+
+  const topbarTitle = document.getElementById('topbar-title');
+  const topbarActions = document.getElementById('topbar-actions');
+  const placeholderTitle = document.getElementById('placeholder-title');
+  const placeholderDescription = document.getElementById('placeholder-description');
+
+  function switchTab(activeTab) {
+    // Reset active button styling
+    Object.keys(btns).forEach(key => {
+      if (btns[key]) btns[key].classList.remove('active');
+    });
+
+    if (activeTab === 'dashboard') {
+      tabs.dashboard.classList.remove('hidden');
+      tabs.placeholder.classList.add('hidden');
+      if (btns.dashboard) btns.dashboard.classList.add('active');
+      
+      topbarTitle.innerText = 'แดชบอร์ด';
+      topbarActions.innerHTML = `<button id="dash-add-new-btn-shortcut" class="btn btn-primary" style="cursor:pointer">+ เอกสารใหม่</button>`;
+      document.getElementById('dash-add-new-btn-shortcut').addEventListener('click', () => switchTab('editor'));
+    } else {
+      tabs.dashboard.classList.add('hidden');
+      tabs.placeholder.classList.remove('hidden');
+      
+      if (activeTab === 'editor') {
+        if (btns.editor) btns.editor.classList.add('active');
+        topbarTitle.innerText = 'เอกสาร';
+        placeholderTitle.innerText = 'ระบบออกเอกสารและใบกำกับภาษี';
+        placeholderDescription.innerText = 'ฟังก์ชันจัดทำและจัดการเอกสาร ใบเสนอราคา ใบแจ้งหนี้ ใบกำกับภาษี และใบเสร็จรับเงิน พร้อมการคำนวณหัก ณ ที่จ่าย (WHT 3%) และ e-Tax XML ทำงานโดยรักษาความปลอดภัยข้อมูลภายในเครื่องคอมพิวเตอร์ของคุณ 100% ผ่านแอปพลิเคชัน Billiong Desktop เท่านั้น';
+      } else if (activeTab === 'snapshots') {
+        if (btns.snapshots) btns.snapshots.classList.add('active');
+        topbarTitle.innerText = 'หัก ณ ที่จ่าย (50 ทวิ)';
+        placeholderTitle.innerText = 'ระบบติดตามภาษีหัก ณ ที่จ่าย (50 ทวิ)';
+        placeholderDescription.innerText = 'ฟังก์ชันการสแกนและประวัติเอกสารติดตามใบหัก ณ ที่จ่าย 50 ทวิ เพื่อนำมาเครดิตภาษีสิ้นปี ทำงานบนฐานข้อมูล Local-First บนแอปพลิเคชัน Billiong Desktop เพื่อป้องกันความมั่นคงปลอดภัยของข้อมูลส่วนบุคคลและข้อมูลทางธุรกิจอย่างสมบูรณ์';
+      }
+      topbarActions.innerHTML = '';
+    }
+  }
+
+  if (btns.dashboard) btns.dashboard.addEventListener('click', () => switchTab('dashboard'));
+  if (btns.editor) btns.editor.addEventListener('click', () => switchTab('editor'));
+  if (btns.snapshots) btns.snapshots.addEventListener('click', () => switchTab('snapshots'));
+  if (btns.dashAddNew) btns.dashAddNew.addEventListener('click', () => switchTab('editor'));
+
+  // Default view is dashboard
+  switchTab('dashboard');
+</script>
