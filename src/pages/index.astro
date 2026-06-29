@@ -5,26 +5,35 @@ import Hero from '../components/Hero.astro';
 import AppDemo from '../components/AppDemo.astro';
 import Features from '../components/Features.astro';
 import Security from '../components/Security.astro';
+import PricingComparison from '../components/PricingComparison.astro';
 import Faq from '../components/Faq.astro';
 import Footer from '../components/Footer.astro';
-import { Download, Info } from '@lucide/astro';
+import { Download } from '@lucide/astro';
 ---
 
 <Layout title="Billiong - ออกเอกสารบัญชี สะดวก แม่นยำ จัดการภาษีไทยครบจบในที่เดียว">
+	<!-- Top Scarcity & Urgency Banner -->
+	<div class="bg-gradient-to-r from-[#174632] to-[#1f5d43] text-white text-xs py-2.5 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-1.5 relative z-50 shadow-sm border-b border-[#143d2c]">
+		<span class="inline-flex items-center justify-center bg-amber-400 text-slate-955 text-[10px] font-extrabold px-1.5 py-0.5 rounded-sm uppercase tracking-wider animate-pulse">⚡ Early Bird Alpha</span>
+		<span>เหลือเพียง <strong class="text-amber-300 font-bold">34 จาก 100 สิทธิ์สุดท้าย</strong> ในราคา ฿59 (หลังจากครบสิทธิ์ตัวเครื่องจะปรับราคาขึ้นเป็น ฿149 ทันที)</span>
+	</div>
+
 	<Navbar />
 	<main>
 		<Hero />
 		<AppDemo />
 		<Features />
 		<Security />
+		<PricingComparison />
 		<Faq />
 	</main>
 	<Footer />
 
-	<!-- macOS-Style Trust-Based Purchase & Download Dialog (Centered, No Emojis) -->
+	<!-- macOS-Style Trust-Based Purchase & Download Dialog (Centered) -->
 	<dialog id="download-dialog" class="fixed inset-0 m-auto backdrop:bg-slate-900/60 backdrop:backdrop-blur-xs bg-white rounded-2xl p-6 mac-window-shadow border border-border-custom w-[calc(100%-2rem)] max-w-md focus:outline-none overflow-hidden">
-		<div class="space-y-5">
-			<div class="flex items-center justify-between">
+		<div class="space-y-4 max-h-[85vh] flex flex-col">
+			<!-- Header -->
+			<div class="flex items-center justify-between shrink-0 pb-1">
 				<h3 class="text-base md:text-lg font-bold text-slate-900 flex items-center gap-2">
 					<Download class="text-primary shrink-0" size={18} />
 					<span>ซื้อลิขสิทธิ์ Billiong (Early Bird)</span>
@@ -32,15 +41,17 @@ import { Download, Info } from '@lucide/astro';
 				<button id="close-dialog-btn" class="w-6 h-6 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer text-sm font-semibold">✕</button>
 			</div>
 			
-			<div class="space-y-4 text-center">
-				<div class="text-slate-500 text-xs md:text-sm leading-relaxed">
+			<!-- Scrollable Content Area -->
+			<div class="space-y-4 overflow-y-auto pr-1 flex-1 py-1">
+				<!-- Price info -->
+				<div class="text-center text-slate-500 text-xs md:text-sm leading-relaxed">
 					สนับสนุนนักพัฒนาช่วงเริ่มต้นในราคาพิเศษเพียง
 					<div class="text-3xl font-extrabold text-[#1f5d43] font-display mt-1">฿59.00</div>
 					<div class="text-[11px] text-slate-400 mt-0.5">(จ่ายครั้งเดียวใช้งานได้ตลอดชีพ)</div>
 				</div>
 
-				<!-- PromptPay QR Code (Using dynamic free promptpay.io API) -->
-				<div class="bg-[#f6f4f0] border border-border-custom rounded-xl p-4">
+				<!-- PromptPay QR Code -->
+				<div class="bg-[#f6f4f0] border border-border-custom rounded-xl p-4 text-center">
 					<img 
 						src="https://promptpay.io/0627283058/59.png" 
 						alt="PromptPay QR Code 59 THB" 
@@ -51,9 +62,30 @@ import { Download, Info } from '@lucide/astro';
 						สแกนจ่ายผ่านแอปพลิเคชันธนาคาร
 					</div>
 				</div>
+
+				<!-- Honor System Explanation Card -->
+				<div class="bg-emerald-50/60 border border-emerald-500/10 rounded-xl p-3 text-left space-y-1">
+					<div class="text-[11px] font-bold text-[#1f5d43] flex items-center gap-1">
+						<span>🤝 ระบบจำหน่ายแบบเชื่อใจกัน (Honor System)</span>
+					</div>
+					<p class="text-[10px] text-slate-600 leading-normal">
+						เมื่อสแกนชำระเงิน ฿59 เรียบร้อยแล้ว สามารถกดดาวน์โหลดแอปไปใช้งานได้ทันทีครับ เงินสนับสนุนทั้งหมดจะถูกนำไปใช้เป็นค่าธรรมเนียมในการนำแอปขึ้นระบบสากลของ Apple ในเวอร์ชันถัดไป ขอบคุณที่สนับสนุนโปรดักต์ฝีมือคนไทยครับ!
+					</p>
+				</div>
+
+				<!-- macOS Gatekeeper Guide Card -->
+				<div class="bg-amber-50/60 border border-amber-500/10 rounded-xl p-3 text-left space-y-1">
+					<div class="text-[11px] font-bold text-amber-800 flex items-center gap-1">
+						<span>⚠️ สำหรับผู้ใช้ macOS (คลิกขวาเพื่อเปิดครั้งแรก)</span>
+					</div>
+					<p class="text-[10px] text-slate-600 leading-normal">
+						เนื่องจาก Billiong ทำงานแบบออฟไลน์ 100% และไม่ผ่าน App Store เพื่อรักษาราคาให้ประหยัดที่สุด (ไม่มีค่าธรรมเนียมรายปีให้ Apple) ตอนเปิดใช้งานครั้งแรก หากมีคำเตือนความปลอดภัย <strong>ให้คลิกขวา (Control + คลิก) ที่แอป แล้วเลือก Open</strong> แทนการดับเบิ้ลคลิกปกติครับ (ทำแค่ครั้งเดียวเท่านั้น)
+					</p>
+				</div>
 			</div>
 
-			<div class="space-y-2 pt-2">
+			<!-- Action Buttons (Sticky at bottom) -->
+			<div class="space-y-2 pt-2 border-t border-border-custom shrink-0">
 				<a 
 					href="https://pub-4ed16d146bff4f168839661507e1748a.r2.dev/Billiong-1.0.0-universal.dmg" 
 					download 

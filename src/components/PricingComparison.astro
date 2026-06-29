@@ -1,0 +1,113 @@
+---
+import { Check, X, ArrowRight } from '@lucide/astro';
+---
+
+<section id="pricing" class="py-20 md:py-28 bg-[#fbfaf6] border-b border-border-custom relative overflow-hidden">
+  <!-- Subtle background glow -->
+  <div class="absolute top-[10%] left-[-10%] w-[500px] h-[300px] bg-secondary/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+      <span class="text-xs font-bold text-primary bg-primary/10 border border-primary/20 px-3 py-1 rounded-full uppercase tracking-wider">
+        คุ้มค่าสูงสุดสำหรับ Freelancer & Small Business
+      </span>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-text-dark tracking-tight leading-tight">
+        เปรียบเทียบความคุ้มค่าและความปลอดภัย
+      </h2>
+      <p class="text-text-muted text-sm md:text-base leading-relaxed">
+        ทำไมการจ่ายแบบครั้งเดียวพร้อมระบบ Local-First ถึงดีกว่าทั้งด้านค่าใช้จ่ายและความเป็นส่วนตัวของธุรกิจคุณ
+      </p>
+    </div>
+
+    <!-- Modern Comparison Table Grid -->
+    <div class="bg-accent-bg border border-border-custom rounded-2xl shadow-sm overflow-hidden">
+      <!-- Header Row -->
+      <div class="grid grid-cols-12 bg-[#ece7dc]/45 border-b border-border-custom py-4 px-4 sm:px-6 text-xs md:text-sm font-bold text-text-muted">
+        <div class="col-span-5 sm:col-span-6">เปรียบเทียบคุณสมบัติ</div>
+        <div class="col-span-3 sm:col-span-3 text-center text-text-muted/80">ระบบบัญชีออนไลน์ทั่วไป</div>
+        <div class="col-span-4 sm:col-span-3 text-center text-primary">Billiong (Local-First)</div>
+      </div>
+
+      <!-- Feature Rows -->
+      <div class="divide-y divide-border-custom bg-white">
+        <!-- Row 1 -->
+        <div class="grid grid-cols-12 py-5 px-4 sm:px-6 items-center text-xs md:text-sm">
+          <div class="col-span-5 sm:col-span-6 space-y-1">
+            <span class="font-bold text-text-dark block">รูปแบบค่าบริการ</span>
+            <span class="text-text-muted text-[10px] sm:text-xs">ค่าบริการรายปีผูกพันระยะยาว</span>
+          </div>
+          <div class="col-span-3 sm:col-span-3 text-center text-text-muted flex flex-col items-center justify-center">
+            <span class="text-red-600 flex items-center gap-1 font-semibold">
+              <X size={14} class="shrink-0 text-red-500" />
+              <span>รายเดือน ฿400 - ฿800</span>
+            </span>
+          </div>
+          <div class="col-span-4 sm:col-span-3 text-center text-primary flex flex-col items-center justify-center bg-primary/5 py-2 rounded-xl border border-primary/20">
+            <span class="text-primary flex items-center gap-1 font-bold">
+              <Check size={14} class="shrink-0" />
+              <span>ครั้งเดียว ฿59.00</span>
+            </span>
+            <span class="text-[9px] text-primary/80 font-medium">ราคาจำกัดช่วง Early Bird</span>
+          </div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="grid grid-cols-12 py-5 px-4 sm:px-6 items-center text-xs md:text-sm">
+          <div class="col-span-5 sm:col-span-6 space-y-1">
+            <span class="font-bold text-text-dark block">ค่าใช้จ่ายเฉลี่ยต่อปี</span>
+            <span class="text-text-muted text-[10px] sm:text-xs">ยอดสะสมเมื่อใช้โปรแกรมยาวนาน 1 ปีขึ้นไป</span>
+          </div>
+          <div class="col-span-3 sm:col-span-3 text-center text-text-muted flex flex-col items-center justify-center">
+            <span class="text-red-600 font-medium">ปีละ ฿4,800 - ฿9,600</span>
+          </div>
+          <div class="col-span-4 sm:col-span-3 text-center flex flex-col items-center justify-center bg-primary/5 py-2 rounded-xl border border-primary/20">
+            <span class="text-primary font-bold">ปีถัดๆ ไป ฿0</span>
+            <span class="text-[9px] text-primary/80 font-medium">ไม่มีค่าใช้จ่ายแอบแฝง</span>
+          </div>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="grid grid-cols-12 py-5 px-4 sm:px-6 items-center text-xs md:text-sm">
+          <div class="col-span-5 sm:col-span-6 space-y-1">
+            <span class="font-bold text-text-dark block">การเก็บรักษาข้อมูล</span>
+            <span class="text-text-muted text-[10px] sm:text-xs">ความปลอดภัยและกรรมสิทธิ์ของข้อมูลการเงิน</span>
+          </div>
+          <div class="col-span-3 sm:col-span-3 text-center text-text-muted flex flex-col items-center justify-center">
+            <span class="text-text-muted/80">ข้อมูลเก็บอยู่บน Cloud คนอื่น</span>
+          </div>
+          <div class="col-span-4 sm:col-span-3 text-center flex flex-col items-center justify-center bg-primary/5 py-2 rounded-xl border border-primary/20">
+            <span class="text-primary font-bold">อยู่ในเครื่องคุณ 100%</span>
+            <span class="text-[9px] text-primary/80 font-medium">ไม่มีสิทธิ์เข้าถึงหรือเก็บไว้ภายนอก</span>
+          </div>
+        </div>
+
+        <!-- Row 4 -->
+        <div class="grid grid-cols-12 py-5 px-4 sm:px-6 items-center text-xs md:text-sm">
+          <div class="col-span-5 sm:col-span-6 space-y-1">
+            <span class="font-bold text-text-dark block">การเข้าถึงและใช้งาน</span>
+            <span class="text-text-muted text-[10px] sm:text-xs">ความยืดหยุ่นในการทำงานเมื่อไม่มีเน็ต</span>
+          </div>
+          <div class="col-span-3 sm:col-span-3 text-center text-text-muted flex flex-col items-center justify-center">
+            <span class="text-text-muted/80">ต้องต่ออินเทอร์เน็ตตลอดเวลา</span>
+          </div>
+          <div class="col-span-4 sm:col-span-3 text-center flex flex-col items-center justify-center bg-primary/5 py-2 rounded-xl border border-primary/20">
+            <span class="text-primary font-bold">ออฟไลน์ได้ 100%</span>
+            <span class="text-[9px] text-primary/80 font-medium">ออกบิลได้ทุกที่ ทุกสถานการณ์</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Pitch Below Table -->
+    <div class="mt-8 bg-[#ece7dc]/45 border border-border-custom rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="space-y-1 text-center sm:text-left">
+        <span class="text-xs font-bold text-text-muted uppercase tracking-wider block">สิทธิ์จำกัดช่วง Alpha Launch</span>
+        <span class="text-base sm:text-lg font-bold text-text-dark block">จ่ายเพียง ฿59 ครั้งเดียว ตลอดชีพ</span>
+      </div>
+      <a href="#download" class="inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-bold text-white bg-primary hover:bg-primary-hover rounded-xl shadow-sm transition-all active:scale-98 cursor-pointer w-full sm:w-auto">
+        <span>ดาวน์โหลดและเปิดใช้ทันที</span>
+        <ArrowRight size={15} />
+      </a>
+    </div>
+  </div>
+</section>
