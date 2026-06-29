@@ -8,13 +8,16 @@ import Security from '../components/Security.astro';
 import PricingComparison from '../components/PricingComparison.astro';
 import Faq from '../components/Faq.astro';
 import Footer from '../components/Footer.astro';
-import { Download } from '@lucide/astro';
+import { Download, Zap, Heart, AlertTriangle } from '@lucide/astro';
 ---
 
 <Layout title="Billiong - ออกเอกสารบัญชี สะดวก แม่นยำ จัดการภาษีไทยครบจบในที่เดียว">
 	<!-- Top Scarcity & Urgency Banner -->
 	<div class="bg-gradient-to-r from-[#174632] to-[#1f5d43] text-white text-xs py-2.5 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-1.5 relative z-50 shadow-sm border-b border-[#143d2c]">
-		<span class="inline-flex items-center justify-center bg-amber-400 text-slate-955 text-[10px] font-extrabold px-1.5 py-0.5 rounded-sm uppercase tracking-wider animate-pulse">⚡ Early Bird Alpha</span>
+		<span class="inline-flex items-center justify-center gap-1 bg-amber-400 text-slate-955 text-[10px] font-extrabold px-1.5 py-0.5 rounded-sm uppercase tracking-wider animate-pulse">
+			<Zap size={10} class="fill-current shrink-0" />
+			<span>Early Bird Alpha</span>
+		</span>
 		<span>เหลือเพียง <strong class="text-amber-300 font-bold">34 จาก 100 สิทธิ์สุดท้าย</strong> ในราคา ฿59 (หลังจากครบสิทธิ์ตัวเครื่องจะปรับราคาขึ้นเป็น ฿149 ทันที)</span>
 	</div>
 
@@ -65,8 +68,9 @@ import { Download } from '@lucide/astro';
 
 				<!-- Honor System Explanation Card -->
 				<div class="bg-emerald-50/60 border border-emerald-500/10 rounded-xl p-3 text-left space-y-1">
-					<div class="text-[11px] font-bold text-[#1f5d43] flex items-center gap-1">
-						<span>🤝 ระบบจำหน่ายแบบเชื่อใจกัน (Honor System)</span>
+					<div class="text-[11px] font-bold text-[#1f5d43] flex items-center gap-1.5">
+						<Heart size={12} class="fill-current text-primary shrink-0" />
+						<span>ระบบจำหน่ายแบบเชื่อใจกัน (Honor System)</span>
 					</div>
 					<p class="text-[10px] text-slate-600 leading-normal">
 						เมื่อสแกนชำระเงิน ฿59 เรียบร้อยแล้ว สามารถกดดาวน์โหลดแอปไปใช้งานได้ทันทีครับ เงินสนับสนุนทั้งหมดจะถูกนำไปใช้เป็นค่าธรรมเนียมในการนำแอปขึ้นระบบสากลของ Apple ในเวอร์ชันถัดไป ขอบคุณที่สนับสนุนโปรดักต์ฝีมือคนไทยครับ!
@@ -75,8 +79,9 @@ import { Download } from '@lucide/astro';
 
 				<!-- macOS Gatekeeper Guide Card -->
 				<div class="bg-amber-50/60 border border-amber-500/10 rounded-xl p-3 text-left space-y-1">
-					<div class="text-[11px] font-bold text-amber-800 flex items-center gap-1">
-						<span>⚠️ สำหรับผู้ใช้ macOS (คลิกขวาเพื่อเปิดครั้งแรก)</span>
+					<div class="text-[11px] font-bold text-amber-800 flex items-center gap-1.5">
+						<AlertTriangle size={12} class="text-amber-800 shrink-0" />
+						<span>สำหรับผู้ใช้ macOS (คลิกขวาเพื่อเปิดครั้งแรก)</span>
 					</div>
 					<p class="text-[10px] text-slate-600 leading-normal">
 						เนื่องจาก Billiong ทำงานแบบออฟไลน์ 100% และไม่ผ่าน App Store เพื่อรักษาราคาให้ประหยัดที่สุด (ไม่มีค่าธรรมเนียมรายปีให้ Apple) ตอนเปิดใช้งานครั้งแรก หากมีคำเตือนความปลอดภัย <strong>ให้คลิกขวา (Control + คลิก) ที่แอป แล้วเลือก Open</strong> แทนการดับเบิ้ลคลิกปกติครับ (ทำแค่ครั้งเดียวเท่านั้น)
