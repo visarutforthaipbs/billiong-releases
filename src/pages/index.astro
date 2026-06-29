@@ -18,7 +18,7 @@ import { Download, Zap, Heart, AlertTriangle } from '@lucide/astro';
 			<Zap size={10} class="fill-current shrink-0" />
 			<span>Early Bird Alpha</span>
 		</span>
-		<span>เหลือเพียง <strong class="text-amber-300 font-bold">34 จาก 100 สิทธิ์สุดท้าย</strong> ในราคา ฿59 (หลังจากครบสิทธิ์ตัวเครื่องจะปรับราคาขึ้นเป็น ฿149 ทันที)</span>
+		<span>เหลือเพียง <strong class="text-amber-300 font-bold">34 จาก 100 สิทธิ์สุดท้าย</strong> ในราคา ฿59 <span class="hidden sm:inline">(หลังจากครบสิทธิ์จะปรับราคาขึ้นเป็น ฿149 ทันที)</span></span>
 	</div>
 
 	<Navbar />
@@ -85,6 +85,13 @@ import { Download, Zap, Heart, AlertTriangle } from '@lucide/astro';
 					</div>
 					<p class="text-[10px] text-slate-600 leading-normal">
 						เนื่องจาก Billiong ทำงานแบบออฟไลน์ 100% และไม่ผ่าน App Store เพื่อรักษาราคาให้ประหยัดที่สุด (ไม่มีค่าธรรมเนียมรายปีให้ Apple) ตอนเปิดใช้งานครั้งแรก หากมีคำเตือนความปลอดภัย <strong>ให้คลิกขวา (Control + คลิก) ที่แอป แล้วเลือก Open</strong> แทนการดับเบิ้ลคลิกปกติครับ (ทำแค่ครั้งเดียวเท่านั้น)
+					</p>
+				</div>
+
+				<!-- Support Card -->
+				<div class="bg-[#f6f4f0]/50 border border-border-custom/50 rounded-xl p-3 text-left">
+					<p class="text-[10px] text-slate-500 leading-normal text-center">
+						พบปัญหาในการชำระเงินหรือมีข้อสงสัย? ติดต่อสอบถามได้ที่ LINE ID: <a href="https://line.me/R/ti/p/%40billiong" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-semibold">@billiong</a>
 					</p>
 				</div>
 			</div>
