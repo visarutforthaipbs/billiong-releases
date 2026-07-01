@@ -73,19 +73,23 @@ import { Download, Zap, Heart, AlertTriangle } from '@lucide/astro';
 						<span>ระบบจำหน่ายแบบเชื่อใจกัน (Honor System)</span>
 					</div>
 					<p class="text-[10px] text-slate-600 leading-normal">
-						เมื่อสแกนชำระเงิน ฿59 เรียบร้อยแล้ว สามารถกดดาวน์โหลดแอปไปใช้งานได้ทันทีครับ เงินสนับสนุนทั้งหมดจะถูกนำไปใช้เป็นค่าธรรมเนียมในการนำแอปขึ้นระบบสากลของ Apple ในเวอร์ชันถัดไป ขอบคุณที่สนับสนุนโปรดักต์ฝีมือคนไทยครับ!
+						เมื่อสแกนชำระเงิน ฿59 เรียบร้อยแล้ว สามารถกดดาวน์โหลดแอป (ทั้ง macOS และ Windows) ไปใช้งานได้ทันทีครับ เงินสนับสนุนทั้งหมดจะถูกนำไปใช้เป็นค่าธรรมเนียมในการนำแอปขึ้นระบบสากลของ Apple และ Microsoft ในเวอร์ชันถัดไป ขอบคุณที่สนับสนุนโปรดักต์ฝีมือคนไทยครับ!
 					</p>
 				</div>
 
-				<!-- macOS Gatekeeper Guide Card -->
-				<div class="bg-amber-50/60 border border-amber-500/10 rounded-xl p-3 text-left space-y-1">
+				<!-- First-Run Guide Card (macOS + Windows) -->
+				<div class="bg-amber-50/60 border border-amber-500/10 rounded-xl p-3 text-left space-y-2">
 					<div class="text-[11px] font-bold text-amber-800 flex items-center gap-1.5">
 						<AlertTriangle size={12} class="text-amber-800 shrink-0" />
-						<span>สำหรับผู้ใช้ macOS (คลิกขวาเพื่อเปิดครั้งแรก)</span>
+						<span>วิธีเปิดใช้งานครั้งแรก</span>
 					</div>
 					<p class="text-[10px] text-slate-600 leading-normal">
-						เนื่องจาก Billiong ทำงานแบบออฟไลน์ 100% และไม่ผ่าน App Store เพื่อรักษาราคาให้ประหยัดที่สุด (ไม่มีค่าธรรมเนียมรายปีให้ Apple) ตอนเปิดใช้งานครั้งแรก หากมีคำเตือนความปลอดภัย <strong>ให้คลิกขวา (Control + คลิก) ที่แอป แล้วเลือก Open</strong> แทนการดับเบิ้ลคลิกปกติครับ (ทำแค่ครั้งเดียวเท่านั้น)
+						เนื่องจาก Billiong ทำงานแบบออฟไลน์ 100% และไม่ผ่าน App Store / Microsoft Store เพื่อรักษาราคาให้ประหยัดที่สุด ตอนเปิดครั้งแรกอาจมีคำเตือนความปลอดภัย (ทำแค่ครั้งเดียว):
 					</p>
+					<ul class="text-[10px] text-slate-600 leading-normal space-y-1 list-none">
+						<li><strong>macOS:</strong> คลิกขวา (Control + คลิก) ที่แอป แล้วเลือก <strong>Open</strong> แทนการดับเบิ้ลคลิกปกติ</li>
+						<li><strong>Windows:</strong> หาก SmartScreen ขึ้นเตือน ให้คลิก <strong>More info → Run anyway</strong> เพื่อติดตั้งต่อ</li>
+					</ul>
 				</div>
 
 				<!-- Support Card -->
