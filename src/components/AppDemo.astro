@@ -14,12 +14,16 @@ import { Laptop, MousePointerClick, ShieldCheck } from '@lucide/astro';
         ลองใช้ บิลง่าย ตัวจริง ได้เลยที่นี่
       </h2>
       <p class="text-slate-500 text-base md:text-lg font-medium">
-        นี่คือแอปตัวจริง ไม่ใช่ภาพจำลอง — กดสร้างเอกสาร คำนวณ VAT และหัก ณ ที่จ่าย <br class="hidden md:inline" />ได้เหมือนตอนติดตั้งจริงทุกอย่าง
+        <span class="block">นี่คือแอปตัวจริง ไม่ใช่ภาพจำลอง — กดสร้างเอกสาร คำนวณ VAT และหัก ณ ที่จ่าย</span>
+        <span class="block">ได้เหมือนตอนติดตั้งจริงทุกอย่าง</span>
+      </p>
+      <p class="block md:hidden mt-4 text-sm font-semibold text-[#E05E00]">
+        ตอนนี้มือถือจะแสดงเป็นวิดีโอตัวอย่าง หากต้องการลองกดใช้งานจริงแบบ Interactive กรุณาเปิดหน้านี้บนเดสก์ท็อป
       </p>
     </div>
 
     <!-- Interaction hints -->
-    <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mb-6 text-xs md:text-[13px] font-medium text-slate-500">
+    <div class="hidden md:flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mb-6 text-xs md:text-[13px] font-medium text-slate-500">
       <span class="inline-flex items-center gap-1.5">
         <MousePointerClick size={14} class="text-primary" />
         คลิกเมนูด้านซ้ายเพื่อสำรวจทุกฟังก์ชัน
