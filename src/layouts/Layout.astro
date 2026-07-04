@@ -20,6 +20,13 @@ const schemaMarkup = {
   "operatingSystem": "macOS, Windows",
   "applicationCategory": "BusinessApplication, FinanceApplication",
   "description": description,
+  "image": "/thumnail-1.4.jpg",
+  "featureList": [
+    "ผู้ช่วยประมาณการภาษีเงินได้ ภ.ง.ด.90/94 แยกตามสองรอบระยะเวลาสะสมภาษีจริง",
+    "ระบบจัดสรรแบ่งรับเงินงวดตามข้อตกลง TOR บนเอกสารใบเสนอราคาพร้อมแถบสถานะความคืบหน้า",
+    "ตัวคำนวณและผลิตรูป PromptPay EMVCo SVG QR Code ท้องถิ่นแบบออฟไลน์",
+    "ฟังก์ชันดาวน์โหลดรวบรวมชุดไฟล์ ZIP รายการรับเงินและภาษีหัก ณ ที่จ่าย 50 ทวิ ส่งสรรพากร"
+  ],
   "offers": {
     "@type": "Offer",
     "price": "59.00",
@@ -48,13 +55,13 @@ const schemaMarkup = {
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
-		<meta property="og:image" content="/og-billngai.jpg" />
+		<meta property="og:image" content="/thumnail-1.4.jpg" />
 		
 		<!-- Twitter -->
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
-		<meta name="twitter:image" content="/og-billngai.jpg" />
+		<meta name="twitter:image" content="/thumnail-1.4.jpg" />
 		
 		<!-- AIEO (AI Engine Optimization) JSON-LD -->
 		<script type="application/ld+json" set:html={JSON.stringify(schemaMarkup)} />
