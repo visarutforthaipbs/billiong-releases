@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>บิลง่าย BillNgai · ระบบออกเอกสาร</title>
 <!-- ============================================================
      DEMO SEED — website interactive demo only (not in the shipped app)
-     Pre-fills localStorage with realistic sample data so the embedded
-     app looks & works exactly like the desktop version. Seeds only when
-     empty, so a visitor's own edits are preserved on return.
+     Seeds localStorage with sample data; re-seeds when SEED_VERSION
+     changes (brand refresh), otherwise preserves the visitor's edits.
      ============================================================ -->
 <script>
 (function(){
@@ -18,76 +20,46 @@
     var SEED = {
       version: 1,
       business: {
-        businessName: 'สตูดิโอ พิกเซล ครีเอทีฟ',
-        businessNameEn: 'Pixel Creative Studio',
+        businessName: 'สตูดิโอ พิกเซล ครีเอทีฟ', businessNameEn: 'Pixel Creative Studio',
         address: '88/24 ถนนสุขุมวิท แขวงคลองเตย เขตคลองเตย กรุงเทพฯ 10110',
-        taxId: '0105566001234',
-        phone: '062-728-3058',
-        email: 'hello@pixelcreative.co',
-        bankName: 'ธนาคารกสิกรไทย',
-        bankAccount: '123-4-56789-0',
-        bankAccountName: 'สตูดิโอ พิกเซล ครีเอทีฟ',
-        promptpayId: '0627283058',
-        logo: '', signature: '', stamp: '',
-        brandColor: '#FF6B00',
-        isVatRegistered: true,
-        defaultVatRate: 7,
-        defaultWhtRate: 3,
-        defaultTerms: 'ชำระภายใน 30 วัน',
-        currency: 'THB',
-        lang: 'th',
-        yearMode: 'be',
-        numberFormats: {
-          quotation: 'QT-2569-{###}',
-          invoice: 'INV-2569-{###}',
-          receipt: 'RC-2569-{###}',
-          tax_invoice: 'TX-2569-{###}'
-        }
+        taxId: '0105566001234', phone: '062-728-3058', email: 'hello@pixelcreative.co',
+        bankName: 'ธนาคารกสิกรไทย', bankAccount: '123-4-56789-0', bankAccountName: 'สตูดิโอ พิกเซล ครีเอทีฟ',
+        promptpayId: '0627283058', logo: '', signature: '', stamp: '',
+        brandColor: '#ff6b00', isVatRegistered: true, defaultVatRate: 7, defaultWhtRate: 3,
+        defaultTerms: 'ชำระภายใน 30 วัน', currency: 'THB', lang: 'th', uiLang: 'th', yearMode: 'be',
+        numberFormats: { quotation: 'QT-2569-{###}', invoice: 'INV-2569-{###}', receipt: 'RC-2569-{###}', tax_invoice: 'TX-2569-{###}' }
       },
       clients: [
-        { id:'c1', name:'บริษัท ครีเอทีฟ มีเดีย จำกัด', contactPerson:'คุณศิริพร วงศ์ทอง', taxId:'0105558000111', address:'120 ถนนพระราม 9 แขวงห้วยขวาง เขตห้วยขวาง กรุงเทพฯ 10310', email:'contact@creativemedia.co.th', phone:'02-111-2233', defaultWht:true, notes:'' },
-        { id:'c2', name:'บริษัท ดิจิทัล มาร์เก็ตติ้ง จำกัด', contactPerson:'คุณกิตติพงษ์ ใจดี', taxId:'0105559000222', address:'55 อาคารเอ็มไพร์ ถนนสาทรใต้ แขวงยานนาวา เขตสาทร กรุงเทพฯ 10120', email:'hello@digitalmkt.co.th', phone:'02-222-3344', defaultWht:true, notes:'' },
-        { id:'c3', name:'บริษัท กรีน เทค โซลูชันส์ จำกัด', contactPerson:'คุณอรวรรณ สุขสวัสดิ์', taxId:'0105560000333', address:'99 ถนนวิภาวดีรังสิต แขวงจตุจักร เขตจตุจักร กรุงเทพฯ 10900', email:'info@greentech.co.th', phone:'02-333-4455', defaultWht:true, notes:'' },
-        { id:'c4', name:'ร้าน คอฟฟี่ เดย์ คาเฟ่', contactPerson:'คุณธนพล มีสุข', taxId:'', address:'23 ซอยอารีย์ ถนนพหลโยธิน แขวงสามเสนใน เขตพญาไท กรุงเทพฯ 10400', email:'coffeeday.cafe@gmail.com', phone:'089-555-6677', defaultWht:false, notes:'' },
-        { id:'c5', name:'บริษัท สยาม อีเวนต์ ออร์แกไนเซอร์ จำกัด', contactPerson:'คุณปิยะ รัตนกุล', taxId:'0105561000444', address:'321 ถนนรัชดาภิเษก แขวงดินแดง เขตดินแดง กรุงเทพฯ 10400', email:'event@siamevent.co.th', phone:'02-444-5566', defaultWht:true, notes:'' }
+        { id:'c1', name:'บริษัท ครีเอทีฟ มีเดีย จำกัด', contactPerson:'คุณศิริพร วงศ์ทอง', taxId:'0105558000111', address:'120 ถนนพระราม 9 เขตห้วยขวาง กรุงเทพฯ 10310', email:'contact@creativemedia.co.th', phone:'02-111-2233', defaultWht:true, docLang:'', notes:'' },
+        { id:'c2', name:'บริษัท ดิจิทัล มาร์เก็ตติ้ง จำกัด', contactPerson:'คุณกิตติพงษ์ ใจดี', taxId:'0105559000222', address:'55 อาคารเอ็มไพร์ ถนนสาทรใต้ เขตสาทร กรุงเทพฯ 10120', email:'hello@digitalmkt.co.th', phone:'02-222-3344', defaultWht:true, docLang:'', notes:'' },
+        { id:'c3', name:'บริษัท กรีน เทค โซลูชันส์ จำกัด', contactPerson:'คุณอรวรรณ สุขสวัสดิ์', taxId:'0105560000333', address:'99 ถนนวิภาวดีรังสิต เขตจตุจักร กรุงเทพฯ 10900', email:'info@greentech.co.th', phone:'02-333-4455', defaultWht:true, docLang:'', notes:'' },
+        { id:'c4', name:'ร้าน คอฟฟี่ เดย์ คาเฟ่', contactPerson:'คุณธนพล มีสุข', taxId:'', address:'23 ซอยอารีย์ เขตพญาไท กรุงเทพฯ 10400', email:'coffeeday.cafe@gmail.com', phone:'089-555-6677', defaultWht:false, docLang:'', notes:'' }
       ],
       documents: [
         { id:'d1', type:'receipt', number:'RC-2569-001', clientId:'c4', parentId:null, issueDate:'2026-02-14', dueDate:null, paidDate:'2026-02-14', status:'issued', project:'ออกแบบเมนูและป้ายในร้าน', currency:'THB', items:[{description:'ออกแบบเมนูและป้ายตกแต่งในร้าน',qty:1,unit:'งาน',price:18000}], vatRate:0, whtRate:0, notes:'', createdAt:'2026-02-14T10:00:00.000Z' },
         { id:'d2', type:'receipt', number:'RC-2569-002', clientId:'c1', parentId:null, issueDate:'2026-03-20', dueDate:null, paidDate:'2026-03-20', status:'issued', project:'ออกแบบสื่อโฆษณาชุดแคมเปญ', currency:'THB', items:[{description:'ออกแบบสื่อโฆษณาชุดแคมเปญ Q1',qty:1,unit:'ชุด',price:24000}], vatRate:7, whtRate:3, whtCertReceived:true, whtCertNo:'50ทวิ-6903-014', whtCertDate:'2026-03-25', notes:'', createdAt:'2026-03-20T10:00:00.000Z' },
-        { id:'d3', type:'tax_invoice', number:'TX-2569-001', clientId:'c5', parentId:null, issueDate:'2026-04-18', dueDate:null, paidDate:'2026-04-18', status:'issued', project:'งานกราฟิกและป้ายงานอีเวนต์', currency:'THB', items:[{description:'งานออกแบบกราฟิกและป้ายงานอีเวนต์',qty:1,unit:'งาน',price:30000}], vatRate:7, whtRate:3, whtCertReceived:false, notes:'', createdAt:'2026-04-18T10:00:00.000Z' },
-        { id:'d4', type:'receipt', number:'RC-2569-003', clientId:'c2', parentId:null, issueDate:'2026-05-12', dueDate:null, paidDate:'2026-05-12', status:'issued', project:'คอนเทนต์โซเชียลมีเดีย', currency:'THB', items:[{description:'จัดทำคอนเทนต์โซเชียลมีเดีย',qty:8,unit:'ชิ้น',price:2000}], vatRate:0, whtRate:0, notes:'', createdAt:'2026-05-12T10:00:00.000Z' },
-        { id:'d5', type:'tax_invoice', number:'TX-2569-002', clientId:'c3', parentId:null, issueDate:'2026-06-06', dueDate:null, paidDate:'2026-06-06', status:'issued', project:'ออกแบบเว็บไซต์บริษัท', currency:'THB', items:[{description:'ออกแบบและพัฒนาเว็บไซต์องค์กร',qty:1,unit:'โปรเจกต์',price:42000}], vatRate:7, whtRate:3, whtCertReceived:false, notes:'', createdAt:'2026-06-06T10:00:00.000Z' },
-        { id:'d6', type:'invoice', number:'INV-2569-001', clientId:'c1', parentId:null, issueDate:'2026-06-18', dueDate:'2026-07-18', paidDate:null, status:'sent', project:'รีเทนเนอร์ออกแบบกราฟิกรายเดือน', currency:'THB', items:[{description:'รีเทนเนอร์ออกแบบกราฟิกรายเดือน (มิ.ย.)',qty:1,unit:'เดือน',price:15000}], vatRate:7, whtRate:3, notes:'', createdAt:'2026-06-18T10:00:00.000Z' },
-        { id:'d7', type:'invoice', number:'INV-2569-002', clientId:'c2', parentId:null, issueDate:'2026-06-24', dueDate:'2026-07-24', paidDate:null, status:'sent', project:'ออกแบบและผลิตวิดีโอโปรโมต', currency:'THB', items:[{description:'ออกแบบและผลิตวิดีโอโปรโมต 1 นาที',qty:1,unit:'งาน',price:50000}], vatRate:7, whtRate:3, notes:'', createdAt:'2026-06-24T10:00:00.000Z' },
-        { id:'d8', type:'quotation', number:'QT-2569-001', clientId:'c3', parentId:null, issueDate:'2026-06-22', dueDate:null, paidDate:null, status:'sent', project:'ออกแบบอัตลักษณ์องค์กร (CI)', currency:'THB', items:[{description:'ออกแบบอัตลักษณ์องค์กร (Corporate Identity)',qty:1,unit:'โปรเจกต์',price:28000}], vatRate:7, whtRate:3, notes:'', createdAt:'2026-06-22T10:00:00.000Z' },
-        { id:'d9', type:'quotation', number:'QT-2569-002', clientId:'c5', parentId:null, issueDate:'2026-06-26', dueDate:null, paidDate:null, status:'draft', project:'ออกแบบบูธและป้ายงานอีเวนต์', currency:'THB', items:[{description:'ออกแบบบูธและป้ายงานอีเวนต์',qty:1,unit:'งาน',price:12000}], vatRate:7, whtRate:3, notes:'', createdAt:'2026-06-26T10:00:00.000Z' },
-        
-        // Milestone (งวด) split demo
-        { id:'d_q_split', type:'quotation', number:'QT-2569-003', clientId:'c1', parentId:null, issueDate:'2026-05-10', dueDate:null, paidDate:null, status:'accepted', project:'พัฒนาเว็บไซต์ E-Commerce', currency:'THB', items:[{description:'พัฒนาระบบเว็บไซต์ E-Commerce',qty:1,unit:'งาน',price:100000}], vatRate:7, whtRate:3, notes:'', createdAt:'2026-05-10T10:00:00.000Z' },
-        { id:'d_inv_split1', type:'invoice', number:'INV-2569-003', clientId:'c1', parentId:'d_q_split', issueDate:'2026-05-15', dueDate:'2026-06-15', paidDate:'2026-05-20', status:'paid', project:'พัฒนาเว็บไซต์ E-Commerce', currency:'THB', items:[{description:'ค่าพัฒนาเว็บไซต์ E-Commerce (งวดที่ 1/2: 50%มัดจำ)',qty:1,unit:'งาน',price:50000}], vatRate:7, whtRate:3, notes:'', createdAt:'2026-05-15T10:00:00.000Z' },
-        { id:'d_rec_split1', type:'tax_invoice', number:'TX-2569-003', clientId:'c1', parentId:'d_inv_split1', issueDate:'2026-05-20', dueDate:null, paidDate:'2026-05-20', status:'issued', project:'พัฒนาเว็บไซต์ E-Commerce', currency:'THB', items:[{description:'ค่าพัฒนาเว็บไซต์ E-Commerce (งวดที่ 1/2: 50%มัดจำ)',qty:1,unit:'งาน',price:50000}], vatRate:7, whtRate:3, whtCertReceived:true, whtCertNo:'WHT-6905-001', whtCertDate:'2026-05-22', notes:'', createdAt:'2026-05-20T10:00:00.000Z' },
-        { id:'d_inv_split2', type:'invoice', number:'INV-2569-004', clientId:'c1', parentId:'d_q_split', issueDate:'2026-06-25', dueDate:'2026-07-25', paidDate:null, status:'sent', project:'พัฒนาเว็บไซต์ E-Commerce', currency:'THB', items:[{description:'ค่าพัฒนาเว็บไซต์ E-Commerce (งวดที่ 2/2: 50%ส่งมอบงาน)',qty:1,unit:'งาน',price:50000}], vatRate:7, whtRate:3, notes:'', createdAt:'2026-06-25T10:00:00.000Z' },
-
-        // Receipts in Period 2 (Jul - Dec) for tax assistant comparison
-        { id:'d10', type:'tax_invoice', number:'TX-2569-004', clientId:'c2', parentId:null, issueDate:'2026-08-10', dueDate:null, paidDate:'2026-08-10', status:'issued', project:'งานออกแบบ Infographic และภาพประกอบ', currency:'THB', items:[{description:'งานออกแบบ Infographic ชุดข้อมูล',qty:2,unit:'งาน',price:15000}], vatRate:7, whtRate:3, whtCertReceived:false, notes:'', createdAt:'2026-08-10T10:00:00.000Z' },
-        { id:'d11', type:'receipt', number:'RC-2569-004', clientId:'c4', parentId:null, issueDate:'2026-10-05', dueDate:null, paidDate:'2026-10-05', status:'issued', project:'งานออกแบบป้ายเมนูเครื่องดื่ม', currency:'THB', items:[{description:'ออกแบบป้ายเมนูเครื่องดื่มสำหรับเทศกาล',qty:1,unit:'งาน',price:12000}], vatRate:0, whtRate:0, notes:'', createdAt:'2026-10-05T10:00:00.000Z' }
+        { id:'d3', type:'tax_invoice', number:'TX-2569-001', clientId:'c2', parentId:null, issueDate:'2026-05-12', dueDate:null, paidDate:'2026-05-12', status:'issued', project:'คอนเทนต์โซเชียลมีเดีย', currency:'THB', items:[{description:'จัดทำคอนเทนต์โซเชียลมีเดีย',qty:8,unit:'ชิ้น',price:2000}], vatRate:7, whtRate:3, whtCertReceived:false, notes:'', createdAt:'2026-05-12T10:00:00.000Z' },
+        { id:'q1', type:'quotation', number:'QT-2569-001', clientId:'c3', parentId:null, issueDate:'2026-06-01', dueDate:null, paidDate:null, status:'accepted', project:'ออกแบบเว็บไซต์องค์กร ตาม TOR', currency:'THB', items:[{description:'ออกแบบและพัฒนาเว็บไซต์องค์กรตาม TOR',qty:1,unit:'โปรเจกต์',price:120000}], vatRate:7, whtRate:3, docLang:'', notes:'', createdAt:'2026-06-01T10:00:00.000Z' },
+        { id:'m1', type:'invoice', number:'INV-2569-001', clientId:'c3', parentId:'q1', issueDate:'2026-06-02', dueDate:'2026-06-16', paidDate:'2026-06-15', status:'paid', project:'ออกแบบเว็บไซต์องค์กร ตาม TOR', currency:'THB', items:[{description:'งวดที่ 1/3 — มัดจำเซ็นสัญญา · อ้างอิง QT-2569-001',qty:1,unit:'งวด',price:36000}], vatRate:7, whtRate:3, milestone:{seq:1,of:3,label:'มัดจำเซ็นสัญญา'}, notes:'', createdAt:'2026-06-02T10:00:00.000Z' },
+        { id:'m2', type:'invoice', number:'INV-2569-002', clientId:'c3', parentId:'q1', issueDate:'2026-06-02', dueDate:'2026-07-20', paidDate:null, status:'sent', project:'ออกแบบเว็บไซต์องค์กร ตาม TOR', currency:'THB', items:[{description:'งวดที่ 2/3 — ส่งมอบงวดออกแบบ · อ้างอิง QT-2569-001',qty:1,unit:'งวด',price:48000}], vatRate:7, whtRate:3, milestone:{seq:2,of:3,label:'ส่งมอบงวดออกแบบ'}, notes:'', createdAt:'2026-06-02T10:00:01.000Z' },
+        { id:'m3', type:'invoice', number:'INV-2569-003', clientId:'c3', parentId:'q1', issueDate:'2026-06-02', dueDate:'2026-08-20', paidDate:null, status:'draft', project:'ออกแบบเว็บไซต์องค์กร ตาม TOR', currency:'THB', items:[{description:'งวดที่ 3/3 — ตรวจรับงานทั้งหมด · อ้างอิง QT-2569-001',qty:1,unit:'งวด',price:36000}], vatRate:7, whtRate:3, milestone:{seq:3,of:3,label:'ตรวจรับงานทั้งหมด'}, notes:'', createdAt:'2026-06-02T10:00:02.000Z' },
+        { id:'r5', type:'receipt', number:'RC-2569-003', clientId:'c3', parentId:'m1', issueDate:'2026-06-15', dueDate:null, paidDate:'2026-06-15', status:'issued', project:'ออกแบบเว็บไซต์องค์กร ตาม TOR', currency:'THB', items:[{description:'งวดที่ 1/3 — มัดจำเซ็นสัญญา · อ้างอิง QT-2569-001',qty:1,unit:'งวด',price:36000}], vatRate:7, whtRate:3, whtCertReceived:false, notes:'', createdAt:'2026-06-15T10:00:00.000Z' },
+        { id:'d7', type:'invoice', number:'INV-2569-004', clientId:'c2', parentId:null, issueDate:'2026-06-24', dueDate:'2026-07-24', paidDate:null, status:'sent', project:'ออกแบบและผลิตวิดีโอโปรโมต', currency:'THB', items:[{description:'ออกแบบและผลิตวิดีโอโปรโมต 1 นาที',qty:1,unit:'งาน',price:50000}], vatRate:7, whtRate:3, notes:'', createdAt:'2026-06-24T10:00:00.000Z' },
+        { id:'d9', type:'quotation', number:'QT-2569-002', clientId:'c1', parentId:null, issueDate:'2026-06-26', dueDate:null, paidDate:null, status:'sent', project:'ออกแบบอัตลักษณ์องค์กร (CI)', currency:'THB', items:[{description:'ออกแบบอัตลักษณ์องค์กร (Corporate Identity)',qty:1,unit:'โปรเจกต์',price:28000}], vatRate:7, whtRate:3, notes:'', createdAt:'2026-06-26T10:00:00.000Z' }
       ],
       recurring: [
         { id:'r1', clientId:'c1', project:'รีเทนเนอร์ออกแบบกราฟิกรายเดือน', frequency:'monthly', nextDate:'2026-07-18', active:true, items:[{description:'รีเทนเนอร์ออกแบบกราฟิกรายเดือน',qty:1,unit:'เดือน',price:15000}], vatRate:7, whtRate:3, notes:'' }
       ],
-      counters: { 'quotation-2569':3, 'invoice-2569':4, 'receipt-2569':4, 'tax_invoice-2569':4 },
-      meta: { lastBackupAt: '2026-06-30T09:00:00.000Z' }
+      counters: { 'quotation-2569':2, 'invoice-2569':4, 'receipt-2569':3, 'tax_invoice-2569':1 },
+      meta: { lastBackupAt: '2026-07-01T09:00:00.000Z' }
     };
 
     localStorage.setItem(KEY, JSON.stringify(SEED));
     localStorage.setItem(VKEY, SEED_VERSION);
-  }catch(e){ /* private mode / storage disabled — app falls back to a blank DB */ }
+  }catch(e){ /* private mode — app falls back to a blank DB */ }
 })();
 </script>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>บิลง่าย BillNgai · ระบบออกเอกสาร</title>
 <link rel="stylesheet" href="fonts/fonts.css">
 <style>
   /* ============================================================
@@ -237,6 +209,17 @@
   .nav button .ico{width:18px;text-align:center;font-size:15px;opacity:.85}
   .nav .badge{margin-left:auto;font-size:11px;background:var(--accent);color:#fff;
     border-radius:20px;padding:1px 7px;font-weight:600;min-width:20px;text-align:center;font-variant-numeric:tabular-nums}
+  .addon-nav{padding:12px 12px 10px;border-top:1px solid var(--border-soft)}
+  .addon-label{font-size:10px;font-weight:800;color:var(--text-faint);text-transform:uppercase;letter-spacing:.8px;margin:0 6px 7px}
+  .addon-nav button{
+    display:flex;align-items:center;gap:10px;width:100%;padding:11px 12px;border-radius:var(--radius);
+    color:var(--text);font-size:13.5px;font-weight:700;text-align:left;border:1px solid var(--accent-tint-bd);
+    background:var(--accent-tint);transition:.16s cubic-bezier(.2,.7,.2,1);
+  }
+  .addon-nav button:hover{background:var(--accent-soft);border-color:var(--accent)}
+  .addon-nav button.active{background:var(--accent);border-color:var(--accent);color:#fff}
+  .addon-nav .ico{width:18px;text-align:center;opacity:.9}
+  .addon-nav .tag{margin-left:auto;font-size:10px;font-weight:800;border:1px solid currentColor;border-radius:999px;padding:1px 6px;opacity:.8}
   .file-status{padding:13px 18px;border-top:1px solid var(--border-soft);font-size:11.5px;color:var(--text-faint)}
   .file-status .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--grey);margin-right:7px;vertical-align:middle;box-shadow:0 0 0 3px rgba(165,156,137,.18)}
   .file-status.connected .dot{background:var(--accent);box-shadow:0 0 0 3px var(--accent-glow)}
@@ -666,6 +649,10 @@
       <button data-view="filing"><span class="ico" data-ic="calendar"></span> <span data-t="ยื่นภาษี">ยื่นภาษี</span></button>
       <button data-view="settings"><span class="ico" data-ic="settings"></span> <span data-t="ตั้งค่า">ตั้งค่า</span></button>
     </nav>
+    <div class="addon-nav" id="addonNav">
+      <div class="addon-label">Add-on</div>
+      <button data-view="ai"><span class="ico" data-ic="sparkles"></span> <span data-t="TOR → Invoice">TOR → Invoice</span><span class="tag">AI</span></button>
+    </div>
     <div class="file-status" id="fileStatus">
       <span class="dot"></span><span id="fileStatusText">ยังไม่ได้เชื่อมไฟล์</span>
     </div>
@@ -1185,11 +1172,49 @@ const I18N_EN = {
   'ระบบออกเอกสาร':'Invoicing',
   'แดชบอร์ด':'Dashboard',
   'เอกสาร':'Documents',
+  'TOR → Invoice':'TOR → Invoice',
   'รายการประจำ':'Recurring',
   'หัก ณ ที่จ่าย (50 ทวิ)':'Withholding tax (50 tawi)',
   'ลูกค้า':'Clients',
   'สรุปภาษี':'Tax summary',
   'ตั้งค่า':'Settings',
+  'BillNgai AI Add-on':'BillNgai AI Add-on',
+  'BillNgai AI พร้อมใช้งาน':'BillNgai AI is ready',
+  'ตรวจอีกครั้ง':'Check again',
+  'กำลังตรวจโมดูล AI ในเครื่อง':'Checking the local AI module',
+  'โมดูล AI แบบออฟไลน์ใช้ได้ในแอปเดสก์ท็อปเท่านั้น':'The offline AI module is available only in the desktop app',
+  'ตรวจพบโมดูล AI แบบออฟไลน์ที่ผ่านการตรวจลายเซ็นและแฮชไฟล์แล้ว':'Found an offline AI module with valid signature and file hashes',
+  'เวอร์ชันโมดูล':'Module version',
+  'โมเดล':'Model',
+  'ไฟล์ที่ตรวจแล้ว':'Verified files',
+  'เริ่มแปลง TOR':'Start TOR conversion',
+  'เปิดโฟลเดอร์โมดูล':'Open module folder',
+  'โหมดต้นแบบ: ขั้นต่อไปคือเชื่อม runtime เพื่อแปลง TOR เป็นร่างเอกสาร':'Prototype mode: next step is wiring the runtime to convert TOR into a document draft',
+  'BillNgai ไม่เชื่อมอินเทอร์เน็ตเพื่อใช้ AI — โมดูลนี้ต้องติดตั้งจากตัวติดตั้งแยกต่างหาก':'BillNgai does not connect to the internet for AI — this module must be installed from a separate installer',
+  'สถานะความเป็นส่วนตัว':'Privacy status',
+  'ไฟล์ TOR และข้อมูลบิลจะถูกประมวลผลบนเครื่อง เมื่อเชื่อม runtime จริงแล้วผลลัพธ์จะเปิดเป็นร่างให้ตรวจทานก่อนบันทึก':'TOR files and billing data will be processed on this device. Once the runtime is wired, results will open as a draft for review before saving',
+  'ติดตั้ง BillNgai AI Add-on':'Install BillNgai AI Add-on',
+  'พบโมดูล AI แต่ตรวจสอบไม่ผ่าน โปรดติดตั้งใหม่จากตัวติดตั้งที่เชื่อถือได้':'An AI module was found but verification failed. Reinstall from a trusted installer',
+  'โมดูล AI เป็นส่วนเสริมแยกต่างหาก ติดตั้งแบบออฟไลน์ แล้ว BillNgai จะเปิดใช้งานจากไฟล์ในเครื่องเท่านั้น':'The AI module is a separate add-on. Install it offline and BillNgai will enable it only from local files',
+  'เปิดโฟลเดอร์สำหรับติดตั้ง':'Open install folder',
+  'สำหรับต้นแบบภายใน ใช้คำสั่ง dev เพื่อสร้างโมดูลจำลองก่อน ต่อไปจะเปลี่ยนเป็น DMG Add-on จริง':'For the internal prototype, use the dev command to create a dummy module first. Later this becomes a real DMG add-on',
+  'หลักการของโมดูลนี้':'How this module works',
+  'ไม่มีการดาวน์โหลดในแอป ไม่มีการเปิดใช้งานผ่านอินเทอร์เน็ต และไม่มีการส่งเอกสารออกจากเครื่อง':'No in-app downloads, no internet activation, and no documents leave this device',
+  'นำเข้า TOR แล้ว':'TOR imported',
+  'นำเข้า TOR ไม่สำเร็จ':'Could not import TOR',
+  'ไฟล์ที่นำเข้า':'Imported file',
+  'ลากไฟล์ PDF/DOCX/TXT มาวาง หรือเลือกไฟล์จากเครื่อง':'Drop a PDF/DOCX/TXT file here or choose from this device',
+  'กำลังนำเข้า...':'Importing...',
+  'เลือกไฟล์ TOR':'Choose TOR file',
+  'วาง TOR หรือรายละเอียดงานที่นี่':'Paste TOR or project details here',
+  'แปลงเป็นร่างเอกสาร':'Convert to document draft',
+  'ตรวจทานและแก้ไขก่อนนำไปใช้จริง':'Review and edit before using',
+  'ผลลัพธ์จะแสดงที่นี่':'Results will appear here',
+  'กำลังประมวลผลบนเครื่อง...':'Processing locally...',
+  'ใส่ข้อความ TOR ก่อน':'Enter TOR text first',
+  'แปลง TOR แล้ว':'TOR converted',
+  'แปลง TOR ไม่สำเร็จ':'Could not convert TOR',
+  'ไม่มีผลลัพธ์จากโมเดล':'No model output',
   // --- ยื่นภาษี (ภ.ง.ด. 90/94) & ชุดส่งออกให้บัญชี ---
   'ยื่นภาษี':'Tax filing',
   'ยื่นภาษี (ภ.ง.ด. 90/94)':'Tax filing (PND 90/94)',
@@ -2003,13 +2028,14 @@ let currentView = 'dashboard';
 function setView(v){
   currentView = v;
   document.querySelectorAll('#nav button').forEach(b=> b.classList.toggle('active', b.dataset.view===v));
+  document.querySelectorAll('#addonNav button').forEach(b=> b.classList.toggle('active', b.dataset.view===v));
   render();
 }
-document.getElementById('nav').addEventListener('click',e=>{
+document.querySelectorAll('#nav,#addonNav').forEach(nav=>nav.addEventListener('click',e=>{
   const b = e.target.closest('button[data-view]'); if(b) setView(b.dataset.view);
-});
+}));
 
-const TITLES = {dashboard:'แดชบอร์ด',documents:'เอกสาร',recurring:'รายการประจำ',wht:'หัก ณ ที่จ่าย (50 ทวิ)',clients:'ลูกค้า',report:'สรุปภาษี',filing:'ยื่นภาษี (ภ.ง.ด. 90/94)',settings:'ตั้งค่า'};
+const TITLES = {dashboard:'แดชบอร์ด',documents:'เอกสาร',ai:'TOR → Invoice',recurring:'รายการประจำ',wht:'หัก ณ ที่จ่าย (50 ทวิ)',clients:'ลูกค้า',report:'สรุปภาษี',filing:'ยื่นภาษี (ภ.ง.ด. 90/94)',settings:'ตั้งค่า'};
 
 function render(){
   applyUiLang();
@@ -2029,6 +2055,7 @@ function render(){
 
   if(currentView==='dashboard'){ renderDashboard(c,ta); }
   else if(currentView==='documents'){ renderDocuments(c,ta); }
+  else if(currentView==='ai'){ renderAi(c,ta); }
   else if(currentView==='recurring'){ renderRecurring(c,ta); }
   else if(currentView==='wht'){ renderWht(c,ta); }
   else if(currentView==='clients'){ renderClients(c,ta); }
@@ -2092,6 +2119,151 @@ function brandEmpty(assetKey, title, sub=''){
     <div class="brand-empty-art">${brandImg(assetKey,'')}</div>
     <div class="brand-empty-title">${title}</div>
     ${sub?`<div class="brand-empty-sub">${sub}</div>`:''}
+  </div>`;
+}
+
+/* ---------- OFFLINE AI ADD-ON ---------- */
+let aiAddonStatus = null;
+let aiAddonLoading = false;
+let aiTorInput = 'โครงการพัฒนาเว็บไซต์บริษัท พร้อมออกแบบหน้าแรก หน้าบริการ และระบบติดต่อกลับ ระยะเวลาดำเนินงาน 30 วัน ชำระ 50% ก่อนเริ่มงาน และ 50% หลังส่งมอบ';
+let aiTorOutput = '';
+let aiTorRunning = false;
+let aiTorFileName = '';
+let aiTorImporting = false;
+async function refreshAiAddonStatus(force){
+  if(!IS_ELECTRON || !window.billingAPI.aiStatus) return null;
+  if(aiAddonLoading && !force) return aiAddonStatus;
+  aiAddonLoading = true;
+  try{ aiAddonStatus = await window.billingAPI.aiStatus(); }
+  catch(e){ aiAddonStatus = { installed:false, valid:false, error:e.message||'unknown' }; }
+  aiAddonLoading = false;
+  return aiAddonStatus;
+}
+function revealAiFolder(){
+  if(IS_ELECTRON && window.billingAPI.revealAiFolder) window.billingAPI.revealAiFolder();
+}
+async function importTorFile(filePath){
+  if(!IS_ELECTRON || !window.billingAPI.importTor || aiTorImporting) return;
+  aiTorImporting = true;
+  render();
+  try{
+    const result = await window.billingAPI.importTor(filePath || null);
+    if(result){
+      aiTorInput = result.text || '';
+      aiTorFileName = result.name || '';
+      aiTorOutput = '';
+      toast(tr('นำเข้า TOR แล้ว'),'ok');
+    }
+  }catch(e){
+    toast((e && e.message) || tr('นำเข้า TOR ไม่สำเร็จ'),'err');
+  }
+  aiTorImporting = false;
+  render();
+}
+function aiTorDrop(event){
+  event.preventDefault();
+  const file = event.dataTransfer && event.dataTransfer.files && event.dataTransfer.files[0];
+  if(file && file.path) importTorFile(file.path);
+}
+function aiTorDrag(event){ event.preventDefault(); }
+async function runAiTor(){
+  if(!IS_ELECTRON || !window.billingAPI.aiInfer || aiTorRunning) return;
+  const input = (document.getElementById('aiTorInput')?.value || '').trim();
+  if(!input){ toast(tr('ใส่ข้อความ TOR ก่อน'),'err'); return; }
+  aiTorInput = input;
+  aiTorRunning = true;
+  aiTorOutput = '';
+  render();
+  try{
+    const result = await window.billingAPI.aiInfer(input);
+    aiTorOutput = result && result.text ? result.text : tr('ไม่มีผลลัพธ์จากโมเดล');
+    toast(tr('แปลง TOR แล้ว'),'ok');
+  }catch(e){
+    aiTorOutput = `${tr('แปลง TOR ไม่สำเร็จ')}\n${e.message || e}`;
+    toast(tr('แปลง TOR ไม่สำเร็จ'),'err');
+  }
+  aiTorRunning = false;
+  render();
+}
+function renderAi(c,ta){
+  ta.innerHTML = `<button class="btn" onclick="refreshAiAddonStatus(true).then(()=>render())">${ic('repeat')} ${tr('ตรวจอีกครั้ง')}</button>`;
+  if(!IS_ELECTRON){
+    c.innerHTML = `<div class="settings-grid"><div class="card-block">
+      <h4>${ic('sparkles')} ${tr('BillNgai AI Add-on')}</h4>
+      <div class="desc">${tr('โมดูล AI แบบออฟไลน์ใช้ได้ในแอปเดสก์ท็อปเท่านั้น')}</div>
+    </div></div>`;
+    return;
+  }
+  const status = aiAddonStatus;
+  if(!status){
+    c.innerHTML = `<div class="settings-grid"><div class="card-block">
+      <h4>${ic('sparkles')} ${tr('BillNgai AI Add-on')}</h4>
+      <div class="desc">${tr('กำลังตรวจโมดูล AI ในเครื่อง')}</div>
+    </div></div>`;
+    refreshAiAddonStatus().then(()=>{ if(currentView==='ai') render(); });
+    return;
+  }
+  if(status.valid){
+    const fileCount = (status.files||[]).length;
+    c.innerHTML = `<div class="settings-grid">
+      <div class="card-block">
+        <h4>${ic('sparkles')} ${tr('BillNgai AI พร้อมใช้งาน')}</h4>
+        <div class="desc">${tr('ตรวจพบโมดูล AI แบบออฟไลน์ที่ผ่านการตรวจลายเซ็นและแฮชไฟล์แล้ว')}</div>
+        <div class="filing-detail" style="margin:12px 0 16px">
+          <div class="line"><span>${tr('เวอร์ชันโมดูล')}</span><b>${escapeHtml(status.version||'—')}</b></div>
+          <div class="line"><span>${tr('โมเดล')}</span><b style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:62%">${escapeHtml(status.model||'—')}</b></div>
+          <div class="line"><span>${tr('ไฟล์ที่ตรวจแล้ว')}</span><b>${fileCount}</b></div>
+        </div>
+        <div style="display:flex;gap:9px;flex-wrap:wrap">
+          <button class="btn btn-primary" onclick="runAiTor()" ${aiTorRunning?'disabled':''}>${aiTorRunning?tr('กำลังแปลง...'):tr('แปลง TOR')}</button>
+          <button class="btn" onclick="revealAiFolder()">${ic('folderOpen')} ${tr('เปิดโฟลเดอร์โมดูล')}</button>
+        </div>
+        <div class="hint" style="margin-top:12px">${tr('BillNgai ไม่เชื่อมอินเทอร์เน็ตเพื่อใช้ AI — โมดูลนี้ต้องติดตั้งจากตัวติดตั้งแยกต่างหาก')}</div>
+      </div>
+      <div class="card-block">
+        <h4>${tr('สถานะความเป็นส่วนตัว')}</h4>
+        <div class="desc">${tr('ไฟล์ TOR และข้อมูลบิลถูกประมวลผลบนเครื่อง ผลลัพธ์เป็นร่างให้ตรวจทานก่อนนำไปออกเอกสาร')}</div>
+      </div>
+      <div class="card-block">
+        <h4>${tr('TOR')}</h4>
+        <div class="banner" ondrop="aiTorDrop(event)" ondragover="aiTorDrag(event)" style="background:var(--accent-tint);border-color:var(--accent-tint-bd);color:var(--text);margin-bottom:13px">
+          ${ic('upload')} <span style="flex:1">${aiTorFileName?`${tr('ไฟล์ที่นำเข้า')}: <b>${escapeHtml(aiTorFileName)}</b>`:tr('ลากไฟล์ PDF/DOCX/TXT มาวาง หรือเลือกไฟล์จากเครื่อง')}</span>
+          <button class="btn btn-sm" onclick="event.stopPropagation();importTorFile()" ${aiTorImporting?'disabled':''}>${aiTorImporting?tr('กำลังนำเข้า...'):tr('เลือกไฟล์ TOR')}</button>
+        </div>
+        <div class="field" style="margin-bottom:12px">
+          <textarea id="aiTorInput" oninput="aiTorInput=this.value" style="min-height:170px" placeholder="${tr('วาง TOR หรือรายละเอียดงานที่นี่')}">${escapeHtml(aiTorInput)}</textarea>
+        </div>
+        <div style="display:flex;gap:9px;flex-wrap:wrap">
+          <button class="btn btn-primary" onclick="runAiTor()" ${aiTorRunning?'disabled':''}>${aiTorRunning?tr('กำลังแปลง...'):tr('แปลงเป็นร่างเอกสาร')}</button>
+          <button class="btn" onclick="importTorFile()" ${aiTorImporting?'disabled':''}>${ic('fileText')} ${tr('เลือกไฟล์ TOR')}</button>
+        </div>
+      </div>
+      <div class="card-block">
+        <h4>${tr('ร่างจาก AI')}</h4>
+        <div class="desc">${tr('ตรวจทานและแก้ไขก่อนนำไปใช้จริง')}</div>
+        <pre style="white-space:pre-wrap;margin:0;min-height:170px;background:var(--soft);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px;line-height:1.65;color:var(--text)">${escapeHtml(aiTorRunning?tr('กำลังประมวลผลบนเครื่อง...'):(aiTorOutput||tr('ผลลัพธ์จะแสดงที่นี่')))}</pre>
+      </div>
+    </div>`;
+    return;
+  }
+  const installedButInvalid = status.installed && status.error !== 'not_installed';
+  c.innerHTML = `<div class="settings-grid">
+    <div class="card-block">
+      <h4>${ic('sparkles')} ${tr('ติดตั้ง BillNgai AI Add-on')}</h4>
+      <div class="desc">${installedButInvalid
+        ? tr('พบโมดูล AI แต่ตรวจสอบไม่ผ่าน โปรดติดตั้งใหม่จากตัวติดตั้งที่เชื่อถือได้')
+        : tr('โมดูล AI เป็นส่วนเสริมแยกต่างหาก ติดตั้งแบบออฟไลน์ แล้ว BillNgai จะเปิดใช้งานจากไฟล์ในเครื่องเท่านั้น')}</div>
+      ${installedButInvalid?`<div class="banner" style="background:var(--red-bg);border-color:#e6c5bd;color:var(--red)">${ic('alert')} ${escapeHtml(status.error||'invalid add-on')}</div>`:''}
+      <div style="display:flex;gap:9px;flex-wrap:wrap">
+        <button class="btn btn-primary" onclick="revealAiFolder()">${ic('folderOpen')} ${tr('เปิดโฟลเดอร์สำหรับติดตั้ง')}</button>
+        <button class="btn" onclick="refreshAiAddonStatus(true).then(()=>render())">${tr('ตรวจอีกครั้ง')}</button>
+      </div>
+      <div class="hint" style="margin-top:12px">${tr('สำหรับต้นแบบภายใน ใช้คำสั่ง dev เพื่อสร้างโมดูลจำลองก่อน ต่อไปจะเปลี่ยนเป็น DMG Add-on จริง')}</div>
+    </div>
+    <div class="card-block">
+      <h4>${tr('หลักการของโมดูลนี้')}</h4>
+      <div class="desc">${tr('ไม่มีการดาวน์โหลดในแอป ไม่มีการเปิดใช้งานผ่านอินเทอร์เน็ต และไม่มีการส่งเอกสารออกจากเครื่อง')}</div>
+    </div>
   </div>`;
 }
 
