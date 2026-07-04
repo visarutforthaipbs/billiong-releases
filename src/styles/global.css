@@ -1,15 +1,25 @@
 @import "tailwindcss";
 
+/* BillNgai brand fonts — self-hosted, same files as the app (see app repo BRAND.md) */
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/Inter-Regular.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 600; font-display: swap; src: url("/fonts/Inter-SemiBold.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/Inter-Bold.woff2") format("woff2"); }
+@font-face { font-family: "LINE Seed Sans TH"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/LINESeedSansTH_W_Rg.woff2") format("woff2"); }
+@font-face { font-family: "LINE Seed Sans TH"; font-style: normal; font-weight: 600 700; font-display: swap; src: url("/fonts/LINESeedSansTH_W_Bd.woff2") format("woff2"); }
+
 @theme {
-  --font-sans: "IBM Plex Sans Thai", "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-serif: "Fraunces", Georgia, serif;
-  --color-primary: #1f5d43;
-  --color-primary-hover: #133d2c;
-  --color-secondary: #caa45a;
-  --color-accent-bg: #fcfbf7;
-  --color-text-dark: #26221a;
-  --color-text-muted: #5f594c;
-  --color-border-custom: #dcd5c5;
+  --font-sans: "Inter", "LINE Seed Sans TH", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: "Inter", "LINE Seed Sans TH", system-ui, sans-serif;
+  --color-primary: #FF6B00;
+  --color-primary-hover: #E05E00;
+  --color-secondary: #2D3436;
+  --color-accent-bg: #ffffff;
+  --color-text-dark: #2D3436;
+  --color-text-muted: #645d54;
+  --color-border-custom: #e8dccb;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
 }
 
 @layer base {
@@ -19,8 +29,8 @@
   }
 
   body {
-    background-color: #ece7dc;
-    color: #26221a;
+    background-color: #FFF9F3;
+    color: #2D3436;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -41,23 +51,7 @@
 }
 
 .glass-navbar {
-  background: rgba(236, 231, 220, 0.78);
-  backdrop-filter: blur(20px) saturate(190%);
-  -webkit-backdrop-filter: blur(20px) saturate(190%);
-}
-
-.glass-panel {
-  background: rgba(252, 251, 247, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(252, 251, 247, 0.9);
-}
-
-.glass-panel-dark {
-  background: linear-gradient(155deg, #23332b, #16241d);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(252, 251, 247, 0.1);
+  background: #FFF9F3;
 }
 
 /* Custom Scrollbar for macOS look */
@@ -71,8 +65,8 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #d3ccba;
-  border: 2px solid #ece7dc;
+  background: #ddd0bd;
+  border: 2px solid #FFF9F3;
   border-radius: 20px;
 }
 
@@ -83,10 +77,10 @@
 /* Micro-animations */
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 0 0 rgba(31, 93, 67, 0.25);
+    box-shadow: 0 0 0 0 rgba(255, 107, 0, 0.25);
   }
   50% {
-    box-shadow: 0 0 12px 4px rgba(31, 93, 67, 0.18);
+    box-shadow: 0 0 12px 4px rgba(255, 107, 0, 0.18);
   }
 }
 
@@ -112,16 +106,16 @@
    Matches desktop app stylesheet (billing.html)
    ============================================================ */
 .billiong-app-sim {
-  --bg: #ece7dc;
-  --surface: #fcfbf7;
-  --surface-2: #f4f1e8;
-  --surface-3: #e9e3d6;
-  --border: #dcd5c5;
-  --border-soft: #e7e1d3;
-  --text: #26221a;
-  --text-dim: #5f594c;
-  --text-faint: #968d7b;
-  --accent: #1f5d43;
+  --bg: #FFF9F3;
+  --surface: #ffffff;
+  --surface-2: #faf3ea;
+  --surface-3: #f3e9dc;
+  --border: #e8dccb;
+  --border-soft: #f0e6d8;
+  --text: #2D3436;
+  --text-dim: #645d54;
+  --text-faint: #9c9184;
+  --accent: #FF6B00;
   --accent-bright: color-mix(in srgb, var(--accent), #fff 16%);
   --accent-strong: color-mix(in srgb, var(--accent), #000 12%);
   --accent-soft: color-mix(in srgb, var(--accent) 7%, transparent);
@@ -147,7 +141,7 @@
   flex-direction: column !important;
   background: var(--bg) !important;
   color: var(--text) !important;
-  font-family: "IBM Plex Sans Thai", sans-serif !important;
+  font-family: "LINE Seed Sans TH", "Inter", sans-serif !important;
 }
 
 @media (min-width: 768px) {
@@ -584,25 +578,25 @@
 }
 
 .billiong-app-sim .pillar.wht {
-  background: linear-gradient(155deg, #23332b, #16241d) !important;
-  border-color: #16241d !important;
-  box-shadow: 0 14px 36px -14px rgba(15,36,28,.6) !important;
+  background: #2D3436 !important;
+  border-color: #22282a !important;
+  box-shadow: 0 14px 36px -14px rgba(30,36,38,.55) !important;
 }
 
 .billiong-app-sim .pillar.wht .accent-bar {
-  background: #caa45a !important;
+  background: #FF6B00 !important;
 }
 
 .billiong-app-sim .pillar.wht .val {
-  color: #e6c477 !important;
+  color: #ffb37d !important;
 }
 
 .billiong-app-sim .pillar.wht .label {
-  color: #b7c8bd !important;
+  color: #c3ccce !important;
 }
 
 .billiong-app-sim .pillar.wht .sub {
-  color: #8ba093 !important;
+  color: #99a4a7 !important;
 }
 
 .billiong-app-sim .section-title {

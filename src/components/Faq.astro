@@ -5,7 +5,7 @@ const title = "คำถามที่พบบ่อย (FAQ)";
 const questions = [
   {
     q: "แอปนี้ต้องจ่ายค่าบริการรายเดือนไหม?",
-    a: "ไม่ต้องจ่ายรายเดือนครับ Billiong เป็นแอปพลิเคชันแบบ Local-first ที่รันบนเครื่องของคุณ ข้อมูลถูกเก็บไว้ในไฟล์บนคอมพิวเตอร์ของคุณเอง ไม่มีค่าบริการแอบแฝง"
+    a: "ไม่ต้องจ่ายรายเดือนครับ บิลง่าย เป็นแอปพลิเคชันแบบ Local-first ที่รันบนเครื่องของคุณ ข้อมูลถูกเก็บไว้ในไฟล์บนคอมพิวเตอร์ของคุณเอง ไม่มีค่าบริการแอบแฝง"
   },
   {
     q: "ข้อมูลจะหายไหมถ้าคอมพิวเตอร์พัง?",
@@ -13,7 +13,7 @@ const questions = [
   },
   {
     q: "ระบบ PromptPay QR ปลอดภัยไหม?",
-    a: "ปลอดภัย 100% ครับ เพราะ Billiong ใช้ตัวเข้ารหัส EMVCo payload ที่เขียนขึ้นเองจากศูนย์ แปลงเป็น SVG QR Code ภายในตัวแอป โดยไม่มีการต่อสายนอกหรือส่งข้อมูลเลขบัญชี/เบอร์โทรของคุณไปยังเซิร์ฟเวอร์ใดๆ ทั้งสิ้น"
+    a: "ปลอดภัย 100% ครับ เพราะ บิลง่าย ใช้ตัวเข้ารหัส EMVCo payload ที่เขียนขึ้นเองจากศูนย์ แปลงเป็น SVG QR Code ภายในตัวแอป โดยไม่มีการต่อสายนอกหรือส่งข้อมูลเลขบัญชี/เบอร์โทรของคุณไปยังเซิร์ฟเวอร์ใดๆ ทั้งสิ้น"
   }
 ];
 ---
@@ -37,7 +37,7 @@ const questions = [
     <!-- Accordion Details list -->
     <div class="space-y-4">
       {questions.map((item) => (
-        <details class="group border border-border-custom rounded-xl overflow-hidden bg-slate-50/10 open:bg-white open:shadow-2xs transition-all duration-200">
+        <details class="group border border-border-custom rounded-md overflow-hidden bg-slate-50/10 open:bg-white open:shadow-2xs transition-all duration-200">
           <summary class="flex items-center justify-between p-5 text-sm md:text-base font-bold text-slate-800 cursor-pointer list-none select-none focus:outline-none hover:text-primary hover:bg-slate-50/30">
             <span>{item.q}</span>
             <span class="chevron-wrapper text-slate-400 group-hover:text-primary transition-transform duration-300">
@@ -64,6 +64,6 @@ const questions = [
 
   details[open] .chevron-wrapper {
     transform: rotate(180deg);
-    color: #1f513b;
+    color: #FF6B00;
   }
 </style>

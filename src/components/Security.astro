@@ -4,7 +4,7 @@ import { ShieldCheck, HardDrive, RefreshCcw, FolderSync, Lock } from '@lucide/as
 const title = "ข้อมูลของคุณ เป็นของคุณอย่างแท้จริง";
 const tagline = "Local-First Architecture";
 const paragraphs = [
-  "Billiong ทำงานแบบ No-Server ข้อมูลทั้งหมดจะถูกบันทึกอย่างปลอดภัยในไฟล์ billing.json บนเครื่องคอมพิวเตอร์ของคุณเอง ไม่มีใครสามารถเข้าถึงข้อมูลรายได้ของคุณได้นอกจากตัวคุณ",
+  "บิลง่าย ทำงานแบบ No-Server ข้อมูลทั้งหมดจะถูกบันทึกอย่างปลอดภัยในไฟล์ billing.json บนเครื่องคอมพิวเตอร์ของคุณเอง ไม่มีใครสามารถเข้าถึงข้อมูลรายได้ของคุณได้นอกจากตัวคุณ",
   "ปลอดภัยยิ่งขึ้นด้วยระบบ Auto Rolling Snapshot ที่จะคัดลอกสำรองข้อมูลให้ทุกๆ 30 นาที (เก็บย้อนหลังสูงสุด 14 เวอร์ชัน) ป้องกันข้อมูลสูญหาย และคุณยังสามารถเลือกเก็บไฟล์ไว้บน Google Drive หรือ Dropbox เพื่อซิงค์ระหว่างเครื่องได้อย่างอิสระ"
 ];
 ---
@@ -59,20 +59,15 @@ const paragraphs = [
 
       <!-- Right Column: CSS Visualization -->
       <div class="lg:col-span-5 flex justify-center">
-        <div class="w-full max-w-sm rounded-2xl border border-border-custom bg-white p-6 shadow-sm relative">
+        <div class="w-full max-w-sm rounded-md border border-border-custom bg-white p-6 shadow-sm relative">
           
           <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-5">Local Storage Schema</h4>
           
           <!-- File Visualizer -->
-          <div class="p-4 rounded-xl border border-border-custom bg-slate-50/50 flex items-center justify-between mb-6 shadow-2xs relative overflow-hidden">
+          <div class="p-4 rounded-md border border-border-custom bg-slate-50/50 flex items-center justify-between mb-6 shadow-2xs relative overflow-hidden">
             <div class="flex items-center gap-3">
               <!-- File icon -->
-              <div class="w-10 h-12 bg-white rounded-md border border-border-custom flex flex-col justify-between p-1.5 shadow-2xs relative">
-                <div class="w-4 h-1 bg-slate-300 rounded-xs"></div>
-                <div class="w-6 h-1 bg-slate-300 rounded-xs"></div>
-                <div class="w-5 h-1 bg-slate-300 rounded-xs"></div>
-                <span class="text-[7px] font-bold text-primary block text-right font-mono">JSON</span>
-              </div>
+              <img src="/assets/brand/icons/set-2-15-file.png" alt="billing.json database" class="w-10 h-10 object-contain shrink-0" />
               <div>
                 <span class="font-bold font-mono text-slate-800 text-xs block">billing.json</span>
                 <span class="text-[10px] text-slate-400">บันทึกรายได้, รายละเอียดลูกค้า, ภาษี</span>
@@ -99,9 +94,12 @@ const paragraphs = [
               <span class="absolute -left-[21px] top-1.5 w-2 h-2 rounded-full bg-secondary ring-4 ring-white"></span>
               <div class="flex items-center gap-2 mb-1">
                 <FolderSync size={12} class="text-slate-400" />
-                <span class="text-xs font-bold text-slate-800">Cloud Folder Linkage</span>
+                <span class="text-xs font-bold text-slate-800 font-sans">Cloud Folder Linkage</span>
               </div>
-              <p class="text-[11px] text-slate-400">บันทึกไฟล์ไว้ใน Google Drive หรือ Dropbox เพื่อซิงค์ใช้งานระหว่างเครื่อง macOS และ Windows</p>
+              <p class="text-[11px] text-slate-400 flex items-start gap-1">
+                <img src="/assets/brand/icons/set-2-16-folder.png" alt="Cloud Sync Folder" class="w-4 h-4 object-contain inline-block shrink-0 mt-0.5" />
+                <span>บันทึกไฟล์ไว้ใน Google Drive หรือ Dropbox เพื่อซิงค์ใช้งานระหว่างเครื่อง macOS และ Windows</span>
+              </p>
               
               <!-- Sync Badges -->
               <div class="flex gap-2 mt-2">

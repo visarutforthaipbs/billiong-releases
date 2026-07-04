@@ -7,15 +7,16 @@ interface Props {
 }
 
 const { 
-	title = "Billiong - ออกเอกสารบัญชี สะดวก แม่นยำ จัดการภาษีไทยครบวงจร",
-	description = "แอปพลิเคชันออกเอกสารและใบกำกับภาษีสำหรับฟรีแลนซ์และธุรกิจขนาดย่อม คำนวณ VAT และ หัก ณ ที่จ่าย แม่นยำ ปลอดภัยด้วย Local-First Architecture"
+	title = "บิลง่าย (BillNgai) — ออกบิลไว เก็บเงินง่าย จัดการภาษีฟรีแลนซ์ไทยครบวงจร",
+	description = "แอปออกบิลและจัดการภาษีที่สร้างเพื่อฟรีแลนซ์ไทย — ใบเสนอราคา ใบแจ้งหนี้ ใบกำกับภาษี แบ่งงวดตาม TOR ตัวเลขพร้อมยื่น ภ.ง.ด.90/94 ข้อมูลอยู่ในเครื่องคุณ"
 } = Astro.props;
 
 // Construct Schema.org JSON-LD for AI search engines (AIEO) & Google
 const schemaMarkup = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "Billiong",
+  "name": "บิลง่าย (BillNgai)",
+  "softwareVersion": "1.4.0",
   "operatingSystem": "macOS, Windows",
   "applicationCategory": "BusinessApplication, FinanceApplication",
   "description": description,
@@ -34,7 +35,7 @@ const schemaMarkup = {
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/png" href="/billiong-logo.png" />
+		<link rel="icon" type="image/svg+xml" href="/logo.svg" />
 		<meta name="generator" content={Astro.generator} />
 		
 		<!-- SEO Meta Tags -->
@@ -47,23 +48,20 @@ const schemaMarkup = {
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
-		<meta property="og:image" content="/thumnail-2.jpg" />
+		<meta property="og:image" content="/og-billngai.jpg" />
 		
 		<!-- Twitter -->
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
-		<meta name="twitter:image" content="/thumnail-2.jpg" />
+		<meta name="twitter:image" content="/og-billngai.jpg" />
 		
 		<!-- AIEO (AI Engine Optimization) JSON-LD -->
 		<script type="application/ld+json" set:html={JSON.stringify(schemaMarkup)} />
 
-		<!-- Google Fonts preconnect & link -->
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+		<!-- Brand fonts are self-hosted (see global.css @font-face) — no external font requests -->
 	</head>
-	<body class="font-sans antialiased bg-[#f2efe9] text-[#26221a] selection:bg-[#1f5d43]/20 selection:text-[#1f5d43]">
+	<body class="font-sans antialiased bg-[#FFF9F3] text-[#2D3436] selection:bg-[#FF6B00]/20 selection:text-[#E05E00]">
 		<slot />
 	</body>
 </html>

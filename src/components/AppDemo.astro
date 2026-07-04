@@ -7,14 +7,14 @@ import { Laptop, MousePointerClick, ShieldCheck } from '@lucide/astro';
 
     <!-- Title Section -->
     <div class="text-center max-w-3xl mx-auto mb-10">
-      <div class="inline-flex items-center justify-center p-3 rounded-full bg-[#1f5d43]/15 text-[#1f5d43] mb-4">
+      <div class="inline-flex items-center justify-center p-3 rounded-full bg-[#FF6B00]/15 text-[#E05E00] mb-4">
         <Laptop size={32} />
       </div>
       <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
-        ลองใช้ Billiong ตัวจริง ได้เลยที่นี่
+        ลองใช้ บิลง่าย ตัวจริง ได้เลยที่นี่
       </h2>
       <p class="text-slate-500 text-base md:text-lg font-medium">
-        นี่คือแอปตัวจริง ไม่ใช่ภาพจำลอง — กดสร้างเอกสาร คำนวณ VAT และหัก ณ ที่จ่าย ได้เหมือนตอนติดตั้งจริงทุกอย่าง
+        นี่คือแอปตัวจริง ไม่ใช่ภาพจำลอง — กดสร้างเอกสาร คำนวณ VAT และหัก ณ ที่จ่าย <br class="hidden md:inline" />ได้เหมือนตอนติดตั้งจริงทุกอย่าง
       </p>
     </div>
 
@@ -31,7 +31,7 @@ import { Laptop, MousePointerClick, ShieldCheck } from '@lucide/astro';
     </div>
 
     <!-- macOS Window Container (hosts the real app in an iframe) -->
-    <div class="billiong-app-sim w-full max-w-7xl mx-auto rounded-2xl border border-[#dcd5c5] bg-[#ece7dc] mac-window-shadow overflow-hidden animate-float-window">
+    <div class="billiong-app-sim w-full max-w-7xl mx-auto rounded-lg border border-[#dcd5c5] bg-[#ece7dc] mac-window-shadow overflow-hidden animate-float-window">
 
       <!-- macOS Titlebar -->
       <div class="titlebar flex items-center justify-between px-4 py-2.5 bg-[#f4f1e8] border-b border-[#dcd5c5]">
@@ -44,16 +44,16 @@ import { Laptop, MousePointerClick, ShieldCheck } from '@lucide/astro';
         <!-- Title -->
         <div class="text-[11px] font-bold text-[#5f594c] flex items-center gap-1.5">
           <span class="w-1.5 h-1.5 rounded-full bg-[#1f7a4d] animate-pulse"></span>
-          Billiong — billing.json
+          บิลง่าย — billing.json
         </div>
         <!-- Buffer -->
         <div class="w-24"></div>
       </div>
 
-      <!-- The actual Billiong app, seeded with sample data -->
+      <!-- The actual BillNgai app, seeded with sample data -->
       <iframe
         src="/demo-app.html"
-        title="Billiong Interactive Demo"
+        title="BillNgai Interactive Demo"
         loading="lazy"
         class="w-full block bg-[#ece7dc] h-[620px] md:h-[720px]"
       ></iframe>

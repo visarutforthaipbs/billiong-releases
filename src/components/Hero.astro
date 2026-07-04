@@ -2,63 +2,97 @@
 import { Cpu, Download, Globe } from '@lucide/astro';
 
 const badge = "macOS & Windows Desktop App (Local-First)";
-const headline = "Billiong";
-const subHeadlineLine1 = "ออกเอกสารบัญชี สะดวก แม่นยำ";
-const subHeadlineLine2 = "จัดการภาษีไทยครบจบในที่เดียว";
-const description = "แอปพลิเคชันออกเอกสารและใบกำกับภาษีสำหรับฟรีแลนซ์และธุรกิจขนาดย่อม คำนวณ VAT และ หัก ณ ที่จ่าย แม่นยำ พร้อมระบบสร้าง PromptPay QR ในตัว ปลอดภัยสูงสุดด้วยระบบเก็บข้อมูลในเครื่องคุณเอง ไม่ผ่านเซิร์ฟเวอร์ใคร";
-const techNote = "รองรับการส่งออกข้อมูลรูปแบบ CSV, JSON และโครงร่าง e-Tax XML";
+const headline = "บิลง่าย";
+const description = "แอปออกบิลและจัดการภาษีที่สร้างเพื่อฟรีแลนซ์ไทยโดยเฉพาะ — ไม่ใช่ SaaS ต่างชาติแปลไทย ใบเสนอราคาแปลงเป็นใบแจ้งหนี้ แบ่งงวดตาม TOR สร้าง PromptPay QR และตัวเลขพร้อมยื่น ภ.ง.ด.90/94 ข้อมูลทั้งหมดอยู่ในเครื่องคุณ ไม่ผ่านเซิร์ฟเวอร์ใคร";
+const techNote = "อัปเดตล่าสุด v1.4.0 — ผู้ช่วยยื่นภาษี ภ.ง.ด.90/94 · แบ่งงวดตาม TOR · ส่งออกชุดให้บัญชี (ZIP)";
 ---
 
-<section id="hero" class="relative pt-24 pb-16 md:pt-32 md:pb-20 overflow-hidden bg-radial from-[#ece9e2] via-[#f2efe9] to-[#f2efe9]">
+<section id="hero" class="relative pt-24 pb-16 md:pt-32 md:pb-20 overflow-hidden bg-[#FFF9F3]">
   
-  <!-- Apple-style forest green background glow -->
+  <!-- Warm brand background glow -->
   <div class="absolute top-[-10%] left-[50%] -translate-x-[50%] w-[800px] h-[350px] bg-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
 
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-    
-    <!-- Local-First Badge -->
-    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-border-custom shadow-xs mb-6 animate-pulse-glow">
-      <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-      <span class="text-xs font-semibold text-slate-600 tracking-wide">{badge}</span>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      
+      <!-- Left Column: Copy & Actions -->
+      <div class="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
+        
+        <!-- Local-First Badge -->
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-border-custom shadow-xs animate-pulse-glow">
+          <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+          <span class="text-xs font-semibold text-slate-600 tracking-wide">{badge}</span>
+        </div>
+
+        <!-- Title and Subtitle -->
+        <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 tracking-tight leading-none">
+          {headline}
+        </h1>
+        
+        <p class="text-2xl md:text-3xl font-bold text-slate-800 tracking-tight leading-tight">
+          ออกบิลไว เก็บเงินง่าย <br /> จัดการภาษีสำหรับ <span class="text-[#E05E00] underline decoration-primary decoration-2 underline-offset-4">ฟรีแลนซ์ไทย</span> ครบจบในที่เดียว
+        </p>
+
+        <!-- Description -->
+        <p class="text-base md:text-lg text-slate-500 leading-relaxed max-w-2xl">
+          แอปออกบิลและจัดการภาษีที่สร้างเพื่อ <strong class="text-slate-900 font-semibold">ฟรีแลนซ์ไทย</strong> โดยเฉพาะ — ใบเสนอราคา ใบแจ้งหนี้ ใบกำกับภาษี <strong class="text-slate-900 font-semibold">แบ่งงวดตาม TOR</strong> PromptPay QR ในตัว และตัวเลขพร้อมยื่น <strong class="text-slate-900 font-semibold">ภ.ง.ด.90/94</strong> ข้อมูลทั้งหมดอยู่ในเครื่องคุณ ไม่ผ่านเซิร์ฟเวอร์ใคร
+        </p>
+
+        <!-- Call to Actions Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 w-full max-w-md">
+          <a
+            href="#download"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-sm font-semibold text-white bg-primary rounded-sm hover:bg-primary-hover transition-all duration-200 shadow-md hover:shadow-lg active:scale-98 cursor-pointer"
+          >
+            <Download size={16} />
+            ดาวน์โหลด (macOS & Windows)
+          </a>
+          <a
+            href="#web-app"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-sm font-semibold text-slate-700 bg-white border border-border-custom rounded-sm hover:bg-slate-50 hover:text-primary transition-all duration-200 shadow-xs active:scale-98 cursor-pointer"
+          >
+            <Globe size={16} />
+            ดูตัวอย่างระบบจำลอง (Demo)
+          </a>
+        </div>
+
+        <!-- Tech Note -->
+        <div class="inline-flex items-center gap-2 text-xs font-medium text-slate-500 bg-white/70 border border-border-custom px-3 py-1.5 rounded-lg">
+          <Cpu size={12} class="text-primary shrink-0" />
+          <span>{techNote}</span>
+        </div>
+        
+      </div>
+      
+      <!-- Right Column: Brand Illustration -->
+      <div class="lg:col-span-5 flex justify-center relative">
+        <div class="relative w-full max-w-[400px] sm:max-w-[480px] lg:max-w-[520px] flex items-center justify-center">
+          <!-- Decorative background elements -->
+          <div class="absolute w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] bg-primary/5 rounded-full blur-2xl pointer-events-none z-0"></div>
+          <div class="absolute w-[220px] h-[220px] sm:w-[300px] sm:h-[300px] border-2 border-dashed border-border-custom/50 rounded-full pointer-events-none z-0 animate-[spin_120s_linear_infinite]"></div>
+          
+          <!-- Main Character -->
+          <img 
+            src="/assets/brand/characters/modern-charector.png" 
+            alt="บิลง่าย Freelancer" 
+            class="w-full max-w-[360px] sm:max-w-[420px] lg:max-w-[460px] relative z-10 object-contain drop-shadow-xs hover:scale-[1.02] transition-transform duration-300 pointer-events-none"
+          />
+          
+          <!-- Floating Doodle Objects -->
+          <img 
+            src="/assets/brand/objects/set-1-23-envelope.png" 
+            alt="Envelope Doodle" 
+            class="absolute top-2 -left-2 w-12 h-12 object-contain z-20 animate-float-window pointer-events-none opacity-90 hidden sm:block" 
+          />
+          <img 
+            src="/assets/brand/objects/set-1-24-folder.png" 
+            alt="Folder Doodle" 
+            class="absolute bottom-6 -right-2 w-14 h-14 object-contain z-20 animate-float-window pointer-events-none opacity-90 hidden sm:block"
+            style="animation-delay: -3s;"
+          />
+        </div>
+      </div>
+
     </div>
-
-    <!-- Title and Subtitle -->
-    <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 tracking-tight mb-4">
-      {headline}
-    </h1>
-    
-    <p class="text-2xl md:text-3xl font-bold text-slate-800 tracking-tight leading-tight max-w-3xl mx-auto mb-6">
-      ออกเอกสารบัญชี สะดวก แม่นยำ <br /> จัดการภาษีสำหรับ <span class="text-primary underline decoration-secondary decoration-2 underline-offset-4">Freelancer ไทย</span> ครบจบในที่เดียว
-    </p>
-
-    <!-- Description -->
-    <p class="text-base md:text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed mb-10">
-      แอปพลิเคชันออกเอกสารและใบกำกับภาษีสำหรับ <strong class="text-slate-900 font-semibold">ฟรีแลนซ์ (Freelancer)</strong> และธุรกิจขนาดย่อม คำนวณ VAT และ หัก ณ ที่จ่าย แม่นยำ พร้อมระบบสร้าง PromptPay QR ในตัว ปลอดภัยสูงสุดด้วยระบบเก็บข้อมูลในเครื่องคุณเอง ไม่ผ่านเซิร์ฟเวอร์ใคร
-    </p>
-
-    <!-- Call to Actions Buttons -->
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto mb-8">
-      <a
-        href="#download"
-        class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-sm font-semibold text-white bg-primary rounded-xl hover:bg-primary-hover transition-all duration-200 shadow-md hover:shadow-lg active:scale-98 cursor-pointer"
-      >
-        <Download size={16} />
-        ดาวน์โหลด (macOS & Windows)
-      </a>
-      <a
-        href="#web-app"
-        class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-sm font-semibold text-slate-700 bg-white border border-border-custom rounded-xl hover:bg-slate-50 hover:text-primary transition-all duration-200 shadow-xs active:scale-98 cursor-pointer"
-      >
-        <Globe size={16} />
-        ดูตัวอย่างระบบจำลอง (Demo)
-      </a>
-    </div>
-
-    <!-- Tech Note -->
-    <div class="inline-flex items-center gap-2 text-xs font-medium text-slate-500 bg-white/70 border border-border-custom px-3 py-1.5 rounded-lg max-w-md mx-auto">
-      <Cpu size={12} class="text-primary shrink-0" />
-      <span>{techNote}</span>
-    </div>
-
   </div>
 </section>

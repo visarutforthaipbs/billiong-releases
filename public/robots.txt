@@ -1,4 +1,4 @@
-# robots.txt for Billiong Landing Page
+# robots.txt for BillNgai Landing Page
 # Permitting Search Engines and AI Crawlers (AIEO)
 
 User-agent: *

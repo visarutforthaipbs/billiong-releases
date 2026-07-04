@@ -9,16 +9,27 @@ import PricingComparison from '../components/PricingComparison.astro';
 import Faq from '../components/Faq.astro';
 import Footer from '../components/Footer.astro';
 import { Download, Zap, Heart, AlertTriangle } from '@lucide/astro';
+
+// Configuration: Change to 'github' to route downloads through GitHub Releases instead of Cloudflare R2
+const DOWNLOAD_SOURCE = 'r2'; 
+
+const macDownloadUrl = DOWNLOAD_SOURCE === 'github'
+  ? "https://github.com/visarutforthaipbs/local-bill-apps/releases/download/v1.4.0/BillNgai-1.4.0-universal.dmg"
+  : "https://pub-4ed16d146bff4f168839661507e1748a.r2.dev/BillNgai-1.4.0-universal.dmg";
+
+const winDownloadUrl = DOWNLOAD_SOURCE === 'github'
+  ? "https://github.com/visarutforthaipbs/local-bill-apps/releases/download/v1.4.0/BillNgai%20Setup%201.4.0.exe"
+  : "https://pub-4ed16d146bff4f168839661507e1748a.r2.dev/BillNgai%20Setup%201.4.0.exe";
 ---
 
-<Layout title="Billiong - ออกเอกสารบัญชี สะดวก แม่นยำ จัดการภาษีไทยครบจบในที่เดียว">
+<Layout title="บิลง่าย (BillNgai) — ออกบิลไว เก็บเงินง่าย จัดการภาษีฟรีแลนซ์ไทยครบจบในที่เดียว">
 	<!-- Top Scarcity & Urgency Banner -->
-	<div class="bg-gradient-to-r from-[#174632] to-[#1f5d43] text-white text-xs py-2.5 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-1.5 relative z-50 shadow-sm border-b border-[#143d2c]">
-		<span class="inline-flex items-center justify-center gap-1 bg-amber-400 text-slate-955 text-[10px] font-extrabold px-1.5 py-0.5 rounded-sm uppercase tracking-wider animate-pulse">
+	<div class="bg-secondary text-white text-xs py-2.5 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-1.5 relative z-50 shadow-sm border-b border-border-custom/10">
+		<span class="inline-flex items-center justify-center gap-1 bg-primary text-white text-[10px] font-bold px-2 py-0.5 rounded-lg uppercase tracking-wider animate-pulse">
 			<Zap size={10} class="fill-current shrink-0" />
 			<span>Early Bird Alpha</span>
 		</span>
-		<span>เหลือเพียง <strong class="text-amber-300 font-bold">34 จาก 100 สิทธิ์สุดท้าย</strong> ในราคา ฿59 <span class="hidden sm:inline">(หลังจากครบสิทธิ์จะปรับราคาขึ้นเป็น ฿149 ทันที)</span></span>
+		<span>เหลือเพียง <strong class="text-primary font-bold">34 จาก 100 สิทธิ์สุดท้าย</strong> ในราคา <strong class="text-primary font-bold font-display">฿59</strong> <span class="text-white/60 hidden sm:inline">(หลังจากครบสิทธิ์จะปรับราคาขึ้นเป็น <span class="font-display">฿149</span> ทันที)</span></span>
 	</div>
 
 	<Navbar />
@@ -33,13 +44,13 @@ import { Download, Zap, Heart, AlertTriangle } from '@lucide/astro';
 	<Footer />
 
 	<!-- macOS-Style Trust-Based Purchase & Download Dialog (Centered) -->
-	<dialog id="download-dialog" class="fixed inset-0 m-auto backdrop:bg-slate-900/60 backdrop:backdrop-blur-xs bg-white rounded-2xl p-6 mac-window-shadow border border-border-custom w-[calc(100%-2rem)] max-w-md focus:outline-none overflow-hidden">
+	<dialog id="download-dialog" class="fixed inset-0 m-auto backdrop:bg-slate-900/60 backdrop:backdrop-blur-xs bg-white rounded-lg p-6 mac-window-shadow border border-border-custom w-[calc(100%-2rem)] max-w-md focus:outline-none overflow-hidden">
 		<div class="space-y-4 max-h-[85vh] flex flex-col">
 			<!-- Header -->
 			<div class="flex items-center justify-between shrink-0 pb-1">
 				<h3 class="text-base md:text-lg font-bold text-slate-900 flex items-center gap-2">
 					<Download class="text-primary shrink-0" size={18} />
-					<span>ซื้อลิขสิทธิ์ Billiong (Early Bird)</span>
+					<span>ซื้อลิขสิทธิ์ บิลง่าย (Early Bird)</span>
 				</h3>
 				<button id="close-dialog-btn" class="w-6 h-6 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer text-sm font-semibold">✕</button>
 			</div>
@@ -48,91 +59,85 @@ import { Download, Zap, Heart, AlertTriangle } from '@lucide/astro';
 			<div class="space-y-4 overflow-y-auto pr-1 flex-1 py-1">
 				<!-- Price info -->
 				<div class="text-center text-slate-500 text-xs md:text-sm leading-relaxed">
-					สนับสนุนนักพัฒนาช่วงเริ่มต้นในราคาพิเศษเพียง
-					<div class="text-3xl font-extrabold text-[#1f5d43] font-display mt-1">฿59.00</div>
-					<div class="text-[11px] text-slate-400 mt-0.5">(จ่ายครั้งเดียวใช้งานได้ตลอดชีพ)</div>
+					สนับสนุนช่วงเริ่มต้น จ่ายครั้งเดียวใช้งานตลอดชีพ
+					<div class="text-3xl font-extrabold text-primary font-display mt-1">฿59.00</div>
 				</div>
 
 				<!-- PromptPay QR Code -->
-				<div class="bg-[#f6f4f0] border border-border-custom rounded-xl p-4 text-center">
+				<div class="bg-slate-50 border border-border-custom rounded-md p-4 text-center">
 					<img 
 						src="https://promptpay.io/0627283058/59.png" 
 						alt="PromptPay QR Code 59 THB" 
-						class="w-44 h-44 mx-auto border border-slate-200 rounded-lg p-1.5 bg-white shadow-xs" 
+						class="w-40 h-40 mx-auto border border-slate-200 rounded-md p-1.5 bg-white shadow-xs" 
 					/>
 					<div class="text-[11px] text-slate-500 font-medium mt-2 flex items-center justify-center gap-1.5">
 						<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
-						สแกนจ่ายผ่านแอปพลิเคชันธนาคาร
+						สแกนจ่ายผ่านแอปธนาคาร จากนั้นกดดาวน์โหลดด้านล่าง
 					</div>
 				</div>
 
-				<!-- Honor System Explanation Card -->
-				<div class="bg-emerald-50/60 border border-emerald-500/10 rounded-xl p-3 text-left space-y-1">
-					<div class="text-[11px] font-bold text-[#1f5d43] flex items-center gap-1.5">
-						<Heart size={12} class="fill-current text-primary shrink-0" />
-						<span>ระบบจำหน่ายแบบเชื่อใจกัน (Honor System)</span>
-					</div>
-					<p class="text-[10px] text-slate-600 leading-normal">
-						เมื่อสแกนชำระเงิน ฿59 เรียบร้อยแล้ว สามารถกดดาวน์โหลดแอป (ทั้ง macOS และ Windows) ไปใช้งานได้ทันทีครับ เงินสนับสนุนทั้งหมดจะถูกนำไปใช้เป็นค่าธรรมเนียมในการนำแอปขึ้นระบบสากลของ Apple และ Microsoft ในเวอร์ชันถัดไป ขอบคุณที่สนับสนุนโปรดักต์ฝีมือคนไทยครับ!
-					</p>
-				</div>
-
-				<!-- First-Run Guide Card (macOS + Windows) -->
-				<div class="bg-amber-50/60 border border-amber-500/10 rounded-xl p-3 text-left space-y-2">
-					<div class="text-[11px] font-bold text-amber-800 flex items-center gap-1.5">
-						<AlertTriangle size={12} class="text-amber-800 shrink-0" />
-						<span>วิธีเปิดใช้งานครั้งแรก</span>
-					</div>
-					<p class="text-[10px] text-slate-600 leading-normal">
-						เนื่องจาก Billiong ทำงานแบบออฟไลน์ 100% และไม่ผ่าน App Store / Microsoft Store เพื่อรักษาราคาให้ประหยัดที่สุด ตอนเปิดครั้งแรกอาจมีคำเตือนความปลอดภัย (ทำแค่ครั้งเดียว):
-					</p>
-					<ul class="text-[10px] text-slate-600 leading-normal space-y-1 list-none">
-						<li><strong>macOS:</strong> คลิกขวา (Control + คลิก) ที่แอป แล้วเลือก <strong>Open</strong> แทนการดับเบิ้ลคลิกปกติ</li>
-						<li><strong>Windows:</strong> หาก SmartScreen ขึ้นเตือน ให้คลิก <strong>More info → Run anyway</strong> เพื่อติดตั้งต่อ</li>
-					</ul>
-				</div>
-
-				<!-- Support Card -->
-				<div class="bg-[#f6f4f0]/50 border border-border-custom/50 rounded-xl p-3 text-center space-y-2">
-					<p class="text-[10px] text-slate-500 leading-normal">
-						พบปัญหาในการชำระเงินหรือมีข้อสงสัย? สอบถามทีมงานได้ทันที
-					</p>
-					<div class="flex justify-center">
-						<a href="https://lin.ee/pSl8nEH" target="_blank" rel="noopener noreferrer" class="hover:opacity-85 transition-opacity inline-block">
-							<img src="https://scdn.line-apps.com/n/line_add_friends/btn/th.png" alt="เพิ่มเพื่อน" height="32" style="height: 32px;" border="0">
+				<!-- Honor System & Support Info -->
+				<div class="bg-emerald-50/60 border border-emerald-500/10 rounded-md p-3 text-left space-y-1">
+					<div class="text-[11px] font-bold text-emerald-800 flex items-center justify-between">
+						<span class="flex items-center gap-1.5">
+							<Heart size={12} class="fill-current text-primary shrink-0" />
+							<span>ระบบเชื่อใจกัน (Honor System)</span>
+						</span>
+						<a 
+							href="https://lin.ee/pSl8nEH" 
+							target="_blank" 
+							rel="noopener noreferrer" 
+							class="text-[10px] text-[#06C755] font-semibold hover:underline inline-flex items-center gap-0.5"
+						>
+							คุยทาง LINE
 						</a>
 					</div>
+					<p class="text-[10px] text-slate-600 leading-normal">
+						สแกนชำระเงินสนับสนุนการพัฒนาแอปฝีมือคนไทยแล้ว สามารถดาวน์โหลดไปใช้งานได้ทันทีครับ
+					</p>
+				</div>
+
+				<!-- First-Run Quick Guide -->
+				<div class="bg-amber-50/60 border border-amber-500/10 rounded-md p-3 text-left space-y-1.5">
+					<div class="text-[11px] font-bold text-amber-800 flex items-center gap-1.5">
+						<AlertTriangle size={12} class="text-amber-800 shrink-0" />
+						<span>การเปิดใช้งานครั้งแรก (แอปทำงานแบบ Offline)</span>
+					</div>
+					<ul class="text-[10px] text-slate-600 leading-normal space-y-0.5 list-disc pl-4 font-medium">
+						<li><strong>macOS</strong>: คลิกขวาที่แอปแล้วเลือก <strong>Open</strong> แทนการดับเบิ้ลคลิก</li>
+						<li><strong>Windows</strong>: หากเตือน SmartScreen ให้คลิก <strong>More info → Run anyway</strong></li>
+					</ul>
 				</div>
 			</div>
 
 			<!-- Action Buttons (Sticky at bottom) -->
 			<div class="space-y-2 pt-2 border-t border-border-custom shrink-0">
-				<div class="text-center text-[11px] font-semibold text-slate-500">
-					ฉันชำระเงินแล้ว • เลือกดาวน์โหลดตามระบบปฏิบัติการ
+				<div class="text-center text-[10px] font-semibold text-slate-400">
+					เลือกดาวน์โหลดตามระบบปฏิบัติการของคุณ
 				</div>
 				<div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
 					<a 
-						href="https://pub-4ed16d146bff4f168839661507e1748a.r2.dev/Billiong-1.0.0-universal.dmg" 
+						href={macDownloadUrl} 
 						download 
 						id="download-confirm-btn" 
-						class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-semibold text-white bg-[#1f5d43] hover:bg-[#1a503a] rounded-xl shadow-md transition-all active:scale-98 cursor-pointer text-center"
+						class="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 text-xs font-semibold text-white bg-primary hover:bg-primary-hover rounded-sm shadow-md transition-all active:scale-98 cursor-pointer text-center"
 					>
-						<Download size={15} />
+						<Download size={14} />
 						macOS (.dmg)
 					</a>
 					<a 
-						href="https://pub-4ed16d146bff4f168839661507e1748a.r2.dev/Billiong%20Setup%201.0.0.exe" 
+						href={winDownloadUrl} 
 						download 
 						id="download-confirm-btn-win" 
-						class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-semibold text-white bg-[#1f5d43] hover:bg-[#1a503a] rounded-xl shadow-md transition-all active:scale-98 cursor-pointer text-center"
+						class="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 text-xs font-semibold text-white bg-primary hover:bg-primary-hover rounded-sm shadow-md transition-all active:scale-98 cursor-pointer text-center"
 					>
-						<Download size={15} />
+						<Download size={14} />
 						Windows (.exe)
 					</a>
 				</div>
 				<button 
 					id="dialog-cancel-btn" 
-					class="w-full py-2.5 text-xs font-semibold text-slate-500 hover:text-slate-700 hover:bg-slate-50 border border-slate-200 transition-colors cursor-pointer rounded-xl"
+					class="w-full py-2.5 text-xs font-semibold text-slate-500 hover:text-slate-700 hover:bg-slate-50 border border-slate-200 transition-colors cursor-pointer rounded-sm"
 				>
 					ยกเลิก
 				</button>

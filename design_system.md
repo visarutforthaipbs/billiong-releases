@@ -1,34 +1,34 @@
-# Billiong Design System & Corporate Identity (CI)
+# BillNgai (บิลง่าย) Design System & Corporate Identity (CI)
 
-This document details the design system, styling guidelines, and utility classes used to construct the **Billiong** landing page and simulated application workspace.
+This document details the design system, styling guidelines, and color tokens used for the **บิลง่าย (BillNgai)** landing page and simulated application workspace.
+
+> [!IMPORTANT]
+> The single source of truth for the brand identity is the master [BRAND.md](file:///Users/visarutsankham/Documents/Personal-Project/Billiong-App/BRAND.md) in the app repository. Any changes to document templates or UI designs must align with it.
 
 ---
 
 ## 1. Color System
 
-All colors are declared under the `@theme` block in [global.css](file:///Users/visarutsankham/Desktop/promote-billiong/src/styles/global.css). Use semantic class names instead of hardcoded hex values.
+All colors are declared under the `@theme` block in [global.css](file:///Users/visarutsankham/Documents/Personal-Project/promote-billiong/src/styles/global.css). Always use tailwind theme variables instead of hardcoded hex values.
 
 | Semantic Token | TailWind Class | Hex Code | Ideal Usage |
 | :--- | :--- | :--- | :--- |
-| **Primary** | `bg-primary` / `text-primary` | `#1f5d43` | Main brand elements, primary CTA buttons, active tabs. |
-| **Primary Hover** | `hover:bg-primary-hover` | `#133d2c` | Interactive hover states for primary items. |
-| **Secondary** | `bg-secondary` / `text-secondary` | `#caa45a` | Gold accents, highlight tags, warning borders, progress bars. |
-| **Accent Background** | `bg-accent-bg` | `#fcfbf7` | White-beige canvas for cards, dashboards, and tables. |
-| **Body Background** | (Standard body color) | `#ece7dc` | Base page color, warm beige background. |
-| **Text Dark** | `text-text-dark` | `#26221a` | High-contrast main headings and body text. |
-| **Text Muted** | `text-text-muted` | `#5f594c` | Descriptions, helper texts, table headers. |
-| **Border Custom** | `border-border-custom` | `#dcd5c5` | Structural borders, outlines, dividers. |
+| **Primary** | `bg-primary` / `text-primary` | `#FF6B00` | Main brand elements, primary CTA buttons, active tabs. |
+| **Primary Hover** | `hover:bg-primary-hover` | `#E05E00` | Interactive hover states for primary items. |
+| **Secondary** | `bg-secondary` / `text-secondary` | `#2D3436` | Charcoal accents, headers, sidebars, secondary actions. |
+| **Accent Background** | `bg-accent-bg` | `#ffffff` | Clean white canvas for cards, dashboards, and tables. |
+| **Body Background** | (Standard body color) | `#FFF9F3` | Warm cream background. |
+| **Text Dark** | `text-text-dark` | `#2D3436` | High-contrast main headings and body text. |
+| **Text Muted** | `text-text-muted` | `#645d54` | Descriptions, helper texts, table headers. |
+| **Border Custom** | `border-border-custom` | `#e8dccb` | Structural borders, outlines, dividers. |
 
 ---
 
 ## 2. Typography
 
-We pair clean Thai/Latin sans-serif fonts for interface readability with an elegant serif font for figures and headlines.
-
-* **Sans-Serif (Standard UI & Body):** `"IBM Plex Sans Thai"`, `"IBM Plex Sans"`, system-ui, sans-serif.
+* **Sans-Serif (Standard UI & Body):** `"Inter"`, `"LINE Seed Sans TH"`, system-ui, sans-serif.
   * *TailWind Class:* Default `font-sans`.
-* **Serif / Numerals (Display & Metrics):** `"Fraunces"`, Georgia, serif.
-  * *TailWind Class:* `.font-display`. Used for currency figures, progress percentage headers, and large numeric stats.
+* **Display / Numerals (Display & Metrics):** Uses the same stack at display weight (`font-sans`). Serif fonts have been removed in the v1.4.0 brand refresh.
 
 ---
 
@@ -68,7 +68,7 @@ We follow a tactile, soft-layered interface structure mimicking macOS native win
 <!-- Stat Card -->
 <div class="bg-accent-bg border border-border-custom rounded-2xl p-5 shadow-xs">
   <span class="text-xs text-text-muted">หัวข้อการเงิน</span>
-  <span class="font-display text-2xl font-bold text-text-dark block mt-1">฿50,000.00</span>
+  <span class="font-sans text-2xl font-bold text-text-dark block mt-1">฿50,000.00</span>
 </div>
 ```
 
