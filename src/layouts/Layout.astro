@@ -35,6 +35,8 @@ const schemaMarkup = {
     "availability": "https://schema.org/InStock"
   }
 };
+
+const ogImageUrl = new URL("/thumnail-1.4.jpg", Astro.site || "https://billiong-releases.pages.dev").href;
 ---
 
 <!doctype html>
@@ -55,13 +57,13 @@ const schemaMarkup = {
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
-		<meta property="og:image" content="/thumnail-1.4.jpg" />
+		<meta property="og:image" content={ogImageUrl} />
 		
 		<!-- Twitter -->
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
-		<meta name="twitter:image" content="/thumnail-1.4.jpg" />
+		<meta name="twitter:image" content={ogImageUrl} />
 		
 		<!-- AIEO (AI Engine Optimization) JSON-LD -->
 		<script type="application/ld+json" set:html={JSON.stringify(schemaMarkup)} />
