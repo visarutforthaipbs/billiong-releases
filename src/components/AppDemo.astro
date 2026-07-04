@@ -30,8 +30,18 @@ import { Laptop, MousePointerClick, ShieldCheck } from '@lucide/astro';
       </span>
     </div>
 
-    <!-- macOS Window Container (hosts the real app in an iframe) -->
-    <div class="billiong-app-sim w-full max-w-7xl mx-auto rounded-lg border border-[#dcd5c5] bg-[#ece7dc] mac-window-shadow overflow-hidden animate-float-window">
+    <!-- Mobile demo GIF -->
+    <div class="block md:hidden w-full max-w-7xl mx-auto rounded-lg border border-[#dcd5c5] bg-[#ece7dc] mac-window-shadow overflow-hidden">
+      <img
+        src="/billngai-demo-v2.gif"
+        alt="BillNgai mobile demo preview"
+        loading="lazy"
+        class="block w-full h-auto"
+      />
+    </div>
+
+    <!-- Desktop macOS Window Container (hosts the real app in an iframe) -->
+    <div class="billiong-app-sim hidden md:block w-full max-w-7xl mx-auto rounded-lg border border-[#dcd5c5] bg-[#ece7dc] mac-window-shadow overflow-hidden animate-float-window">
 
       <!-- macOS Titlebar -->
       <div class="titlebar flex items-center justify-between px-4 py-2.5 bg-[#f4f1e8] border-b border-[#dcd5c5]">
