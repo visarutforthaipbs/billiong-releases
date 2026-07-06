@@ -1,0 +1,227 @@
+---
+// Animated macOS "Open Anyway" walkthrough — a looping CSS sequence (GIF-style)
+// that recreates the real Gatekeeper flow on macOS Sequoia so first-time users
+// know exactly how to open BillNgai (บิลง่าย) after downloading the .dmg.
+const appName = 'BillNgai';
+---
+
+<div class="mog" role="img" aria-label="ขั้นตอนการเปิดแอป BillNgai บน macOS ผ่าน Privacy & Security แล้วกด Open Anyway">
+  <div class="mog-stage">
+
+    <!-- STEP 1 — first-run block dialog -->
+    <div class="mog-frame mog-f1">
+      <div class="mog-screen">
+        <div class="mog-macdialog">
+          <button class="mog-help" aria-hidden="true">?</button>
+          <div class="mog-appicon">
+            <img src="/logo.svg" alt="" />
+            <span class="mog-warn" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="15" height="15"><path d="M12 3 22 20H2z" fill="#f2b100" stroke="#b98600" stroke-width="1" stroke-linejoin="round"/><rect x="11.1" y="9" width="1.8" height="6" rx=".9" fill="#5a4300"/><circle cx="12" cy="17.2" r="1" fill="#5a4300"/></svg>
+            </span>
+          </div>
+          <div class="mog-dtitle">“{appName}” Not Opened</div>
+          <div class="mog-dbody">Apple could not verify “{appName}” is free of malware that may harm your Mac or compromise your privacy.</div>
+          <div class="mog-dbtns">
+            <span class="mog-btn mog-grey">Done</span>
+            <span class="mog-btn mog-blue">Move to Bin</span>
+          </div>
+          <span class="mog-cursor" style="left:33%;top:88%"></span>
+        </div>
+      </div>
+      <div class="mog-cap"><span class="mog-step">1</span> ดับเบิลคลิกแอปครั้งแรก จะขึ้นหน้าต่างนี้ — กด <b>Done</b> (อย่ากด Move to Bin)</div>
+    </div>
+
+    <!-- STEP 2 — open Privacy & Security -->
+    <div class="mog-frame mog-f2">
+      <div class="mog-screen mog-dark">
+        <div class="mog-settings">
+          <div class="mog-side">
+            <div class="mog-side-row">Screen Time</div>
+            <div class="mog-side-row">Lock Screen</div>
+            <div class="mog-side-row mog-side-on">
+              <span class="mog-side-ic" style="background:#3b82f6"></span> Privacy &amp; Security
+            </div>
+            <div class="mog-side-row">Touch ID &amp; Password</div>
+            <div class="mog-side-row">Users &amp; Groups</div>
+          </div>
+          <div class="mog-pane">
+            <div class="mog-pane-h">Security</div>
+            <div class="mog-card">
+              <div class="mog-prow"><span>Allow applications from</span><span class="mog-val">App Store &amp; Known Developers ⌄</span></div>
+            </div>
+            <div class="mog-card">
+              <div class="mog-prow"><span>FileVault</span><span class="mog-muted">On ›</span></div>
+              <div class="mog-prow"><span>Lockdown Mode</span><span class="mog-muted">›</span></div>
+            </div>
+          </div>
+          <span class="mog-cursor mog-cursor-light" style="left:20%;top:37%"></span>
+        </div>
+      </div>
+      <div class="mog-cap"><span class="mog-step">2</span> เปิด <b>System Settings</b> แล้วไปที่ <b>Privacy &amp; Security</b></div>
+    </div>
+
+    <!-- STEP 3 — Open Anyway button in Security -->
+    <div class="mog-frame mog-f3">
+      <div class="mog-screen mog-dark">
+        <div class="mog-settings">
+          <div class="mog-side">
+            <div class="mog-side-row">Lock Screen</div>
+            <div class="mog-side-row mog-side-on">
+              <span class="mog-side-ic" style="background:#3b82f6"></span> Privacy &amp; Security
+            </div>
+            <div class="mog-side-row">Touch ID &amp; Password</div>
+            <div class="mog-side-row">Users &amp; Groups</div>
+            <div class="mog-side-row">Game Center</div>
+          </div>
+          <div class="mog-pane">
+            <div class="mog-pane-h">Security</div>
+            <div class="mog-card">
+              <div class="mog-prow"><span>Allow applications from</span><span class="mog-val">App Store &amp; Known Developers ⌄</span></div>
+            </div>
+            <div class="mog-card mog-blocked">
+              <div class="mog-prow mog-prow-col">
+                <span class="mog-block-txt">“{appName}” was blocked to protect your Mac.</span>
+                <span class="mog-btn mog-blue mog-blue-glow">Open Anyway</span>
+              </div>
+            </div>
+          </div>
+          <span class="mog-cursor mog-cursor-light" style="left:82%;top:63%"></span>
+        </div>
+      </div>
+      <div class="mog-cap"><span class="mog-step">3</span> เลื่อนลงมาที่หัวข้อ <b>Security</b> แล้วกดปุ่ม <b>Open Anyway</b></div>
+    </div>
+
+    <!-- STEP 4 — final confirm -->
+    <div class="mog-frame mog-f4">
+      <div class="mog-screen">
+        <div class="mog-macdialog">
+          <div class="mog-appicon">
+            <img src="/logo.svg" alt="" />
+          </div>
+          <div class="mog-dtitle">Are you sure you want to open it?</div>
+          <div class="mog-dbody">macOS cannot verify the developer of “{appName}”. Are you sure you want to open it?</div>
+          <div class="mog-dbtns">
+            <span class="mog-btn mog-grey">Cancel</span>
+            <span class="mog-btn mog-blue mog-blue-glow">Open Anyway</span>
+          </div>
+          <span class="mog-cursor" style="left:68%;top:88%"></span>
+        </div>
+      </div>
+      <div class="mog-cap mog-cap-ok"><span class="mog-step mog-step-ok">✓</span> กด <b>Open Anyway</b> ยืนยันอีกครั้ง — เสร็จแล้ว เปิดใช้ได้เลย (ทำครั้งเดียว)</div>
+    </div>
+
+  </div>
+
+  <!-- progress dots -->
+  <div class="mog-dots" aria-hidden="true">
+    <span class="mog-dot mog-d1"></span>
+    <span class="mog-dot mog-d2"></span>
+    <span class="mog-dot mog-d3"></span>
+    <span class="mog-dot mog-d4"></span>
+  </div>
+</div>
+
+<style>
+  .mog{--loop:18s;width:100%;user-select:none}
+  .mog-stage{position:relative;width:100%;aspect-ratio:16/11;background:#e9e4d8;
+    border:1px solid #d8d1c1;border-radius:12px;overflow:hidden;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.5)}
+  /* subtle desktop wallpaper vibe */
+  .mog-stage::before{content:"";position:absolute;inset:0;
+    background:radial-gradient(120% 90% at 80% 0%, #cfe3d6 0%, #b9d2c4 30%, #8fae9d 100%);opacity:.9}
+
+  .mog-frame{position:absolute;inset:0;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:12px;padding:16px;opacity:0}
+  .mog-f1{animation:mogF1 var(--loop) infinite}
+  .mog-f2{animation:mogF2 var(--loop) infinite}
+  .mog-f3{animation:mogF3 var(--loop) infinite}
+  .mog-f4{animation:mogF4 var(--loop) infinite}
+
+  @keyframes mogF1{0%,20%{opacity:1}24%,96%{opacity:0}100%{opacity:0}}
+  @keyframes mogF2{0%,21%{opacity:0}25%,45%{opacity:1}49%{opacity:0}100%{opacity:0}}
+  @keyframes mogF3{0%,46%{opacity:0}50%,70%{opacity:1}74%{opacity:0}100%{opacity:0}}
+  @keyframes mogF4{0%,71%{opacity:0}75%,96%{opacity:1}100%{opacity:0}}
+
+  .mog-screen{position:relative;display:flex;align-items:center;justify-content:center;
+    width:100%;max-width:420px;border-radius:12px;overflow:hidden}
+
+  /* ---------- macOS block / confirm dialog ---------- */
+  .mog-macdialog{position:relative;width:280px;background:#f4f2ee;border:1px solid rgba(0,0,0,.08);
+    border-radius:16px;padding:20px 20px 16px;text-align:center;
+    box-shadow:0 24px 60px -20px rgba(0,0,0,.5),0 2px 6px rgba(0,0,0,.12)}
+  .mog-help{position:absolute;top:12px;right:12px;width:22px;height:22px;border-radius:50%;
+    background:#e4e0d8;color:#8a8578;font-size:12px;font-weight:700;line-height:22px;border:none}
+  .mog-appicon{position:relative;width:56px;height:56px;margin:2px auto 12px;
+    display:flex;align-items:center;justify-content:center}
+  .mog-appicon img{width:100%;height:100%;object-fit:contain;
+    filter:drop-shadow(0 3px 6px rgba(0,0,0,.18))}
+  .mog-warn{position:absolute;right:-6px;bottom:-4px;width:19px;height:19px;background:#fff;
+    border-radius:50%;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 1px 3px rgba(0,0,0,.25)}
+  .mog-dtitle{font-size:14px;font-weight:700;color:#1d1d1f;margin-bottom:7px;letter-spacing:-.01em}
+  .mog-dbody{font-size:11px;line-height:1.45;color:#3a3a3c;margin-bottom:15px}
+  .mog-dbtns{display:flex;gap:9px;justify-content:center}
+  .mog-btn{font-size:12px;font-weight:600;padding:6px 15px;border-radius:8px;white-space:nowrap}
+  .mog-grey{background:#e2ded5;color:#33312c}
+  .mog-blue{background:#0a84ff;color:#fff}
+  .mog-blue-glow{box-shadow:0 0 0 0 rgba(10,132,255,.55);animation:mogGlow 1.4s ease-in-out infinite}
+  @keyframes mogGlow{0%,100%{box-shadow:0 0 0 0 rgba(10,132,255,.5)}50%{box-shadow:0 0 0 6px rgba(10,132,255,0)}}
+
+  /* ---------- macOS System Settings (dark) ---------- */
+  .mog-dark .mog-settings{display:grid;grid-template-columns:112px 1fr;width:100%;max-width:420px;
+    height:230px;background:#1f1f22;border-radius:12px;overflow:hidden;
+    border:1px solid rgba(255,255,255,.08);box-shadow:0 24px 60px -22px rgba(0,0,0,.6)}
+  .mog-side{background:#2a2a2e;padding:10px 8px;display:flex;flex-direction:column;gap:3px}
+  .mog-side-row{font-size:9.5px;color:#c9c8cc;padding:5px 7px;border-radius:6px;
+    display:flex;align-items:center;gap:5px;white-space:nowrap}
+  .mog-side-ic{width:11px;height:11px;border-radius:4px;flex:0 0 auto}
+  .mog-side-on{background:#0a84ff;color:#fff;font-weight:600}
+  .mog-pane{padding:14px 14px;overflow:hidden}
+  .mog-pane-h{font-size:11px;font-weight:700;color:#f2f2f5;margin-bottom:10px}
+  .mog-card{background:#2c2c30;border-radius:9px;padding:2px 12px;margin-bottom:10px}
+  .mog-prow{display:flex;align-items:center;justify-content:space-between;
+    padding:9px 0;font-size:10.5px;color:#e8e8ea;border-bottom:1px solid rgba(255,255,255,.06)}
+  .mog-card .mog-prow:last-child{border-bottom:none}
+  .mog-prow-col{flex-direction:column;align-items:flex-start;gap:9px}
+  .mog-val{color:#a6a6ab;font-size:10px}
+  .mog-muted{color:#8a8a8f;font-size:10px}
+  .mog-blocked{background:#2c2c30;border:1px solid rgba(10,132,255,.35)}
+  .mog-block-txt{color:#e8e8ea;font-size:10.5px}
+
+  /* ---------- fake cursor ---------- */
+  .mog-cursor{position:absolute;width:16px;height:16px;transform:translate(-2px,-2px);
+    background:#fff;
+    clip-path:polygon(0 0,0 78%,22% 60%,38% 100%,52% 92%,38% 55%,72% 55%);
+    filter:drop-shadow(0 1px 1px rgba(0,0,0,.55));animation:mogTap 1.4s ease-in-out infinite}
+  .mog-cursor-light{background:#fff}
+  @keyframes mogTap{0%,100%{transform:translate(-2px,-2px) scale(1)}50%{transform:translate(-2px,-2px) scale(.8)}}
+
+  /* ---------- caption ---------- */
+  .mog-cap{max-width:440px;font-size:12px;line-height:1.4;color:#5f594c;text-align:center;
+    background:rgba(255,255,255,.72);border:1px solid rgba(0,0,0,.05);border-radius:10px;
+    padding:8px 14px;backdrop-filter:blur(4px)}
+  .mog-cap b{color:#26221a}
+  .mog-step{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;
+    border-radius:50%;background:#1f5d43;color:#fff;font-size:11px;font-weight:700;margin-right:6px;
+    vertical-align:-3px}
+  .mog-cap-ok{background:rgba(224,247,233,.85);border-color:rgba(31,93,67,.18);color:#1a503a}
+  .mog-step-ok{background:#1f7a4d}
+
+  /* ---------- progress dots ---------- */
+  .mog-dots{display:flex;justify-content:center;gap:7px;margin-top:12px}
+  .mog-dot{width:7px;height:7px;border-radius:50%;background:#cdc4b0}
+  .mog-d1{animation:mogDot1 var(--loop) infinite}
+  .mog-d2{animation:mogDot2 var(--loop) infinite}
+  .mog-d3{animation:mogDot3 var(--loop) infinite}
+  .mog-d4{animation:mogDot4 var(--loop) infinite}
+  @keyframes mogDot1{0%,22%{background:#1f5d43;transform:scale(1.15)}25%,100%{background:#cdc4b0;transform:none}}
+  @keyframes mogDot2{0%,24%{background:#cdc4b0}25%,47%{background:#1f5d43;transform:scale(1.15)}50%,100%{background:#cdc4b0;transform:none}}
+  @keyframes mogDot3{0%,49%{background:#cdc4b0}50%,72%{background:#1f5d43;transform:scale(1.15)}75%,100%{background:#cdc4b0;transform:none}}
+  @keyframes mogDot4{0%,74%{background:#cdc4b0}75%,98%{background:#1f5d43;transform:scale(1.15)}100%{background:#cdc4b0}}
+
+  @media (prefers-reduced-motion: reduce){
+    .mog-f1,.mog-f2,.mog-f3,.mog-f4{animation:none}
+    .mog-f1{opacity:1}
+    .mog-cursor,.mog-blue-glow,.mog-dot{animation:none}
+  }
+</style>

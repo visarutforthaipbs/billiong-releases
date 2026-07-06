@@ -8,6 +8,7 @@ import Security from '../components/Security.astro';
 import PricingComparison from '../components/PricingComparison.astro';
 import Faq from '../components/Faq.astro';
 import Footer from '../components/Footer.astro';
+import MacOpenGuide from '../components/MacOpenGuide.astro';
 import { Download, Zap, Heart, AlertTriangle } from '@lucide/astro';
 
 // Configuration: Change to 'github' to route downloads through GitHub Releases instead of Cloudflare R2
@@ -104,7 +105,7 @@ const winDownloadUrl = DOWNLOAD_SOURCE === 'github'
 						<span>การเปิดใช้งานครั้งแรก (แอปทำงานแบบ Offline)</span>
 					</div>
 					<ul class="text-[10px] text-slate-600 leading-normal space-y-0.5 list-disc pl-4 font-medium">
-						<li><strong>macOS</strong>: คลิกขวาที่แอปแล้วเลือก <strong>Open</strong> แทนการดับเบิ้ลคลิก</li>
+						<li><strong>macOS</strong>: หากขึ้นเตือน “ยืนยันไม่ได้” ไปที่ <strong>System Settings → Privacy &amp; Security → Open Anyway</strong> (มีภาพประกอบตอนกดดาวน์โหลด)</li>
 						<li><strong>Windows</strong>: หากเตือน SmartScreen ให้คลิก <strong>More info → Run anyway</strong></li>
 					</ul>
 				</div>
@@ -144,6 +145,35 @@ const winDownloadUrl = DOWNLOAD_SOURCE === 'github'
 			</div>
 		</div>
 	</dialog>
+
+	<!-- macOS "Open Anyway" Walkthrough (shown after clicking the .dmg download) -->
+	<dialog id="mac-guide-dialog" class="fixed inset-0 m-auto backdrop:bg-slate-900/60 backdrop:backdrop-blur-xs bg-white rounded-lg p-5 mac-window-shadow border border-border-custom w-[calc(100%-2rem)] max-w-lg focus:outline-none overflow-hidden">
+		<div class="space-y-3.5 max-h-[88vh] flex flex-col">
+			<!-- Header -->
+			<div class="flex items-center justify-between shrink-0">
+				<h3 class="text-sm md:text-base font-bold text-slate-900 flex items-center gap-2">
+					<AlertTriangle class="text-amber-500 shrink-0" size={17} />
+					<span>วิธีเปิดแอปครั้งแรกบน macOS</span>
+				</h3>
+				<button id="close-mac-guide-btn" class="w-6 h-6 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer text-sm font-semibold">✕</button>
+			</div>
+
+			<p class="text-[11px] md:text-xs text-slate-500 leading-relaxed shrink-0">
+				กำลังดาวน์โหลด BillNgai แล้ว! เนื่องจากแอปยังไม่ได้ลงทะเบียนกับ Apple (เพื่อคงราคาประหยัด) macOS จะเตือนตอนเปิดครั้งแรก ทำตาม 4 ขั้นตอนนี้ครั้งเดียวจบ
+			</p>
+
+			<div class="overflow-y-auto flex-1 pr-0.5">
+				<MacOpenGuide />
+			</div>
+
+			<button 
+				id="mac-guide-ok-btn" 
+				class="w-full py-2.5 text-xs font-bold text-white bg-primary hover:bg-primary-hover transition-colors cursor-pointer rounded-sm shrink-0"
+			>
+				เข้าใจแล้ว
+			</button>
+		</div>
+	</dialog>
 </Layout>
 
 <script>
@@ -152,6 +182,9 @@ const winDownloadUrl = DOWNLOAD_SOURCE === 'github'
 	const dialogCancelBtn = document.getElementById('dialog-cancel-btn');
 	const downloadConfirmBtn = document.getElementById('download-confirm-btn');
 	const downloadConfirmBtnWin = document.getElementById('download-confirm-btn-win');
+	const macGuideDialog = document.getElementById('mac-guide-dialog') as HTMLDialogElement;
+	const closeMacGuideBtn = document.getElementById('close-mac-guide-btn');
+	const macGuideOkBtn = document.getElementById('mac-guide-ok-btn');
 
 	document.querySelectorAll('a[href="#download"]').forEach(link => {
 		link.addEventListener('click', (e) => {
@@ -164,14 +197,21 @@ const winDownloadUrl = DOWNLOAD_SOURCE === 'github'
 		downloadDialog?.close();
 	}
 
+	function closeMacGuide() {
+		macGuideDialog?.close();
+	}
+
 	closeDialogBtn?.addEventListener('click', closeDialog);
 	dialogCancelBtn?.addEventListener('click', closeDialog);
+	closeMacGuideBtn?.addEventListener('click', closeMacGuide);
+	macGuideOkBtn?.addEventListener('click', closeMacGuide);
 
 	downloadConfirmBtn?.addEventListener('click', () => {
-		// Auto close dialog after a small delay to start download smoothly
+		// macOS: start the download, then show the "Open Anyway" walkthrough popup.
+		closeDialog();
 		setTimeout(() => {
-			closeDialog();
-		}, 800);
+			macGuideDialog?.showModal();
+		}, 350);
 	});
 
 	downloadConfirmBtnWin?.addEventListener('click', () => {
@@ -184,6 +224,12 @@ const winDownloadUrl = DOWNLOAD_SOURCE === 'github'
 	downloadDialog?.addEventListener('click', (e) => {
 		if (e.target === downloadDialog) {
 			closeDialog();
+		}
+	});
+
+	macGuideDialog?.addEventListener('click', (e) => {
+		if (e.target === macGuideDialog) {
+			closeMacGuide();
 		}
 	});
 </script>
