@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>บิลง่าย · LINE OA Promos</title>
+<style>
+  /* ---- Brand fonts (BRAND.md) ---- */
+  @font-face{font-family:'Inter';font-weight:700;font-display:swap;src:url('../public/fonts/Inter-Bold.woff2') format('woff2');}
+  @font-face{font-family:'Inter';font-weight:600;font-display:swap;src:url('../public/fonts/Inter-SemiBold.woff2') format('woff2');}
+  @font-face{font-family:'Inter';font-weight:400;font-display:swap;src:url('../public/fonts/Inter-Regular.woff2') format('woff2');}
+  @font-face{font-family:'LINE Seed Sans TH';font-weight:400;font-display:swap;src:url('../public/fonts/LINESeedSansTH_W_Rg.woff2') format('woff2');}
+  @font-face{font-family:'LINE Seed Sans TH';font-weight:600 700;font-display:swap;src:url('../public/fonts/LINESeedSansTH_W_Bd.woff2') format('woff2');}
+
+  :root{
+    --accent:#FF6B00;
+    --accent-ink:#B24B00;      /* orange text on light (BRAND.md: accent+30% black) */
+    --accent-soft:#FFE9D6;
+    --accent-tint:#FFF1E6;
+    --text:#2D3436;
+    --text-muted:#645d54;
+    --bg:#FFF9F3;
+    --surface:#ffffff;
+    --border:#e8dccb;
+    --green:#2e8b57;
+    --green-bg:#e6f4ec;
+    --font:'Inter','LINE Seed Sans TH',system-ui,sans-serif;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#e9e3da;font-family:var(--font);color:var(--text);display:flex;flex-direction:column;align-items:center;gap:40px;padding:40px;}
+
+  /* Each slide is a 1040x1040 LINE OA card */
+  .slide{
+    position:relative;width:1040px;height:1040px;background:var(--bg);
+    overflow:hidden;border-radius:0;
+  }
+
+  /* soft brand glow */
+  .glow{position:absolute;border-radius:50%;background:rgba(255,107,0,.06);filter:blur(90px);pointer-events:none;}
+  .dashring{position:absolute;border:3px dashed rgba(232,220,203,.9);border-radius:50%;pointer-events:none;}
+
+  .brandbar{position:absolute;display:flex;align-items:center;gap:16px;}
+  .brandbar img{width:64px;height:64px;}
+  .brandbar .name{font-weight:700;font-size:40px;letter-spacing:-.5px;color:var(--text);}
+  .brandbar .dot{color:var(--accent);}
+
+  .badge{
+    display:inline-flex;align-items:center;gap:12px;background:var(--surface);
+    border:2px solid var(--border);border-radius:999px;padding:12px 24px;
+    font-weight:700;font-size:24px;color:var(--text-muted);
+  }
+  .badge .pulse{width:14px;height:14px;border-radius:50%;background:var(--accent);}
+
+  .kicker{color:var(--accent-ink);font-weight:700;font-size:30px;letter-spacing:.5px;}
+  .h1{font-weight:700;line-height:1.08;letter-spacing:-1px;color:var(--text);}
+  .lead{color:var(--text-muted);font-weight:400;line-height:1.5;}
+
+  .char{position:absolute;object-fit:contain;pointer-events:none;filter:drop-shadow(0 20px 30px rgba(45,52,54,.08));}
+
+  .pill{
+    display:inline-flex;align-items:center;gap:16px;background:var(--surface);
+    border:2px solid var(--border);border-radius:20px;padding:22px 26px;
+  }
+  .pill .ic{width:56px;height:56px;flex:none;background:var(--accent-tint);border-radius:14px;display:flex;align-items:center;justify-content:center;}
+  .pill .ic img{width:34px;height:34px;}
+  .pill .t{font-weight:700;font-size:32px;color:var(--text);line-height:1.2;}
+  .pill .s{font-weight:400;font-size:24px;color:var(--text-muted);margin-top:2px;}
+
+  .cta{
+    display:inline-flex;align-items:center;gap:14px;background:var(--accent);color:#fff;
+    font-weight:700;font-size:34px;padding:26px 46px;border-radius:18px;
+    box-shadow:0 14px 30px rgba(255,107,0,.28);
+  }
+  .cta.ghost{background:var(--surface);color:var(--text);border:2px solid var(--border);box-shadow:none;}
+
+  .foot{position:absolute;bottom:56px;left:80px;right:80px;display:flex;align-items:center;justify-content:space-between;color:var(--text-muted);font-weight:600;font-size:24px;}
+  .foot .os{display:flex;align-items:center;gap:12px;}
+  .tag{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:20px;padding:6px 16px;border-radius:999px;}
+  .strike{color:#9a9188;text-decoration:line-through;text-decoration-thickness:3px;}
+
+  /* ===================== SLIDE 1 — HERO ===================== */
+  #s1 .glow{width:900px;height:420px;top:-120px;left:50%;transform:translateX(-50%);}
+  #s1 .dashring{width:640px;height:640px;bottom:-160px;right:-120px;}
+  #s1 .brandbar{top:72px;left:80px;}
+  #s1 .badge{position:absolute;top:84px;right:80px;}
+  #s1 .copy{position:absolute;top:230px;left:80px;width:600px;}
+  #s1 .kicker{font-size:34px;}
+  #s1 .h1{font-size:94px;margin:14px 0 26px;}
+  #s1 .lead{font-size:32px;max-width:540px;}
+  #s1 .char{width:560px;bottom:-30px;right:-40px;}
+  #s1 .cta{position:absolute;bottom:150px;left:80px;}
+
+  /* ===================== SLIDE 2 — TAX ===================== */
+  #s2 .glow{width:700px;height:500px;top:-140px;left:-120px;}
+  #s2 .brandbar{top:70px;left:80px;}
+  #s2 .head{position:absolute;top:170px;left:80px;width:880px;}
+  #s2 .kicker{font-size:30px;}
+  #s2 .h1{font-size:66px;margin-top:12px;}
+  #s2 .pills{position:absolute;top:400px;left:80px;width:600px;display:flex;flex-direction:column;gap:22px;}
+  #s2 .char{width:430px;bottom:40px;right:-20px;}
+
+  /* ===================== SLIDE 3 — TOR + QR ===================== */
+  #s3 .glow{width:760px;height:520px;bottom:-160px;right:-120px;}
+  #s3 .brandbar{top:70px;left:80px;}
+  #s3 .head{position:absolute;top:172px;left:80px;width:880px;}
+  #s3 .h1{font-size:58px;margin-top:12px;}
+  #s3 .panel{position:absolute;top:380px;left:80px;width:560px;background:var(--surface);border:2px solid var(--border);border-radius:24px;padding:40px;}  #s3 .panel .row{display:flex;justify-content:space-between;align-items:center;font-size:28px;font-weight:600;margin-bottom:22px;}
+  #s3 .panel .bar{height:26px;border-radius:999px;background:var(--accent-tint);overflow:hidden;margin:8px 0 30px;}
+  #s3 .panel .bar>span{display:block;height:100%;width:66%;background:var(--accent);border-radius:999px;}
+  #s3 .legend{display:flex;gap:26px;font-size:22px;font-weight:600;color:var(--text-muted);}
+  #s3 .legend b{color:var(--text);}
+  #s3 .paid{color:var(--green);}
+  #s3 .qr{position:absolute;top:380px;right:96px;width:320px;background:var(--surface);border:2px solid var(--border);border-radius:24px;padding:30px;text-align:center;}
+  #s3 .qr .cap{font-size:26px;font-weight:700;color:var(--text);margin-bottom:16px;}
+  #s3 .qr .box{width:238px;height:238px;margin:0 auto 16px;border-radius:14px;border:2px solid var(--border);background:#fff;padding:10px;display:block;}
+  #s3 .qr .box img{width:100%;height:100%;display:block;}
+  #s3 .qr .lbl{font-size:23px;font-weight:700;color:var(--accent-ink);}
+  #s3 .char{width:230px;bottom:0;right:16px;}
+
+  /* ===================== SLIDE 4 — PRIVACY ===================== */
+  #s4{background:#2D3436;}
+  #s4 .glow{width:760px;height:520px;top:-150px;right:-120px;background:rgba(255,107,0,.14);}
+  #s4 .dashring{width:560px;height:560px;bottom:-140px;left:-140px;border-color:rgba(255,255,255,.08);}
+  #s4 .brandbar .name{color:#fff;}
+  #s4 .brandbar{top:70px;left:80px;}
+  #s4 .shield{position:absolute;top:210px;left:80px;width:120px;height:120px;background:var(--accent);border-radius:30px;display:flex;align-items:center;justify-content:center;box-shadow:0 16px 34px rgba(255,107,0,.35);}
+  #s4 .shield img{width:66px;height:66px;filter:brightness(0) invert(1);}
+  #s4 .copy{position:absolute;top:340px;left:80px;width:820px;}
+  #s4 .kicker{color:#FFB37A;}
+  #s4 .h1{color:#fff;font-size:62px;margin:16px 0 26px;line-height:1.15;}
+  #s4 .lead{color:#cfc8c0;font-size:30px;max-width:540px;}
+  #s4 .char{width:300px;bottom:20px;right:-10px;background:#fff;border-radius:28px;padding:14px;border:2px solid rgba(255,255,255,.1);}
+  #s4 .foot{color:#8f877f;left:80px;right:auto;bottom:44px;}
+
+  /* ===================== SLIDE 5 — PRICING / CTA ===================== */
+  #s5 .glow{width:820px;height:460px;top:-120px;left:50%;transform:translateX(-50%);}
+  #s5 .dashring{width:600px;height:600px;bottom:-180px;left:-160px;}
+  #s5 .brandbar{top:70px;left:80px;}
+  #s5 .head{position:absolute;top:180px;left:80px;width:880px;text-align:center;left:50%;transform:translateX(-50%);}
+  #s5 .kicker{font-size:32px;}
+  #s5 .price{font-weight:700;font-size:150px;color:var(--accent-ink);letter-spacing:-3px;line-height:1;margin:10px 0 4px;}
+  #s5 .price small{font-size:60px;}
+  #s5 .once{font-weight:700;font-size:40px;color:var(--text);}
+  #s5 .compare{position:absolute;top:600px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:24px;background:var(--surface);border:2px solid var(--border);border-radius:20px;padding:22px 40px;font-size:28px;font-weight:600;white-space:nowrap;}
+  #s5 .cta{position:absolute;bottom:180px;left:50%;transform:translateX(-50%);}
+  #s5 .char{width:250px;bottom:150px;right:70px;}
+</style>
+</head>
+<body>
+
+  <!-- ============ SLIDE 1 · HERO ============ -->
+  <section class="slide" id="s1">
+    <div class="glow"></div>
+    <div class="dashring"></div>
+    <div class="brandbar"><img src="../public/logo.svg" alt=""><span class="name">บิลง่าย<span class="dot">.</span></span></div>
+    <div class="badge"><span class="pulse"></span>macOS &amp; Windows · เก็บข้อมูลในเครื่อง</div>
+
+    <div class="copy">
+      <div class="kicker">แอปสำหรับฟรีแลนซ์ไทย</div>
+      <div class="h1">ออกบิลไว<br>เก็บเงินง่าย</div>
+      <div class="lead">ใบเสนอราคา ใบแจ้งหนี้ ใบกำกับภาษี<br>ครบจบในแอปเดียว ไม่ต้องสลับหลายโปรแกรม</div>
+    </div>
+
+    <img class="char" src="../public/assets/brand/characters/hd/01-freelancer-on-laptop-transparent.png" alt="">
+    <a class="cta">เริ่มใช้เลย →</a>
+  </section>
+
+  <!-- ============ SLIDE 2 · TAX ============ -->
+  <section class="slide" id="s2">
+    <div class="glow"></div>
+    <div class="brandbar"><img src="../public/logo.svg" alt=""><span class="name">บิลง่าย<span class="dot">.</span></span></div>
+
+    <div class="head">
+      <div class="kicker">เรื่องภาษีที่เคยปวดหัว</div>
+      <div class="h1">ให้บิลง่าย<br>คิดให้อัตโนมัติ</div>
+    </div>
+
+    <div class="pills">
+      <div class="pill">
+        <div class="ic"><img src="../public/assets/brand/icons/set-1-14-report.png" alt=""></div>
+        <div><div class="t">ผู้ช่วยยื่น ภ.ง.ด.90/94</div><div class="s">สรุปตัวเลขพร้อมยื่น แยกสองงวดตามจริง</div></div>
+      </div>
+      <div class="pill">
+        <div class="ic"><img src="../public/assets/brand/icons/set-1-13-tax.png" alt=""></div>
+        <div><div class="t">คิด VAT 7% + หัก ณ ที่จ่าย 3%</div><div class="s">คำนวณให้อัตโนมัติ ไม่ต้องกดเครื่องคิดเลข</div></div>
+      </div>
+      <div class="pill">
+        <div class="ic"><img src="../public/assets/brand/icons/set-1-07-reminder.png" alt=""></div>
+        <div><div class="t">ติดตามใบ 50 ทวิ</div><div class="s">ไม่ลืมทวงเอกสาร เคลมเครดิตภาษีครบสิ้นปี</div></div>
+      </div>
+    </div>
+
+    <img class="char" src="../public/assets/brand/characters/hd/02-freelancer-holding-invoice-transparent.png" alt="">
+  </section>
+
+  <!-- ============ SLIDE 3 · TOR + QR ============ -->
+  <section class="slide" id="s3">
+    <div class="glow"></div>
+    <div class="brandbar"><img src="../public/logo.svg" alt=""><span class="name">บิลง่าย<span class="dot">.</span></span></div>
+
+    <div class="head">
+      <div class="kicker">งานยาว จ่ายเป็นงวด</div>
+      <div class="h1">แบ่งงวดตาม TOR<br>เก็บเงินด้วย QR</div>
+    </div>
+
+    <div class="panel">
+      <div class="row"><span>ความคืบหน้าโครงการ</span><span class="paid">66%</span></div>
+      <div class="bar"><span></span></div>
+      <div class="legend"><span>ออกบิลแล้ว <b>3 งวด</b></span><span>ชำระแล้ว <b class="paid">2 งวด</b></span></div>
+    </div>
+
+    <div class="qr">
+      <div class="cap">สแกนจ่ายได้ทันที</div>
+      <div class="box"><img src="../public/assets/brand/qr-sample.svg" alt="QR"></div>
+      <div class="lbl">สแกนจ่ายได้ทุกแอปธนาคาร</div>
+    </div>
+
+    <img class="char" src="../public/assets/brand/characters/hd/10-creator-giving-thumbs-up-transparent.png" alt="">
+  </section>
+
+  <!-- ============ SLIDE 4 · PRIVACY ============ -->
+  <section class="slide" id="s4">
+    <div class="glow"></div>
+    <div class="dashring"></div>
+    <div class="brandbar"><img src="../public/logo.svg" alt=""><span class="name">บิลง่าย<span class="dot">.</span></span></div>
+
+    <div class="shield"><img src="../public/assets/brand/icons/set-3-16-shield.png" alt=""></div>
+
+    <div class="copy">
+      <div class="kicker">LOCAL-FIRST · ปลอดภัยหายห่วง</div>
+      <div class="h1">ข้อมูลอยู่ในเครื่องคุณ<br>ไม่ผ่านเซิร์ฟเวอร์ใคร</div>
+      <div class="lead">ทุกใบเสนอราคา ใบแจ้งหนี้ และรายได้ เก็บบนเครื่องคุณ 100% ไม่มีการส่งขึ้นคลาวด์</div>
+    </div>
+
+    <img class="char" src="../public/assets/brand/characters/hd/06-cafe-owner-with-tablet-transparent.png" alt="">
+    <div class="foot"><span>บิลง่าย · BillNgai — macOS &amp; Windows</span></div>
+  </section>
+
+  <!-- ============ SLIDE 5 · PRICING ============ -->
+  <section class="slide" id="s5">
+    <div class="glow"></div>
+    <div class="dashring"></div>
+    <div class="brandbar"><img src="../public/logo.svg" alt=""><span class="name">บิลง่าย<span class="dot">.</span></span></div>
+
+    <div class="head">
+      <div class="kicker">ไม่มีค่ารายเดือน ไม่ผูกมัด</div>
+      <div class="price"><small>฿</small>59</div>
+      <div class="once">จ่ายครั้งเดียว ใช้ได้ตลอดชีพ</div>
+    </div>
+
+    <div class="compare"><span class="strike">แอปอื่น ฿400–800/เดือน</span><span class="tag">ประหยัดกว่า</span></div>
+
+    <a class="cta">ดาวน์โหลดเลย →</a>
+    <img class="char" src="../public/assets/brand/characters/hd/10-creator-giving-thumbs-up-transparent.png" alt="">
+  </section>
+
+</body>
+</html>

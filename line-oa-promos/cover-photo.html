@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LINE Cover - บิลง่าย</title>
+<style>
+  @font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url('../public/fonts/Inter-Regular.woff2') format('woff2');}
+  @font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url('../public/fonts/Inter-SemiBold.woff2') format('woff2');}
+  @font-face{font-family:'Inter';font-style:normal;font-weight:700;font-display:swap;src:url('../public/fonts/Inter-Bold.woff2') format('woff2');}
+  @font-face{font-family:'LINE Seed Sans TH';font-style:normal;font-weight:400;font-display:swap;src:url('../public/fonts/LINESeedSansTH_W_Rg.woff2') format('woff2');}
+  @font-face{font-family:'LINE Seed Sans TH';font-style:normal;font-weight:600 700;font-display:swap;src:url('../public/fonts/LINESeedSansTH_W_Bd.woff2') format('woff2');}
+
+  :root{
+    --accent:#FF6B00;
+    --accent-ink:#B24B00;
+    --bg:#FFF9F3;
+    --text:#2D3436;
+    --text-muted:#645d54;
+    --border:#e8dccb;
+    --surface:#ffffff;
+    --font:'Inter','LINE Seed Sans TH',system-ui,sans-serif;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    width:1080px;
+    height:878px;
+    overflow:hidden;
+    background:var(--bg);
+    font-family:var(--font);
+    color:var(--text);
+    position:relative;
+  }
+
+  .glow{
+    position:absolute;
+    width:760px;
+    height:320px;
+    left:180px;
+    top:-130px;
+    border-radius:50%;
+    background:rgba(255,107,0,.08);
+    filter:blur(90px);
+  }
+
+  .ring{
+    position:absolute;
+    width:440px;
+    height:440px;
+    border-radius:50%;
+    border:3px dashed rgba(232,220,203,.9);
+    right:30px;
+    top:240px;
+  }
+
+  .top{
+    position:absolute;
+    top:46px;
+    left:64px;
+    display:flex;
+    align-items:center;
+  }
+
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+
+  .brand img{width:46px;height:46px;}
+  .brand span{font-size:48px;font-weight:700;line-height:1;color:var(--text);letter-spacing:-1px;}
+  .brand span b{color:var(--accent);}
+
+  .chip{
+    position:absolute;
+    top:56px;
+    right:64px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:var(--surface);
+    border:2px solid var(--border);
+    border-radius:999px;
+    padding:9px 16px;
+    font-weight:700;
+    font-size:16px;
+    color:var(--text-muted);
+    max-width:350px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .chip i{width:10px;height:10px;border-radius:50%;background:var(--accent);display:block;}
+
+  .content{
+    position:absolute;
+    left:64px;
+    top:220px;
+    max-width:560px;
+    z-index:2;
+  }
+
+  .kicker{
+    color:var(--accent-ink);
+    font-size:30px;
+    font-weight:700;
+    margin-bottom:12px;
+    letter-spacing:-.4px;
+  }
+
+  .h1{
+    color:var(--text);
+    font-size:74px;
+    font-weight:700;
+    line-height:1.02;
+    letter-spacing:-1.2px;
+    margin-bottom:16px;
+  }
+
+  .lead{
+    color:var(--text-muted);
+    font-size:22px;
+    line-height:1.35;
+    font-weight:400;
+    margin-bottom:0;
+  }
+
+  .info-card{
+    position:absolute;
+    right:70px;
+    top:340px;
+    width:340px;
+    background:var(--surface);
+    border:2px solid var(--border);
+    border-radius:20px;
+    padding:20px 22px;
+    z-index:2;
+  }
+
+  .info-kicker{
+    color:var(--accent-ink);
+    font-size:18px;
+    font-weight:700;
+    margin-bottom:8px;
+  }
+
+  .info-title{
+    color:var(--text);
+    font-size:30px;
+    font-weight:700;
+    line-height:1.15;
+  }
+
+  .info-sub{
+    margin-top:10px;
+    color:var(--text-muted);
+    font-size:18px;
+    font-weight:600;
+  }
+</style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="ring"></div>
+
+  <div class="top">
+    <div class="brand">
+      <img src="../public/logo.svg" alt="บิลง่าย" />
+      <span>บิลง่าย<b>.</b></span>
+    </div>
+  </div>
+  <div class="chip"><i></i>macOS & Windows · ข้อมูลอยู่ในเครื่อง</div>
+
+  <div class="content">
+    <div class="kicker">แอปฟรีแลนซ์ไทย</div>
+    <div class="h1">ออกบิลไว<br/>เก็บเงินง่าย</div>
+    <div class="lead">ใบเสนอราคา ใบแจ้งหนี้ ภาษี<br/>ครบจบในแอปเดียว</div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-kicker">Local-First</div>
+    <div class="info-title">ข้อมูลอยู่ในเครื่องคุณ</div>
+    <div class="info-sub">รองรับการจ่ายเงินด้วย QR</div>
+  </div>
+</body>
+</html>

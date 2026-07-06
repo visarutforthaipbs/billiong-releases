@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<title>บิลง่าย Social Thumbnail</title>
+<style>
+  @font-face{font-family:"Inter";font-weight:700;src:url("../public/fonts/Inter-Bold.woff2") format("woff2");}
+  @font-face{font-family:"Inter";font-weight:400;src:url("../public/fonts/Inter-Regular.woff2") format("woff2");}
+  @font-face{font-family:"LINE Seed Sans TH";font-weight:400;src:url("../public/fonts/LINESeedSansTH_W_Rg.woff2") format("woff2");}
+  @font-face{font-family:"LINE Seed Sans TH";font-weight:700;src:url("../public/fonts/LINESeedSansTH_W_Bd.woff2") format("woff2");}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--w:100vw;--h:calc(var(--w)*0.525);--f:calc(var(--w)/1200);}
+  html,body{width:var(--w);height:var(--h);overflow:hidden;font-family:"Inter","LINE Seed Sans TH",system-ui,sans-serif;}
+  #card{
+    position:relative;width:var(--w);height:var(--h);
+    background:#FFF9F3;overflow:hidden;
+    display:flex;flex-direction:column;
+  }
+  .glow{position:absolute;width:58.3vw;height:18.3vw;left:15vw;top:-8.3vw;border-radius:50%;background:rgba(255,107,0,.07);filter:blur(5.8vw);}
+  .ring{position:absolute;width:31.7vw;height:31.7vw;border:0.25vw dashed rgba(232,220,203,.9);border-radius:50%;right:-8.3vw;bottom:-10vw;}
+  .top{position:relative;display:flex;align-items:center;justify-content:space-between;padding:2.83vw 4.33vw 0;z-index:2;}
+  .brand{display:flex;align-items:center;gap:0.83vw;}
+  .brand img{width:2.83vw;height:2.83vw;}
+  .brand .name{font-size:3vw;font-weight:700;color:#2D3436;letter-spacing:-.08vw;line-height:1;}
+  .brand .dot{color:#FF6B00;}
+  .chip{display:flex;align-items:center;gap:0.67vw;padding:0.58vw 1.08vw;border:0.17vw solid #e8dccb;border-radius:99vw;background:#fff;color:#645d54;font-size:1.17vw;font-weight:700;}
+  .chip i{width:0.67vw;height:0.67vw;border-radius:50%;background:#FF6B00;display:block;flex:none;}
+  .body{position:relative;display:flex;flex-direction:column;justify-content:center;padding:0 4.33vw 3.67vw;z-index:2;flex:1;gap:0.83vw;}
+  .kicker{font-size:1.83vw;font-weight:700;color:#B24B00;}
+  .h1{font-size:6vw;font-weight:700;line-height:0.96;letter-spacing:-.1vw;color:#2D3436;}
+  .lead{font-size:1.67vw;line-height:1.3;color:#645d54;margin-top:0.5vw;}
+  .pills{display:flex;gap:1vw;flex-wrap:wrap;margin-top:1.5vw;}
+  .pill{display:inline-flex;align-items:center;gap:0.67vw;padding:0.75vw 1.33vw;border-radius:99vw;border:0.17vw solid #e8dccb;background:#fff;font-size:1.42vw;font-weight:700;color:#2D3436;}
+  .pill b{color:#FF6B00;}
+  .pill.hl{background:#FF6B00;color:#fff;border-color:#FF6B00;}
+  .pill.hl b{color:#fff;}
+</style>
+</head>
+<body>
+<div id="card">
+  <div class="glow"></div><div class="ring"></div>
+  <div class="top">
+    <div class="brand"><img src="../public/logo.svg" alt=""><div class="name">บิลง่าย<span class="dot">.</span></div></div>
+    
+  </div>
+  <div class="body">
+    <div class="kicker">แอปฟรีแลนซ์ไทย</div>
+    <div class="h1">ออกบิลไว เก็บเงินง่าย</div>
+    <div class="lead">ใบเสนอราคา · ใบแจ้งหนี้ · ภาษี ครบจบในแอปเดียว</div>
+    <div class="pills">
+      <div class="pill hl"><b>฿59</b>&nbsp;ตลอดชีพ</div>
+      <div class="pill">VAT · ภ.ง.ด.90/94</div>
+      <div class="pill">Local-First</div>
+      <div class="pill">แบ่งงวดตาม TOR</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
