@@ -48,103 +48,139 @@ const downloadUrls = getDownloadUrls(DOWNLOAD_SOURCE);
 			<div class="flex items-center justify-between shrink-0 pb-1">
 				<h3 class="text-base md:text-lg font-bold text-slate-900 flex items-center gap-2">
 					<Download class="text-primary shrink-0" size={18} />
-					<span>ซื้อ BillNgai Local (Early Bird)</span>
+					<span id="download-dialog-title">ซื้อ BillNgai Local (Early Bird)</span>
 				</h3>
-					<button id="close-dialog-btn" type="button" aria-label="ปิดหน้าต่างซื้อและดาวน์โหลด" class="w-6 h-6 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer text-sm font-semibold">✕</button>
+				<button id="close-dialog-btn" type="button" aria-label="ปิดหน้าต่างซื้อและดาวน์โหลด" class="w-6 h-6 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer text-sm font-semibold">✕</button>
 			</div>
 			
-			<!-- Scrollable Content Area -->
-			<div class="space-y-4 overflow-y-auto pr-1 flex-1 py-1">
-				<!-- Price info -->
-				<div class="text-center text-slate-500 text-xs md:text-sm leading-relaxed">
-					BillNgai Local Lifetime — จ่ายครั้งเดียวใช้งานตลอดชีพ
-					<div class="text-3xl font-extrabold text-primary font-display mt-1">{product.prices.local.earlyBirdLabel}.00</div>
-					<button id="switch-to-pro" type="button" class="mt-1.5 text-[11px] font-semibold text-primary hover:underline cursor-pointer inline-flex items-center gap-1">
-						<span>อยากได้ AI + ทำงานหลายเครื่อง? ซื้อ Pro Early Bird {product.prices.pro.earlyBirdLabel} →</span>
+			<!-- STEP 1 & 2: Payment Stage -->
+			<div id="payment-stage" class="space-y-4 flex-1 flex flex-col min-h-0">
+				<div class="space-y-4 overflow-y-auto pr-1 flex-1 py-1">
+					<!-- Price info -->
+					<div class="text-center text-slate-500 text-xs md:text-sm leading-relaxed">
+						BillNgai Local Lifetime — จ่ายครั้งเดียวใช้งานตลอดชีพ
+						<div class="text-3xl font-extrabold text-primary font-display mt-1">{product.prices.local.earlyBirdLabel}.00</div>
+						<button id="switch-to-pro" type="button" class="mt-1.5 text-[11px] font-semibold text-primary hover:underline cursor-pointer inline-flex items-center gap-1">
+							<span>อยากได้ AI + ทำงานหลายเครื่อง? ซื้อ Pro Early Bird {product.prices.pro.earlyBirdLabel} →</span>
+						</button>
+					</div>
+
+					<!-- PromptPay QR Code -->
+					<div class="bg-slate-50 border border-border-custom rounded-md p-4 text-center">
+						<img 
+							src={product.prices.local.qrPath} 
+							alt="PromptPay QR Code 290 THB" 
+							class="w-40 h-40 mx-auto border border-slate-200 rounded-md p-1.5 bg-white shadow-xs" 
+						/>
+						<div class="text-[11px] text-slate-500 font-medium mt-2 flex items-center justify-center gap-1.5">
+							<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+							สแกนจ่ายชำระเงิน จากนั้นกดปุ่ม "จ่ายแล้ว" ด้านล่าง
+						</div>
+					</div>
+
+					<!-- Honor System & Support Info -->
+					<div class="bg-emerald-50/60 border border-emerald-500/10 rounded-md p-3 text-left space-y-1">
+						<div class="text-[11px] font-bold text-emerald-800 flex items-center justify-between">
+							<span class="flex items-center gap-1.5">
+								<Heart size={12} class="fill-current text-primary shrink-0" />
+								<span>ระบบเชื่อใจกัน (Honor System)</span>
+							</span>
+							<a 
+								href={product.lineUrl} 
+								target="_blank" 
+								rel="noopener noreferrer" 
+								class="text-[10px] text-[#06C755] font-semibold hover:underline inline-flex items-center gap-0.5"
+							>
+								คุยทาง LINE
+							</a>
+						</div>
+						<p class="text-[10px] text-slate-600 leading-normal">
+							สแกนชำระเงินสนับสนุนนักพัฒนาชาวไทยแล้ว กดยืนยันเพื่อรับลิงก์ดาวน์โหลดตัวแอปได้ทันทีครับ
+						</p>
+					</div>
+				</div>
+
+				<!-- Action Buttons for Payment Stage -->
+				<div class="space-y-2 pt-2 border-t border-border-custom shrink-0">
+					<button 
+						id="confirm-payment-btn" 
+						type="button"
+						class="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 text-xs font-bold text-white bg-primary hover:bg-primary-hover rounded-sm shadow-md transition-all active:scale-98 cursor-pointer text-center"
+					>
+						จ่ายแล้ว
+					</button>
+					<button 
+						id="dialog-cancel-btn" 
+						type="button"
+						class="w-full py-2.5 text-xs font-semibold text-slate-500 hover:text-slate-700 hover:bg-slate-50 border border-slate-200 transition-colors cursor-pointer rounded-sm"
+					>
+						ยกเลิก
 					</button>
 				</div>
+			</div>
+			
+			<!-- STEP 3: Download Stage -->
+			<div id="download-stage" class="space-y-4 flex-1 flex flex-col min-h-0 hidden">
+				<div class="space-y-4 overflow-y-auto pr-1 flex-1 py-1">
+					<!-- Thank you message -->
+					<div class="bg-emerald-50 border border-emerald-200 rounded-md p-4 text-center space-y-1.5">
+						<div class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 mb-1">
+							<Heart size={16} class="fill-current text-primary" />
+						</div>
+						<h4 class="text-sm font-bold text-slate-900">ขอบคุณสำหรับการสนับสนุนครับ! 🙏</h4>
+						<p class="text-[10.5px] text-slate-600 leading-normal">
+							สิทธิ์การใช้งานของคุณเป็นแบบตลอดชีพ (Lifetime) เลือกดาวน์โหลดตามระบบปฏิบัติการด้านล่างได้ทันที
+						</p>
+					</div>
 
-				<!-- PromptPay QR Code -->
-				<div class="bg-slate-50 border border-border-custom rounded-md p-4 text-center">
-					<img 
-						src={product.prices.local.qrPath} 
-						alt="PromptPay QR Code 290 THB" 
-						class="w-40 h-40 mx-auto border border-slate-200 rounded-md p-1.5 bg-white shadow-xs" 
-					/>
-					<div class="text-[11px] text-slate-500 font-medium mt-2 flex items-center justify-center gap-1.5">
-						<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
-						สแกนจ่ายผ่านแอปธนาคาร จากนั้นกดดาวน์โหลดด้านล่าง
+					<!-- First-Run Quick Guide -->
+					<div class="bg-amber-50/60 border border-amber-500/10 rounded-md p-3 text-left space-y-1.5">
+						<div class="text-[11px] font-bold text-amber-800 flex items-center gap-1.5">
+							<AlertTriangle size={12} class="text-amber-800 shrink-0" />
+							<span>การเปิดใช้งานครั้งแรก (แอปทำงานแบบ Offline)</span>
+						</div>
+						<ul class="text-[10px] text-slate-600 leading-normal space-y-0.5 list-disc pl-4 font-medium">
+							<li><strong>macOS</strong>: หากขึ้นเตือน “ยืนยันไม่ได้” ไปที่ <strong>System Settings → Privacy &amp; Security → Open Anyway</strong> (มีภาพประกอบตอนกดดาวน์โหลด)</li>
+							<li><strong>Windows</strong>: หากเตือน SmartScreen ให้คลิก <strong>More info → Run anyway</strong></li>
+						</ul>
 					</div>
 				</div>
 
-				<!-- Honor System & Support Info -->
-				<div class="bg-emerald-50/60 border border-emerald-500/10 rounded-md p-3 text-left space-y-1">
-					<div class="text-[11px] font-bold text-emerald-800 flex items-center justify-between">
-						<span class="flex items-center gap-1.5">
-							<Heart size={12} class="fill-current text-primary shrink-0" />
-							<span>ระบบเชื่อใจกัน (Honor System)</span>
-						</span>
+				<!-- Action Buttons for Download Stage -->
+				<div class="space-y-2 pt-2 border-t border-border-custom shrink-0">
+					<div class="text-center text-[10px] font-semibold text-slate-400 mb-1">
+						เลือกดาวน์โหลดตามระบบปฏิบัติการของคุณ
+					</div>
+					<div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
 						<a 
-							href={product.lineUrl} 
-							target="_blank" 
-							rel="noopener noreferrer" 
-							class="text-[10px] text-[#06C755] font-semibold hover:underline inline-flex items-center gap-0.5"
+							href={downloadUrls.mac} 
+							target="_blank"
+							rel="noopener noreferrer"
+							id="download-confirm-btn" 
+							class="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 text-xs font-semibold text-white bg-primary hover:bg-primary-hover rounded-sm shadow-md transition-all active:scale-98 cursor-pointer text-center"
 						>
-							คุยทาง LINE
+							<Download size={14} />
+							macOS (.dmg)
+						</a>
+						<a 
+							href={downloadUrls.windows} 
+							target="_blank"
+							rel="noopener noreferrer"
+							id="download-confirm-btn-win" 
+							class="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 text-xs font-semibold text-white bg-primary hover:bg-primary-hover rounded-sm shadow-md transition-all active:scale-98 cursor-pointer text-center"
+						>
+							<Download size={14} />
+							Windows (.exe)
 						</a>
 					</div>
-					<p class="text-[10px] text-slate-600 leading-normal">
-						สแกนชำระเงินสนับสนุนการพัฒนาแอปฝีมือคนไทยแล้ว สามารถดาวน์โหลดไปใช้งานได้ทันทีครับ
-					</p>
-				</div>
-
-				<!-- First-Run Quick Guide -->
-				<div class="bg-amber-50/60 border border-amber-500/10 rounded-md p-3 text-left space-y-1.5">
-					<div class="text-[11px] font-bold text-amber-800 flex items-center gap-1.5">
-						<AlertTriangle size={12} class="text-amber-800 shrink-0" />
-						<span>การเปิดใช้งานครั้งแรก (แอปทำงานแบบ Offline)</span>
-					</div>
-					<ul class="text-[10px] text-slate-600 leading-normal space-y-0.5 list-disc pl-4 font-medium">
-						<li><strong>macOS</strong>: หากขึ้นเตือน “ยืนยันไม่ได้” ไปที่ <strong>System Settings → Privacy &amp; Security → Open Anyway</strong> (มีภาพประกอบตอนกดดาวน์โหลด)</li>
-						<li><strong>Windows</strong>: หากเตือน SmartScreen ให้คลิก <strong>More info → Run anyway</strong></li>
-					</ul>
-				</div>
-			</div>
-
-			<!-- Action Buttons (Sticky at bottom) -->
-			<div class="space-y-2 pt-2 border-t border-border-custom shrink-0">
-				<div class="text-center text-[10px] font-semibold text-slate-400">
-					เลือกดาวน์โหลดตามระบบปฏิบัติการของคุณ
-				</div>
-				<div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-					<a 
-							href={downloadUrls.mac} 
-						target="_blank"
-						rel="noopener noreferrer"
-						id="download-confirm-btn" 
-						class="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 text-xs font-semibold text-white bg-primary hover:bg-primary-hover rounded-sm shadow-md transition-all active:scale-98 cursor-pointer text-center"
+					<button 
+						id="dialog-done-btn" 
+						type="button"
+						class="w-full py-2.5 text-xs font-semibold text-slate-500 hover:text-slate-700 hover:bg-slate-50 border border-slate-200 transition-colors cursor-pointer rounded-sm"
 					>
-						<Download size={14} />
-						macOS (.dmg)
-					</a>
-					<a 
-						href={downloadUrls.windows} 
-						target="_blank"
-						rel="noopener noreferrer"
-						id="download-confirm-btn-win" 
-						class="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 text-xs font-semibold text-white bg-primary hover:bg-primary-hover rounded-sm shadow-md transition-all active:scale-98 cursor-pointer text-center"
-					>
-						<Download size={14} />
-						Windows (.exe)
-					</a>
+						เสร็จสิ้น
+					</button>
 				</div>
-				<button 
-					id="dialog-cancel-btn" 
-					type="button"
-					class="w-full py-2.5 text-xs font-semibold text-slate-500 hover:text-slate-700 hover:bg-slate-50 border border-slate-200 transition-colors cursor-pointer rounded-sm"
-				>
-					ยกเลิก
-				</button>
 			</div>
 		</div>
 	</dialog>
@@ -270,9 +306,21 @@ const downloadUrls = getDownloadUrls(DOWNLOAD_SOURCE);
 	const closeMacGuideBtn = document.getElementById('close-mac-guide-btn');
 	const macGuideOkBtn = document.getElementById('mac-guide-ok-btn');
 
+	// Sequenced payment & download stages
+	const paymentStage = document.getElementById('payment-stage');
+	const downloadStage = document.getElementById('download-stage');
+	const confirmPaymentBtn = document.getElementById('confirm-payment-btn');
+	const dialogDoneBtn = document.getElementById('dialog-done-btn');
+
+	function resetDialog() {
+		paymentStage?.classList.remove('hidden');
+		downloadStage?.classList.add('hidden');
+	}
+
 	document.querySelectorAll('a[href="#download"]').forEach(link => {
 		link.addEventListener('click', (e) => {
 			e.preventDefault();
+			resetDialog();
 			downloadDialog?.showModal();
 		});
 	});
@@ -295,6 +343,7 @@ const downloadUrls = getDownloadUrls(DOWNLOAD_SOURCE);
 	});
 	document.getElementById('switch-to-local')?.addEventListener('click', () => {
 		proDialog?.close();
+		resetDialog();
 		downloadDialog?.showModal();
 	});
 
@@ -310,6 +359,13 @@ const downloadUrls = getDownloadUrls(DOWNLOAD_SOURCE);
 	dialogCancelBtn?.addEventListener('click', closeDialog);
 	closeMacGuideBtn?.addEventListener('click', closeMacGuide);
 	macGuideOkBtn?.addEventListener('click', closeMacGuide);
+
+	confirmPaymentBtn?.addEventListener('click', () => {
+		paymentStage?.classList.add('hidden');
+		downloadStage?.classList.remove('hidden');
+	});
+
+	dialogDoneBtn?.addEventListener('click', closeDialog);
 
 	downloadConfirmBtn?.addEventListener('click', () => {
 		// macOS: start the download, then show the "Open Anyway" walkthrough popup.
