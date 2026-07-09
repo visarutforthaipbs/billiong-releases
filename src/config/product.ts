@@ -5,10 +5,10 @@ export const product = {
   promptPayId: "0627283058",
   prices: {
     local: {
-      earlyBird: "59.00",
-      earlyBirdLabel: "฿59",
+      earlyBird: "290.00",
+      earlyBirdLabel: "฿290",
       fullLabel: "฿299",
-      qrPath: "/assets/brand/promptpay-59.svg",
+      qrPath: "/assets/brand/promptpay-290.svg",
     },
     pro: {
       earlyBird: "590.00",

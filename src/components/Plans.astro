@@ -3,7 +3,7 @@ import { Check, Download, Sparkles, Cloud, ShieldCheck, ArrowRight } from '@luci
 import { product } from '../config/product';
 
 // BillNgai 2.0 — สองแพ็กเกจตาม PRD: Local คือความเป็นเจ้าของ · Pro คือความสบายใจ
-// Pro ใช้รูปแบบจองสิทธิ์ Early Bird ระหว่างรอลิงก์ติดตั้ง v2.0
+// Pro ใช้รูปแบบการสั่งซื้อและจัดส่ง License Key ทาง LINE ทันที
 
 const localFeatures = [
   "ใบเสนอราคา ใบแจ้งหนี้ ใบเสร็จ ใบกำกับภาษี — ไม่จำกัดจำนวน",
@@ -85,7 +85,7 @@ const proFeatures = [
       <!-- Pro -->
       <div class="bg-[#FFF9F3] border-2 border-primary/60 rounded-md p-6 sm:p-8 shadow-md flex flex-col relative overflow-hidden">
         <span class="absolute top-4 right-4 text-[10px] font-bold text-primary bg-white border border-primary/30 px-2.5 py-1 rounded-full uppercase tracking-wider">
-          จองสิทธิ์ Early Bird
+          ซื้อสิทธิ์ Early Bird
         </span>
         <div class="flex items-center gap-2 mb-1">
           <Sparkles size={18} class="text-primary shrink-0" />
@@ -99,7 +99,7 @@ const proFeatures = [
             <span class="text-4xl font-extrabold text-slate-900 font-display">{product.prices.pro.earlyBirdLabel}</span>
             <span class="text-xs font-bold text-white bg-primary px-2 py-0.5 rounded-full uppercase tracking-wide">Early Bird</span>
           </div>
-          <p class="text-[11px] text-slate-400 mt-1.5">จองราคา Early Bird สำหรับ Pro รุ่นเดสก์ท็อป 2.x ไม่มีรายเดือน — ราคาเต็ม <span class="font-display">{product.prices.pro.fullLabel}</span> หลังช่วงเปิดตัว</p>
+          <p class="text-[11px] text-slate-400 mt-1.5">ราคาพิเศษ Early Bird สำหรับ Pro รุ่นเดสก์ท็อป 2.x ไม่มีรายเดือน — ราคาเต็ม <span class="font-display">{product.prices.pro.fullLabel}</span> หลังช่วงเปิดตัว</p>
         </div>
 
         <ul class="space-y-2.5 text-sm text-slate-600 flex-1">
@@ -120,7 +120,7 @@ const proFeatures = [
           href="#pro-order"
           class="mt-4 w-full inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-bold text-primary bg-white border-2 border-primary hover:bg-primary hover:text-white rounded-sm shadow-sm transition-all active:scale-98 cursor-pointer"
         >
-          <span>จองสิทธิ์ Early Bird {product.prices.pro.earlyBirdLabel}</span>
+          <span>ซื้อ Pro Early Bird {product.prices.pro.earlyBirdLabel}</span>
           <ArrowRight size={15} />
         </a>
       </div>
