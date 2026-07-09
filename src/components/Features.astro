@@ -6,10 +6,22 @@ const sectionSubtitle = "จัดการเรื่องภาษีแล�
 
 const items = [
   {
+    iconUrl: "/assets/brand/icons/set-1-09-edit.png",
+    title: "AI แปลง TOR เป็นใบเสนอราคา",
+    badge: "ใหม่ 2.0 · Pro",
+    description: "วางไฟล์ TOR (PDF/DOCX) หรือข้อความ แล้ว AI ในเครื่องร่างใบเสนอราคาให้ทั้งรายการ ราคา งวดงาน และคำถามที่ควรถามลูกค้า — ประมวลผลออฟไลน์ 100% เอกสารไม่ออกจากเครื่องคุณ"
+  },
+  {
+    iconUrl: "/assets/brand/icons/set-1-18-upload.png",
+    title: "ทำงานต่อได้ทุกเครื่อง (Workspace Sync)",
+    badge: "ใหม่ 2.0 · Pro",
+    description: "เริ่มใบเสนอราคาที่คอมออฟฟิศ กลับบ้านเปิดต่อที่โน้ตบุ๊ก — ซิงก์อัตโนมัติผ่าน Google Drive ของคุณเอง พร้อมสำรองขึ้นคลาวด์และกู้คืนทั้งหมดเมื่อเปลี่ยนคอม"
+  },
+  {
     iconUrl: "/assets/brand/icons/set-1-14-report.png",
     title: "ผู้ช่วยยื่นภาษี ภ.ง.ด.90/94",
     badge: "ใหม่ v1.2",
-    description: "สรุปตัวเลขพร้อมยื่นแยกสองงวดตามจริง: เงินได้พึงประเมิน เครดิตหัก ณ ที่จ่าย และประมาณการภาษีตามขั้นบันได พร้อมแบนเนอร์เตือนเมื่อใกล้กำหนดยื่น"
+    description: "สรุปตัวเลขพร้อมใช้ประกอบการยื่น แยกสองงวดตามจริง: เงินได้พึงประเมิน เครดิตหัก ณ ที่จ่าย และประมาณการภาษีตามขั้นบันได พร้อมแบนเนอร์เตือนเมื่อใกล้กำหนดยื่น"
   },
   {
     iconUrl: "/assets/brand/icons/set-1-02-invoice.png",
@@ -22,6 +34,11 @@ const items = [
     title: "ส่งออกชุดให้บัญชี",
     badge: "ใหม่ v1.2",
     description: "ปุ่มเดียวได้ ZIP ครบชุดของปีภาษี: สรุปยอดรวม VAT ทั้งปี รายเอกสาร รายการใบ 50 ทวิ และรายชื่อลูกค้าพร้อมเลขภาษี — ส่งนักบัญชีจบ ไม่ต้องแคปหน้าจอ"
+  },
+  {
+    iconUrl: "/assets/brand/icons/set-1-08-download.png",
+    title: "Readable Backup — สำรองที่เปิดอ่านได้จริง",
+    description: "BillNgai เก็บข้อมูลเป็นไฟล์ JSON และสแนปช็อตที่อ่าน ตรวจสอบ และกู้คืนได้เอง ไม่ใช่ฐานข้อมูลปิดที่ต้องพึ่งระบบของเราเท่านั้น — ข้อมูลเป็นของคุณ ไม่ติดอยู่ในระบบใคร"
   },
   {
     iconUrl: "/assets/brand/icons/set-1-13-tax.png",
@@ -64,7 +81,7 @@ const items = [
           <div class="p-6 rounded-md border border-border-custom bg-slate-50/10 hover:bg-white hover:-translate-y-1 hover:shadow-md hover:border-primary/20 transition-all duration-300 group">
             <!-- Icon Wrapper -->
             <div class="w-12 h-12 rounded-md bg-[#FFF9F3] border border-border-custom flex items-center justify-center mb-5 group-hover:border-primary/40 group-hover:bg-primary/5 transition-all duration-300">
-              <img src={item.iconUrl} alt={item.title} class="w-7 h-7 object-contain group-hover:scale-105 transition-transform" />
+              <img src={item.iconUrl} alt={item.title} class="w-7 h-7 object-contain object-center group-hover:scale-105 transition-transform" />
             </div>
             <!-- Title -->
             <h3 class="text-lg font-bold text-slate-900 mb-2 flex items-center gap-2">

@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { product } from '../config/product';
 
 interface Props {
 	title?: string;
@@ -7,36 +8,54 @@ interface Props {
 }
 
 const { 
-	title = "บิลง่าย (BillNgai) — ออกบิลไว เก็บเงินง่าย จัดการภาษีฟรีแลนซ์ไทยครบวงจร",
-	description = "แอปออกบิลและจัดการภาษีที่สร้างเพื่อฟรีแลนซ์ไทย — ใบเสนอราคา ใบแจ้งหนี้ ใบกำกับภาษี แบ่งงวดตาม TOR ตัวเลขพร้อมยื่น ภ.ง.ด.90/94 ข้อมูลอยู่ในเครื่องคุณ"
+	title = "บิลง่าย (BillNgai) 2.0 — ออกบิลไว เก็บเงินง่าย จัดการภาษีฟรีแลนซ์ไทย · Local & Pro",
+	description = "แอปออกบิลและจัดการภาษีที่สร้างเพื่อฟรีแลนซ์ไทย — ใบเสนอราคา ใบแจ้งหนี้ ใบกำกับภาษี ภ.ง.ด.90/94 · ใหม่ 2.0: AI แปลง TOR เป็นใบเสนอราคา (ออฟไลน์) และซิงก์หลายเครื่องผ่าน Google Drive ของคุณเอง (Pro) ข้อมูลอยู่ในเครื่องคุณ"
 } = Astro.props;
+
+const localOffer = product.prices.local;
+const proOffer = product.prices.pro;
 
 // Construct Schema.org JSON-LD for AI search engines (AIEO) & Google
 const schemaMarkup = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "บิลง่าย (BillNgai)",
-  "softwareVersion": "1.4.0",
+  "softwareVersion": "2.0.0",
   "operatingSystem": "macOS, Windows",
   "applicationCategory": "BusinessApplication, FinanceApplication",
   "description": description,
-	"image": "/cover-social.png",
+	"image": new URL("/cover-social.png", Astro.site || "https://billiong-releases.pages.dev").href,
+	"url": new URL(Astro.url.pathname, Astro.site || "https://billiong-releases.pages.dev").href,
   "featureList": [
+    "AI แปลง TOR เป็นร่างใบเสนอราคา ประมวลผลออฟไลน์ในเครื่อง (BillNgai Pro)",
+    "ซิงก์ทำงานต่อได้หลายเครื่องผ่าน Google Drive ของผู้ใช้เอง พร้อมกู้คืนบนเครื่องใหม่ (BillNgai Pro)",
     "ผู้ช่วยประมาณการภาษีเงินได้ ภ.ง.ด.90/94 แยกตามสองรอบระยะเวลาสะสมภาษีจริง",
     "ระบบจัดสรรแบ่งรับเงินงวดตามข้อตกลง TOR บนเอกสารใบเสนอราคาพร้อมแถบสถานะความคืบหน้า",
     "ตัวคำนวณและผลิตรูป PromptPay EMVCo SVG QR Code ท้องถิ่นแบบออฟไลน์",
     "ฟังก์ชันดาวน์โหลดรวบรวมชุดไฟล์ ZIP รายการรับเงินและภาษีหัก ณ ที่จ่าย 50 ทวิ ส่งสรรพากร"
   ],
-  "offers": {
-    "@type": "Offer",
-    "price": "59.00",
-    "priceCurrency": "THB",
-    "priceValidUntil": "2027-12-31",
-    "availability": "https://schema.org/InStock"
-  }
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "BillNgai Local Early Bird",
+      "price": localOffer.earlyBird,
+      "priceCurrency": "THB",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock"
+    },
+    {
+      "@type": "Offer",
+      "name": "BillNgai Pro Early Bird Reservation",
+      "price": proOffer.earlyBird,
+      "priceCurrency": "THB",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/PreOrder"
+    }
+  ]
 };
 
 const ogImageUrl = new URL("/cover-social.png", Astro.site || "https://billiong-releases.pages.dev").href;
+const pageUrl = new URL(Astro.url.pathname, Astro.site || "https://billiong-releases.pages.dev").href;
 ---
 
 <!doctype html>
@@ -49,6 +68,7 @@ const ogImageUrl = new URL("/cover-social.png", Astro.site || "https://billiong-
 		
 		<!-- SEO Meta Tags -->
 		<title>{title}</title>
+		<link rel="canonical" href={pageUrl} />
 		<meta name="description" content={description} />
 		<meta name="keywords" content="ออกใบเสร็จ, ใบแจ้งหนี้, ใบกำกับภาษี, คำนวณหัก ณ ที่จ่าย, 50 ทวิ, ฟรีแลนซ์, โปรแกรมบัญชี, macOS, Windows, Local-First, พร้อมเพย์ QR, PromptPay QR, บัญชีภาษีฟรีแลนซ์" />
 		<meta name="robots" content="index, follow" />
@@ -57,6 +77,7 @@ const ogImageUrl = new URL("/cover-social.png", Astro.site || "https://billiong-
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
+		<meta property="og:url" content={pageUrl} />
 		<meta property="og:image" content={ogImageUrl} />
 		
 		<!-- Twitter -->

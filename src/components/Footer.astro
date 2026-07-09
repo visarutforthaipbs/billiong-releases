@@ -1,4 +1,6 @@
 ---
+import { product } from '../config/product';
+
 const text = "© 2026 บิลง่าย (BillNgai) — แอปบิลและภาษีที่สร้างเพื่อฟรีแลนซ์ไทย ข้อมูลอยู่ในเครื่องคุณ";
 ---
 
@@ -16,7 +18,7 @@ const text = "© 2026 บิลง่าย (BillNgai) — แอปบิลแ
       </p>
       <div class="flex justify-center">
         <a 
-          href="https://lin.ee/pSl8nEH" 
+          href={product.lineUrl} 
           target="_blank" 
           rel="noopener noreferrer" 
           class="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-semibold text-white bg-[#06C755] hover:bg-[#05b04b] rounded-sm shadow-xs transition-all active:scale-98 cursor-pointer"

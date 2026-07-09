@@ -9,28 +9,24 @@ import PricingComparison from '../components/PricingComparison.astro';
 import Faq from '../components/Faq.astro';
 import Footer from '../components/Footer.astro';
 import MacOpenGuide from '../components/MacOpenGuide.astro';
-import { Download, Zap, Heart, AlertTriangle } from '@lucide/astro';
+import Plans from '../components/Plans.astro';
+import { Download, Zap, Heart, AlertTriangle, Sparkles, MessageCircle } from '@lucide/astro';
+import { getDownloadUrls, product } from '../config/product';
 
 // Configuration: Change to 'github' to route downloads through GitHub Releases instead of Cloudflare R2
 const DOWNLOAD_SOURCE = 'r2'; 
 
-const macDownloadUrl = DOWNLOAD_SOURCE === 'github'
-  ? "https://github.com/visarutforthaipbs/local-bill-apps/releases/download/v1.4.0/BillNgai-1.4.0-universal.dmg"
-  : "https://pub-4ed16d146bff4f168839661507e1748a.r2.dev/BillNgai-1.4.0-universal.dmg";
-
-const winDownloadUrl = DOWNLOAD_SOURCE === 'github'
-  ? "https://github.com/visarutforthaipbs/local-bill-apps/releases/download/v1.4.0/BillNgai%20Setup%201.4.0.exe"
-  : "https://pub-4ed16d146bff4f168839661507e1748a.r2.dev/BillNgai%20Setup%201.4.0.exe";
+const downloadUrls = getDownloadUrls(DOWNLOAD_SOURCE);
 ---
 
-<Layout title="บิลง่าย (BillNgai) — ออกบิลไว เก็บเงินง่าย จัดการภาษีฟรีแลนซ์ไทยครบจบในที่เดียว">
+<Layout>
 	<!-- Top Scarcity & Urgency Banner -->
 	<div class="bg-secondary text-white text-xs py-2.5 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-1.5 relative z-50 shadow-sm border-b border-border-custom/10">
 		<span class="inline-flex items-center justify-center gap-1 bg-primary text-white text-[10px] font-bold px-2 py-0.5 rounded-lg uppercase tracking-wider animate-pulse">
 			<Zap size={10} class="fill-current shrink-0" />
-			<span>Early Bird Alpha</span>
-		</span>
-		<span>เหลือเพียง <strong class="text-primary font-bold">34 จาก 100 สิทธิ์สุดท้าย</strong> ในราคา <strong class="text-primary font-bold font-display">฿59</strong> <span class="text-white/60 hidden sm:inline">(หลังจากครบสิทธิ์จะปรับราคาขึ้นเป็น <span class="font-display">฿149</span> ทันที)</span></span>
+				<span>ใหม่! {product.versionLabel}</span>
+			</span>
+		<span>เปิดตัวสองแพ็กเกจ — Early Bird: <strong class="text-primary font-bold">Local <span class="font-display">{product.prices.local.earlyBirdLabel}</span> · Pro <span class="font-display">{product.prices.pro.earlyBirdLabel}</span></strong> <span class="text-white/60 hidden sm:inline">(ราคาเต็ม <span class="font-display">{product.prices.local.fullLabel} / {product.prices.pro.fullLabel}</span> หลังช่วงเปิดตัว — จ่ายครั้งเดียว ไม่มีรายเดือน)</span></span>
 	</div>
 
 	<Navbar />
@@ -39,6 +35,7 @@ const winDownloadUrl = DOWNLOAD_SOURCE === 'github'
 		<AppDemo />
 		<Features />
 		<Security />
+		<Plans />
 		<PricingComparison />
 		<Faq />
 	</main>
@@ -51,23 +48,26 @@ const winDownloadUrl = DOWNLOAD_SOURCE === 'github'
 			<div class="flex items-center justify-between shrink-0 pb-1">
 				<h3 class="text-base md:text-lg font-bold text-slate-900 flex items-center gap-2">
 					<Download class="text-primary shrink-0" size={18} />
-					<span>ซื้อลิขสิทธิ์ บิลง่าย (Early Bird)</span>
+					<span>ซื้อ BillNgai Local (Early Bird)</span>
 				</h3>
-				<button id="close-dialog-btn" class="w-6 h-6 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer text-sm font-semibold">✕</button>
+					<button id="close-dialog-btn" type="button" aria-label="ปิดหน้าต่างซื้อและดาวน์โหลด" class="w-6 h-6 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer text-sm font-semibold">✕</button>
 			</div>
 			
 			<!-- Scrollable Content Area -->
 			<div class="space-y-4 overflow-y-auto pr-1 flex-1 py-1">
 				<!-- Price info -->
 				<div class="text-center text-slate-500 text-xs md:text-sm leading-relaxed">
-					สนับสนุนช่วงเริ่มต้น จ่ายครั้งเดียวใช้งานตลอดชีพ
-					<div class="text-3xl font-extrabold text-primary font-display mt-1">฿59.00</div>
+					BillNgai Local Lifetime — จ่ายครั้งเดียวใช้งานตลอดชีพ
+					<div class="text-3xl font-extrabold text-primary font-display mt-1">{product.prices.local.earlyBirdLabel}.00</div>
+					<button id="switch-to-pro" type="button" class="mt-1.5 text-[11px] font-semibold text-primary hover:underline cursor-pointer inline-flex items-center gap-1">
+						<span>อยากได้ AI + ทำงานหลายเครื่อง? จองสิทธิ์ Pro Early Bird {product.prices.pro.earlyBirdLabel} →</span>
+					</button>
 				</div>
 
 				<!-- PromptPay QR Code -->
 				<div class="bg-slate-50 border border-border-custom rounded-md p-4 text-center">
 					<img 
-						src="https://promptpay.io/0627283058/59.png" 
+						src={product.prices.local.qrPath} 
 						alt="PromptPay QR Code 59 THB" 
 						class="w-40 h-40 mx-auto border border-slate-200 rounded-md p-1.5 bg-white shadow-xs" 
 					/>
@@ -85,7 +85,7 @@ const winDownloadUrl = DOWNLOAD_SOURCE === 'github'
 							<span>ระบบเชื่อใจกัน (Honor System)</span>
 						</span>
 						<a 
-							href="https://lin.ee/pSl8nEH" 
+							href={product.lineUrl} 
 							target="_blank" 
 							rel="noopener noreferrer" 
 							class="text-[10px] text-[#06C755] font-semibold hover:underline inline-flex items-center gap-0.5"
@@ -118,8 +118,9 @@ const winDownloadUrl = DOWNLOAD_SOURCE === 'github'
 				</div>
 				<div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
 					<a 
-						href={macDownloadUrl} 
-						download 
+							href={downloadUrls.mac} 
+						target="_blank"
+						rel="noopener noreferrer"
 						id="download-confirm-btn" 
 						class="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 text-xs font-semibold text-white bg-primary hover:bg-primary-hover rounded-sm shadow-md transition-all active:scale-98 cursor-pointer text-center"
 					>
@@ -127,8 +128,9 @@ const winDownloadUrl = DOWNLOAD_SOURCE === 'github'
 						macOS (.dmg)
 					</a>
 					<a 
-						href={winDownloadUrl} 
-						download 
+						href={downloadUrls.windows} 
+						target="_blank"
+						rel="noopener noreferrer"
 						id="download-confirm-btn-win" 
 						class="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 text-xs font-semibold text-white bg-primary hover:bg-primary-hover rounded-sm shadow-md transition-all active:scale-98 cursor-pointer text-center"
 					>
@@ -138,6 +140,88 @@ const winDownloadUrl = DOWNLOAD_SOURCE === 'github'
 				</div>
 				<button 
 					id="dialog-cancel-btn" 
+					type="button"
+					class="w-full py-2.5 text-xs font-semibold text-slate-500 hover:text-slate-700 hover:bg-slate-50 border border-slate-200 transition-colors cursor-pointer rounded-sm"
+				>
+					ยกเลิก
+				</button>
+			</div>
+		</div>
+	</dialog>
+
+	<!-- BillNgai Pro (Early Bird) — PromptPay reservation + ส่งสลิปทาง LINE -->
+	<dialog id="pro-dialog" class="fixed inset-0 m-auto backdrop:bg-slate-900/60 backdrop:backdrop-blur-xs bg-white rounded-lg p-6 mac-window-shadow border border-border-custom w-[calc(100%-2rem)] max-w-md focus:outline-none overflow-hidden">
+		<div class="space-y-4 max-h-[85vh] flex flex-col">
+			<!-- Header -->
+			<div class="flex items-center justify-between shrink-0 pb-1">
+				<h3 class="text-base md:text-lg font-bold text-slate-900 flex items-center gap-2">
+					<Sparkles class="text-primary shrink-0" size={18} />
+					<span>จองสิทธิ์ BillNgai Pro (Early Bird)</span>
+				</h3>
+					<button id="close-pro-dialog-btn" type="button" aria-label="ปิดหน้าต่างจองสิทธิ์ Pro" class="w-6 h-6 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer text-sm font-semibold">✕</button>
+			</div>
+
+			<!-- Scrollable Content Area -->
+			<div class="space-y-4 overflow-y-auto pr-1 flex-1 py-1">
+				<!-- Price info -->
+				<div class="text-center text-slate-500 text-xs md:text-sm leading-relaxed">
+					จองราคา Early Bird ไม่มีรายเดือน — ราคาเต็ม <span class="font-display">{product.prices.pro.fullLabel}</span> หลังช่วงเปิดตัว
+					<div class="text-3xl font-extrabold text-primary font-display mt-1">{product.prices.pro.earlyBirdLabel}.00</div>
+				</div>
+
+				<!-- PromptPay QR Code -->
+				<div class="bg-slate-50 border border-border-custom rounded-md p-4 text-center">
+					<img
+						src={product.prices.pro.qrPath}
+						alt="PromptPay QR Code 590 THB"
+						class="w-40 h-40 mx-auto border border-slate-200 rounded-md p-1.5 bg-white shadow-xs"
+					/>
+					<div class="text-[11px] text-slate-500 font-medium mt-2 flex items-center justify-center gap-1.5">
+						<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+						สแกนจ่ายเพื่อจองสิทธิ์ แล้วทำตามขั้นตอนด้านล่าง
+					</div>
+				</div>
+
+				<!-- How you get the key -->
+				<div class="bg-emerald-50/60 border border-emerald-500/10 rounded-md p-3 text-left space-y-2">
+					<div class="text-[11px] font-bold text-emerald-800 flex items-center gap-1.5">
+						<MessageCircle size={12} class="text-[#06C755] shrink-0" />
+						<span>จองสิทธิ์ Pro ทาง LINE — 3 ขั้นตอน</span>
+					</div>
+					<ol class="text-[11px] text-slate-600 leading-relaxed space-y-1 list-decimal pl-4 font-medium">
+						<li>สแกนจ่าย <strong class="font-display">{product.prices.pro.earlyBirdLabel}</strong> ด้วย QR ด้านบน</li>
+						<li>ส่ง<strong>สลิปโอนเงิน + อีเมลของคุณ</strong>มาทาง LINE (ปุ่มด้านล่าง)</li>
+						<li>ทีมงานยืนยันสิทธิ์ Early Bird และส่งรายละเอียดรับรหัส Pro เมื่อ v2.0 พร้อมดาวน์โหลด</li>
+					</ol>
+					<p class="text-[10px] text-slate-500 leading-normal">
+						หมายเหตุ: ลิงก์ติดตั้ง v2.0 สำหรับ Windows/macOS จะส่งตามภายหลังเมื่อ build พร้อมใช้งาน
+						(สิทธิ์ผูกกับอีเมลคุณ ใช้ได้ทุกเครื่องของคุณเอง)
+					</p>
+				</div>
+			</div>
+
+			<!-- Action Buttons -->
+			<div class="space-y-2 pt-2 border-t border-border-custom shrink-0">
+				<a
+					href={product.lineUrl}
+					target="_blank"
+					rel="noopener noreferrer"
+					id="pro-line-btn"
+					class="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 text-xs font-bold text-white bg-[#06C755] hover:bg-[#05b04c] rounded-sm shadow-md transition-all active:scale-98 cursor-pointer text-center"
+				>
+					<MessageCircle size={14} />
+					ส่งสลิปทาง LINE เพื่อจองสิทธิ์ Pro
+				</a>
+				<button
+					id="switch-to-local"
+					type="button"
+					class="w-full py-2 text-[11px] font-semibold text-slate-500 hover:text-primary transition-colors cursor-pointer"
+				>
+					ใช้เครื่องเดียวก็พอ? BillNgai Local {product.prices.local.earlyBirdLabel} →
+				</button>
+				<button
+					id="pro-dialog-cancel-btn"
+					type="button"
 					class="w-full py-2.5 text-xs font-semibold text-slate-500 hover:text-slate-700 hover:bg-slate-50 border border-slate-200 transition-colors cursor-pointer rounded-sm"
 				>
 					ยกเลิก
@@ -155,7 +239,7 @@ const winDownloadUrl = DOWNLOAD_SOURCE === 'github'
 					<AlertTriangle class="text-amber-500 shrink-0" size={17} />
 					<span>วิธีเปิดแอปครั้งแรกบน macOS</span>
 				</h3>
-				<button id="close-mac-guide-btn" class="w-6 h-6 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer text-sm font-semibold">✕</button>
+				<button id="close-mac-guide-btn" type="button" aria-label="ปิดวิธีเปิดแอปบน macOS" class="w-6 h-6 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer text-sm font-semibold">✕</button>
 			</div>
 
 			<p class="text-[11px] md:text-xs text-slate-500 leading-relaxed shrink-0">
@@ -168,6 +252,7 @@ const winDownloadUrl = DOWNLOAD_SOURCE === 'github'
 
 			<button 
 				id="mac-guide-ok-btn" 
+				type="button"
 				class="w-full py-2.5 text-xs font-bold text-white bg-primary hover:bg-primary-hover transition-colors cursor-pointer rounded-sm shrink-0"
 			>
 				เข้าใจแล้ว
@@ -191,6 +276,27 @@ const winDownloadUrl = DOWNLOAD_SOURCE === 'github'
 			e.preventDefault();
 			downloadDialog?.showModal();
 		});
+	});
+
+	// Pro (Early Bird) reservation dialog — PromptPay + ส่งสลิปทาง LINE
+	const proDialog = document.getElementById('pro-dialog') as HTMLDialogElement;
+	document.querySelectorAll('a[href="#pro-order"]').forEach(link => {
+		link.addEventListener('click', (e) => {
+			e.preventDefault();
+			proDialog?.showModal();
+		});
+	});
+	document.getElementById('close-pro-dialog-btn')?.addEventListener('click', () => proDialog?.close());
+	document.getElementById('pro-dialog-cancel-btn')?.addEventListener('click', () => proDialog?.close());
+	proDialog?.addEventListener('click', (e) => { if (e.target === proDialog) proDialog.close(); });
+	// สลับระหว่างไดอะล็อก Local ↔ Pro — ทุกปุ่มดาวน์โหลด (navbar/hero) เข้าถึงทั้งสองแพ็กเกจได้
+	document.getElementById('switch-to-pro')?.addEventListener('click', () => {
+		downloadDialog?.close();
+		proDialog?.showModal();
+	});
+	document.getElementById('switch-to-local')?.addEventListener('click', () => {
+		proDialog?.close();
+		downloadDialog?.showModal();
 	});
 
 	function closeDialog() {

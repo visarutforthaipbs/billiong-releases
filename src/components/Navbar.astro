@@ -1,10 +1,11 @@
 ---
 import { Menu, X, Download } from '@lucide/astro';
+import { product } from '../config/product';
 
 const links = [
   { label: "ฟีเจอร์หลัก", anchor: "#features" },
   { label: "ความปลอดภัยข้อมูล", anchor: "#security" },
-  { label: "ราคาและการเปรียบเทียบ", anchor: "#pricing" },
+  { label: "แพ็กเกจ Local & Pro", anchor: "#plans" },
   { label: "คำถามที่พบบ่อย", anchor: "#faq" }
 ];
 ---
@@ -38,7 +39,7 @@ const links = [
       <!-- Desktop CTA Buttons -->
       <div class="hidden md:flex items-center gap-3">
         <a
-          href="https://lin.ee/pSl8nEH"
+          href={product.lineUrl}
           target="_blank"
           rel="noopener noreferrer"
           class="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold text-[#06C755] bg-[#06C755]/10 border border-[#06C755]/20 rounded-full hover:bg-[#06C755]/20 transition-all shadow-xs cursor-pointer"
@@ -92,7 +93,7 @@ const links = [
       ))}
       <div class="pt-3 pb-1 border-t border-border-custom px-3 space-y-2">
         <a
-          href="https://lin.ee/pSl8nEH"
+          href={product.lineUrl}
           target="_blank"
           rel="noopener noreferrer"
           class="flex items-center justify-center gap-2 w-full px-4 py-3 text-base font-semibold text-[#06C755] bg-[#06C755]/10 border border-[#06C755]/20 rounded-lg hover:bg-[#06C755]/20 transition-colors shadow-xs mobile-link"
@@ -135,7 +136,7 @@ const links = [
   mobileLinks.forEach(link => {
     link.addEventListener('click', () => {
       mobileMenu?.classList.add('hidden');
-      menuIcon?.classList.remove('remove');
+      menuIcon?.classList.remove('hidden');
       closeIcon?.classList.add('hidden');
       mobileMenuButton?.setAttribute('aria-expanded', 'false');
     });

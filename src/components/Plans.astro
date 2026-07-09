@@ -1,0 +1,130 @@
+---
+import { Check, Download, Sparkles, Cloud, ShieldCheck, ArrowRight } from '@lucide/astro';
+import { product } from '../config/product';
+
+// BillNgai 2.0 — สองแพ็กเกจตาม PRD: Local คือความเป็นเจ้าของ · Pro คือความสบายใจ
+// Pro ใช้รูปแบบจองสิทธิ์ Early Bird ระหว่างรอลิงก์ติดตั้ง v2.0
+
+const localFeatures = [
+  "ใบเสนอราคา ใบแจ้งหนี้ ใบเสร็จ ใบกำกับภาษี — ไม่จำกัดจำนวน",
+  "ภาษีไทยครบ: VAT · หัก ณ ที่จ่าย/ใบ 50 ทวิ · ประมาณการ ภ.ง.ด.90/94",
+  "แบ่งงวดตาม TOR + PromptPay QR ในตัว",
+  "ส่งออกชุดให้บัญชี (CSV/ZIP) และร่าง e-Tax XML",
+  "สำรองและกู้คืนในเครื่อง — คลิกเดียว",
+  "ข้อมูลอยู่ในเครื่องคุณ 100% ทำงานออฟไลน์ได้เสมอ",
+];
+
+const proFeatures = [
+  "ทุกอย่างที่มีใน Local",
+  "AI แปลง TOR เป็นใบเสนอราคา — ประมวลผลออฟไลน์ในเครื่องคุณ",
+  "ทำงานต่อได้ทุกเครื่อง — ซิงก์ผ่าน Google Drive ของคุณเอง",
+  "สำรองขึ้นคลาวด์อัตโนมัติ + กู้คืนเมื่อเปลี่ยนคอม",
+  "ประเภทเงินได้ (มาตรา 40) + สรุปภาษีตามประเภท",
+  "ปกป้องข้อมูลการเงินเมื่อแก้ไขชนกันระหว่างเครื่อง",
+];
+---
+
+<section id="plans" class="py-20 md:py-28 bg-white border-t border-border-custom relative overflow-hidden">
+  <div class="absolute top-[-5%] right-[-10%] w-[500px] h-[300px] bg-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Header -->
+    <div class="text-center max-w-2xl mx-auto mb-14 space-y-4">
+      <span class="text-xs font-bold text-primary bg-primary/10 border border-primary/20 px-3 py-1 rounded-full uppercase tracking-wider">
+        ใหม่ใน BillNgai 2.0
+      </span>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        สองแพ็กเกจ จ่ายครั้งเดียว ไม่มีรายเดือน
+      </h2>
+      <p class="text-slate-500 text-sm md:text-base leading-relaxed">
+        Local คือความเป็นเจ้าของ — Pro คือความสบายใจ<br class="hidden sm:block" />
+        ไม่ว่าแพ็กเกจไหน <strong class="text-slate-900 font-semibold">BillNgai ไม่เก็บเอกสารลูกค้าบนเซิร์ฟเวอร์เรา</strong>
+      </p>
+      <p class="text-slate-400 text-xs md:text-sm leading-relaxed">
+        Local เหมาะกับคนที่ออกบิลในเครื่องตัวเอง · Pro เหมาะกับคนทำงานหลายเครื่อง อยากได้สำรองอัตโนมัติ และลดงานเอกสารด้วย AI
+      </p>
+    </div>
+
+    <!-- Plan Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+
+      <!-- Local -->
+      <div class="bg-white border border-border-custom rounded-md p-6 sm:p-8 shadow-sm flex flex-col">
+        <div class="flex items-center gap-2 mb-1">
+          <ShieldCheck size={18} class="text-primary shrink-0" />
+          <h3 class="text-lg font-extrabold text-slate-900">BillNgai Local</h3>
+        </div>
+        <p class="text-xs text-slate-500 mb-5">ซื้อครั้งเดียว ใช้ทำเอกสารได้ตลอด ข้อมูลไม่ออกจากเครื่อง</p>
+
+        <div class="mb-6">
+          <div class="flex items-baseline gap-2">
+            <span class="text-4xl font-extrabold text-slate-900 font-display">{product.prices.local.earlyBirdLabel}</span>
+            <span class="text-xs font-bold text-white bg-primary px-2 py-0.5 rounded-full uppercase tracking-wide">Early Bird</span>
+          </div>
+          <p class="text-[11px] text-slate-400 mt-1.5">จ่ายครั้งเดียว ใช้ได้ตลอดชีพ — ราคาเต็ม <span class="font-display">{product.prices.local.fullLabel}</span> เมื่อเปิดตัว Pro</p>
+        </div>
+
+        <ul class="space-y-2.5 text-sm text-slate-600 flex-1">
+          {localFeatures.map((f) => (
+            <li class="flex items-start gap-2.5">
+              <Check size={15} class="text-primary shrink-0 mt-0.5" />
+              <span>{f}</span>
+            </li>
+          ))}
+        </ul>
+
+        <a
+          href="#download"
+          class="mt-7 w-full inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-bold text-white bg-primary hover:bg-primary-hover rounded-sm shadow-sm transition-all active:scale-98 cursor-pointer"
+        >
+          <Download size={15} />
+          ซื้อและดาวน์โหลดทันที
+        </a>
+      </div>
+
+      <!-- Pro -->
+      <div class="bg-[#FFF9F3] border-2 border-primary/60 rounded-md p-6 sm:p-8 shadow-md flex flex-col relative overflow-hidden">
+        <span class="absolute top-4 right-4 text-[10px] font-bold text-primary bg-white border border-primary/30 px-2.5 py-1 rounded-full uppercase tracking-wider">
+          จองสิทธิ์ Early Bird
+        </span>
+        <div class="flex items-center gap-2 mb-1">
+          <Sparkles size={18} class="text-primary shrink-0" />
+          <h3 class="text-lg font-extrabold text-slate-900">BillNgai Pro</h3>
+          <span class="text-[10px] font-bold text-slate-500">Work Everywhere</span>
+        </div>
+        <p class="text-xs text-slate-500 mb-5">เริ่มใบเสนอราคาที่คอมออฟฟิศ กลับบ้านเปิดต่อที่โน้ตบุ๊ก เปลี่ยนคอมใหม่ก็เรียกคืนข้อมูลทั้งหมดได้</p>
+
+        <div class="mb-6">
+          <div class="flex items-baseline gap-2">
+            <span class="text-4xl font-extrabold text-slate-900 font-display">{product.prices.pro.earlyBirdLabel}</span>
+            <span class="text-xs font-bold text-white bg-primary px-2 py-0.5 rounded-full uppercase tracking-wide">Early Bird</span>
+          </div>
+          <p class="text-[11px] text-slate-400 mt-1.5">จองราคา Early Bird สำหรับ Pro รุ่นเดสก์ท็อป 2.x ไม่มีรายเดือน — ราคาเต็ม <span class="font-display">{product.prices.pro.fullLabel}</span> หลังช่วงเปิดตัว</p>
+        </div>
+
+        <ul class="space-y-2.5 text-sm text-slate-600 flex-1">
+          {proFeatures.map((f) => (
+            <li class="flex items-start gap-2.5">
+              <Check size={15} class="text-primary shrink-0 mt-0.5" />
+              <span>{f}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div class="mt-5 flex items-start gap-2 text-[11px] text-slate-500 bg-white/70 border border-border-custom rounded-md p-3">
+          <Cloud size={13} class="text-primary shrink-0 mt-0.5" />
+          <span>ข้อมูลซิงก์ผ่าน <strong class="text-slate-700">Google Drive ของคุณเอง</strong> — BillNgai ไม่มีเซิร์ฟเวอร์เก็บใบแจ้งหนี้ ลูกค้า หรือข้อมูลภาษีของคุณ</span>
+        </div>
+
+        <a
+          href="#pro-order"
+          class="mt-4 w-full inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-bold text-primary bg-white border-2 border-primary hover:bg-primary hover:text-white rounded-sm shadow-sm transition-all active:scale-98 cursor-pointer"
+        >
+          <span>จองสิทธิ์ Early Bird {product.prices.pro.earlyBirdLabel}</span>
+          <ArrowRight size={15} />
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
