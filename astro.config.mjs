@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://billiong-releases.pages.dev',
+  site: 'https://billiong-landing.pages.dev',
   vite: {
     plugins: [tailwindcss()],
   },
