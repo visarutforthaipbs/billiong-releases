@@ -1,6 +1,6 @@
 export const product = {
   name: "บิลง่าย (BillNgai)",
-  versionLabel: "BillNgai 2.0",
+  versionLabel: "BillNgai 2.0.1",
   lineUrl: "https://lin.ee/pSl8nEH",
   promptPayId: "0627283058",
   prices: {
@@ -19,12 +19,12 @@ export const product = {
   },
   downloads: {
     mac: {
-      github: "https://github.com/visarutforthaipbs/local-bill-apps/releases/download/v2.0.0/BillNgai-2.0.0-universal.dmg",
-      r2: "https://pub-4ed16d146bff4f168839661507e1748a.r2.dev/BillNgai-2.0.0-universal.dmg",
+      github: "https://github.com/visarutforthaipbs/local-bill-apps/releases/download/v2.0.1/BillNgai-2.0.1-universal.dmg",
+      r2: "https://pub-4ed16d146bff4f168839661507e1748a.r2.dev/BillNgai-2.0.1-universal.dmg",
     },
     windows: {
-      github: "https://github.com/visarutforthaipbs/local-bill-apps/releases/download/v2.0.0/BillNgai%20Setup%202.0.0.exe",
-      r2: "https://pub-4ed16d146bff4f168839661507e1748a.r2.dev/BillNgai%20Setup%202.0.0.exe",
+      github: "https://github.com/visarutforthaipbs/local-bill-apps/releases/download/v2.0.1/BillNgai%20Setup%202.0.1.exe",
+      r2: "https://pub-4ed16d146bff4f168839661507e1748a.r2.dev/BillNgai%20Setup%202.0.1.exe",
     },
   },
 } as const;
