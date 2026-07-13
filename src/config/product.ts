@@ -5,16 +5,16 @@ export const product = {
   promptPayId: "0627283058",
   prices: {
     local: {
-      earlyBird: "290.00",
-      earlyBirdLabel: "฿290",
-      fullLabel: "฿299",
-      qrPath: "/assets/brand/promptpay-290.svg",
+      earlyBird: "0",
+      earlyBirdLabel: "ฟรี",
+      fullLabel: "ฟรี",
+      qrPath: "/assets/brand/promptpay-599.svg",
     },
     pro: {
-      earlyBird: "590.00",
-      earlyBirdLabel: "฿590",
-      fullLabel: "฿1,990",
-      qrPath: "/assets/brand/promptpay-590.svg",
+      earlyBird: "599.00",
+      earlyBirdLabel: "฿599",
+      fullLabel: "฿1,900",
+      qrPath: "/assets/brand/promptpay-599.svg",
     },
   },
   downloads: {

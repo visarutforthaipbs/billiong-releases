@@ -26,7 +26,7 @@ const downloadUrls = getDownloadUrls(DOWNLOAD_SOURCE);
 			<Zap size={10} class="fill-current shrink-0" />
 				<span>ใหม่! {product.versionLabel}</span>
 			</span>
-		<span>เปิดตัวสองแพ็กเกจ — Early Bird: <strong class="text-primary font-bold">Local <span class="font-display">{product.prices.local.earlyBirdLabel}</span> · Pro <span class="font-display">{product.prices.pro.earlyBirdLabel}</span></strong> <span class="text-white/60 hidden sm:inline">(ราคาเต็ม <span class="font-display">{product.prices.local.fullLabel} / {product.prices.pro.fullLabel}</span> หลังช่วงเปิดตัว — จ่ายครั้งเดียว ไม่มีรายเดือน)</span></span>
+		<span>เปิดตัวสองแพ็กเกจ — <strong class="text-primary font-bold">Local <span class="font-display">{product.prices.local.earlyBirdLabel}</span> · Pro Early Bird <span class="font-display">{product.prices.pro.earlyBirdLabel}</span></strong> <span class="text-white/60 hidden sm:inline">(Pro ราคาเต็ม <span class="font-display">{product.prices.pro.fullLabel}</span> หลังช่วงเปิดตัว — จ่ายครั้งเดียว ไม่มีรายเดือน)</span></span>
 	</div>
 
 	<Navbar />
@@ -48,7 +48,7 @@ const downloadUrls = getDownloadUrls(DOWNLOAD_SOURCE);
 			<div class="flex items-center justify-between shrink-0 pb-1">
 				<h3 class="text-base md:text-lg font-bold text-slate-900 flex items-center gap-2">
 					<Download class="text-primary shrink-0" size={18} />
-					<span id="download-dialog-title">ซื้อ BillNgai Local (Early Bird)</span>
+					<span id="download-dialog-title">ดาวน์โหลด BillNgai Local — ฟรี</span>
 				</h3>
 				<button id="close-dialog-btn" type="button" aria-label="ปิดหน้าต่างซื้อและดาวน์โหลด" class="w-6 h-6 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer text-sm font-semibold">✕</button>
 			</div>
@@ -69,7 +69,7 @@ const downloadUrls = getDownloadUrls(DOWNLOAD_SOURCE);
 					<div class="bg-slate-50 border border-border-custom rounded-md p-4 text-center">
 						<img 
 							src={product.prices.local.qrPath} 
-							alt="PromptPay QR Code 290 THB" 
+							alt="PromptPay QR"
 							class="w-40 h-40 mx-auto border border-slate-200 rounded-md p-1.5 bg-white shadow-xs" 
 						/>
 						<div class="text-[11px] text-slate-500 font-medium mt-2 flex items-center justify-center gap-1.5">
@@ -127,9 +127,9 @@ const downloadUrls = getDownloadUrls(DOWNLOAD_SOURCE);
 						<div class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 mb-1">
 							<Heart size={16} class="fill-current text-primary" />
 						</div>
-						<h4 class="text-sm font-bold text-slate-900">ขอบคุณสำหรับการสนับสนุนครับ! 🙏</h4>
+						<h4 class="text-sm font-bold text-slate-900">BillNgai Local ใช้ฟรี 🎉</h4>
 						<p class="text-[10.5px] text-slate-600 leading-normal">
-							สิทธิ์การใช้งานของคุณเป็นแบบตลอดชีพ (Lifetime) เลือกดาวน์โหลดตามระบบปฏิบัติการด้านล่างได้ทันที
+							เลือกดาวน์โหลดตามระบบปฏิบัติการด้านล่างได้เลย ไม่มีค่าใช้จ่าย ข้อมูลอยู่ในเครื่องคุณ
 						</p>
 					</div>
 
@@ -209,7 +209,7 @@ const downloadUrls = getDownloadUrls(DOWNLOAD_SOURCE);
 				<div class="bg-slate-50 border border-border-custom rounded-md p-4 text-center">
 					<img
 						src={product.prices.pro.qrPath}
-						alt="PromptPay QR Code 590 THB"
+						alt="PromptPay QR Code 599 THB"
 						class="w-40 h-40 mx-auto border border-slate-200 rounded-md p-1.5 bg-white shadow-xs"
 					/>
 					<div class="text-[11px] text-slate-500 font-medium mt-2 flex items-center justify-center gap-1.5">
@@ -313,8 +313,9 @@ const downloadUrls = getDownloadUrls(DOWNLOAD_SOURCE);
 	const dialogDoneBtn = document.getElementById('dialog-done-btn');
 
 	function resetDialog() {
-		paymentStage?.classList.remove('hidden');
-		downloadStage?.classList.add('hidden');
+		// BillNgai Local is free — skip the payment step, go straight to download
+		paymentStage?.classList.add('hidden');
+		downloadStage?.classList.remove('hidden');
 	}
 
 	document.querySelectorAll('a[href="#download"]').forEach(link => {
