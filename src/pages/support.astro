@@ -1,0 +1,311 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+import { MessageCircle, Mail, ArrowLeft } from '@lucide/astro';
+import { product } from '../config/product';
+
+// หน้านี้ใช้เป็น Support URL ใน App Store Connect (แก้ reject Guideline 1.5)
+// ห้ามมีราคา / PromptPay QR / ปุ่มดาวน์โหลด / CTA ขาย บนหน้านี้
+// อย่า import product.prices เข้าหน้านี้ — ดู drafts/support-page-th.md
+const SUPPORT_EMAIL = 'visarut298@gmail.com';
+
+const faqs = [
+  {
+    q: 'เปิดแอปครั้งแรกแล้ว Mac ขึ้นเตือน',
+    open: true,
+    note: 'เจอเฉพาะคนที่โหลดแอปจากเว็บของเรา — โหลดจาก Mac App Store ไม่เจอขั้นตอนนี้',
+  },
+  { q: 'เปิดใช้งาน Pro ยังไง' },
+  { q: 'รหัส Pro หาย ทำยังไง' },
+  { q: 'ย้ายไปเครื่องใหม่ ข้อมูลกับ Pro จะเป็นยังไง' },
+  { q: 'ข้อมูลจะหายไหม ถ้าคอมพัง' },
+  { q: 'AI แปลง TOR เป็นใบแจ้งหนี้ ใช้ยังไง' },
+  { q: 'เวอร์ชัน App Store กับเวอร์ชันเว็บ ต่างกันยังไง' },
+  { q: 'ใช้แทนนักบัญชีได้ไหม' },
+];
+---
+
+<Layout
+  variant="support"
+  title="ศูนย์ช่วยเหลือ BillNgai (บิลง่าย)"
+  description="ศูนย์ช่วยเหลือ BillNgai ถามแอดมินทาง LINE หรืออีเมลได้ทุกวัน พร้อมวิธีแก้ปัญหาที่เจอบ่อย"
+>
+  <!-- Minimal header — ไม่ใช้ Navbar ของหน้าแรก เพราะมีปุ่ม #download ที่ใช้ไม่ได้บนหน้านี้ -->
+  <header class="border-b border-border-custom bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5 group">
+        <img src="/logo.svg" alt="BillNgai" class="w-7 h-7" />
+        <span class="font-extrabold text-slate-900 text-sm">บิลง่าย <span class="text-slate-400 font-bold">BillNgai</span></span>
+      </a>
+      <a href="/" class="text-xs font-semibold text-slate-500 hover:text-primary transition-colors inline-flex items-center gap-1.5">
+        <ArrowLeft size={13} />
+        กลับหน้าแรก
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="bg-[#FFF9F3] border-b border-border-custom">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 py-12 md:py-16 text-center space-y-3">
+        <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">ศูนย์ช่วยเหลือ BillNgai</h1>
+        <p class="text-slate-600 text-sm md:text-base leading-relaxed">
+          ติดตรงไหนบอกได้เลย มีคนอ่านทุกข้อความจริง ๆ<br class="hidden sm:block" />
+          ด้านล่างมีวิธีแก้ปัญหาที่เจอบ่อย ถ้าไม่ตรงกับของคุณ ทักแอดมินได้ทันที
+        </p>
+      </div>
+    </section>
+
+    <!-- ติดต่อ (บล็อกหลัก — ต้องเห็นทันทีไม่ต้องเลื่อนจอ) -->
+    <section class="max-w-3xl mx-auto px-4 sm:px-6 py-10 md:py-12">
+      <div class="text-center space-y-2 mb-7">
+        <h2 class="text-xl md:text-2xl font-extrabold text-slate-900">ติดต่อเราได้ 2 ทาง</h2>
+        <p class="text-sm text-slate-500 leading-relaxed">
+          ทักมาได้ทุกเรื่อง ปัญหาการติดตั้ง การใช้งาน รหัส Pro หรือแค่อยากถามเฉย ๆ<br class="hidden sm:block" />
+          คนตอบเป็นคนทำแอปเอง ไม่ใช่บอท
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch">
+        <!-- LINE -->
+        <div class="bg-[#FFF9F3] border border-primary/25 rounded-md p-5 flex flex-col text-center">
+          <h3 class="text-base font-extrabold text-slate-900">LINE</h3>
+          <p class="text-[11px] text-primary font-semibold mt-0.5 mb-4">เร็วที่สุด แนะนำทางนี้</p>
+          <a
+            href={product.lineUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-bold text-white bg-primary hover:bg-primary-hover rounded-sm shadow-sm transition-all active:scale-98"
+          >
+            <MessageCircle size={14} />
+            ทักแอดมินทาง LINE
+          </a>
+          <p class="text-[11px] text-slate-500 mt-2.5 leading-normal">ปกติตอบภายในไม่กี่นาที ช้าสุดไม่เกิน 24 ชั่วโมง</p>
+          <p class="text-[10px] text-slate-400 mt-auto pt-2 leading-normal">เปิดจากคอมพิวเตอร์ สแกน QR ในหน้า LINE ด้วยมือถือได้</p>
+        </div>
+
+        <!-- อีเมล -->
+        <div class="bg-[#FFF9F3] border border-primary/25 rounded-md p-5 flex flex-col text-center">
+          <h3 class="text-base font-extrabold text-slate-900">อีเมล</h3>
+          <p class="text-[11px] text-slate-500 font-semibold mt-0.5 mb-4">ไม่มี LINE ก็ส่งอีเมลมาได้</p>
+          <a
+            href={`mailto:${SUPPORT_EMAIL}`}
+            class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-bold text-white bg-primary hover:bg-primary-hover rounded-sm shadow-sm transition-all active:scale-98"
+          >
+            <Mail size={14} />
+            ส่งอีเมลหาเรา
+          </a>
+          <p class="text-[11px] text-slate-600 font-semibold mt-2.5 select-all break-all">{SUPPORT_EMAIL}</p>
+          <p class="text-[11px] text-slate-500 mt-1 leading-normal">เราอ่านทุกฉบับ แต่ตอบช้ากว่าทาง LINE</p>
+        </div>
+      </div>
+
+      <!-- บรรทัดอังกฤษบรรทัดเดียว (สำหรับ reviewer) — ห้ามแปลทั้งหน้า ห้ามเพิ่มที่อื่น -->
+      <p class="text-[11px] text-slate-400 text-center mt-5 leading-relaxed">
+        Support is available in Thai and English. Email <a href={`mailto:${SUPPORT_EMAIL}`} class="underline hover:text-primary">{SUPPORT_EMAIL}</a> or message us on LINE.
+      </p>
+    </section>
+
+    <!-- ทักมาแล้วบอกอะไรบ้าง -->
+    <section class="border-y border-border-custom bg-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 py-10">
+        <h2 class="text-lg font-extrabold text-slate-900 mb-3">บอกข้อมูลพวกนี้มาด้วย จะช่วยได้เร็วขึ้น</h2>
+        <ul class="space-y-1.5 text-sm text-slate-600 list-disc pl-5">
+          <li>เครื่องที่ใช้ — Mac หรือ Windows</li>
+          <li>โหลดแอปมาจากไหน — App Store หรือเว็บของเรา</li>
+          <li>อาการที่เจอ เล่าสั้น ๆ ก็พอ</li>
+          <li>ถ้ามีข้อความเตือนขึ้นจอ ส่งสกรีนช็อตมาด้วยได้</li>
+        </ul>
+        <p class="text-xs text-slate-400 mt-3">ไม่มีข้อมูลพวกนี้ก็ทักมาได้ ไม่ต้องเตรียมอะไรก่อน</p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
+      <h2 class="text-xl md:text-2xl font-extrabold text-slate-900 mb-6">เรื่องที่ถามกันบ่อย</h2>
+
+      <div class="space-y-2.5">
+        <details class="group bg-white border border-border-custom rounded-md" open>
+          <summary class="cursor-pointer list-none px-4 py-3.5 text-sm font-bold text-slate-900 flex items-center justify-between gap-3">
+            <span>เปิดแอปครั้งแรกแล้ว Mac ขึ้นเตือน</span>
+            <span class="text-slate-400 group-open:rotate-45 transition-transform shrink-0 text-base leading-none">+</span>
+          </summary>
+          <div class="px-4 pb-4 text-sm text-slate-600 space-y-2.5 leading-relaxed border-t border-border-custom pt-3">
+            <p class="text-[11px] text-slate-400">ข้อนี้เจอเฉพาะคนที่โหลดแอปจากเว็บของเรา โหลดจาก Mac App Store ไม่เจอขั้นตอนนี้ เพราะ Apple ตรวจแอปให้ตั้งแต่ต้นทางแล้ว</p>
+            <p>เปิดแอปครั้งแรกแล้ว macOS อาจขึ้นว่า "ไม่สามารถตรวจสอบนักพัฒนาได้" หรือ "แอปเสียหาย" ไม่ต้องตกใจ ไฟล์ไม่ได้เสีย เป็นเรื่องปกติของแอปที่โหลดนอก App Store</p>
+            <p class="font-semibold text-slate-800">วิธีเปิด</p>
+            <ol class="list-decimal pl-5 space-y-1">
+              <li>คลิกขวาที่ไอคอน BillNgai (หรือกด Control ค้างแล้วคลิก)</li>
+              <li>เลือก "เปิด"</li>
+              <li>มีกล่องเตือนขึ้นอีกรอบ กด "เปิด" อีกที</li>
+            </ol>
+            <p>ทำแค่ครั้งแรกครั้งเดียว ครั้งต่อไปดับเบิลคลิกเปิดได้ตามปกติ</p>
+            <p class="font-semibold text-slate-800">ถ้าไม่มีปุ่ม "เปิด" ในกล่องเตือน (macOS รุ่นใหม่)</p>
+            <ol class="list-decimal pl-5 space-y-1">
+              <li>ไปที่ ตั้งค่าระบบ → ความเป็นส่วนตัวและความปลอดภัย</li>
+              <li>เลื่อนลงมาจะเห็นข้อความเกี่ยวกับ BillNgai</li>
+              <li>กด "เปิดโดยไม่สนใจ" แล้วลองเปิดแอปอีกที</li>
+            </ol>
+          </div>
+        </details>
+
+        <details class="group bg-white border border-border-custom rounded-md">
+          <summary class="cursor-pointer list-none px-4 py-3.5 text-sm font-bold text-slate-900 flex items-center justify-between gap-3">
+            <span>เปิดใช้งาน Pro ยังไง</span>
+            <span class="text-slate-400 group-open:rotate-45 transition-transform shrink-0 text-base leading-none">+</span>
+          </summary>
+          <div class="px-4 pb-4 text-sm text-slate-600 space-y-2.5 leading-relaxed border-t border-border-custom pt-3">
+            <p>ขั้นตอนต่างกันตามที่ซื้อมา เลือกหัวข้อที่ตรงกับคุณ</p>
+            <p class="font-semibold text-slate-800">ซื้อ Pro ใน Mac App Store</p>
+            <p>Pro ผูกกับ Apple ID ของคุณอัตโนมัติ ไม่มีรหัสให้กรอก ถ้าลงแอปใหม่แล้ว Pro ยังไม่กลับมา ทำแบบนี้</p>
+            <ol class="list-decimal pl-5 space-y-1">
+              <li>เปิด BillNgai → ตั้งค่า → พื้นที่ทำงาน</li>
+              <li>กด "ดูแพ็กเกจ Pro"</li>
+              <li>กด "กู้คืนการซื้อ"</li>
+            </ol>
+            <p>ใช้ Apple ID เดิมที่ซื้อไว้ Pro จะกลับมาเอง ทำแล้วยังไม่กลับมา ทักแอดมินทาง LINE ได้เลย</p>
+            <p class="font-semibold text-slate-800">ซื้อ Pro จากเว็บของเรา</p>
+            <p>หลังชำระเงิน เราส่งรหัส Pro ให้ทาง LINE วิธีใส่รหัส</p>
+            <ol class="list-decimal pl-5 space-y-1">
+              <li>เปิด BillNgai → ตั้งค่า → พื้นที่ทำงาน</li>
+              <li>กด "ดูแพ็กเกจ Pro"</li>
+              <li>วางรหัส แล้วกด "เปิดใช้งานรหัส"</li>
+            </ol>
+            <p>เท่านี้ใช้ Pro ได้ทันที รหัสเดียวใช้ได้กับทุกเครื่องของคุณเอง อัปเดตแอปเป็นเวอร์ชันใหม่แล้วรหัสยังใช้ต่อได้ ไม่ต้องขอใหม่</p>
+          </div>
+        </details>
+
+        <details class="group bg-white border border-border-custom rounded-md">
+          <summary class="cursor-pointer list-none px-4 py-3.5 text-sm font-bold text-slate-900 flex items-center justify-between gap-3">
+            <span>รหัส Pro หาย ทำยังไง</span>
+            <span class="text-slate-400 group-open:rotate-45 transition-transform shrink-0 text-base leading-none">+</span>
+          </summary>
+          <div class="px-4 pb-4 text-sm text-slate-600 space-y-2.5 leading-relaxed border-t border-border-custom pt-3">
+            <p>ทักมาทาง LINE บอกอีเมลหรือชื่อที่ใช้ซื้อไว้ เราเช็คจากประวัติการขายแล้วส่งรหัสเดิมให้ใหม่ ไม่มีค่าใช้จ่ายเพิ่ม</p>
+            <p>ส่วนคนที่ซื้อ Pro ใน Mac App Store ไม่ต้องห่วงเรื่องรหัสหาย เพราะไม่มีรหัสตั้งแต่แรก กด "กู้คืนการซื้อ" ได้เลย</p>
+          </div>
+        </details>
+
+        <details class="group bg-white border border-border-custom rounded-md">
+          <summary class="cursor-pointer list-none px-4 py-3.5 text-sm font-bold text-slate-900 flex items-center justify-between gap-3">
+            <span>ย้ายไปเครื่องใหม่ ข้อมูลกับ Pro จะเป็นยังไง</span>
+            <span class="text-slate-400 group-open:rotate-45 transition-transform shrink-0 text-base leading-none">+</span>
+          </summary>
+          <div class="px-4 pb-4 text-sm text-slate-600 space-y-2.5 leading-relaxed border-t border-border-custom pt-3">
+            <p class="font-semibold text-slate-800">ใช้ BillNgai Local (ไม่ได้ซื้อ Pro)</p>
+            <p>ติดตั้งแอปในเครื่องใหม่ได้เลย ไม่ต้องทำอะไรเพิ่ม</p>
+            <p class="font-semibold text-slate-800">ซื้อ Pro ใน Mac App Store</p>
+            <p>ลงแอปจาก App Store ด้วย Apple ID เดิม แล้วกด "กู้คืนการซื้อ" ไม่ต้องซื้อซ้ำ</p>
+            <p class="font-semibold text-slate-800">ซื้อ Pro จากเว็บของเรา</p>
+            <p>ติดตั้งแอปในเครื่องใหม่ แล้ววางรหัสเดิมอีกรอบ (ตั้งค่า → พื้นที่ทำงาน → ดูแพ็กเกจ Pro → วางรหัส) ไม่ต้องซื้อซ้ำ ไม่ต้องขอรหัสใหม่</p>
+            <p class="text-[11px] text-slate-400">ส่วนข้อมูลบิลของคุณ ดูหัวข้อ "ข้อมูลจะหายไหม ถ้าคอมพัง"</p>
+          </div>
+        </details>
+
+        <details class="group bg-white border border-border-custom rounded-md">
+          <summary class="cursor-pointer list-none px-4 py-3.5 text-sm font-bold text-slate-900 flex items-center justify-between gap-3">
+            <span>ข้อมูลจะหายไหม ถ้าคอมพัง</span>
+            <span class="text-slate-400 group-open:rotate-45 transition-transform shrink-0 text-base leading-none">+</span>
+          </summary>
+          <div class="px-4 pb-4 text-sm text-slate-600 space-y-2.5 leading-relaxed border-t border-border-custom pt-3">
+            <p>แอปสำรองข้อมูลให้อัตโนมัติทุก 30 นาที เก็บย้อนหลัง 30 ชุด กู้คืนได้เองในแอป ที่หน้าสำรองและกู้คืนข้อมูล</p>
+            <p>ผู้ใช้ Pro สำรองขึ้น Google Drive ของตัวเองอัตโนมัติได้ด้วย ย้ายเครื่องแล้วกู้คืนทั้งหมดกลับมาได้เลย</p>
+            <p>ข้อมูลของคุณอยู่ในเครื่องคุณ เราไม่มีเซิร์ฟเวอร์เก็บบิลหรือข้อมูลลูกค้าของคุณ</p>
+            <p class="font-semibold text-slate-800">กู้คืนไม่สำเร็จ ทักมาทาง LINE อย่าเพิ่งลบอะไรทิ้ง</p>
+          </div>
+        </details>
+
+        <details class="group bg-white border border-border-custom rounded-md">
+          <summary class="cursor-pointer list-none px-4 py-3.5 text-sm font-bold text-slate-900 flex items-center justify-between gap-3">
+            <span>AI แปลง TOR เป็นใบแจ้งหนี้ ใช้ยังไง</span>
+            <span class="text-slate-400 group-open:rotate-45 transition-transform shrink-0 text-base leading-none">+</span>
+          </summary>
+          <div class="px-4 pb-4 text-sm text-slate-600 space-y-2.5 leading-relaxed border-t border-border-custom pt-3">
+            <p>ตอนนี้ AI แปลง TOR มีเฉพาะเวอร์ชัน macOS ที่โหลดจากเว็บของเรา เวอร์ชันใน Mac App Store และเวอร์ชัน Windows ยังไม่มีฟีเจอร์นี้</p>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>เป็นโมดูลแยก ต้องโหลดเพิ่มประมาณ 2GB</li>
+              <li>ลิงก์โหลดแนบไปพร้อมรหัส Pro ตอนส่งทาง LINE</li>
+              <li>ทำงานในเครื่องล้วน ๆ ไม่ต้องต่อเน็ตตอนใช้ ข้อมูลไม่ออกจากเครื่องคุณ</li>
+              <li>นำเข้าไฟล์ TOR เป็น PDF หรือ TXT ได้ ถ้าเป็นไฟล์ Word แปลงเป็น PDF ก่อน</li>
+            </ul>
+            <p>ติดตั้งโมดูลแล้วแอปยังไม่เห็น ทักมาทาง LINE เราช่วยไล่ทีละขั้นให้</p>
+          </div>
+        </details>
+
+        <details class="group bg-white border border-border-custom rounded-md">
+          <summary class="cursor-pointer list-none px-4 py-3.5 text-sm font-bold text-slate-900 flex items-center justify-between gap-3">
+            <span>เวอร์ชัน App Store กับเวอร์ชันเว็บ ต่างกันยังไง</span>
+            <span class="text-slate-400 group-open:rotate-45 transition-transform shrink-0 text-base leading-none">+</span>
+          </summary>
+          <div class="px-4 pb-4 text-sm text-slate-600 space-y-2.5 leading-relaxed border-t border-border-custom pt-3">
+            <p>เป็นแอป BillNgai ตัวเดียวกัน ออกบิล คำนวณภาษี สร้าง PromptPay QR ได้ครบเหมือนกัน ต่างกันสองเรื่อง</p>
+            <ul class="list-disc pl-5 space-y-1">
+              <li><strong class="text-slate-800">เวอร์ชัน Mac App Store</strong> — โหลดง่าย อัปเดตอัตโนมัติผ่าน App Store</li>
+              <li><strong class="text-slate-800">เวอร์ชันเว็บ</strong> — มี AI แปลง TOR เลือกที่เก็บไฟล์ข้อมูลเองได้ และมีเวอร์ชัน Windows</li>
+            </ul>
+            <p>ใช้เวอร์ชันไหนอยู่ก็ทักมาถามได้เหมือนกัน เราดูแลทั้งสองแบบ</p>
+          </div>
+        </details>
+
+        <details class="group bg-white border border-border-custom rounded-md">
+          <summary class="cursor-pointer list-none px-4 py-3.5 text-sm font-bold text-slate-900 flex items-center justify-between gap-3">
+            <span>ใช้แทนนักบัญชีได้ไหม</span>
+            <span class="text-slate-400 group-open:rotate-45 transition-transform shrink-0 text-base leading-none">+</span>
+          </summary>
+          <div class="px-4 pb-4 text-sm text-slate-600 space-y-2.5 leading-relaxed border-t border-border-custom pt-3">
+            <p>ไม่ได้โดยตรง BillNgai ช่วยคำนวณ จัดระเบียบเอกสาร และเตรียมตัวเลขให้ แต่เราไม่ใช่สำนักงานบัญชีหรือที่ปรึกษาภาษี</p>
+            <p>ก่อนยื่นจริง ตรวจกับนักบัญชีหรือกรมสรรพากรอีกรอบเสมอ</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ติดต่อ (ซ้ำท้ายเพจ) -->
+    <section class="bg-[#FFF9F3] border-t border-border-custom">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
+        <div class="text-center space-y-2 mb-6">
+          <h2 class="text-xl font-extrabold text-slate-900">ยังไม่หาย ติดต่อเราได้เลย</h2>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            ไม่ต้องเกรงใจ ปัญหาเล็กแค่ไหนก็ถามได้<br class="hidden sm:block" />
+            เราอยากให้คุณกลับไปออกบิลต่อได้เร็วที่สุด
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch">
+          <div class="bg-white border border-primary/25 rounded-md p-5 flex flex-col text-center">
+            <h3 class="text-base font-extrabold text-slate-900 mb-3">LINE</h3>
+            <a
+              href={product.lineUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-bold text-white bg-primary hover:bg-primary-hover rounded-sm shadow-sm transition-all active:scale-98"
+            >
+              <MessageCircle size={14} />
+              ทักแอดมินทาง LINE
+            </a>
+            <p class="text-[11px] text-slate-500 mt-2.5 leading-normal">ปกติตอบภายในไม่กี่นาที ช้าสุดไม่เกิน 24 ชั่วโมง</p>
+          </div>
+
+          <div class="bg-white border border-primary/25 rounded-md p-5 flex flex-col text-center">
+            <h3 class="text-base font-extrabold text-slate-900 mb-3">อีเมล</h3>
+            <a
+              href={`mailto:${SUPPORT_EMAIL}`}
+              class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-bold text-white bg-primary hover:bg-primary-hover rounded-sm shadow-sm transition-all active:scale-98"
+            >
+              <Mail size={14} />
+              ส่งอีเมลหาเรา
+            </a>
+            <p class="text-[11px] text-slate-600 font-semibold mt-2.5 select-all break-all">{SUPPORT_EMAIL}</p>
+            <p class="text-[11px] text-slate-500 mt-1 leading-normal">เราอ่านทุกฉบับ แต่ตอบช้ากว่าทาง LINE</p>
+          </div>
+        </div>
+
+        <p class="text-[11px] text-slate-400 text-center mt-5 leading-relaxed">
+          Support is available in Thai and English. Email <a href={`mailto:${SUPPORT_EMAIL}`} class="underline hover:text-primary">{SUPPORT_EMAIL}</a> or message us on LINE.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

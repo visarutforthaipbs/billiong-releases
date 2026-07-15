@@ -5,11 +5,15 @@ import { product } from '../config/product';
 interface Props {
 	title?: string;
 	description?: string;
+	/** 'support' omits price offers from JSON-LD — /support is the App Store
+	    Support URL and must stay free of pricing (see drafts/support-page-th.md) */
+	variant?: 'product' | 'support';
 }
 
-const { 
+const {
 	title = "บิลง่าย (BillNgai) 2.0 — ออกบิลไว เก็บเงินง่าย จัดการภาษีฟรีแลนซ์ไทย · Local & Pro",
-	description = "แอปออกบิลและจัดการภาษีที่สร้างเพื่อฟรีแลนซ์ไทย — ใบเสนอราคา ใบแจ้งหนี้ ใบกำกับภาษี ภ.ง.ด.90/94 · ใหม่ 2.0: AI แปลง TOR เป็นใบเสนอราคา (ออฟไลน์) และซิงก์หลายเครื่องผ่าน Google Drive ของคุณเอง (Pro) ข้อมูลอยู่ในเครื่องคุณ"
+	description = "แอปออกบิลและจัดการภาษีที่สร้างเพื่อฟรีแลนซ์ไทย — ใบเสนอราคา ใบแจ้งหนี้ ใบกำกับภาษี ภ.ง.ด.90/94 · ใหม่ 2.0: AI แปลง TOR เป็นใบเสนอราคา (ออฟไลน์) และซิงก์หลายเครื่องผ่าน Google Drive ของคุณเอง (Pro) ข้อมูลอยู่ในเครื่องคุณ",
+	variant = 'product'
 } = Astro.props;
 
 const localOffer = product.prices.local;
@@ -34,10 +38,11 @@ const schemaMarkup = {
     "ตัวคำนวณและผลิตรูป PromptPay EMVCo SVG QR Code ท้องถิ่นแบบออฟไลน์",
     "ฟังก์ชันดาวน์โหลดรวบรวมชุดไฟล์ ZIP รายการรับเงินและภาษีหัก ณ ที่จ่าย 50 ทวิ ส่งสรรพากร"
   ],
+  ...(variant === 'support' ? {} : {
   "offers": [
     {
       "@type": "Offer",
-      "name": "BillNgai Local Early Bird",
+      "name": "BillNgai Local",
       "price": localOffer.earlyBird,
       "priceCurrency": "THB",
       "priceValidUntil": "2027-12-31",
@@ -52,6 +57,7 @@ const schemaMarkup = {
       "availability": "https://schema.org/PreOrder"
     }
   ]
+  })
 };
 
 const ogImageUrl = new URL("/cover-social.png", Astro.site || "https://billiong-releases.pages.dev").href;
