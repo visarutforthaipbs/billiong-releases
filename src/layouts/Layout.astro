@@ -24,7 +24,7 @@ const schemaMarkup = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "บิลง่าย (BillNgai)",
-  "softwareVersion": "2.0.1",
+  "softwareVersion": variant === 'support' ? undefined : `macOS ${product.downloads.mac.version}; Windows ${product.downloads.windows.version}`,
   "operatingSystem": "macOS, Windows",
   "applicationCategory": "BusinessApplication, FinanceApplication",
   "description": description,
