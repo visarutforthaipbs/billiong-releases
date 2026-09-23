@@ -6,21 +6,21 @@ import { product } from '../config/product';
 // Pro ใช้รูปแบบการสั่งซื้อและจัดส่ง License Key ทาง LINE ทันที
 
 const localFeatures = [
-  "ใบเสนอราคา ใบแจ้งหนี้ ใบเสร็จ ใบกำกับภาษี — ไม่จำกัดจำนวน",
-  "ภาษีไทยครบ: VAT · หัก ณ ที่จ่าย/ใบ 50 ทวิ · ประมาณการ ภ.ง.ด.90/94",
-  "แบ่งงวดตาม TOR + PromptPay QR ในตัว",
-  "ส่งออกชุดให้บัญชี (CSV/ZIP) และร่าง e-Tax XML",
-  "สำรองและกู้คืนในเครื่อง — คลิกเดียว",
-  "ข้อมูลอยู่ในเครื่องคุณ 100% ทำงานออฟไลน์ได้เสมอ",
+  "ใบเสนอราคาและใบแจ้งหนี้ — ตรวจข้อมูลก่อนใช้",
+  "ใบเสร็จธรรมดา: ผู้ไม่จด VAT รับเต็มจำนวนเป็นเงินบาท",
+  "จัดประเภทเงินได้ฟรี · ตรวจหัก ณ ที่จ่ายเอง",
+  "ส่งออกข้อมูล CSV/ZIP ให้นักบัญชีตรวจ",
+  "สำรองข้อมูลในเครื่อง — ควรเก็บอีกชุดนอกดิสก์เดิม",
+  "พักใบกำกับภาษี ประมาณการภาษี และ e-Tax",
 ];
 
 const proFeatures = [
   "ทุกอย่างที่มีใน Local",
   "AI แปลง TOR เป็นใบเสนอราคา — ประมวลผลออฟไลน์ในเครื่องคุณ",
-  "ทำงานต่อได้ทุกเครื่อง — ซิงก์ผ่าน Google Drive ของคุณเอง",
-  "สำรองขึ้นคลาวด์อัตโนมัติ + กู้คืนเมื่อเปลี่ยนคอม",
-  "ประเภทเงินได้ (มาตรา 40) + สรุปภาษีตามประเภท",
-  "ปกป้องข้อมูลการเงินเมื่อแก้ไขชนกันระหว่างเครื่อง",
+  "AI ต้องติดตั้งโมดูลเพิ่ม และตรวจผลก่อนใช้",
+  "ซิงก์และกู้คืนคลาวด์พักให้บริการใน 2.0.3",
+  "ข้อจำกัดใบเสร็จและภาษีเหมือน Local",
+  "จัดประเภทเงินได้ไม่ต้องซื้อ Pro",
 ];
 ---
 
@@ -31,17 +31,17 @@ const proFeatures = [
     <!-- Header -->
     <div class="text-center max-w-2xl mx-auto mb-14 space-y-4">
       <span class="text-xs font-bold text-primary bg-primary/10 border border-primary/20 px-3 py-1 rounded-full uppercase tracking-wider">
-        ใหม่ใน BillNgai 2.0
+        Mac Direct 2.0.3
       </span>
       <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
         สองแพ็กเกจ จ่ายครั้งเดียว ไม่มีรายเดือน
       </h2>
       <p class="text-slate-500 text-sm md:text-base leading-relaxed">
-        Local คือความเป็นเจ้าของ — Pro คือความสบายใจ<br class="hidden sm:block" />
+        อ่านข้อจำกัด 2.0.3 ก่อนเลือกแพ็กเกจ<br class="hidden sm:block" />
         ไม่ว่าแพ็กเกจไหน <strong class="text-slate-900 font-semibold">BillNgai ไม่เก็บเอกสารลูกค้าบนเซิร์ฟเวอร์เรา</strong>
       </p>
       <p class="text-slate-400 text-xs md:text-sm leading-relaxed">
-        Local เหมาะกับคนที่ออกบิลในเครื่องตัวเอง · Pro เหมาะกับคนทำงานหลายเครื่อง อยากได้สำรองอัตโนมัติ และลดงานเอกสารด้วย AI
+        Local สำหรับเอกสารที่รองรับในเครื่อง · Pro เพิ่มโมดูล AI ไม่ได้ปลดล็อกฟีเจอร์ที่พักให้บริการ หากซื้อ Pro เพื่อซิงก์ กรุณาติดต่อทีมงานก่อนชำระเงิน
       </p>
     </div>
 
@@ -54,7 +54,7 @@ const proFeatures = [
           <ShieldCheck size={18} class="text-primary shrink-0" />
           <h3 class="text-lg font-extrabold text-slate-900">BillNgai Local</h3>
         </div>
-        <p class="text-xs text-slate-500 mb-5">ซื้อครั้งเดียว ใช้ทำเอกสารได้ตลอด ข้อมูลไม่ออกจากเครื่อง</p>
+        <p class="text-xs text-slate-500 mb-5">ใช้เอกสารที่รองรับได้ฟรี ข้อมูลอยู่ในเครื่อง</p>
 
         <div class="mb-6">
           <div class="flex items-baseline gap-2">
@@ -90,9 +90,9 @@ const proFeatures = [
         <div class="flex items-center gap-2 mb-1">
           <Sparkles size={18} class="text-primary shrink-0" />
           <h3 class="text-lg font-extrabold text-slate-900">BillNgai Pro</h3>
-          <span class="text-[10px] font-bold text-slate-500">Work Everywhere</span>
+          <span class="text-[10px] font-bold text-slate-500">Local AI Add-on</span>
         </div>
-        <p class="text-xs text-slate-500 mb-5">เริ่มใบเสนอราคาที่คอมออฟฟิศ กลับบ้านเปิดต่อที่โน้ตบุ๊ก เปลี่ยนคอมใหม่ก็เรียกคืนข้อมูลทั้งหมดได้</p>
+        <p class="text-xs text-slate-500 mb-5">AI ช่วยร่างใบเสนอราคาในเครื่อง รุ่นนี้พักซิงก์และกู้คืนคลาวด์ ไม่มีกำหนดเปิดกลับที่รับรองได้</p>
 
         <div class="mb-6">
           <div class="flex items-baseline gap-2">
@@ -113,7 +113,7 @@ const proFeatures = [
 
         <div class="mt-5 flex items-start gap-2 text-[11px] text-slate-500 bg-white/70 border border-border-custom rounded-md p-3">
           <Cloud size={13} class="text-primary shrink-0 mt-0.5" />
-          <span>ข้อมูลซิงก์ผ่าน <strong class="text-slate-700">Google Drive ของคุณเอง</strong> — BillNgai ไม่มีเซิร์ฟเวอร์เก็บใบแจ้งหนี้ ลูกค้า หรือข้อมูลภาษีของคุณ</span>
+          <span><strong class="text-slate-700">ผู้ใช้ Pro เดิม:</strong> รุ่น 2.0.3 พักซิงก์และกู้คืนคลาวด์ หากกระทบการใช้งาน ติดต่อฝ่ายช่วยเหลือก่อนอัปเดต</span>
         </div>
 
         <a

@@ -1,10 +1,9 @@
 ---
 import { Cpu, Download, Globe } from '@lucide/astro';
 
-const badge = "macOS & Windows Desktop App (Local-First)";
+const badge = "Mac 2.0.3 · Windows 2.0.1 Beta · Local-First";
 const headline = "บิลง่าย";
-const description = "แอปออกบิลและจัดการภาษีที่สร้างเพื่อฟรีแลนซ์ไทยโดยเฉพาะ — ใบเสนอราคา ใบแจ้งหนี้ ใบเสร็จ ใบกำกับภาษี VAT/หัก ณ ที่จ่าย แบ่งงวดตาม TOR และตัวเลขพร้อมใช้ประกอบการยื่น ภ.ง.ด.90/94 ข้อมูลหลักอยู่ในเครื่องคุณ — BillNgai ไม่เก็บเอกสารลูกค้าบนเซิร์ฟเวอร์เรา";
-const techNote = "ใหม่ v2.0 — สองแพ็กเกจ Local & Pro · AI แปลง TOR เป็นใบเสนอราคา (ออฟไลน์) · ซิงก์หลายเครื่องผ่าน Google Drive ของคุณ";
+const techNote = "2.0.3 จำกัดใบเสร็จสำหรับผู้ไม่จด VAT · อ่านข้อจำกัดก่อนอัปเดต";
 ---
 
 <section id="hero" class="relative pt-24 pb-16 md:pt-32 md:pb-20 overflow-hidden bg-[#FFF9F3]">
@@ -30,15 +29,15 @@ const techNote = "ใหม่ v2.0 — สองแพ็กเกจ Local & P
         </h1>
         
         <p class="text-2xl md:text-3xl font-bold text-slate-800 tracking-tight leading-tight">
-          ออกบิลไว เก็บเงินง่าย <br /> จัดการภาษีสำหรับ <span class="text-[#E05E00] underline decoration-primary decoration-2 underline-offset-4">ฟรีแลนซ์ไทย</span> ครบจบในที่เดียว
+          ออกบิลไว เก็บเงินง่าย <br /> จัดเอกสารสำหรับ <span class="text-[#E05E00] underline decoration-primary decoration-2 underline-offset-4">ฟรีแลนซ์ไทย</span>
         </p>
 
         <!-- Description -->
         <p class="text-base md:text-lg text-slate-500 leading-relaxed max-w-2xl">
-          BillNgai ช่วยสร้างใบเสนอราคา ใบแจ้งหนี้ ใบเสร็จ ใบกำกับภาษี คำนวณ <strong class="text-slate-900 font-semibold">VAT / หัก ณ ที่จ่าย</strong> <strong class="text-slate-900 font-semibold">แบ่งงวดตาม TOR</strong> และส่งออกข้อมูลให้นักบัญชีได้ในไม่กี่คลิก — เวอร์ชัน 2.0 เพิ่ม <strong class="text-slate-900 font-semibold">AI แปลง TOR เป็นใบเสนอราคา</strong> และ<strong class="text-slate-900 font-semibold">ทำงานต่อได้หลายเครื่อง</strong> (Pro)
+          สร้างใบเสนอราคา ใบแจ้งหนี้ และจัดข้อมูลให้นักบัญชี ใบเสร็จรุ่น 2.0.3 รองรับเฉพาะผู้ยืนยันว่า<strong class="text-slate-900 font-semibold">ไม่จดทะเบียน VAT</strong> รับชำระเต็มจำนวนเป็นเงินบาท ต้องตรวจยอดและภาษีหัก ณ ที่จ่ายเองก่อนออกเอกสาร
         </p>
         <p class="text-sm md:text-base text-slate-500 leading-relaxed max-w-2xl">
-          <strong class="text-slate-900 font-semibold">ข้อมูลหลักอยู่ในเครื่องคุณ</strong> และในแพ็กเกจ Pro ซิงก์ผ่าน <strong class="text-slate-900 font-semibold">Google Drive ของคุณเอง</strong> — BillNgai ไม่เก็บเอกสาร ลูกค้า รายได้ หรือข้อมูลภาษีของคุณบนเซิร์ฟเวอร์เรา
+          <strong class="text-slate-900 font-semibold">ข้อมูลหลักอยู่ในเครื่องคุณ</strong> รุ่นนี้พักซิงก์และกู้คืนจากคลาวด์ รวมถึง Pro ไม่รองรับใบกำกับภาษี และไม่แสดงประมาณการภาษีที่ต้องจ่ายหรือขอคืน
         </p>
 
         <!-- Call to Actions Buttons -->
@@ -48,14 +47,14 @@ const techNote = "ใหม่ v2.0 — สองแพ็กเกจ Local & P
             class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-sm font-semibold text-white bg-primary rounded-sm hover:bg-primary-hover transition-all duration-200 shadow-md hover:shadow-lg active:scale-98 cursor-pointer"
           >
             <Download size={16} />
-            ดาวน์โหลด (macOS & Windows)
+            ดาวน์โหลดและอ่านข้อจำกัด
           </a>
           <a
             href="#web-app"
             class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-sm font-semibold text-slate-700 bg-white border border-border-custom rounded-sm hover:bg-slate-50 hover:text-primary transition-all duration-200 shadow-xs active:scale-98 cursor-pointer"
           >
             <Globe size={16} />
-            ดูตัวอย่างระบบจำลอง (Demo)
+            อ่านก่อนอัปเดต 2.0.3
           </a>
         </div>
 

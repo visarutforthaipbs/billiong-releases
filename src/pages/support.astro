@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Footer from '../components/Footer.astro';
 import { MessageCircle, Mail, ArrowLeft } from '@lucide/astro';
 import { product } from '../config/product';
+import ReleaseNotice from '../components/ReleaseNotice.astro';
 
 // หน้านี้ใช้เป็น Support URL ใน App Store Connect (แก้ reject Guideline 1.5)
 // ห้ามมีราคา / PromptPay QR / ปุ่มดาวน์โหลด / CTA ขาย บนหน้านี้
@@ -106,6 +107,8 @@ const faqs = [
       </p>
     </section>
 
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 py-8"><ReleaseNotice /></div>
+
     <!-- ทักมาแล้วบอกอะไรบ้าง -->
     <section class="border-y border-border-custom bg-white">
       <div class="max-w-3xl mx-auto px-4 sm:px-6 py-10">
@@ -131,14 +134,14 @@ const faqs = [
             <span class="text-slate-400 group-open:rotate-45 transition-transform shrink-0 text-base leading-none">+</span>
           </summary>
           <div class="px-4 pb-4 text-sm text-slate-600 space-y-2.5 leading-relaxed border-t border-border-custom pt-3">
-            <p>หากติดตั้งจาก Mac App Store ให้เปิดแอปจาก Applications ได้เลย ส่วนตัวติดตั้งบนเว็บรุ่น 2.0.2 ต้องใช้ macOS 12 Monterey ขึ้นไป รองรับ Intel และ Apple Silicon</p>
+            <p>คำแนะนำ App Store ด้านล่างใช้เฉพาะผู้ที่มีเวอร์ชันนั้นอยู่แล้ว ไม่ใช่ประกาศอนุมัติ 2.0.3 ตัวติดตั้งบนเว็บรุ่น {product.downloads.mac.version} ต้องใช้ macOS 12 Monterey ขึ้นไป เป็น Universal สำหรับ Intel และ Apple Silicon</p>
             <p class="font-semibold text-slate-800">วิธีติดตั้งจากเว็บ</p>
             <ol class="list-decimal pl-5 space-y-1">
               <li>เปิดตัวติดตั้ง แล้วลาก BillNgai ไปที่ Applications</li>
               <li>หากอัปเดตจากรุ่นเดิม ให้ปิด BillNgai ก่อนแล้วเลือกแทนที่แอป</li>
               <li>เปิด BillNgai จาก Applications หาก macOS ถามยืนยันว่าเป็นแอปที่ดาวน์โหลดจากอินเทอร์เน็ต ให้กด “เปิด”</li>
             </ol>
-            <p>ตัวติดตั้งบนเว็บรุ่น 2.0.2 ลงนามโดยนักพัฒนาและผ่านการตรวจ notarization ของ Apple แล้ว</p>
+            <p>ตัวติดตั้งบนเว็บรุ่น {product.downloads.mac.version} ลงนามโดยนักพัฒนาและผ่านการตรวจ notarization ของ Apple แล้ว</p>
             <p>หากขึ้นว่า “มีมัลแวร์”, “แอปเสียหาย” หรือไม่สามารถตรวจสอบนักพัฒนาได้ ให้หยุดเปิดแอปและส่งภาพข้อความเตือนมาทางช่องทางช่วยเหลือด้านบน เพื่อให้เราตรวจไฟล์และรุ่นที่ติดตั้ง ไม่ต้องปิดระบบความปลอดภัยของ Mac ครับ</p>
           </div>
         </details>
@@ -203,8 +206,8 @@ const faqs = [
             <span class="text-slate-400 group-open:rotate-45 transition-transform shrink-0 text-base leading-none">+</span>
           </summary>
           <div class="px-4 pb-4 text-sm text-slate-600 space-y-2.5 leading-relaxed border-t border-border-custom pt-3">
-            <p>แอปสำรองข้อมูลให้อัตโนมัติทุก 30 นาที เก็บย้อนหลัง 30 ชุด กู้คืนได้เองในแอป ที่หน้าสำรองและกู้คืนข้อมูล</p>
-            <p>ผู้ใช้ Pro สำรองขึ้น Google Drive ของตัวเองอัตโนมัติได้ด้วย ย้ายเครื่องแล้วกู้คืนทั้งหมดกลับมาได้เลย</p>
+            <p>สำเนาอัตโนมัติในเครื่องอาจหายพร้อมดิสก์ ควรเก็บอีกชุดนอกดิสก์เดิม และเก็บ PDF เดิมก่อนอัปเดต เอกสารเก่าที่ออกแล้วทุกประเภทซึ่งไม่มีสำเนาข้อมูล ณ วันออกจะพิมพ์/แชร์ใหม่หรือเปลี่ยนสถานะไม่ได้ รวมถึงการเปลี่ยนใบแจ้งหนี้เก่าเป็นชำระแล้วและสร้างใบเสร็จที่เชื่อมกัน หากยังมีใบแจ้งหนี้ค้างรับ ติดต่อทีมงานก่อนอัปเดต</p>
+            <p>Mac Direct 2.0.3 พักการซิงก์และกู้คืนคลาวด์ รวมถึง Pro หากใช้ฟีเจอร์นี้อยู่ ติดต่อทีมงานก่อนอัปเดต อย่าลบข้อมูลเดิม</p>
             <p>ข้อมูลของคุณอยู่ในเครื่องคุณ เราไม่มีเซิร์ฟเวอร์เก็บบิลหรือข้อมูลลูกค้าของคุณ</p>
             <p class="font-semibold text-slate-800">กู้คืนไม่สำเร็จ ทักมาทาง LINE อย่าเพิ่งลบอะไรทิ้ง</p>
           </div>
@@ -233,10 +236,10 @@ const faqs = [
             <span class="text-slate-400 group-open:rotate-45 transition-transform shrink-0 text-base leading-none">+</span>
           </summary>
           <div class="px-4 pb-4 text-sm text-slate-600 space-y-2.5 leading-relaxed border-t border-border-custom pt-3">
-            <p>เป็นแอป BillNgai ตัวเดียวกัน ออกบิล คำนวณภาษี สร้าง PromptPay QR ได้ครบเหมือนกัน ต่างกันสองเรื่อง</p>
+            <p>รุ่น 2.0.3 นี้สำหรับ Mac Direct จากเว็บเท่านั้น Mac App Store ยังรออัปเดต และ Windows ยังเป็น 2.0.1 Beta อย่าถือว่าทุกช่องทางมีฟีเจอร์หรือมาตรการเดียวกัน</p>
             <ul class="list-disc pl-5 space-y-1">
-              <li><strong class="text-slate-800">เวอร์ชัน Mac App Store</strong> — โหลดง่าย อัปเดตอัตโนมัติผ่าน App Store</li>
-              <li><strong class="text-slate-800">เวอร์ชันเว็บ</strong> — มี AI แปลง TOR เลือกที่เก็บไฟล์ข้อมูลเองได้ และมีเวอร์ชัน Windows</li>
+              <li><strong class="text-slate-800">เวอร์ชัน Mac App Store</strong> — ช่องทางซื้อและกู้คืน Pro ใช้ Apple ID ไม่ใช้รหัสจากเว็บ สถานะ 2.0.3 ยังรออัปเดต</li>
+              <li><strong class="text-slate-800">เวอร์ชัน Mac Direct</strong> — อ่านข้อจำกัดใบเสร็จ ภาษี และคลาวด์ด้านบน Pro มีโมดูล AI แยก</li>
             </ul>
             <p>ใช้เวอร์ชันไหนอยู่ก็ทักมาถามได้เหมือนกัน เราดูแลทั้งสองแบบ</p>
           </div>
@@ -248,7 +251,7 @@ const faqs = [
             <span class="text-slate-400 group-open:rotate-45 transition-transform shrink-0 text-base leading-none">+</span>
           </summary>
           <div class="px-4 pb-4 text-sm text-slate-600 space-y-2.5 leading-relaxed border-t border-border-custom pt-3">
-            <p>ไม่ได้โดยตรง BillNgai ช่วยคำนวณ จัดระเบียบเอกสาร และเตรียมตัวเลขให้ แต่เราไม่ใช่สำนักงานบัญชีหรือที่ปรึกษาภาษี</p>
+            <p>ไม่ได้ BillNgai ช่วยจัดเอกสาร ไม่ใช่สำนักงานบัญชีหรือที่ปรึกษาภาษี การตรวจด้วย AI และการทดสอบซอฟต์แวร์ไม่ใช่การรับรองโดยผู้ประกอบวิชาชีพ</p>
             <p>ก่อนยื่นจริง ตรวจกับนักบัญชีหรือกรมสรรพากรอีกรอบเสมอ</p>
           </div>
         </details>

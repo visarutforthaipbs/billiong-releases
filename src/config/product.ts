@@ -1,6 +1,6 @@
 export const product = {
   name: "บิลง่าย (BillNgai)",
-  versionLabel: "BillNgai 2.0.2 สำหรับ Mac",
+  versionLabel: "BillNgai 2.0.3 สำหรับ Mac",
   lineUrl: "https://lin.ee/pSl8nEH",
   promptPayId: "0627283058",
   prices: {
@@ -19,10 +19,10 @@ export const product = {
   },
   downloads: {
     mac: {
-      version: "2.0.2",
+      version: "2.0.3",
       minimumOS: "macOS 12 Monterey",
-      github: "https://github.com/visarutforthaipbs/local-bill-apps/releases/download/v2.0.2/BillNgai-2.0.2-universal.dmg",
-      r2: "https://pub-4ed16d146bff4f168839661507e1748a.r2.dev/BillNgai-2.0.2-universal.dmg",
+      github: "https://github.com/visarutforthaipbs/local-bill-apps/releases/download/v2.0.3/BillNgai-2.0.3-universal.dmg",
+      r2: "https://pub-4ed16d146bff4f168839661507e1748a.r2.dev/BillNgai-2.0.3-universal.dmg",
     },
     windows: {
       version: "2.0.1",

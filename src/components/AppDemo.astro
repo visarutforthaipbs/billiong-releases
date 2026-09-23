@@ -1,77 +1,15 @@
 ---
-import { Laptop, MousePointerClick, ShieldCheck } from '@lucide/astro';
+import { Laptop } from '@lucide/astro';
+import ReleaseNotice from './ReleaseNotice.astro';
 ---
 
-<section id="web-app" class="py-16 md:py-24 bg-[#ece7dc] border-y border-border-custom">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-    <!-- Title Section -->
-    <div class="text-center max-w-3xl mx-auto mb-10">
-      <div class="inline-flex items-center justify-center p-3 rounded-full bg-[#FF6B00]/15 text-[#E05E00] mb-4">
-        <Laptop size={32} />
-      </div>
-      <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
-        ลองใช้ บิลง่าย ตัวจริง ได้เลยที่นี่
-      </h2>
-      <p class="text-slate-500 text-base md:text-lg font-medium">
-        <span class="block">นี่คือแอปตัวจริง ไม่ใช่ภาพจำลอง — กดสร้างเอกสาร คำนวณ VAT และหัก ณ ที่จ่าย</span>
-        <span class="block">ได้เหมือนตอนติดตั้งจริงทุกอย่าง</span>
-      </p>
-      <p class="block md:hidden mt-4 text-sm font-semibold text-[#E05E00]">
-        ตอนนี้มือถือจะแสดงเป็นวิดีโอตัวอย่าง หากต้องการลองกดใช้งานจริงแบบ Interactive กรุณาเปิดหน้านี้บนเดสก์ท็อป
-      </p>
+<section id="web-app" class="py-16 md:py-24 bg-accent-bg border-y border-border-custom">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+    <div class="text-center space-y-4">
+      <Laptop size={32} class="mx-auto text-text-muted" />
+      <h2 class="text-3xl font-bold text-text-dark">อ่านก่อนอัปเดตเป็น 2.0.3</h2>
+      <p class="text-text-muted">พักเดโมรุ่นเก่า เพราะแสดงฟีเจอร์ที่รุ่นนี้ไม่รองรับ</p>
     </div>
-
-    <!-- Interaction hints -->
-    <div class="hidden md:flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mb-6 text-xs md:text-[13px] font-medium text-slate-500">
-      <span class="inline-flex items-center gap-1.5">
-        <MousePointerClick size={14} class="text-primary" />
-        คลิกเมนูด้านซ้ายเพื่อสำรวจทุกฟังก์ชัน
-      </span>
-      <span class="inline-flex items-center gap-1.5">
-        <ShieldCheck size={14} class="text-primary" />
-        ข้อมูลตัวอย่างเก็บไว้ในเบราว์เซอร์ของคุณเท่านั้น (Local-First)
-      </span>
-    </div>
-
-    <!-- Mobile demo GIF -->
-    <div class="block md:hidden w-full max-w-7xl mx-auto rounded-lg border border-[#dcd5c5] bg-[#ece7dc] mac-window-shadow overflow-hidden">
-      <img
-        src="/billngai-demo-v2.gif"
-        alt="BillNgai mobile demo preview"
-        loading="lazy"
-        class="block w-full h-auto"
-      />
-    </div>
-
-    <!-- Desktop macOS Window Container (hosts the real app in an iframe) -->
-    <div class="billiong-app-sim hidden md:block w-full max-w-7xl mx-auto rounded-lg border border-[#dcd5c5] bg-[#ece7dc] mac-window-shadow overflow-hidden animate-float-window">
-
-      <!-- macOS Titlebar -->
-      <div class="titlebar flex items-center justify-between px-4 py-2.5 bg-[#f4f1e8] border-b border-[#dcd5c5]">
-        <!-- Traffic lights -->
-        <div class="flex items-center gap-1.5 w-24">
-          <div class="w-3 h-3 rounded-full bg-[#ff5f56] border border-[#e0443e]"></div>
-          <div class="w-3 h-3 rounded-full bg-[#ffbd2e] border border-[#df9e13]"></div>
-          <div class="w-3 h-3 rounded-full bg-[#27c93f] border border-[#1aab29]"></div>
-        </div>
-        <!-- Title -->
-        <div class="text-[11px] font-bold text-[#5f594c] flex items-center gap-1.5">
-          <span class="w-1.5 h-1.5 rounded-full bg-[#1f7a4d] animate-pulse"></span>
-          บิลง่าย — billing.json
-        </div>
-        <!-- Buffer -->
-        <div class="w-24"></div>
-      </div>
-
-      <!-- The actual BillNgai app, seeded with sample data -->
-      <iframe
-        src="/demo-app.html"
-        title="BillNgai Interactive Demo"
-        loading="lazy"
-        class="w-full block bg-[#ece7dc] h-[620px] md:h-[720px]"
-      ></iframe>
-    </div>
-
+    <ReleaseNotice />
   </div>
 </section>

@@ -5,7 +5,7 @@ const title = "ข้อมูลของคุณ เป็นของคุ�
 const tagline = "Local-First Architecture";
 const paragraphs = [
   "ข้อมูลของคุณถูกเก็บเป็นไฟล์ billing.json บนเครื่องคอมพิวเตอร์ของคุณเอง — ไฟล์ที่อ่าน ตรวจสอบ และสำรองได้จริง ไม่ใช่ฐานข้อมูลปิดที่ต้องล็อกอินผ่านเซิร์ฟเวอร์ของผู้ให้บริการ และ BillNgai ไม่เก็บเอกสาร ลูกค้า รายได้ หรือข้อมูลภาษีของคุณบนเซิร์ฟเวอร์เรา",
-  "ปลอดภัยยิ่งขึ้นด้วยระบบสำรองอัตโนมัติทุก 30 นาที (เก็บย้อนหลังสูงสุด 30 ชุด) พร้อมหน้ากู้คืนในแอปกดได้คลิกเดียว และในแพ็กเกจ Pro ข้อมูลยังซิงก์และสำรองผ่าน Google Drive ของคุณเองโดยอัตโนมัติ"
+  "สำเนาอัตโนมัติในเครื่องช่วยเก็บประวัติ แต่ไม่ป้องกันดิสก์เสีย ควรเก็บสำรองอีกชุดนอกดิสก์เดิม รุ่น 2.0.3 พักซิงก์และกู้คืนคลาวด์ รวมถึง Pro"
 ];
 ---
 
@@ -64,7 +64,7 @@ const paragraphs = [
           </div>
           <div class="flex items-center justify-between gap-4 px-4 py-3">
             <span class="font-bold text-slate-800 shrink-0">Pro</span>
-            <span class="text-slate-500 text-right">ในเครื่องคุณ + Google Drive ของคุณเอง</span>
+            <span class="text-slate-500 text-right">ข้อมูลในเครื่อง · พักซิงก์คลาวด์ใน 2.0.3</span>
           </div>
           <div class="flex items-center justify-between gap-4 px-4 py-3 bg-primary/5">
             <span class="font-bold text-primary shrink-0">เซิร์ฟเวอร์ BillNgai</span>
@@ -102,7 +102,7 @@ const paragraphs = [
                 <RefreshCcw size={12} class="text-slate-400" />
                 <span class="text-xs font-bold text-slate-800">Auto rolling snapshot every 30 mins</span>
               </div>
-              <p class="text-[11px] text-slate-400">เก็บไฟล์ย้อนหลังสูงสุด 30 ชุด พร้อมหน้ากู้คืนในแอป — เผลอลบก็เรียกคืนได้</p>
+              <p class="text-[11px] text-slate-400">สำเนาในเครื่องไม่แทนการสำรองแยกดิสก์ เก็บ PDF เดิมก่อนอัปเดต</p>
             </div>
 
             <!-- Sync step -->
@@ -110,17 +110,16 @@ const paragraphs = [
               <span class="absolute -left-[21px] top-1.5 w-2 h-2 rounded-full bg-secondary ring-4 ring-white"></span>
               <div class="flex items-center gap-2 mb-1">
                 <FolderSync size={12} class="text-slate-400" />
-                <span class="text-xs font-bold text-slate-800 font-sans">Google Drive Workspace Sync <span class="text-primary">(Pro)</span></span>
+                <span class="text-xs font-bold text-slate-800 font-sans">Google Drive Workspace Sync — พักใน 2.0.3</span>
               </div>
               <p class="text-[11px] text-slate-400 flex items-start gap-1">
                 <img src="/assets/brand/icons/set-2-16-folder.png" alt="Cloud Sync Folder" class="w-4 h-4 object-contain inline-block shrink-0 mt-0.5" />
-                <span>ซิงก์ข้อมูลระหว่างเครื่องผ่าน Google Drive ของคุณเอง — BillNgai ไม่เก็บไฟล์เอกสารไว้บนเซิร์ฟเวอร์เรา</span>
+                <span>พักเชื่อมต่อ ซิงก์ และกู้คืนจากคลาวด์ รวมถึง Pro อย่าเปิดฐานข้อมูลเดียวกันหลายเครื่อง</span>
               </p>
               
               <!-- Sync Badges -->
               <div class="flex gap-2 mt-2">
-                <span class="text-[9px] font-semibold bg-slate-100 border border-border-custom rounded px-1.5 py-0.5 text-slate-500">Google Drive</span>
-                <span class="text-[9px] font-semibold bg-slate-100 border border-border-custom rounded px-1.5 py-0.5 text-slate-400">Dropbox / OneDrive — ในแผนอนาคต</span>
+                <span class="text-[9px] font-semibold bg-slate-100 border border-border-custom rounded px-1.5 py-0.5 text-slate-500">ใช้งานเครื่องเดียว</span>
               </div>
             </div>
 

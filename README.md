@@ -1,6 +1,6 @@
 # บิลง่าย (BillNgai) Marketing & Promotion Website
 
-This repository hosts the marketing website for **บิลง่าย (BillNgai)**, a local-first billing and tax assistant application built for Thai freelancers.
+This repository hosts the marketing website for **บิลง่าย (BillNgai)**, a local-first billing application built for Thai freelancers. Read [RELEASE-2.0.3.md](RELEASE-2.0.3.md) before publishing: website claims and downloads must match the verified Mac Direct 2.0.3 artifact, not Windows/MAS.
 
 ## 🚀 Project Architecture
 
@@ -9,7 +9,7 @@ Built with **Astro 7** and **Tailwind CSS v4**.
 ```text
 /
 ├── public/
-│   ├── demo-app.html  <-- Embedded app simulator (seeds localStorage sample data)
+│   ├── demo-app.html  <-- Retired-demo notice; old simulator disabled for 2.0.3
 │   ├── logo.svg       <-- Brand logo
 │   └── fonts/         <-- Self-hosted Inter & LINE Seed Sans TH fonts
 ├── src/
