@@ -11,6 +11,9 @@ for (const [name, html] of [['index', index], ['support', support]]) {
   for (const phrase of ['Mac Direct 2.0.3', 'ไม่รองรับใบกำกับภาษี', 'ไม่ใช้อัตรา 3% อัตโนมัติ', 'สำรองข้อมูลและเก็บ PDF เดิมก่อนอัปเดต', 'Windows ยังเป็น 2.0.1 Beta', 'การรับรองโดยนักบัญชี']) {
     assert.ok(html.includes(phrase), `${name}: missing disclosure ${phrase}`);
   }
+  for (const phrase of ['เอกสารเก่าที่ออกแล้วทุกประเภท', 'ใบแจ้งหนี้เก่าเป็นชำระแล้ว', 'ใบแจ้งหนี้ค้างรับ']) {
+    assert.ok(html.includes(phrase), `${name}: missing historical-document upgrade warning ${phrase}`);
+  }
   for (const phrase of ['Open Anyway', 'Run anyway', 'ได้เหมือนตอนติดตั้งจริงทุกอย่าง', 'คำนวณ VAT (7%)', 'ครบทุกฟีเจอร์', 'ซิงก์อัตโนมัติผ่าน', '/cover-social.png', '<iframe']) {
     assert.ok(!html.includes(phrase), `${name}: obsolete claim ${phrase}`);
   }
