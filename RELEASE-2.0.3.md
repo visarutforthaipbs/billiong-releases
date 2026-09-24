@@ -1,11 +1,46 @@
 # Website handoff — BillNgai Mac Direct 2.0.3
 
-Date: 2026-09-23. Working copy: `/Users/lighthouse-control/BillNgai-site-2.0.3`.
-This copy is not itself a Git checkout. Its upstream website checkout is
+Updated: 2026-09-24. Original editing copy: `/Users/lighthouse-control/BillNgai-site-2.0.3`.
+That original editing copy is not a Git checkout. Its upstream website checkout is
 `promote-billiong` on `field`, connected to `visarutforthaipbs/billiong-releases`.
 Production: `https://billiong-landing.pages.dev/`.
 
-## Manager checkpoint — 2026-09-23 20:40 Asia/Bangkok
+## Released — 2026-09-24
+
+The manager completed the artifact gates and published Mac Direct 2.0.3.
+This record supersedes the historical preparation checkpoints below.
+
+- Website source/content commit: `2af067cb2543880d19447795aa07acf20d2fb6e1`, pushed
+  to `visarutforthaipbs/billiong-releases` main from the real publishing checkout
+  `/Users/lighthouse-control/BillNgai-site-publish-2.0.3`.
+- Production Pages deployment: `8d125ac5-1c5f-43ba-be70-f5f47e4409f9`, source `2af067c`,
+  https://8d125ac5.billiong-landing.pages.dev. Production: https://billiong-landing.pages.dev/.
+  Git push did not produce a new deployment during the check; used the documented
+  Wrangler 4.136.2 fallback against the existing production project and tested `dist`.
+- Live landing, support and retired-demo HTML are byte-identical to tested output.
+  Chrome confirmed production version/disclosures, primary download URL and support
+  guidance. Preview desktop/390px layout and generated release assertions passed.
+- App tag `v2.0.3` / source `49595e0567d397a7d334178615205ba41deb8748`:
+  https://github.com/visarutforthaipbs/local-bill-apps/releases/tag/v2.0.3.
+  Signed universal DMG; Apple notarization Accepted, stapled, Gatekeeper accepted,
+  exact mounted-app/source/PDF smoke passed; source tests 81/81. Intel hardware
+  execution not tested. Full evidence lives in app repo `RELEASE-2.0.3.md`.
+- File `BillNgai-2.0.3-universal.dmg`, 223,450,345 bytes, SHA-256
+  `c0ba00307457f9e4db8540bbc3bbfde2d67850a46e4219acf6cb5080a4a7dc36`.
+  Primary: https://pub-4ed16d146bff4f168839661507e1748a.r2.dev/BillNgai-2.0.3-universal.dmg.
+  R2 and GitHub fallback both downloaded anonymously on field and compared
+  byte-for-byte with the final stapled original before website publication.
+- Public checksum is `BillNgai-2.0.3-SHA256SUMS.txt` beside both installers.
+  Old 2.0.2 binary retained. Rollback website commit `7cd5b0981f2c077f161184d3cd2a37b374228da8`,
+  deployment `559939d7-96ff-49d0-a39e-615db2b903b8`; rollback also restores old app risks.
+- Pages OAuth renewed for the existing single account with Account/User Read,
+  Background Access and Pages Write only. R2 upload used authenticated browser;
+  owner-enabled extension file-URL access resolved the chooser blocker.
+- This is owner-directed AI-assisted review, not practitioner approval or legal
+  certification. Windows/MAS, professional review, customer policies and build
+  dependency follow-up remain pending. No purchase or customer message sent.
+
+## Historical manager checkpoint — 2026-09-23 20:40 Asia/Bangkok
 
 Candidate copied to the real Git checkout
 `/Users/lighthouse-control/BillNgai-site-publish-2.0.3`. Build and generated-page
