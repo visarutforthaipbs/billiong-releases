@@ -1,6 +1,6 @@
 # Website handoff — BillNgai Mac Direct 2.0.4
 
-Date: 2026-09-24. **Unpublished website candidate; artifact gates pending.**
+Date: 2026-09-24. **Released and production verified.**
 Publishing checkout: `/Users/lighthouse-control/BillNgai-site-publish-2.0.3`.
 Website repository: `visarutforthaipbs/billiong-releases`.
 Production: https://billiong-landing.pages.dev/.
@@ -9,6 +9,9 @@ release, its immutable artifact identity and rollback references. Its notarizati
 or test results do not establish verification of 2.0.4.
 
 ## Authority and publication gate
+
+The manager completed publication after the candidate checkpoint below. See the
+final publication record at the end; earlier pending wording is historical.
 
 The owner explicitly requested completion of the 2.0.4 release using `ssh field`.
 The website editing teammate is restricted to local preparation and checks. The
@@ -83,7 +86,27 @@ dependencies were not changed by this content-only candidate.
 
 ## Final publication record
 
-Pending manager completion: reviewed source commit; exact DMG SHA-256 and byte
-count; notarization ID/status; R2/GitHub public byte verification; website commit;
-Pages deployment ID; live HTML/link verification. Do not replace this pending
-record with the 2.0.3 values.
+- App source/tag: `8c1dfcfbb1891979706d63558c90075d50be9722` / `v2.0.4`.
+  https://github.com/visarutforthaipbs/local-bill-apps/releases/tag/v2.0.4.
+- Final `BillNgai-2.0.4-universal.dmg`: 223,517,554 bytes, SHA-256
+  `64a4f36bd80c1404d651b298df2c3795249392833cf2ca63de5a9d8e4fe43611`.
+  Apple submission `5843027f-7749-4f2a-a16c-1bbaf37e4778` Accepted, issues null;
+  stapled, signature and Gatekeeper accepted. Both exact packaged native suites
+  pass on Apple Silicon; 165 automated source tests pass. No Intel hardware claim.
+- R2 and GitHub public installers were downloaded anonymously on field and passed
+  byte comparison and SHA-256 against the final original. Public checksum file
+  `BillNgai-2.0.4-SHA256SUMS.txt` is available beside both. Prior objects unchanged.
+- Website content commit: `9911602ddc16d3ffccdce2cda4b5261836049ed4`, pushed to
+  `visarutforthaipbs/billiong-releases` main. No automatic deployment appeared;
+  used the documented Wrangler 4.136.2 fallback with that clean commit/tested dist.
+- Production Pages deployment: `e964578d-d928-48c0-b3e0-7f13e6a49e17`, success,
+  https://e964578d.billiong-landing.pages.dev; production remains
+  https://billiong-landing.pages.dev/.
+- Live landing/support/retired-demo HTML match tested build bytes. Manager viewed
+  the live download dialog and verified Mac 2.0.4 primary and GitHub fallback URLs,
+  upgrade/legacy/evidence restrictions and unchanged Windows 2.0.1 Beta label.
+- Prior production: `8d125ac5-1c5f-43ba-be70-f5f47e4409f9`, content `2af067c`;
+  rollback restores 2.0.3 limitations, not a safe customer-data downgrade.
+- Full app release evidence lives in its `RELEASE-2.0.4.md`. No installed working
+  app/customer records were changed. Professional review, Windows/MAS and broader
+  manual/security verification remain separate; no legal certification claimed.
