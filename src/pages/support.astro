@@ -134,7 +134,7 @@ const faqs = [
             <span class="text-slate-400 group-open:rotate-45 transition-transform shrink-0 text-base leading-none">+</span>
           </summary>
           <div class="px-4 pb-4 text-sm text-slate-600 space-y-2.5 leading-relaxed border-t border-border-custom pt-3">
-            <p>คำแนะนำ App Store ด้านล่างใช้เฉพาะผู้ที่มีเวอร์ชันนั้นอยู่แล้ว ไม่ใช่ประกาศอนุมัติ 2.0.3 ตัวติดตั้งบนเว็บรุ่น {product.downloads.mac.version} ต้องใช้ macOS 12 Monterey ขึ้นไป เป็น Universal สำหรับ Intel และ Apple Silicon</p>
+            <p>คำแนะนำ App Store ด้านล่างใช้เฉพาะผู้ที่มีเวอร์ชันนั้นอยู่แล้ว ไม่ใช่ประกาศอนุมัติ 2.0.4 ตัวติดตั้งบนเว็บรุ่น {product.downloads.mac.version} ต้องใช้ macOS 12 Monterey ขึ้นไป เป็น Universal สำหรับ Intel และ Apple Silicon</p>
             <p class="font-semibold text-slate-800">วิธีติดตั้งจากเว็บ</p>
             <ol class="list-decimal pl-5 space-y-1">
               <li>เปิดตัวติดตั้ง แล้วลาก BillNgai ไปที่ Applications</li>
@@ -206,8 +206,10 @@ const faqs = [
             <span class="text-slate-400 group-open:rotate-45 transition-transform shrink-0 text-base leading-none">+</span>
           </summary>
           <div class="px-4 pb-4 text-sm text-slate-600 space-y-2.5 leading-relaxed border-t border-border-custom pt-3">
-            <p>สำเนาอัตโนมัติในเครื่องอาจหายพร้อมดิสก์ ควรเก็บอีกชุดนอกดิสก์เดิม และเก็บ PDF เดิมก่อนอัปเดต เอกสารเก่าที่ออกแล้วทุกประเภทซึ่งไม่มีสำเนาข้อมูล ณ วันออกจะพิมพ์/แชร์ใหม่หรือเปลี่ยนสถานะไม่ได้ รวมถึงการเปลี่ยนใบแจ้งหนี้เก่าเป็นชำระแล้วและสร้างใบเสร็จที่เชื่อมกัน หากยังมีใบแจ้งหนี้ค้างรับ ติดต่อทีมงานก่อนอัปเดต</p>
-            <p>Mac Direct 2.0.3 พักการซิงก์และกู้คืนคลาวด์ รวมถึง Pro หากใช้ฟีเจอร์นี้อยู่ ติดต่อทีมงานก่อนอัปเดต อย่าลบข้อมูลเดิม</p>
+            <p>สำเนาอัตโนมัติในเครื่องอาจหายพร้อมดิสก์ เก็บฐานข้อมูล JSON และชุดไฟล์หลักฐานแยกกันนอกดิสก์เดิม JSON ไม่มีไฟล์แนบอยู่ข้างใน เก็บ PDF ต้นฉบับไว้ด้วยก่อนอัปเดตหรือย้ายเครื่อง</p>
+            <p>รุ่น 2.0.4 เปิดอ่านข้อมูลเอกสารเก่าที่เก็บไว้ได้ โดยไม่ต้องยกเลิก เอกสารที่ไม่มีสำเนาข้อมูล ณ วันออกยังพิมพ์/แชร์ใหม่ไม่ได้ การเก็บเข้าคลังเปลี่ยนแค่การแสดงรายการ ไม่ใช่การยกเลิกเอกสารหรือคืนเงิน</p>
+            <p>ใบแจ้งหนี้เก่าค้างรับบางรายการทบทวนการรับเงินได้ ต้องมีหลักฐานและยืนยันข้อมูลครบ รองรับเฉพาะรับเต็มจำนวนเป็นเงินบาทและไม่จด VAT การรับเงินที่ทบทวนแล้วบันทึกแยกจากต้นฉบับ จากนั้นเลือกออกใบเสร็จธรรมดาใหม่ด้วยวันที่ออกวันนี้ ไม่ใช่การสร้างใบเสร็จเดิมย้อนหลัง หากข้อมูลขัดแย้งหรือไม่ครบ ติดต่อฝ่ายช่วยเหลือและผู้เชี่ยวชาญก่อนดำเนินการ</p>
+            <p>Mac Direct 2.0.4 พักการซิงก์และกู้คืนคลาวด์ รวมถึง Pro หากใช้ฟีเจอร์นี้อยู่ ติดต่อทีมงานก่อนอัปเดต อย่าลบข้อมูลเดิม</p>
             <p>ข้อมูลของคุณอยู่ในเครื่องคุณ เราไม่มีเซิร์ฟเวอร์เก็บบิลหรือข้อมูลลูกค้าของคุณ</p>
             <p class="font-semibold text-slate-800">กู้คืนไม่สำเร็จ ทักมาทาง LINE อย่าเพิ่งลบอะไรทิ้ง</p>
           </div>
@@ -236,9 +238,9 @@ const faqs = [
             <span class="text-slate-400 group-open:rotate-45 transition-transform shrink-0 text-base leading-none">+</span>
           </summary>
           <div class="px-4 pb-4 text-sm text-slate-600 space-y-2.5 leading-relaxed border-t border-border-custom pt-3">
-            <p>รุ่น 2.0.3 นี้สำหรับ Mac Direct จากเว็บเท่านั้น Mac App Store ยังรออัปเดต และ Windows ยังเป็น 2.0.1 Beta อย่าถือว่าทุกช่องทางมีฟีเจอร์หรือมาตรการเดียวกัน</p>
+            <p>รุ่น 2.0.4 นี้สำหรับ Mac Direct จากเว็บเท่านั้น Mac App Store ยังรออัปเดต และ Windows ยังเป็น 2.0.1 Beta อย่าถือว่าทุกช่องทางมีฟีเจอร์หรือมาตรการเดียวกัน</p>
             <ul class="list-disc pl-5 space-y-1">
-              <li><strong class="text-slate-800">เวอร์ชัน Mac App Store</strong> — ช่องทางซื้อและกู้คืน Pro ใช้ Apple ID ไม่ใช้รหัสจากเว็บ สถานะ 2.0.3 ยังรออัปเดต</li>
+              <li><strong class="text-slate-800">เวอร์ชัน Mac App Store</strong> — ช่องทางซื้อและกู้คืน Pro ใช้ Apple ID ไม่ใช้รหัสจากเว็บ สถานะ 2.0.4 ยังรออัปเดต</li>
               <li><strong class="text-slate-800">เวอร์ชัน Mac Direct</strong> — อ่านข้อจำกัดใบเสร็จ ภาษี และคลาวด์ด้านบน Pro มีโมดูล AI แยก</li>
             </ul>
             <p>ใช้เวอร์ชันไหนอยู่ก็ทักมาถามได้เหมือนกัน เราดูแลทั้งสองแบบ</p>

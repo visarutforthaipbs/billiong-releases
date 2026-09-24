@@ -5,7 +5,7 @@ const title = "ข้อมูลของคุณ เป็นของคุ�
 const tagline = "Local-First Architecture";
 const paragraphs = [
   "ข้อมูลของคุณถูกเก็บเป็นไฟล์ billing.json บนเครื่องคอมพิวเตอร์ของคุณเอง — ไฟล์ที่อ่าน ตรวจสอบ และสำรองได้จริง ไม่ใช่ฐานข้อมูลปิดที่ต้องล็อกอินผ่านเซิร์ฟเวอร์ของผู้ให้บริการ และ BillNgai ไม่เก็บเอกสาร ลูกค้า รายได้ หรือข้อมูลภาษีของคุณบนเซิร์ฟเวอร์เรา",
-  "สำเนาอัตโนมัติในเครื่องช่วยเก็บประวัติ แต่ไม่ป้องกันดิสก์เสีย ควรเก็บสำรองอีกชุดนอกดิสก์เดิม รุ่น 2.0.3 พักซิงก์และกู้คืนคลาวด์ รวมถึง Pro"
+  "สำเนาอัตโนมัติในเครื่องไม่ป้องกันดิสก์เสีย เก็บฐานข้อมูล JSON และชุดไฟล์หลักฐานแยกกันนอกดิสก์เดิม JSON ไม่มีไฟล์แนบอยู่ข้างใน รุ่น 2.0.4 พักซิงก์และกู้คืนคลาวด์ รวมถึง Pro"
 ];
 ---
 
@@ -64,7 +64,7 @@ const paragraphs = [
           </div>
           <div class="flex items-center justify-between gap-4 px-4 py-3">
             <span class="font-bold text-slate-800 shrink-0">Pro</span>
-            <span class="text-slate-500 text-right">ข้อมูลในเครื่อง · พักซิงก์คลาวด์ใน 2.0.3</span>
+            <span class="text-slate-500 text-right">ข้อมูลในเครื่อง · พักซิงก์คลาวด์ใน 2.0.4</span>
           </div>
           <div class="flex items-center justify-between gap-4 px-4 py-3 bg-primary/5">
             <span class="font-bold text-primary shrink-0">เซิร์ฟเวอร์ BillNgai</span>
@@ -102,7 +102,7 @@ const paragraphs = [
                 <RefreshCcw size={12} class="text-slate-400" />
                 <span class="text-xs font-bold text-slate-800">Auto rolling snapshot every 30 mins</span>
               </div>
-              <p class="text-[11px] text-slate-400">สำเนาในเครื่องไม่แทนการสำรองแยกดิสก์ เก็บ PDF เดิมก่อนอัปเดต</p>
+              <p class="text-[11px] text-slate-400">สำรอง JSON และชุดไฟล์หลักฐานแยกกันนอกดิสก์เดิม เก็บ PDF เดิมก่อนอัปเดต</p>
             </div>
 
             <!-- Sync step -->
@@ -110,7 +110,7 @@ const paragraphs = [
               <span class="absolute -left-[21px] top-1.5 w-2 h-2 rounded-full bg-secondary ring-4 ring-white"></span>
               <div class="flex items-center gap-2 mb-1">
                 <FolderSync size={12} class="text-slate-400" />
-                <span class="text-xs font-bold text-slate-800 font-sans">Google Drive Workspace Sync — พักใน 2.0.3</span>
+                <span class="text-xs font-bold text-slate-800 font-sans">Google Drive Workspace Sync — พักใน 2.0.4</span>
               </div>
               <p class="text-[11px] text-slate-400 flex items-start gap-1">
                 <img src="/assets/brand/icons/set-2-16-folder.png" alt="Cloud Sync Folder" class="w-4 h-4 object-contain inline-block shrink-0 mt-0.5" />

@@ -1,6 +1,6 @@
 # บิลง่าย (BillNgai) Marketing & Promotion Website
 
-This repository hosts the marketing website for **บิลง่าย (BillNgai)**, a local-first billing application built for Thai freelancers. Read [RELEASE-2.0.3.md](RELEASE-2.0.3.md) before publishing: website claims and downloads must match the verified Mac Direct 2.0.3 artifact, not Windows/MAS.
+This repository hosts the marketing website for **บิลง่าย (BillNgai)**, a local-first billing application built for Thai freelancers. Read [RELEASE-2.0.4.md](RELEASE-2.0.4.md) before publishing: the 2.0.4 website is a release candidate until the manager verifies and publishes the actual Mac Direct artifact. Windows/MAS are separate channels. Historical 2.0.3 evidence remains in [RELEASE-2.0.3.md](RELEASE-2.0.3.md).
 
 ## 🚀 Project Architecture
 
@@ -9,7 +9,7 @@ Built with **Astro 7** and **Tailwind CSS v4**.
 ```text
 /
 ├── public/
-│   ├── demo-app.html  <-- Retired-demo notice; old simulator disabled for 2.0.3
+│   ├── demo-app.html  <-- Retired-demo notice; old simulator remains disabled
 │   ├── logo.svg       <-- Brand logo
 │   └── fonts/         <-- Self-hosted Inter & LINE Seed Sans TH fonts
 ├── src/

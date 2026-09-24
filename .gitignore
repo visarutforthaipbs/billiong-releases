@@ -1,6 +1,9 @@
 # build output
 dist/
 
+# local browser verification screenshots
+test-artifacts/
+
 # generated types
 .astro/
 
