@@ -10,7 +10,7 @@ const demo = read('dist/demo-app.html');
 // The current Mac version comes from the product config, so the checks follow each release.
 const config = read('src/config/product.ts');
 const V = config.match(/mac:\s*\{\s*version:\s*"([^"]+)"/)[1];
-const PREVIOUS = ['2.0.4', '2.0.3', '2.0.2'];
+const PREVIOUS = ['2.0.11', '2.0.10', '2.0.4', '2.0.3', '2.0.2'];
 const proPaused = /salesPaused:\s*true/.test(config);
 for (const [name, html] of [['index', index], ['support', support]]) {
   for (const phrase of [`Mac Direct ${V}`, 'ไม่รองรับใบกำกับภาษี', 'ไม่ใช้อัตรา 3% อัตโนมัติ', 'สำรองข้อมูลและเก็บ PDF เดิมก่อนอัปเดต', 'Windows ยังเป็น 2.0.1 Beta รุ่นเก่า', 'การรับรองโดยนักบัญชี']) {
@@ -38,6 +38,13 @@ if (proPaused) {
   assert.ok(index.includes('Pro พักการขายชั่วคราว'));
 }
 assert.ok(index.includes('Windows 2.0.1 Beta (รุ่นเก่า)'), 'Windows download is labelled as an older Beta');
+if (!proPaused) {
+  for (const sale of ['#pro-order', 'promptpay-599.svg', 'ซิงก์ Google Drive', 'สูงสุด 3 บัญชี Google ต่อรหัส']) assert.ok(index.includes(sale), `Pro offer incomplete: ${sale}`);
+  for (const stale of ['พักการขาย', 'พักซิงก์', 'ซิงก์และกู้คืนคลาวด์']) assert.ok(!index.includes(stale) && !support.includes(stale), `stale sync/Pro copy: ${stale}`);
+}
+const privacy = read('dist/privacy.html');
+assert.ok(privacy.includes('Cloudflare') && privacy.includes('drive.file'), 'privacy policy describes the sync service');
+assert.ok(index.includes('/privacy.html'), 'privacy policy is linked');
 assert.ok(index.includes('Windows 2.0.1 Beta'));
 assert.ok(!support.includes('promptpay-599.svg'), 'Support must not include purchase QR');
 assert.ok(demo.includes('พักเดโมรุ่นเก่า'));
