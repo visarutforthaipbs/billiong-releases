@@ -1,6 +1,6 @@
 export const product = {
   name: "บิลง่าย (BillNgai)",
-  versionLabel: "BillNgai 2.0.4 สำหรับ Mac",
+  versionLabel: "BillNgai 2.0.11 สำหรับ Mac",
   lineUrl: "https://lin.ee/pSl8nEH",
   promptPayId: "0627283058",
   prices: {
@@ -10,7 +10,9 @@ export const product = {
       fullLabel: "ฟรี",
       qrPath: "/assets/brand/promptpay-599.svg",
     },
+    // Pro sales are paused until the AI add-on can be delivered; existing keys keep working.
     pro: {
+      salesPaused: true,
       earlyBird: "599.00",
       earlyBirdLabel: "฿599",
       fullLabel: "฿1,900",
@@ -19,10 +21,10 @@ export const product = {
   },
   downloads: {
     mac: {
-      version: "2.0.4",
+      version: "2.0.11",
       minimumOS: "macOS 12 Monterey",
-      github: "https://github.com/visarutforthaipbs/local-bill-apps/releases/download/v2.0.4/BillNgai-2.0.4-universal.dmg",
-      r2: "https://pub-4ed16d146bff4f168839661507e1748a.r2.dev/BillNgai-2.0.4-universal.dmg",
+      github: "https://github.com/visarutforthaipbs/local-bill-apps/releases/download/v2.0.11/BillNgai-2.0.11-universal.dmg",
+      r2: "https://pub-4ed16d146bff4f168839661507e1748a.r2.dev/BillNgai-2.0.11-universal.dmg",
     },
     windows: {
       version: "2.0.1",
