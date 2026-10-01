@@ -76,7 +76,7 @@ const downloadUrls = getDownloadUrls(DOWNLOAD_SOURCE);
 						</div>
 						<ul class="text-[10px] text-slate-600 leading-normal space-y-0.5 list-disc pl-4 font-medium">
 							<li><strong>macOS</strong>: ใช้ {product.downloads.mac.minimumOS} ขึ้นไป รองรับ Intel และ Apple Silicon เปิดไฟล์ .dmg แล้วลาก BillNgai ไปที่ Applications</li>
-							<li><strong>Windows 2.0.1 Beta (รุ่นเก่า)</strong>: ยังไม่มีการแก้ไขด้านความปลอดภัยของข้อมูลที่อยู่ใน Mac รุ่นปัจจุบัน แนะนำให้ใช้ Mac หากต้องใช้ Windows ให้สำรองข้อมูลก่อน และหากระบบเตือนความปลอดภัย ให้หยุดและติดต่อฝ่ายช่วยเหลือ</li>
+							<li><strong>Windows 2.0.12 Beta (64 บิต)</strong>: รวมการแก้ไขข้อมูลและใบเสร็จของรุ่นปัจจุบัน ตัวติดตั้งยังไม่มีลายเซ็นดิจิทัล และยังไม่ทดสอบ Google Drive จริงบน Windows สำรองข้อมูลก่อนอัปเดต หากระบบเตือนความปลอดภัย ให้หยุดและติดต่อฝ่ายช่วยเหลือ</li>
 						</ul>
 					</div>
 				</div>
@@ -105,10 +105,11 @@ const downloadUrls = getDownloadUrls(DOWNLOAD_SOURCE);
 							class="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 text-xs font-semibold text-white bg-primary hover:bg-primary-hover rounded-sm shadow-md transition-all active:scale-98 cursor-pointer text-center"
 						>
 							<Download size={14} />
-							Windows {product.downloads.windows.version} Beta (รุ่นเก่า)
+							Windows {product.downloads.windows.version} Beta (64 บิต)
 						</a>
 					</div>
 					<p class="text-center text-xs text-text-muted">โหลด Mac ไม่สำเร็จ? <a href={product.downloads.mac.github} target="_blank" rel="noopener noreferrer" class="font-semibold underline">ดาวน์โหลดไฟล์เดียวกันจาก GitHub</a></p>
+					<p class="text-center text-xs text-text-muted">โหลด Windows ไม่สำเร็จ? <a href={product.downloads.windows.github} target="_blank" rel="noopener noreferrer" class="font-semibold underline">ดาวน์โหลดไฟล์เดียวกันจาก GitHub</a></p>
 					<button 
 						id="dialog-done-btn" 
 						type="button"
