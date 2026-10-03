@@ -1,100 +1,36 @@
 ---
-import { Cpu, Download, Globe } from '@lucide/astro';
-
-const badge = "Mac 2.0.12 · Windows 2.0.12 Beta · Local-First";
-const headline = "บิลง่าย";
-const techNote = "2.0.12 จำกัดใบเสร็จสำหรับผู้ไม่จด VAT · อ่านข้อจำกัดก่อนอัปเดต";
+import { Download, ArrowRight } from '@lucide/astro';
+import { product } from '../config/product';
 ---
 
-<section id="hero" class="relative pt-24 pb-16 md:pt-32 md:pb-20 overflow-hidden bg-[#FFF9F3]">
-  
-  <!-- Warm brand background glow -->
-  <div class="absolute top-[-10%] left-[50%] -translate-x-[50%] w-[800px] h-[350px] bg-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
-
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-      
-      <!-- Left Column: Copy & Actions -->
-      <div class="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
-        
-        <!-- Local-First Badge -->
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-border-custom shadow-xs animate-pulse-glow">
-          <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-          <span class="text-xs font-semibold text-slate-600 tracking-wide">{badge}</span>
-        </div>
-
-        <!-- Title and Subtitle -->
-        <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 tracking-tight leading-none">
-          {headline}
-        </h1>
-        
-        <p class="text-2xl md:text-3xl font-bold text-slate-800 tracking-tight leading-tight">
-          ออกบิลไว เก็บเงินง่าย <br /> จัดเอกสารสำหรับ <span class="text-[#E05E00] underline decoration-primary decoration-2 underline-offset-4">ฟรีแลนซ์ไทย</span>
-        </p>
-
-        <!-- Description -->
-        <p class="text-base md:text-lg text-slate-500 leading-relaxed max-w-2xl">
-          สร้างใบเสนอราคา ใบแจ้งหนี้ และจัดข้อมูลให้นักบัญชี ใบเสร็จรุ่น 2.0.12 รองรับเฉพาะผู้ยืนยันว่า<strong class="text-slate-900 font-semibold">ไม่จดทะเบียน VAT</strong> รับชำระเต็มจำนวนเป็นเงินบาท ต้องตรวจยอดและภาษีหัก ณ ที่จ่ายเองก่อนออกเอกสาร
-        </p>
-        <p class="text-sm md:text-base text-slate-500 leading-relaxed max-w-2xl">
-          <strong class="text-slate-900 font-semibold">ข้อมูลหลักอยู่ในเครื่องคุณ</strong> Pro ซิงก์ผ่าน Google Drive ของคุณเองได้หลายเครื่อง ไม่รองรับใบกำกับภาษี และไม่แสดงประมาณการภาษีที่ต้องจ่ายหรือขอคืน
-        </p>
-
-        <!-- Call to Actions Buttons -->
-        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 w-full max-w-md">
-          <a
-            href="#download"
-            class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-sm font-semibold text-white bg-primary rounded-sm hover:bg-primary-hover transition-all duration-200 shadow-md hover:shadow-lg active:scale-98 cursor-pointer"
-          >
-            <Download size={16} />
-            ดาวน์โหลดและอ่านข้อจำกัด
-          </a>
-          <a
-            href="#web-app"
-            class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-sm font-semibold text-slate-700 bg-white border border-border-custom rounded-sm hover:bg-slate-50 hover:text-primary transition-all duration-200 shadow-xs active:scale-98 cursor-pointer"
-          >
-            <Globe size={16} />
-            อ่านก่อนอัปเดต 2.0.12
-          </a>
-        </div>
-
-        <!-- Tech Note -->
-        <div class="inline-flex items-center gap-2 text-xs font-medium text-slate-500 bg-white/70 border border-border-custom px-3 py-1.5 rounded-lg">
-          <Cpu size={12} class="text-primary shrink-0" />
-          <span>{techNote}</span>
-        </div>
-        
+<section id="hero" class="py-12 md:py-20 bg-canvas">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+    <div class="space-y-6" data-motion="reveal">
+      <div class="flex items-center gap-3">
+        <img src="/assets/brand/clay/logo-b-clay.webp" alt="" width="640" height="640" class="w-16 h-16" />
+        <span class="text-sm font-semibold text-text-muted">Mac {product.downloads.mac.version} · Windows {product.downloads.windows.version} Beta</span>
       </div>
-      
-      <!-- Right Column: Brand Illustration -->
-      <div class="lg:col-span-5 flex justify-center relative">
-        <div class="relative w-full max-w-[400px] sm:max-w-[480px] lg:max-w-[520px] flex items-center justify-center">
-          <!-- Decorative background elements -->
-          <div class="absolute w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] bg-primary/5 rounded-full blur-2xl pointer-events-none z-0"></div>
-          <div class="absolute w-[220px] h-[220px] sm:w-[300px] sm:h-[300px] border-2 border-dashed border-border-custom/50 rounded-full pointer-events-none z-0 animate-[spin_120s_linear_infinite]"></div>
-          
-          <!-- Main Character -->
-          <img 
-            src="/assets/brand/characters/modern-charector.png" 
-            alt="บิลง่าย Freelancer" 
-            class="w-full max-w-[360px] sm:max-w-[420px] lg:max-w-[460px] relative z-10 object-contain drop-shadow-xs hover:scale-[1.02] transition-transform duration-300 pointer-events-none"
-          />
-          
-          <!-- Floating Doodle Objects -->
-          <img 
-            src="/assets/brand/objects/set-1-23-envelope.png" 
-            alt="Envelope Doodle" 
-            class="absolute top-2 -left-2 w-12 h-12 object-contain z-20 animate-float-window pointer-events-none opacity-90 hidden sm:block" 
-          />
-          <img 
-            src="/assets/brand/objects/set-1-24-folder.png" 
-            alt="Folder Doodle" 
-            class="absolute bottom-6 -right-2 w-14 h-14 object-contain z-20 animate-float-window pointer-events-none opacity-90 hidden sm:block"
-            style="animation-delay: -3s;"
-          />
-        </div>
+      <h1 class="text-5xl md:text-7xl font-bold tracking-tight text-text-dark leading-tight">บิลง่าย</h1>
+      <p class="text-3xl md:text-4xl font-bold leading-snug text-text-dark">ออกบิลไว เก็บเงินง่าย<br /><span class="text-accent-ink">สำหรับฟรีแลนซ์ไทย</span></p>
+      <p class="text-base md:text-lg text-text-muted leading-relaxed max-w-xl">สร้างใบเสนอราคา ใบแจ้งหนี้ และจัดข้อมูลให้นักบัญชี<br class="hidden sm:block" /> ข้อมูลหลักอยู่ในเครื่องคุณ ใช้ Local ได้ฟรี</p>
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="#download" class="clay-button clay-button-primary"><Download size={18} />ดาวน์โหลดฟรี</a>
+        <a href="#plans" class="clay-button clay-button-secondary">ดู Local และ Pro<ArrowRight size={18} /></a>
       </div>
-
+      <div class="text-sm text-text-muted leading-relaxed space-y-2 max-w-xl">
+        <p>ใบเสร็จธรรมดาสำหรับผู้ไม่จด VAT รับเต็มจำนวนเป็นเงินบาท ไม่รองรับใบกำกับภาษี ตรวจยอดและภาษีหัก ณ ที่จ่ายก่อนออกเอกสาร</p>
+        <a href="#web-app" class="inline-flex items-center gap-1 text-accent-ink font-semibold underline underline-offset-4">อ่านข้อจำกัดและคำแนะนำก่อนอัปเดต<ArrowRight size={15} /></a>
+      </div>
     </div>
+    <figure class="clay-panel p-6 sm:p-8 relative" data-motion="reveal" data-motion-order="1">
+      <div class="flex items-center justify-between gap-4">
+        <span class="text-sm font-semibold text-text-muted">พื้นที่ทำงานที่เป็นของคุณ</span>
+        <span class="text-xs font-semibold text-accent-ink bg-primary/10 px-3 py-1.5 rounded-full">Local-First</span>
+      </div>
+      <div class="clay-hero-stage" data-motion="hero">
+      <img src="/assets/brand/clay/promo-hero.webp" alt="พื้นที่ทำงานดินปั้น พร้อมแล็ปท็อป เอกสาร แก้วสีส้ม และต้นไม้" width="1024" height="1024" fetchpriority="high" class="clay-art w-full aspect-square" />
+      </div>
+      <figcaption class="border-t border-border-custom pt-4 text-sm text-text-muted leading-relaxed">งานเอกสารอยู่ใกล้มือ ข้อมูลอยู่ใกล้ตัว<br /><strong class="text-text-dark">Pro เพิ่มซิงก์ Google Drive ของคุณเอง</strong></figcaption>
+    </figure>
   </div>
 </section>

@@ -1,0 +1,57 @@
+[
+  {
+    "placement": "Hero",
+    "file": "/assets/brand/clay/promo-hero.webp",
+    "credits": 3
+  },
+  {
+    "placement": "AI TOR to quotation",
+    "file": "/assets/brand/clay/promo-ai-quote.webp",
+    "credits": 3
+  },
+  {
+    "placement": "Google Drive sync",
+    "file": "/assets/brand/clay/promo-drive-sync.webp",
+    "credits": 3
+  },
+  {
+    "placement": "Income classification",
+    "file": "/assets/brand/clay/promo-income-summary.webp",
+    "credits": 3
+  },
+  {
+    "placement": "Quotations and invoices",
+    "file": "/assets/brand/clay/promo-documents.webp",
+    "credits": 3
+  },
+  {
+    "placement": "Accountant export",
+    "file": "/assets/brand/clay/promo-accountant-export.webp",
+    "credits": 3
+  },
+  {
+    "placement": "Readable backup",
+    "file": "/assets/brand/clay/promo-readable-backup.webp",
+    "credits": 3
+  },
+  {
+    "placement": "Ordinary receipt",
+    "file": "/assets/brand/clay/promo-simple-receipt.webp",
+    "credits": 3
+  },
+  {
+    "placement": "Withholding certificate tracking",
+    "file": "/assets/brand/clay/promo-wht-certificate.webp",
+    "credits": 3
+  },
+  {
+    "placement": "PromptPay QR",
+    "file": "/assets/brand/clay/promo-promptpay.webp",
+    "credits": 3
+  },
+  {
+    "placement": "Data ownership section",
+    "file": "/assets/brand/clay/promo-data-ownership.webp",
+    "credits": 3
+  }
+]

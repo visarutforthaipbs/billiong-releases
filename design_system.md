@@ -1,80 +1,11 @@
-# BillNgai (บิลง่าย) Design System & Corporate Identity (CI)
+# BillNgai website design system
 
-This document details the design system, styling guidelines, and color tokens used for the **บิลง่าย (BillNgai)** landing page and simulated application workspace.
+The owner approved the website clay direction on 2026-10-03. Read [BRAND.md](BRAND.md). The website uses eleven distinct Meshy illustrations created for the promo site, plus the app’s matching clay brand mark, optimized as local WebP files in `public/assets/brand/clay/`. Asset provenance is recorded there.
 
-> [!IMPORTANT]
-> The single source of truth for the brand identity is the master [BRAND.md](file:///Users/visarutsankham/Documents/Personal-Project/Billiong-App/BRAND.md) in the app repository. Any changes to document templates or UI designs must align with it.
+Warm cream canvas, white artwork panels, orange actions, charcoal text. Gentle isometric lighting belongs to the artwork; page surfaces stay simple. Use 20px cards, 24px dialogs, pill actions, readable secondary text and modest shadows. Inter and LINE Seed Sans TH remain self-hosted. Tokens and reusable classes live in `src/styles/global.css`.
 
----
+Use the folded-paper b vector for navigation and favicon, and the matching clay version for prominent brand artwork. Large artwork has explicit dimensions; below-fold assets load lazily. Decorative images have empty alt text; meaningful images have concise Thai descriptions. The owner requested restrained animation on 2026-10-03: allow a gentle hero drift only while visible, finite scroll entrances, and small hover/focus responses. Content must remain visible without JavaScript; reduced motion disables these effects. No perpetual spin/pulse, old doodle artwork, external asset requests, fake app screenshots or new runtime dependencies. Focus indicators and reduced-motion support are required.
 
-## 1. Color System
+Product remains 2.0.12. Local is free; Pro is THB599 Early Bird and adds Google Drive sync plus a separate Mac AI module. Pro sync drafts work offline; document issuance needs internet. Keep non-VAT/full-THB receipt restrictions, backup and attachment disclosures visible. Download and purchase dialogs retain their working destinations and public prices.
 
-All colors are declared under the `@theme` block in [global.css](file:///Users/visarutsankham/Documents/Personal-Project/promote-billiong/src/styles/global.css). Always use tailwind theme variables instead of hardcoded hex values.
-
-| Semantic Token | TailWind Class | Hex Code | Ideal Usage |
-| :--- | :--- | :--- | :--- |
-| **Primary** | `bg-primary` / `text-primary` | `#FF6B00` | Main brand elements, primary CTA buttons, active tabs. |
-| **Primary Hover** | `hover:bg-primary-hover` | `#E05E00` | Interactive hover states for primary items. |
-| **Secondary** | `bg-secondary` / `text-secondary` | `#2D3436` | Charcoal accents, headers, sidebars, secondary actions. |
-| **Accent Background** | `bg-accent-bg` | `#ffffff` | Clean white canvas for cards, dashboards, and tables. |
-| **Body Background** | (Standard body color) | `#FFF9F3` | Warm cream background. |
-| **Text Dark** | `text-text-dark` | `#2D3436` | High-contrast main headings and body text. |
-| **Text Muted** | `text-text-muted` | `#645d54` | Descriptions, helper texts, table headers. |
-| **Border Custom** | `border-border-custom` | `#e8dccb` | Structural borders, outlines, dividers. |
-
----
-
-## 2. Typography
-
-* **Sans-Serif (Standard UI & Body):** `"Inter"`, `"LINE Seed Sans TH"`, system-ui, sans-serif.
-  * *TailWind Class:* Default `font-sans`.
-* **Display / Numerals (Display & Metrics):** Uses the same stack at display weight (`font-sans`). Serif fonts have been removed in the v1.4.0 brand refresh.
-
----
-
-## 3. Elevation & Borders
-
-We follow a tactile, soft-layered interface structure mimicking macOS native windows.
-
-* **Rounded Corners:**
-  * `.rounded-2xl` (16px) — Used for main containers, simulated app window, and modal panels.
-  * `.rounded-xl` (12px) — Used for internal cards, progress bars, tables, and buttons.
-  * `.rounded-lg` (8px) — Used for QR code boxes, badges, and smaller tags.
-* **Shadow Systems:**
-  * `.mac-window-shadow` — Used for main simulated windows and checkout modals.
-  * `.mac-popover-shadow` — Used for dropdowns, tooltips, and floaters.
-* **Borders:**
-  * All borders must use `border border-border-custom` for a consistent, low-contrast warm separation.
-
----
-
-## 4. Brand Component Standards
-
-### Buttons
-```html
-<!-- Primary Button -->
-<button class="bg-primary hover:bg-primary-hover text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-sm transition-all active:scale-98">
-  ดำเนินการต่อ
-</button>
-
-<!-- Secondary / Border Button -->
-<button class="bg-transparent hover:bg-accent-bg border border-border-custom text-text-dark text-sm font-semibold px-5 py-2.5 rounded-xl transition-all">
-  ยกเลิก
-</button>
-```
-
-### Dashboard Cards
-```html
-<!-- Stat Card -->
-<div class="bg-accent-bg border border-border-custom rounded-2xl p-5 shadow-xs">
-  <span class="text-xs text-text-muted">หัวข้อการเงิน</span>
-  <span class="font-sans text-2xl font-bold text-text-dark block mt-1">฿50,000.00</span>
-</div>
-```
-
----
-
-## 5. Micro-Animations
-
-* `.animate-pulse-glow` — Slow pulsing glow outline used for scanner indicators and action elements.
-* `.active:scale-98` — Subtle shrink effect upon clicking buttons to provide immediate tactile feedback.
+Download dialog: lead with the clay brand mark and large Mac/Windows download actions. Keep a short compatibility, receipt-scope and backup summary visible. Full release notes, installation steps and GitHub fallback links live in a collapsed native disclosure below the actions; expanding it must not push the primary download controls out of view.

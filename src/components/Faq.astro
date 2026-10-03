@@ -44,13 +44,13 @@ const questions = [
     
     <!-- Header -->
     <div class="text-center max-w-2xl mx-auto mb-16">
-      <div class="inline-flex items-center justify-center p-2.5 rounded-full bg-primary/10 text-primary mb-4">
+      <div class="inline-flex items-center justify-center p-2.5 rounded-full bg-primary/10 text-accent-ink mb-4">
         <HelpCircle size={24} />
       </div>
-      <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">
+      <h2 class="text-3xl font-bold text-slate-900 tracking-tight">
         {title}
       </h2>
-      <p class="text-slate-500 text-sm md:text-base mt-2">
+      <p class="text-text-muted text-sm md:text-base mt-2">
         ตอบทุกข้อสงสัยเกี่ยวกับระบบบัญชี Local-First และการจัดการความปลอดภัย
       </p>
     </div>
@@ -59,13 +59,13 @@ const questions = [
     <div class="space-y-4">
       {questions.map((item) => (
         <details class="group border border-border-custom rounded-md overflow-hidden bg-slate-50/10 open:bg-white open:shadow-2xs transition-all duration-200">
-          <summary class="flex items-center justify-between p-5 text-sm md:text-base font-bold text-slate-800 cursor-pointer list-none select-none focus:outline-none hover:text-primary hover:bg-slate-50/30">
+          <summary class="flex items-center justify-between p-5 text-sm md:text-base font-bold text-slate-800 cursor-pointer list-none select-none focus:outline-none hover:text-accent-ink hover:bg-slate-50/30">
             <span>{item.q}</span>
-            <span class="chevron-wrapper text-slate-400 group-hover:text-primary transition-transform duration-300">
+            <span class="chevron-wrapper text-text-muted group-hover:text-accent-ink transition-transform duration-300">
               <ChevronDown size={18} />
             </span>
           </summary>
-          <div class="p-5 pt-0 text-sm md:text-base text-slate-500 border-t border-border-custom/50 leading-relaxed bg-white">
+          <div class="p-5 pt-0 text-sm md:text-base text-text-muted border-t border-border-custom/50 leading-relaxed bg-white">
             {item.a}
           </div>
         </details>
@@ -85,6 +85,6 @@ const questions = [
 
   details[open] .chevron-wrapper {
     transform: rotate(180deg);
-    color: #FF6B00;
+    color: var(--color-accent-ink);
   }
 </style>

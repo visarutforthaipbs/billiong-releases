@@ -1,133 +1,26 @@
 ---
-import { ShieldCheck, HardDrive, RefreshCcw, FolderSync, Lock } from '@lucide/astro';
-
-const title = "ข้อมูลของคุณ เป็นของคุณอย่างแท้จริง";
-const tagline = "Local-First Architecture";
-const paragraphs = [
-  "ข้อมูลของคุณถูกเก็บเป็นไฟล์ billing.json บนเครื่องคอมพิวเตอร์ของคุณเอง — ไฟล์ที่อ่าน ตรวจสอบ และสำรองได้จริง ไม่ใช่ฐานข้อมูลปิดที่ต้องล็อกอินผ่านเซิร์ฟเวอร์ของผู้ให้บริการ และ BillNgai ไม่เก็บเอกสาร ลูกค้า รายได้ หรือข้อมูลภาษีของคุณบนเซิร์ฟเวอร์เรา",
-  "สำเนาอัตโนมัติในเครื่องไม่ป้องกันดิสก์เสีย เก็บฐานข้อมูล JSON และชุดไฟล์หลักฐานแยกกันนอกดิสก์เดิม JSON ไม่มีไฟล์แนบอยู่ข้างใน ซิงก์ Google Drive (Pro) เก็บข้อมูลใน Drive ของคุณเอง"
-];
+import { ShieldCheck, HardDrive, FolderSync } from '@lucide/astro';
 ---
 
-<section id="security" class="py-20 md:py-28 bg-[#f6f4f0] relative overflow-hidden border-b border-border-custom">
-  
-  <!-- Apple-style radial glow -->
-  <div class="absolute bottom-[-20%] right-[-10%] w-[600px] h-[400px] bg-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
-
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-      
-      <!-- Left Column: Content -->
-      <div class="lg:col-span-7 space-y-6">
-        <span class="text-xs font-bold text-primary bg-primary/10 border border-primary/20 px-3 py-1 rounded-full w-max block">
-          {tagline}
-        </span>
-        
-        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight flex items-center gap-2.5">
-          <Lock class="text-primary shrink-0" size={28} />
-          <span>{title}</span>
-        </h2>
-        
-        <div class="space-y-4 text-slate-500 text-base md:text-lg leading-relaxed">
-          {paragraphs.map((p) => (
-            <p>{p}</p>
-          ))}
-        </div>
-
-        <!-- Value list -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-          <div class="flex gap-3">
-            <div class="w-8 h-8 rounded-lg bg-white border border-border-custom flex items-center justify-center text-primary shrink-0 shadow-2xs">
-              <ShieldCheck size={16} />
-            </div>
-            <div>
-              <span class="font-bold text-slate-900 block text-sm">ความเป็นส่วนตัวสูงสุด</span>
-              <span class="text-xs text-slate-400">BillNgai ไม่เก็บข้อมูลของคุณบนเซิร์ฟเวอร์เรา</span>
-            </div>
-          </div>
-          <div class="flex gap-3">
-            <div class="w-8 h-8 rounded-lg bg-white border border-border-custom flex items-center justify-center text-primary shrink-0 shadow-2xs">
-              <HardDrive size={16} />
-            </div>
-            <div>
-              <span class="font-bold text-slate-900 block text-sm">ทำงานออฟไลน์ 100%</span>
-              <span class="text-xs text-slate-400">ไม่มีอินเทอร์เน็ตก็ยังเปิดแอปออกบิลได้</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Where data lives — the clearest trust message -->
-        <div class="bg-white border border-border-custom rounded-md divide-y divide-border-custom text-xs md:text-sm shadow-2xs">
-          <div class="flex items-center justify-between gap-4 px-4 py-3">
-            <span class="font-bold text-slate-800 shrink-0">Local</span>
-            <span class="text-slate-500 text-right">ข้อมูลอยู่ในเครื่องคุณเท่านั้น</span>
-          </div>
-          <div class="flex items-center justify-between gap-4 px-4 py-3">
-            <span class="font-bold text-slate-800 shrink-0">Pro</span>
-            <span class="text-slate-500 text-right">เครื่องของคุณ + Google Drive ของคุณ</span>
-          </div>
-          <div class="flex items-center justify-between gap-4 px-4 py-3 bg-primary/5">
-            <span class="font-bold text-primary shrink-0">เซิร์ฟเวอร์ BillNgai</span>
-            <span class="text-slate-600 text-right font-semibold">ไม่เก็บใบแจ้งหนี้ ลูกค้า ภาษี หรือไฟล์ TOR ของคุณ</span>
-          </div>
-        </div>
+<section id="security" class="py-20 md:py-28 bg-canvas border-y border-border-custom">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+    <div class="space-y-6" data-motion="reveal">
+      <span class="text-sm font-semibold text-accent-ink">ข้อมูลของคุณ เป็นของคุณ</span>
+      <h2 class="text-3xl md:text-4xl font-bold text-text-dark leading-snug">เก็บงานไว้ในเครื่อง<br />พร้อมสำรองได้ด้วยตัวเอง</h2>
+      <p class="text-base text-text-muted leading-relaxed">เอกสารและข้อมูลลูกค้าเก็บในเครื่องเป็นไฟล์ billing.json เปิดอ่านและสำรองได้ BillNgai ไม่เก็บเนื้อหาเอกสาร ชื่อลูกค้า หรือยอดเงินบนเซิร์ฟเวอร์เรา</p>
+      <div class="space-y-4 text-sm text-text-muted leading-relaxed">
+        <div class="flex items-start gap-3"><HardDrive size={22} class="text-accent-ink shrink-0" /><p><strong class="text-text-dark">Local ใช้ได้แม้ออฟไลน์</strong><br />Pro ที่เปิดซิงก์ร่างออฟไลน์ได้ แต่ออกเอกสารต้องต่ออินเทอร์เน็ต</p></div>
+        <div class="flex items-start gap-3"><FolderSync size={22} class="text-accent-ink shrink-0" /><p><strong class="text-text-dark">Pro ซิงก์หลายเครื่องผ่าน Google Drive ของคุณเอง</strong><br />ไฟล์หลักฐานแนบยังต้องส่งออกแยก บริการประสานการซิงก์เก็บเฉพาะรหัสและเลขเอกสาร</p></div>
+        <div class="flex items-start gap-3"><ShieldCheck size={22} class="text-accent-ink shrink-0" /><p><strong class="text-text-dark">เก็บสำรองอีกชุดนอกดิสก์เดิม</strong><br />เก็บฐานข้อมูล JSON และชุดไฟล์หลักฐานแยกกัน JSON ไม่มีไฟล์แนบอยู่ข้างใน สำเนาในดิสก์เดียวกันไม่ป้องกันเครื่องพัง</p></div>
       </div>
-
-      <!-- Right Column: CSS Visualization -->
-      <div class="lg:col-span-5 flex justify-center">
-        <div class="w-full max-w-sm rounded-md border border-border-custom bg-white p-6 shadow-sm relative">
-          
-          <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-5">Readable Local Data</h4>
-          
-          <!-- File Visualizer -->
-          <div class="p-4 rounded-md border border-border-custom bg-slate-50/50 flex items-center justify-between mb-6 shadow-2xs relative overflow-hidden">
-            <div class="flex items-center gap-3">
-              <!-- File icon -->
-              <img src="/assets/brand/icons/set-2-15-file.png" alt="billing.json database" class="w-10 h-10 object-contain shrink-0" />
-              <div>
-                <span class="font-bold font-mono text-slate-800 text-xs block">billing.json</span>
-                <span class="text-[10px] text-slate-400">เอกสาร ลูกค้า รายได้ ภาษี — อ่านและสำรองได้จริง</span>
-              </div>
-            </div>
-            <span class="text-[10px] font-bold text-primary bg-primary/10 px-2 py-0.5 rounded border border-primary/20">Readable File</span>
-          </div>
-
-          <!-- Connecting line and backup -->
-          <div class="space-y-4 pl-4 border-l-2 border-dashed border-primary/25 relative">
-            
-            <!-- Snapshot step -->
-            <div class="relative">
-              <span class="absolute -left-[21px] top-1.5 w-2 h-2 rounded-full bg-primary ring-4 ring-white"></span>
-              <div class="flex items-center gap-2 mb-1">
-                <RefreshCcw size={12} class="text-slate-400" />
-                <span class="text-xs font-bold text-slate-800">Auto rolling snapshot every 30 mins</span>
-              </div>
-              <p class="text-[11px] text-slate-400">สำรอง JSON และชุดไฟล์หลักฐานแยกกันนอกดิสก์เดิม เก็บ PDF เดิมก่อนอัปเดต</p>
-            </div>
-
-            <!-- Sync step -->
-            <div class="relative">
-              <span class="absolute -left-[21px] top-1.5 w-2 h-2 rounded-full bg-secondary ring-4 ring-white"></span>
-              <div class="flex items-center gap-2 mb-1">
-                <FolderSync size={12} class="text-slate-400" />
-                <span class="text-xs font-bold text-slate-800 font-sans">Google Drive Sync (Pro) — ใหม่ใน 2.0.12</span>
-              </div>
-              <p class="text-[11px] text-slate-400 flex items-start gap-1">
-                <img src="/assets/brand/icons/set-2-16-folder.png" alt="Cloud Sync Folder" class="w-4 h-4 object-contain inline-block shrink-0 mt-0.5" />
-                <span>เนื้อหาเอกสารอยู่ใน Drive ของคุณ บริการประสานการซิงก์ของเราเก็บเฉพาะรหัสและเลขเอกสาร ไม่เก็บชื่อลูกค้าหรือยอดเงิน</span>
-              </p>
-              
-              <!-- Sync Badges -->
-              <div class="flex gap-2 mt-2">
-                <span class="text-[9px] font-semibold bg-slate-100 border border-border-custom rounded px-1.5 py-0.5 text-slate-500">ใช้งานเครื่องเดียว</span>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </div>
-
+    </div>
+    <div class="clay-panel p-6 sm:p-8" data-motion="reveal" data-motion-order="1">
+      <img src="/assets/brand/clay/promo-data-ownership.webp" alt="ที่เก็บเอกสารดินปั้นทรงบ้านสีงาช้างและส้ม" width="768" height="768" loading="lazy" decoding="async" class="clay-art w-full max-w-xs mx-auto" />
+      <dl class="text-sm divide-y divide-border-custom">
+        <div class="flex justify-between gap-6 py-4"><dt class="font-bold text-text-dark">Local</dt><dd class="text-text-muted text-right">ข้อมูลในเครื่องคุณ</dd></div>
+        <div class="flex justify-between gap-6 py-4"><dt class="font-bold text-text-dark">Pro</dt><dd class="text-text-muted text-right">เครื่องคุณ + Google Drive ของคุณ</dd></div>
+      </dl>
+      <p class="text-sm text-text-muted border-t border-border-custom pt-4">สำรองข้อมูลและเก็บ PDF เดิมก่อนอัปเดต</p>
     </div>
   </div>
 </section>

@@ -5,14 +5,13 @@ import { product } from '../config/product';
 
 <section id="pricing" class="py-20 md:py-28 bg-[#fbfaf6] border-b border-border-custom relative overflow-hidden">
   <!-- Subtle background glow -->
-  <div class="absolute top-[10%] left-[-10%] w-[500px] h-[300px] bg-secondary/5 blur-[120px] rounded-full pointer-events-none"></div>
 
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
-      <span class="text-xs font-bold text-primary bg-primary/10 border border-primary/20 px-3 py-1 rounded-full uppercase tracking-wider">
+      <span class="text-xs font-bold text-accent-ink bg-primary/10 border border-primary/20 px-3 py-1 rounded-full uppercase tracking-wider">
         คุ้มค่าสูงสุดสำหรับ Freelancer & Small Business
       </span>
-      <h2 class="text-3xl md:text-4xl font-extrabold text-text-dark tracking-tight leading-tight">
+      <h2 class="text-3xl md:text-4xl font-bold text-text-dark tracking-tight leading-tight">
         เปรียบเทียบความคุ้มค่าและความปลอดภัย
       </h2>
       <p class="text-text-muted text-sm md:text-base leading-relaxed">
@@ -26,7 +25,7 @@ import { product } from '../config/product';
       <div class="grid grid-cols-12 bg-[#ece7dc]/45 border-b border-border-custom py-4 px-4 sm:px-6 text-xs md:text-sm font-bold text-text-muted">
         <div class="col-span-5 sm:col-span-6">เปรียบเทียบคุณสมบัติ</div>
         <div class="col-span-3 sm:col-span-3 text-center text-text-muted/80">ระบบบัญชีออนไลน์ทั่วไป</div>
-        <div class="col-span-4 sm:col-span-3 text-center text-primary">บิลง่าย (Local-First)</div>
+        <div class="col-span-4 sm:col-span-3 text-center text-accent-ink">บิลง่าย (Local-First)</div>
       </div>
 
       <!-- Feature Rows -->
@@ -43,12 +42,12 @@ import { product } from '../config/product';
               <span>รายเดือน ฿400 - ฿800</span>
             </span>
           </div>
-          <div class="col-span-4 sm:col-span-3 text-center text-primary flex flex-col items-center justify-center bg-primary/5 py-2 rounded-sm border border-primary/20">
-            <span class="text-primary flex items-center gap-1 font-bold">
+          <div class="col-span-4 sm:col-span-3 text-center text-accent-ink flex flex-col items-center justify-center bg-primary/5 py-2 rounded-full border border-primary/20">
+            <span class="text-accent-ink flex items-center gap-1 font-bold">
               <Check size={14} class="shrink-0" />
               <span>Local {product.prices.local.earlyBirdLabel}</span>
             </span>
-            <span class="text-[9px] text-primary/80 font-medium">Early Bird · Pro {product.prices.pro.earlyBirdLabel} ครั้งเดียว</span>
+            <span class="text-[9px] text-accent-ink/80 font-medium">Early Bird · Pro {product.prices.pro.earlyBirdLabel} ครั้งเดียว</span>
           </div>
         </div>
 
@@ -61,9 +60,9 @@ import { product } from '../config/product';
           <div class="col-span-3 sm:col-span-3 text-center text-text-muted flex flex-col items-center justify-center">
             <span class="text-red-600 font-medium">ปีละ ฿4,800 - ฿9,600</span>
           </div>
-          <div class="col-span-4 sm:col-span-3 text-center flex flex-col items-center justify-center bg-primary/5 py-2 rounded-sm border border-primary/20">
-            <span class="text-primary font-bold">ปีถัดๆ ไป ฿0</span>
-            <span class="text-[9px] text-primary/80 font-medium">ไม่มีค่าใช้จ่ายแอบแฝง</span>
+          <div class="col-span-4 sm:col-span-3 text-center flex flex-col items-center justify-center bg-primary/5 py-2 rounded-full border border-primary/20">
+            <span class="text-accent-ink font-bold">ปีถัดๆ ไป ฿0</span>
+            <span class="text-[9px] text-accent-ink/80 font-medium">ไม่มีค่าใช้จ่ายแอบแฝง</span>
           </div>
         </div>
 
@@ -76,9 +75,9 @@ import { product } from '../config/product';
           <div class="col-span-3 sm:col-span-3 text-center text-text-muted flex flex-col items-center justify-center">
             <span class="text-text-muted/80">ข้อมูลอยู่บนระบบ Cloud ของผู้ให้บริการ</span>
           </div>
-          <div class="col-span-4 sm:col-span-3 text-center flex flex-col items-center justify-center bg-primary/5 py-2 rounded-sm border border-primary/20">
-            <span class="text-primary font-bold">อยู่ในเครื่องคุณ 100%</span>
-            <span class="text-[9px] text-primary/80 font-medium">Pro ซิงก์ผ่าน Google Drive ของคุณเอง</span>
+          <div class="col-span-4 sm:col-span-3 text-center flex flex-col items-center justify-center bg-primary/5 py-2 rounded-full border border-primary/20">
+            <span class="text-accent-ink font-bold">ข้อมูลหลักอยู่ในเครื่อง</span>
+            <span class="text-[9px] text-accent-ink/80 font-medium">Pro ซิงก์ผ่าน Google Drive ของคุณเอง</span>
           </div>
         </div>
 
@@ -91,9 +90,9 @@ import { product } from '../config/product';
           <div class="col-span-3 sm:col-span-3 text-center text-text-muted flex flex-col items-center justify-center">
             <span class="text-text-muted/80">ต้องต่ออินเทอร์เน็ตตลอดเวลา</span>
           </div>
-          <div class="col-span-4 sm:col-span-3 text-center flex flex-col items-center justify-center bg-primary/5 py-2 rounded-sm border border-primary/20">
-            <span class="text-primary font-bold">ออฟไลน์ได้ 100%</span>
-            <span class="text-[9px] text-primary/80 font-medium">ออกบิลได้ทุกที่ ทุกสถานการณ์</span>
+          <div class="col-span-4 sm:col-span-3 text-center flex flex-col items-center justify-center bg-primary/5 py-2 rounded-full border border-primary/20">
+            <span class="text-accent-ink font-bold">Local ใช้ออฟไลน์ได้</span>
+            <span class="text-[9px] text-accent-ink/80 font-medium">Pro ซิงก์: ร่างออฟไลน์ได้ ออกเอกสารต้องมีอินเทอร์เน็ต</span>
           </div>
         </div>
       </div>
@@ -105,7 +104,7 @@ import { product } from '../config/product';
         <span class="text-xs font-bold text-text-muted uppercase tracking-wider block">ไม่มีค่ารายเดือน</span>
         <span class="text-base sm:text-lg font-bold text-text-dark block">BillNgai Local {product.prices.local.earlyBirdLabel} — ดาวน์โหลดแล้วใช้ได้ทันที</span>
       </div>
-      <a href="#download" class="inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-bold text-white bg-primary hover:bg-primary-hover rounded-sm shadow-sm transition-all active:scale-98 cursor-pointer w-full sm:w-auto">
+      <a href="#download" class="inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-bold text-on-primary bg-primary hover:bg-primary-hover rounded-full shadow-sm transition-all active:scale-98 cursor-pointer w-full sm:w-auto">
         <span>ดาวน์โหลดและเปิดใช้ทันที</span>
         <ArrowRight size={15} />
       </a>

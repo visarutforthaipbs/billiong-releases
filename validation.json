@@ -1,0 +1,101 @@
+{
+  "date": "2026-10-03",
+  "state": "verified_unique_meshy_art",
+  "production_build": "passed",
+  "release_checks": "passed",
+  "browser_checks": {
+    "effective_widths": [
+      1600,
+      1422,
+      1046,
+      1024,
+      390,
+      351
+    ],
+    "horizontal_overflow": false,
+    "mobile_menu": "passed",
+    "download_dialog": "passed",
+    "current_mac_windows_destinations": "passed",
+    "pro_dialog": "passed",
+    "pro_to_local_switch": "passed",
+    "escape_dismiss": "passed",
+    "keyboard_focus_outline": "passed",
+    "support_without_purchase_QR": "passed",
+    "production_console_errors": []
+  },
+  "worker": "Implementation and smaller review timed out without proposals; manager completed and validated local changes.",
+  "deployment": "none",
+  "meshy": {
+    "generated_images": 11,
+    "distinct_feature_images": 9,
+    "approved_credits": 33,
+    "consumed_credits": 33,
+    "balance_after": 939,
+    "visual_review": "all eleven accepted",
+    "total_public_art_KiB": 161
+  },
+  "final_art_browser_checks": {
+    "effective_widths": [
+      1046,
+      351
+    ],
+    "horizontal_overflow": false,
+    "all_nine_feature_images_loaded": true,
+    "hero_and_ownership_visual_review": "passed",
+    "production_console_errors": []
+  },
+  "motion": {
+    "date": "2026-10-03",
+    "state": "verified",
+    "implementation": "manager local after MiMo timeout; no worker proposal integrated",
+    "build": "passed",
+    "release_checks": "passed",
+    "lifecycle_checks": "passed",
+    "browser": {
+      "effective_widths": [
+        998,
+        390
+      ],
+      "horizontal_overflow": false,
+      "hero_drift": "running onscreen, transform samples differ",
+      "offscreen_pause": "passed",
+      "feature_hover": "passed",
+      "download_dialog": "open and Escape dismiss passed"
+    },
+    "reduced_motion": "live preference lifecycle tested with isolated fixture; CSS disables all animation and transitions",
+    "deployment": "none"
+  },
+  "download_dialog": {
+    "date": "2026-10-03",
+    "state": "verified",
+    "default": "clay identity, primary download actions, concise compatibility/scope/backup summary, collapsed detailed notes",
+    "buttons_remain_visible_when_expanded": true,
+    "reopen_collapses_notes": true,
+    "effective_viewports": [
+      {
+        "width": 999,
+        "height": 1319
+      },
+      {
+        "width": 351,
+        "height": 600
+      },
+      {
+        "width": 390,
+        "height": 667
+      },
+      {
+        "width": 355,
+        "height": 500
+      }
+    ],
+    "dialog_horizontal_overflow": false,
+    "destinations": "current Mac/Windows R2 and GitHub unchanged",
+    "console_errors": [],
+    "build": "passed",
+    "release_checks": "passed",
+    "worker": "MiMo timeout; no proposal integrated; manager implemented",
+    "additional_meshy_credits": 0,
+    "deployment": "none"
+  }
+}

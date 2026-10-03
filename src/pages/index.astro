@@ -10,7 +10,8 @@ import Faq from '../components/Faq.astro';
 import Footer from '../components/Footer.astro';
 import Plans from '../components/Plans.astro';
 import ReleaseNotice from '../components/ReleaseNotice.astro';
-import { Download, Zap, Heart, AlertTriangle, Sparkles, MessageCircle } from '@lucide/astro';
+import DownloadDialog from '../components/DownloadDialog.astro';
+import { Zap, AlertTriangle, Sparkles, MessageCircle } from '@lucide/astro';
 import { getDownloadUrls, product } from '../config/product';
 
 // Configuration: Change to 'github' to route downloads through GitHub Releases instead of Cloudflare R2
@@ -22,116 +23,37 @@ const downloadUrls = getDownloadUrls(DOWNLOAD_SOURCE);
 <Layout>
 	<!-- Top Scarcity & Urgency Banner -->
 	<div class="bg-secondary text-white text-xs py-2.5 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-1.5 relative z-50 shadow-sm border-b border-border-custom/10">
-		<span class="inline-flex items-center justify-center gap-1 bg-primary text-white text-[10px] font-bold px-2 py-0.5 rounded-lg uppercase tracking-wider animate-pulse">
+		<span class="inline-flex items-center justify-center gap-1 bg-primary text-on-primary text-[10px] font-bold px-2 py-0.5 rounded-lg uppercase tracking-wider ">
 			<Zap size={10} class="fill-current shrink-0" />
 				<span>ใหม่! {product.versionLabel}</span>
 			</span>
-		<span><strong class="text-primary font-bold">Local ใช้ฟรี</strong> · Pro Early Bird <span class="font-display">{product.prices.pro.earlyBirdLabel}</span> รวมซิงก์ Google Drive <span class="text-white/60 hidden sm:inline">(จ่ายครั้งเดียว ไม่มีรายเดือน)</span></span>
+		<span><strong class="text-accent-ink font-bold">Local ใช้ฟรี</strong> · Pro Early Bird <span class="font-display">{product.prices.pro.earlyBirdLabel}</span> รวมซิงก์ Google Drive <span class="text-white/60 hidden sm:inline">(จ่ายครั้งเดียว ไม่มีรายเดือน)</span></span>
 	</div>
 
 	<Navbar />
 	<main>
 		<Hero />
-		<AppDemo />
 		<Features />
 		<Security />
 		<Plans />
 		<PricingComparison />
+		<AppDemo />
 		<Faq />
 	</main>
 	<Footer />
 
-	<!-- macOS-Style Trust-Based Purchase & Download Dialog (Centered) -->
-	<dialog id="download-dialog" class="fixed inset-0 m-auto backdrop:bg-slate-900/60 backdrop:backdrop-blur-xs bg-white rounded-lg p-6 mac-window-shadow border border-border-custom w-[calc(100%-2rem)] max-w-md focus:outline-none overflow-hidden">
-		<div class="space-y-4 max-h-[85vh] flex flex-col">
-			<!-- Header -->
-			<div class="flex items-center justify-between shrink-0 pb-1">
-				<h3 class="text-base md:text-lg font-bold text-slate-900 flex items-center gap-2">
-					<Download class="text-primary shrink-0" size={18} />
-					<span id="download-dialog-title">ดาวน์โหลด BillNgai Local — ฟรี</span>
-				</h3>
-				<button id="close-dialog-btn" type="button" aria-label="ปิดหน้าต่างดาวน์โหลด" class="w-6 h-6 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer text-sm font-semibold">✕</button>
-			</div>
-			
-			<!-- STEP 3: Download Stage -->
-			<div id="download-stage" class="space-y-4 flex-1 flex flex-col min-h-0">
-				<div class="space-y-4 overflow-y-auto pr-1 flex-1 py-1">
-					<ReleaseNotice />
-					<!-- Thank you message -->
-					<div class="bg-emerald-50 border border-emerald-200 rounded-md p-4 text-center space-y-1.5">
-						<div class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 mb-1">
-							<Heart size={16} class="fill-current text-primary" />
-						</div>
-						<h4 class="text-sm font-bold text-slate-900">BillNgai Local ใช้ฟรี 🎉</h4>
-						<p class="text-[10.5px] text-slate-600 leading-normal">
-							เลือกดาวน์โหลดตามระบบปฏิบัติการด้านล่างได้เลย ไม่มีค่าใช้จ่าย ข้อมูลอยู่ในเครื่องคุณ
-						</p>
-					</div>
-
-					<!-- First-Run Quick Guide -->
-					<div class="bg-amber-50/60 border border-amber-500/10 rounded-md p-3 text-left space-y-1.5">
-						<div class="text-[11px] font-bold text-amber-800 flex items-center gap-1.5">
-							<AlertTriangle size={12} class="text-amber-800 shrink-0" />
-							<span>การเปิดใช้งานครั้งแรก (แอปทำงานแบบ Offline)</span>
-						</div>
-						<ul class="text-[10px] text-slate-600 leading-normal space-y-0.5 list-disc pl-4 font-medium">
-							<li><strong>macOS</strong>: ใช้ {product.downloads.mac.minimumOS} ขึ้นไป รองรับ Intel และ Apple Silicon เปิดไฟล์ .dmg แล้วลาก BillNgai ไปที่ Applications</li>
-							<li><strong>Windows 2.0.12 Beta (64 บิต)</strong>: รวมการแก้ไขข้อมูลและใบเสร็จของรุ่นปัจจุบัน ตัวติดตั้งยังไม่มีลายเซ็นดิจิทัล และยังไม่ทดสอบ Google Drive จริงบน Windows สำรองข้อมูลก่อนอัปเดต หากระบบเตือนความปลอดภัย ให้หยุดและติดต่อฝ่ายช่วยเหลือ</li>
-						</ul>
-					</div>
-				</div>
-
-				<!-- Action Buttons for Download Stage -->
-				<div class="space-y-2 pt-2 border-t border-border-custom shrink-0">
-					<div class="text-center text-[10px] font-semibold text-slate-400 mb-1">
-						เลือกดาวน์โหลดตามระบบปฏิบัติการของคุณ
-					</div>
-					<div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-						<a 
-							href={downloadUrls.mac} 
-							target="_blank"
-							rel="noopener noreferrer"
-							id="download-confirm-btn" 
-							class="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 text-xs font-semibold text-white bg-primary hover:bg-primary-hover rounded-sm shadow-md transition-all active:scale-98 cursor-pointer text-center"
-						>
-							<Download size={14} />
-							macOS {product.downloads.mac.version}
-						</a>
-						<a 
-							href={downloadUrls.windows} 
-							target="_blank"
-							rel="noopener noreferrer"
-							id="download-confirm-btn-win" 
-							class="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 text-xs font-semibold text-white bg-primary hover:bg-primary-hover rounded-sm shadow-md transition-all active:scale-98 cursor-pointer text-center"
-						>
-							<Download size={14} />
-							Windows {product.downloads.windows.version} Beta (64 บิต)
-						</a>
-					</div>
-					<p class="text-center text-xs text-text-muted">โหลด Mac ไม่สำเร็จ? <a href={product.downloads.mac.github} target="_blank" rel="noopener noreferrer" class="font-semibold underline">ดาวน์โหลดไฟล์เดียวกันจาก GitHub</a></p>
-					<p class="text-center text-xs text-text-muted">โหลด Windows ไม่สำเร็จ? <a href={product.downloads.windows.github} target="_blank" rel="noopener noreferrer" class="font-semibold underline">ดาวน์โหลดไฟล์เดียวกันจาก GitHub</a></p>
-					<button 
-						id="dialog-done-btn" 
-						type="button"
-						class="w-full py-2.5 text-xs font-semibold text-slate-500 hover:text-slate-700 hover:bg-slate-50 border border-slate-200 transition-colors cursor-pointer rounded-sm"
-					>
-						เสร็จสิ้น
-					</button>
-				</div>
-			</div>
-		</div>
-	</dialog>
+	<DownloadDialog urls={downloadUrls} />
 
 	<!-- BillNgai Pro (Early Bird) — PromptPay + ส่งสลิปทาง LINE -->
-	<dialog id="pro-dialog" class="fixed inset-0 m-auto backdrop:bg-slate-900/60 backdrop:backdrop-blur-xs bg-white rounded-lg p-6 mac-window-shadow border border-border-custom w-[calc(100%-2rem)] max-w-md focus:outline-none overflow-hidden">
+	<dialog id="pro-dialog" class="fixed inset-0 m-auto backdrop:bg-slate-900/60  bg-white rounded-lg p-6 mac-window-shadow border border-border-custom w-[calc(100%-2rem)] max-w-md focus:outline-none overflow-hidden">
 		<div class="space-y-4 max-h-[85vh] flex flex-col">
 			<!-- Header -->
 			<div class="flex items-center justify-between shrink-0 pb-1">
 				<h3 class="text-base md:text-lg font-bold text-slate-900 flex items-center gap-2">
-					<Sparkles class="text-primary shrink-0" size={18} />
+					<Sparkles class="text-accent-ink shrink-0" size={18} />
 					<span>ซื้อ BillNgai Pro (Early Bird)</span>
 				</h3>
-					<button id="close-pro-dialog-btn" type="button" aria-label="ปิดหน้าต่างซื้อสิทธิ์ Pro" class="w-6 h-6 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer text-sm font-semibold">✕</button>
+					<button id="close-pro-dialog-btn" type="button" aria-label="ปิดหน้าต่างซื้อสิทธิ์ Pro" class="w-11 h-11 shrink-0 rounded-full flex items-center justify-center text-text-muted hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer text-sm font-semibold">✕</button>
 			</div>
 
 			<!-- Scrollable Content Area -->
@@ -139,9 +61,9 @@ const downloadUrls = getDownloadUrls(DOWNLOAD_SOURCE);
 				<ReleaseNotice />
 				<p class="text-sm text-text-dark font-bold">Pro รวมซิงก์ Google Drive หลายเครื่อง (ใหม่ 2.0.12, สูงสุด 3 บัญชี Google ต่อรหัส) และโมดูล AI ร่างใบเสนอราคาในเครื่อง</p>
 				<!-- Price info -->
-				<div class="text-center text-slate-500 text-xs md:text-sm leading-relaxed">
+				<div class="text-center text-text-muted text-xs md:text-sm leading-relaxed">
 					ราคาพิเศษ Early Bird ไม่มีรายเดือน — ราคาเต็ม <span class="font-display">{product.prices.pro.fullLabel}</span> หลังช่วงเปิดตัว
-					<div class="text-3xl font-extrabold text-primary font-display mt-1">{product.prices.pro.earlyBirdLabel}.00</div>
+					<div class="text-3xl font-bold text-accent-ink font-display mt-1">{product.prices.pro.earlyBirdLabel}.00</div>
 				</div>
 
 				<!-- PromptPay QR Code -->
@@ -151,8 +73,8 @@ const downloadUrls = getDownloadUrls(DOWNLOAD_SOURCE);
 						alt="PromptPay QR Code 599 THB"
 						class="w-40 h-40 mx-auto border border-slate-200 rounded-md p-1.5 bg-white shadow-xs"
 					/>
-					<div class="text-[11px] text-slate-500 font-medium mt-2 flex items-center justify-center gap-1.5">
-						<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+					<div class="text-[11px] text-text-muted font-medium mt-2 flex items-center justify-center gap-1.5">
+						<span class="w-1.5 h-1.5 rounded-full bg-primary "></span>
 						สแกนจ่ายชำระเงิน แล้วทำตามขั้นตอนด้านล่าง
 					</div>
 				</div>
@@ -168,7 +90,7 @@ const downloadUrls = getDownloadUrls(DOWNLOAD_SOURCE);
 						<li>ส่ง<strong>สลิปโอนเงิน + อีเมลของคุณ</strong>มาทาง LINE (ปุ่มด้านล่าง)</li>
 						<li>ทีมงานตรวจสอบสลิปและส่งรหัสเปิดใช้งาน (License Key) + ลิงก์ดาวน์โหลดตัวแอปให้ทันที</li>
 					</ol>
-					<p class="text-[10px] text-slate-500 leading-normal">
+					<p class="text-[10px] text-text-muted leading-normal">
 						หมายเหตุ: รับรหัสทาง LINE ปกติไม่กี่นาที ไม่เกิน 24 ชม. รหัสผูกกับอีเมลคุณ ใช้ได้ทุกเครื่องของคุณเอง (สำหรับผู้ใช้ Local เดิม สามารถกรอกรหัส Pro ในแอปเพื่อปลดล็อกฟีเจอร์ได้ทันทีโดยไม่ต้องติดตั้งใหม่)
 					</p>
 				</div>
@@ -189,14 +111,14 @@ const downloadUrls = getDownloadUrls(DOWNLOAD_SOURCE);
 				<button
 					id="switch-to-local"
 					type="button"
-					class="w-full py-2 text-[11px] font-semibold text-slate-500 hover:text-primary transition-colors cursor-pointer"
+					class="w-full py-2 text-[11px] font-semibold text-text-muted hover:text-accent-ink transition-colors cursor-pointer"
 				>
 					ใช้เครื่องเดียวก็พอ? BillNgai Local {product.prices.local.earlyBirdLabel} →
 				</button>
 				<button
 					id="pro-dialog-cancel-btn"
 					type="button"
-					class="w-full py-2.5 text-xs font-semibold text-slate-500 hover:text-slate-700 hover:bg-slate-50 border border-slate-200 transition-colors cursor-pointer rounded-sm"
+					class="w-full py-2.5 text-xs font-semibold text-text-muted hover:text-slate-700 hover:bg-slate-50 border border-slate-200 transition-colors cursor-pointer rounded-sm"
 				>
 					ยกเลิก
 				</button>
@@ -206,7 +128,7 @@ const downloadUrls = getDownloadUrls(DOWNLOAD_SOURCE);
 
 
 	<!-- macOS installation guide (shown after clicking the .dmg download) -->
-	<dialog id="mac-guide-dialog" class="fixed inset-0 m-auto backdrop:bg-slate-900/60 backdrop:backdrop-blur-xs bg-white rounded-lg p-5 mac-window-shadow border border-border-custom w-[calc(100%-2rem)] max-w-lg focus:outline-none overflow-hidden">
+	<dialog id="mac-guide-dialog" class="fixed inset-0 m-auto backdrop:bg-slate-900/60  bg-white rounded-lg p-5 mac-window-shadow border border-border-custom w-[calc(100%-2rem)] max-w-lg focus:outline-none overflow-hidden">
 		<div class="space-y-3.5 max-h-[88vh] flex flex-col">
 			<!-- Header -->
 			<div class="flex items-center justify-between shrink-0">
@@ -214,10 +136,10 @@ const downloadUrls = getDownloadUrls(DOWNLOAD_SOURCE);
 					<AlertTriangle class="text-amber-500 shrink-0" size={17} />
 					<span>วิธีเปิดแอปครั้งแรกบน macOS</span>
 				</h3>
-				<button id="close-mac-guide-btn" type="button" aria-label="ปิดวิธีเปิดแอปบน macOS" class="w-6 h-6 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer text-sm font-semibold">✕</button>
+				<button id="close-mac-guide-btn" type="button" aria-label="ปิดวิธีเปิดแอปบน macOS" class="w-11 h-11 shrink-0 rounded-full flex items-center justify-center text-text-muted hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer text-sm font-semibold">✕</button>
 			</div>
 
-			<p class="text-[11px] md:text-xs text-slate-500 leading-relaxed shrink-0">
+			<p class="text-[11px] md:text-xs text-text-muted leading-relaxed shrink-0">
 				BillNgai {product.downloads.mac.version} สำหรับ {product.downloads.mac.minimumOS} ขึ้นไป รองรับ Intel และ Apple Silicon ตัวติดตั้งลงนามโดยนักพัฒนาและผ่านการตรวจ notarization ของ Apple แล้ว
 			</p>
 
@@ -227,13 +149,13 @@ const downloadUrls = getDownloadUrls(DOWNLOAD_SOURCE);
 					<li>ลาก BillNgai ไปไว้ในโฟลเดอร์ Applications หากกำลังอัปเดต ให้ปิดแอปก่อนแล้วเลือกแทนที่</li>
 					<li>เปิด BillNgai จาก Applications หาก macOS ถามยืนยันว่าเป็นแอปที่ดาวน์โหลดจากอินเทอร์เน็ต ให้กด “เปิด”</li>
 				</ol>
-				<p class="mt-3 text-xs text-slate-500 leading-relaxed">สำรองข้อมูลและเก็บ PDF เดิมก่อนอัปเดต ผู้ใช้ Pro เชื่อมต่อซิงก์ได้ที่ ตั้งค่า → ข้อมูลและสำรอง หากขึ้นว่าแอปมีมัลแวร์ เสียหาย หรือตรวจสอบนักพัฒนาไม่ได้ ให้หยุดเปิดและติดต่อฝ่ายช่วยเหลือผ่านหน้า <a href="/support" class="font-semibold underline">ช่วยเหลือ</a> อย่าข้ามคำเตือนความปลอดภัย</p>
+				<p class="mt-3 text-xs text-text-muted leading-relaxed">สำรองข้อมูลและเก็บ PDF เดิมก่อนอัปเดต ผู้ใช้ Pro เชื่อมต่อซิงก์ได้ที่ ตั้งค่า → ข้อมูลและสำรอง หากขึ้นว่าแอปมีมัลแวร์ เสียหาย หรือตรวจสอบนักพัฒนาไม่ได้ ให้หยุดเปิดและติดต่อฝ่ายช่วยเหลือผ่านหน้า <a href="/support" class="font-semibold underline">ช่วยเหลือ</a> อย่าข้ามคำเตือนความปลอดภัย</p>
 			</div>
 
 			<button 
 				id="mac-guide-ok-btn" 
 				type="button"
-				class="w-full py-2.5 text-xs font-bold text-white bg-primary hover:bg-primary-hover transition-colors cursor-pointer rounded-sm shrink-0"
+				class="w-full py-2.5 text-xs font-bold text-on-primary bg-primary hover:bg-primary-hover transition-colors cursor-pointer rounded-full shrink-0"
 			>
 				เข้าใจแล้ว
 			</button>
@@ -244,15 +166,14 @@ const downloadUrls = getDownloadUrls(DOWNLOAD_SOURCE);
 <script>
 	const downloadDialog = document.getElementById('download-dialog') as HTMLDialogElement;
 	const closeDialogBtn = document.getElementById('close-dialog-btn');
-		const downloadConfirmBtn = document.getElementById('download-confirm-btn');
+	const downloadConfirmBtn = document.getElementById('download-confirm-btn');
 	const downloadConfirmBtnWin = document.getElementById('download-confirm-btn-win');
 	const macGuideDialog = document.getElementById('mac-guide-dialog') as HTMLDialogElement;
 	const closeMacGuideBtn = document.getElementById('close-mac-guide-btn');
 	const macGuideOkBtn = document.getElementById('mac-guide-ok-btn');
 
-	const dialogDoneBtn = document.getElementById('dialog-done-btn');
 
-	// BillNgai Local is free: the dialog goes straight to the downloads. Pro sales are paused.
+	// BillNgai Local is free: the dialog goes straight to the downloads.
 	document.querySelectorAll('a[href="#download"]').forEach(link => {
 		link.addEventListener('click', (e) => {
 			e.preventDefault();
@@ -294,7 +215,6 @@ const downloadUrls = getDownloadUrls(DOWNLOAD_SOURCE);
 		closeMacGuideBtn?.addEventListener('click', closeMacGuide);
 	macGuideOkBtn?.addEventListener('click', closeMacGuide);
 
-	dialogDoneBtn?.addEventListener('click', closeDialog);
 
 	downloadConfirmBtn?.addEventListener('click', () => {
 		// macOS: start the download, then show the installation guide.
@@ -315,6 +235,9 @@ const downloadUrls = getDownloadUrls(DOWNLOAD_SOURCE);
 		if (e.target === downloadDialog) {
 			closeDialog();
 		}
+	});
+	downloadDialog?.addEventListener('close', () => {
+		downloadDialog.querySelectorAll('details').forEach(notes => { notes.open = false; });
 	});
 
 	macGuideDialog?.addEventListener('click', (e) => {

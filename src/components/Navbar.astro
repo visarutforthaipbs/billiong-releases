@@ -15,21 +15,21 @@ const links = [
     <div class="flex items-center justify-between h-16">
       
       <!-- Brand/Logo -->
-      <a href="#" class="flex items-center gap-2.5 group">
+      <a href="#" class="flex items-center gap-2.5 group shrink-0">
         <img 
           src="/logo.svg" 
           alt="บิลง่าย — BillNgai" 
           class="w-8 h-8 rounded-lg object-contain shadow-xs group-hover:scale-105 transition-transform duration-200"
         />
-        <span class="font-bold text-xl tracking-tight text-slate-900">บิลง่าย</span>
+        <span class="font-bold text-xl tracking-tight text-slate-900 whitespace-nowrap">บิลง่าย</span>
       </a>
 
       <!-- Desktop Navigation Links -->
-      <nav class="hidden md:flex items-center gap-1 bg-slate-200/40 p-1 rounded-full border border-border-custom/40">
+      <nav class="hidden xl:flex items-center gap-1 bg-slate-200/40 p-1 rounded-full border border-border-custom/40">
         {links.map(link => (
           <a
             href={link.anchor}
-            class="px-4 py-1.5 text-sm font-medium text-slate-600 rounded-full hover:text-primary hover:bg-white/80 transition-all duration-200"
+            class="px-4 py-1.5 text-sm font-medium text-slate-600 rounded-full hover:text-accent-ink hover:bg-white/80 transition-all duration-200"
           >
             {link.label}
           </a>
@@ -37,7 +37,7 @@ const links = [
       </nav>
 
       <!-- Desktop CTA Buttons -->
-      <div class="hidden md:flex items-center gap-3">
+      <div class="hidden xl:flex items-center gap-3">
         <a
           href={product.lineUrl}
           target="_blank"
@@ -51,7 +51,7 @@ const links = [
         </a>
         <a
           href="#download"
-          class="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-white bg-primary rounded-full hover:bg-primary-hover transition-colors shadow-sm cursor-pointer"
+          class="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-on-primary bg-primary rounded-full hover:bg-primary-hover transition-colors shadow-sm cursor-pointer"
         >
           <Download size={15} />
           ดาวน์โหลดแอป
@@ -59,11 +59,11 @@ const links = [
       </div>
 
       <!-- Mobile menu button -->
-      <div class="flex md:hidden">
+      <div class="flex xl:hidden">
         <button
           type="button"
           id="mobile-menu-button"
-          class="inline-flex items-center justify-center p-2 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-slate-100 focus:outline-none transition-colors"
+          class="inline-flex items-center justify-center p-2 rounded-lg text-text-muted hover:text-slate-900 hover:bg-slate-100 focus:outline-none transition-colors"
           aria-controls="mobile-menu"
           aria-expanded="false"
         >
@@ -81,12 +81,12 @@ const links = [
   </div>
 
   <!-- Mobile Menu -->
-  <div class="hidden md:hidden border-t border-border-custom bg-white" id="mobile-menu">
+  <div class="hidden xl:hidden border-t border-border-custom bg-white" id="mobile-menu">
     <div class="px-2 pt-2 pb-4 space-y-1 sm:px-3">
       {links.map(link => (
         <a
           href={link.anchor}
-          class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors mobile-link"
+          class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-600 hover:text-accent-ink hover:bg-slate-50 transition-colors mobile-link"
         >
           {link.label}
         </a>
@@ -105,7 +105,7 @@ const links = [
         </a>
         <a
           href="#download"
-          class="flex items-center justify-center gap-2 w-full px-4 py-3 text-base font-semibold text-white bg-primary rounded-lg hover:bg-primary-hover transition-colors shadow-sm mobile-link"
+          class="flex items-center justify-center gap-2 w-full px-4 py-3 text-base font-semibold text-on-primary bg-primary rounded-lg hover:bg-primary-hover transition-colors shadow-sm mobile-link"
         >
           <Download size={18} />
           ดาวน์โหลดแอป

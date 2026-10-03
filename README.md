@@ -1,6 +1,6 @@
 # บิลง่าย (BillNgai) Marketing & Promotion Website
 
-This repository hosts the marketing website for **บิลง่าย (BillNgai)**, a local-first billing application built for Thai freelancers. Read [RELEASE-2.0.4.md](RELEASE-2.0.4.md) before publishing: the 2.0.4 website is a release candidate until the manager verifies and publishes the actual Mac Direct artifact. Windows/MAS are separate channels. Historical 2.0.3 evidence remains in [RELEASE-2.0.3.md](RELEASE-2.0.3.md).
+This repository hosts the marketing website for **บิลง่าย (BillNgai)**, a local-first billing application built for Thai freelancers. Current download channels are Mac 2.0.12 and Windows 2.0.12 x64 Beta. The owner requested a clay-art website refresh on 2026-10-03. It uses eleven distinct Meshy promo illustrations and the folded-paper b identity from BillNgai-development; see [BRAND.md](BRAND.md) and [design_system.md](design_system.md). Publication of the clay refresh is recorded in RELEASE-CLAY-2026-10-03.md. Windows/MAS are separate channels. See [RELEASE-2.0.12.md](RELEASE-2.0.12.md) for the earlier deployment record.
 
 ## 🚀 Project Architecture
 

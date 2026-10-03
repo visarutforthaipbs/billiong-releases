@@ -1,0 +1,127 @@
+{
+  "date": "2026-10-03",
+  "provider": "Meshy",
+  "approved_credits": 33,
+  "consumed_credits": 33,
+  "balance_after": 939,
+  "notes": "Eleven distinct illustrations generated for the promo website. WebP resize/compression preserves the generated composition. Folded-paper b clay identity is shared with the app.",
+  "assets": [
+    {
+      "file": "promo-hero.webp",
+      "task_id": "01a10113-92ba-7608-b068-9158abd68a44",
+      "source": "review/2026-10-03-clay/meshy-source/promo-hero.png",
+      "model": "nano-banana",
+      "consumed_credits": 3,
+      "width": 1024,
+      "height": 1024,
+      "bytes": 17496
+    },
+    {
+      "file": "promo-ai-quote.webp",
+      "task_id": "01a10113-8fb7-74ae-acc2-a2491bdea0fa",
+      "source": "review/2026-10-03-clay/meshy-source/promo-ai-quote.png",
+      "model": "nano-banana",
+      "consumed_credits": 3,
+      "width": 768,
+      "height": 768,
+      "bytes": 8678
+    },
+    {
+      "file": "promo-drive-sync.webp",
+      "task_id": "01a10113-9585-74f2-89bb-a63fdefe0c81",
+      "source": "review/2026-10-03-clay/meshy-source/promo-drive-sync.png",
+      "model": "nano-banana",
+      "consumed_credits": 3,
+      "width": 768,
+      "height": 768,
+      "bytes": 10262
+    },
+    {
+      "file": "promo-income-summary.webp",
+      "task_id": "01a10113-ba10-73a9-9054-cf7fd6f4aba1",
+      "source": "review/2026-10-03-clay/meshy-source/promo-income-summary.png",
+      "model": "nano-banana",
+      "consumed_credits": 3,
+      "width": 768,
+      "height": 768,
+      "bytes": 13458
+    },
+    {
+      "file": "promo-documents.webp",
+      "task_id": "01a10113-bd07-700d-8b3d-f50bcc4c6793",
+      "source": "review/2026-10-03-clay/meshy-source/promo-documents.png",
+      "model": "nano-banana",
+      "consumed_credits": 3,
+      "width": 768,
+      "height": 768,
+      "bytes": 10098
+    },
+    {
+      "file": "promo-accountant-export.webp",
+      "task_id": "01a10113-c011-75ab-bf00-57daaf0419f4",
+      "source": "review/2026-10-03-clay/meshy-source/promo-accountant-export.png",
+      "model": "nano-banana",
+      "consumed_credits": 3,
+      "width": 768,
+      "height": 768,
+      "bytes": 17028
+    },
+    {
+      "file": "promo-readable-backup.webp",
+      "task_id": "01a10113-c316-7167-b0f6-c017869301eb",
+      "source": "review/2026-10-03-clay/meshy-source/promo-readable-backup.png",
+      "model": "nano-banana",
+      "consumed_credits": 3,
+      "width": 768,
+      "height": 768,
+      "bytes": 12646
+    },
+    {
+      "file": "promo-simple-receipt.webp",
+      "task_id": "01a10113-f871-73fb-9bad-e8267043abe7",
+      "source": "review/2026-10-03-clay/meshy-source/promo-simple-receipt.png",
+      "model": "nano-banana",
+      "consumed_credits": 3,
+      "width": 768,
+      "height": 768,
+      "bytes": 9232
+    },
+    {
+      "file": "promo-wht-certificate.webp",
+      "task_id": "01a10113-fbab-7718-8b28-d81018c06f2f",
+      "source": "review/2026-10-03-clay/meshy-source/promo-wht-certificate.png",
+      "model": "nano-banana",
+      "consumed_credits": 3,
+      "width": 768,
+      "height": 768,
+      "bytes": 9210
+    },
+    {
+      "file": "promo-promptpay.webp",
+      "task_id": "01a10113-f537-7022-8e1c-fab9c0fbe2ea",
+      "source": "review/2026-10-03-clay/meshy-source/promo-promptpay.png",
+      "model": "nano-banana",
+      "consumed_credits": 3,
+      "width": 768,
+      "height": 768,
+      "bytes": 11748
+    },
+    {
+      "file": "promo-data-ownership.webp",
+      "task_id": "01a10113-fece-722b-b15b-fb83f1f3a82b",
+      "source": "review/2026-10-03-clay/meshy-source/promo-data-ownership.png",
+      "model": "nano-banana",
+      "consumed_credits": 3,
+      "width": 768,
+      "height": 768,
+      "bytes": 14580
+    },
+    {
+      "file": "logo-b-clay.webp",
+      "source": "BillNgai-development/assets/brand/fintech/logo-b-clay.png",
+      "width": 640,
+      "height": 640,
+      "bytes": 30098
+    }
+  ]
+}

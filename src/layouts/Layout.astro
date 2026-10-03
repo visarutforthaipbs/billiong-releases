@@ -12,7 +12,7 @@ interface Props {
 
 const {
 	title = "บิลง่าย (BillNgai) 2.0.12 สำหรับ Mac และ Windows Beta — เอกสารสำหรับฟรีแลนซ์ไทย",
-	description = "BillNgai Mac 2.0.12: ใบเสนอราคา ใบแจ้งหนี้ และใบเสร็จธรรมดาสำหรับผู้ไม่จด VAT รับเต็มจำนวนเป็นเงินบาท ไม่รองรับใบกำกับภาษี พักประมาณการภาษีและ e-Tax; Windows Beta ยังไม่ทดสอบ Google Drive จริง อ่านข้อจำกัดก่อนอัปเดต",
+	description = "BillNgai Mac 2.0.12: ใบเสนอราคา ใบแจ้งหนี้ และใบเสร็จธรรมดาสำหรับผู้ไม่จด VAT รับเต็มจำนวนเป็นเงินบาท ไม่รองรับใบกำกับภาษี พักประมาณการภาษีและ e-Tax; Windows Beta ยังไม่มีลายเซ็นดิจิทัล อ่านข้อจำกัดก่อนอัปเดต",
 	variant = 'product'
 } = Astro.props;
 
@@ -28,7 +28,7 @@ const schemaMarkup = {
   "operatingSystem": "macOS, Windows",
   "applicationCategory": "BusinessApplication, FinanceApplication",
   "description": description,
-	"image": new URL("/assets/brand/characters/modern-charector.png", Astro.site || "https://billiong-landing.pages.dev").href,
+	"image": new URL("/assets/brand/clay/logo-b-clay.webp", Astro.site || "https://billiong-landing.pages.dev").href,
 	"url": new URL(Astro.url.pathname, Astro.site || "https://billiong-landing.pages.dev").href,
   "featureList": [
     "Mac Direct 2.0.12: ใบเสนอราคา ใบแจ้งหนี้ และข้อมูลรายรับในเครื่อง",
@@ -61,7 +61,7 @@ const schemaMarkup = {
   })
 };
 
-const ogImageUrl = new URL("/assets/brand/characters/modern-charector.png", Astro.site || "https://billiong-landing.pages.dev").href;
+const ogImageUrl = new URL("/assets/brand/clay/logo-b-clay.webp", Astro.site || "https://billiong-landing.pages.dev").href;
 const pageUrl = new URL(Astro.url.pathname, Astro.site || "https://billiong-landing.pages.dev").href;
 ---
 
@@ -98,7 +98,10 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site || "https://billiong-land
 
 		<!-- Brand fonts are self-hosted (see global.css @font-face) — no external font requests -->
 	</head>
-	<body class="font-sans antialiased bg-[#FFF9F3] text-[#2D3436] selection:bg-[#FF6B00]/20 selection:text-[#E05E00]">
+	<body class="font-sans antialiased bg-[#FFF9F3] text-text-dark selection:bg-[#FF6B00]/20 selection:text-accent-ink">
 		<slot />
+		<script>
+			import '../scripts/motion';
+		</script>
 	</body>
 </html>

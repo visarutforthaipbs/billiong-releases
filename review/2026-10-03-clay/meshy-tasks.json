@@ -1,0 +1,73 @@
+{
+  "approved_credits": 33,
+  "created": [
+    {
+      "name": "promo-hero",
+      "task_id": "01a10113-92ba-7608-b068-9158abd68a44",
+      "status": "SUCCEEDED",
+      "consumed_credits": 3
+    },
+    {
+      "name": "promo-ai-quote",
+      "task_id": "01a10113-8fb7-74ae-acc2-a2491bdea0fa",
+      "status": "SUCCEEDED",
+      "consumed_credits": 3
+    },
+    {
+      "name": "promo-drive-sync",
+      "task_id": "01a10113-9585-74f2-89bb-a63fdefe0c81",
+      "status": "SUCCEEDED",
+      "consumed_credits": 3
+    },
+    {
+      "name": "promo-income-summary",
+      "task_id": "01a10113-ba10-73a9-9054-cf7fd6f4aba1",
+      "status": "SUCCEEDED",
+      "consumed_credits": 3
+    },
+    {
+      "name": "promo-documents",
+      "task_id": "01a10113-bd07-700d-8b3d-f50bcc4c6793",
+      "status": "SUCCEEDED",
+      "consumed_credits": 3
+    },
+    {
+      "name": "promo-accountant-export",
+      "task_id": "01a10113-c011-75ab-bf00-57daaf0419f4",
+      "status": "SUCCEEDED",
+      "consumed_credits": 3
+    },
+    {
+      "name": "promo-readable-backup",
+      "task_id": "01a10113-c316-7167-b0f6-c017869301eb",
+      "status": "SUCCEEDED",
+      "consumed_credits": 3
+    },
+    {
+      "name": "promo-simple-receipt",
+      "task_id": "01a10113-f871-73fb-9bad-e8267043abe7",
+      "status": "SUCCEEDED",
+      "consumed_credits": 3
+    },
+    {
+      "name": "promo-wht-certificate",
+      "task_id": "01a10113-fbab-7718-8b28-d81018c06f2f",
+      "status": "SUCCEEDED",
+      "consumed_credits": 3
+    },
+    {
+      "name": "promo-promptpay",
+      "task_id": "01a10113-f537-7022-8e1c-fab9c0fbe2ea",
+      "status": "SUCCEEDED",
+      "consumed_credits": 3
+    },
+    {
+      "name": "promo-data-ownership",
+      "task_id": "01a10113-fece-722b-b15b-fb83f1f3a82b",
+      "status": "SUCCEEDED",
+      "consumed_credits": 3
+    }
+  ],
+  "consumed_credits": 33,
+  "balance_after": 939
+}

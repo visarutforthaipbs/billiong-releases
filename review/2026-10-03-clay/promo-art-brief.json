@@ -1,0 +1,97 @@
+{
+  "status": "completed",
+  "total_credits": 33,
+  "balance_before": 972,
+  "assets": [
+    {
+      "name": "promo-hero",
+      "placement": "Hero",
+      "prompt": "Matte clay 3D illustration for BillNgai, Thai freelancer billing. Warm ivory, orange #FF6B00, charcoal only. Rounded sculpted forms, gentle isometric view, soft studio light and subtle grounding shadow. Pure white background. Objects fill 75% of frame. No text, letters, numbers, logos, UI, watermark, gradients or glossy plastic. A friendly freelancer workspace diorama: charcoal laptop, ivory bill sheets with orange folded corners, orange ceramic coffee cup, tiny potted plant. Compose a balanced connected scene, not separate icons.",
+      "model": "nano-banana",
+      "aspect_ratio": "1:1",
+      "credits": 3
+    },
+    {
+      "name": "promo-ai-quote",
+      "placement": "AI TOR to quotation",
+      "prompt": "Matte clay 3D illustration for BillNgai, Thai freelancer billing. Warm ivory, orange #FF6B00, charcoal only. Rounded sculpted forms, gentle isometric view, soft studio light and subtle grounding shadow. Pure white background. Objects fill 75% of frame. No text, letters, numbers, logos, UI, watermark, gradients or glossy plastic. An ivory folded project brief feeding into an orange rounded AI chip, emerging as a tidy proposal sheet with an orange pencil. A compact physical sculpture, simple visible shapes.",
+      "model": "nano-banana",
+      "aspect_ratio": "1:1",
+      "credits": 3
+    },
+    {
+      "name": "promo-drive-sync",
+      "placement": "Google Drive sync",
+      "prompt": "Matte clay 3D illustration for BillNgai, Thai freelancer billing. Warm ivory, orange #FF6B00, charcoal only. Rounded sculpted forms, gentle isometric view, soft studio light and subtle grounding shadow. Pure white background. Objects fill 75% of frame. No text, letters, numbers, logos, UI, watermark, gradients or glossy plastic. Two small charcoal laptop screens sharing one ivory cloud, joined by a sculpted orange curved connection. No brand logos or symbols on screens.",
+      "model": "nano-banana",
+      "aspect_ratio": "1:1",
+      "credits": 3
+    },
+    {
+      "name": "promo-income-summary",
+      "placement": "Income classification",
+      "prompt": "Matte clay 3D illustration for BillNgai, Thai freelancer billing. Warm ivory, orange #FF6B00, charcoal only. Rounded sculpted forms, gentle isometric view, soft studio light and subtle grounding shadow. Pure white background. Objects fill 75% of frame. No text, letters, numbers, logos, UI, watermark, gradients or glossy plastic. An ivory calculator beside three sculpted charcoal columns of different heights and orange coin-like discs. Blank calculator keys and display, no currency signs or financial amounts.",
+      "model": "nano-banana",
+      "aspect_ratio": "1:1",
+      "credits": 3
+    },
+    {
+      "name": "promo-documents",
+      "placement": "Quotations and invoices",
+      "prompt": "Matte clay 3D illustration for BillNgai, Thai freelancer billing. Warm ivory, orange #FF6B00, charcoal only. Rounded sculpted forms, gentle isometric view, soft studio light and subtle grounding shadow. Pure white background. Objects fill 75% of frame. No text, letters, numbers, logos, UI, watermark, gradients or glossy plastic. Two upright ivory document sheets, one orange folded corner, a charcoal pencil resting across them and a simple orange paper clip. Clearly visible layered physical papers.",
+      "model": "nano-banana",
+      "aspect_ratio": "1:1",
+      "credits": 3
+    },
+    {
+      "name": "promo-accountant-export",
+      "placement": "Accountant export",
+      "prompt": "Matte clay 3D illustration for BillNgai, Thai freelancer billing. Warm ivory, orange #FF6B00, charcoal only. Rounded sculpted forms, gentle isometric view, soft studio light and subtle grounding shadow. Pure white background. Objects fill 75% of frame. No text, letters, numbers, logos, UI, watermark, gradients or glossy plastic. An open warm ivory archive box with orange handle, containing neat tabbed document sheets and a charcoal binder. A distinct export package sculpture.",
+      "model": "nano-banana",
+      "aspect_ratio": "1:1",
+      "credits": 3
+    },
+    {
+      "name": "promo-readable-backup",
+      "placement": "Readable backup",
+      "prompt": "Matte clay 3D illustration for BillNgai, Thai freelancer billing. Warm ivory, orange #FF6B00, charcoal only. Rounded sculpted forms, gentle isometric view, soft studio light and subtle grounding shadow. Pure white background. Objects fill 75% of frame. No text, letters, numbers, logos, UI, watermark, gradients or glossy plastic. A small charcoal external storage drive with orange cable loop beside a neat ivory paper stack. Friendly physical backup sculpture, no cloud or screens.",
+      "model": "nano-banana",
+      "aspect_ratio": "1:1",
+      "credits": 3
+    },
+    {
+      "name": "promo-simple-receipt",
+      "placement": "Ordinary receipt",
+      "prompt": "Matte clay 3D illustration for BillNgai, Thai freelancer billing. Warm ivory, orange #FF6B00, charcoal only. Rounded sculpted forms, gentle isometric view, soft studio light and subtle grounding shadow. Pure white background. Objects fill 75% of frame. No text, letters, numbers, logos, UI, watermark, gradients or glossy plastic. A long ivory receipt with gently scalloped lower edge, orange corner fold, beside a small orange rubber stamp with charcoal base. Blank paper, no checkmarks or tax symbols.",
+      "model": "nano-banana",
+      "aspect_ratio": "1:1",
+      "credits": 3
+    },
+    {
+      "name": "promo-wht-certificate",
+      "placement": "Withholding certificate tracking",
+      "prompt": "Matte clay 3D illustration for BillNgai, Thai freelancer billing. Warm ivory, orange #FF6B00, charcoal only. Rounded sculpted forms, gentle isometric view, soft studio light and subtle grounding shadow. Pure white background. Objects fill 75% of frame. No text, letters, numbers, logos, UI, watermark, gradients or glossy plastic. An upright ivory certificate sheet with a small orange round seal and two orange ribbon tails, charcoal clip along top edge. No text, no official emblems.",
+      "model": "nano-banana",
+      "aspect_ratio": "1:1",
+      "credits": 3
+    },
+    {
+      "name": "promo-promptpay",
+      "placement": "PromptPay QR",
+      "prompt": "Matte clay 3D illustration for BillNgai, Thai freelancer billing. Warm ivory, orange #FF6B00, charcoal only. Rounded sculpted forms, gentle isometric view, soft studio light and subtle grounding shadow. Pure white background. Objects fill 75% of frame. No text, letters, numbers, logos, UI, watermark, gradients or glossy plastic. A charcoal smartphone on ivory stand facing a small orange payment placard with a blank ivory center and four charcoal scanning corner brackets. No functional QR pattern, no bank logos or numbers.",
+      "model": "nano-banana",
+      "aspect_ratio": "1:1",
+      "credits": 3
+    },
+    {
+      "name": "promo-data-ownership",
+      "placement": "Data ownership section",
+      "prompt": "Matte clay 3D illustration for BillNgai, Thai freelancer billing. Warm ivory, orange #FF6B00, charcoal only. Rounded sculpted forms, gentle isometric view, soft studio light and subtle grounding shadow. Pure white background. Objects fill 75% of frame. No text, letters, numbers, logos, UI, watermark, gradients or glossy plastic. An ivory miniature home-shaped document holder with orange roof, containing visible charcoal and ivory paper folders. Small orange handle on the side. Physical local storage and ownership sculpture, no padlock or cloud.",
+      "model": "nano-banana",
+      "aspect_ratio": "1:1",
+      "credits": 3
+    }
+  ],
+  "approved_credits": 33,
+  "consumed_credits": 33
+}

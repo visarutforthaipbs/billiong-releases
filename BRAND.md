@@ -4,7 +4,7 @@ This document is the single source of truth for every UI change, icon, animation
 document template, and marketing asset in this project.
 
 **If a generated component conflicts with this document, THIS DOCUMENT WINS.**
-Never invent another style.
+Explicit owner revisions supersede older guidance. The owner extended the approved clay art direction to this website on 2026-10-03.
 
 Positioning line (for store copy / marketing, not in-app):
 > The billing and tax app built for Thai freelancers — not a global SaaS
@@ -120,9 +120,9 @@ Avoid: ดำเนินการออกเอกสารทางการ�
 
 ## Illustration & imagery (marketing, store, Canva)
 
-Style: hand-drawn, rough outlines, minimal shading, off-white background,
-orange accent, friendly characters. Inspired by old Dropbox, Notion, Linear,
-Pablo Stanley. No gradients, no 3D, no glossy effects.
+Style: approved Meshy matte clay objects in orange, ivory and charcoal, with gentle isometric lighting. Use the eleven purpose-built promo illustrations: one hero, nine distinct feature scenes and one data-ownership scene. Keep each scene unique; share only the brand mark with the app. White-background renders sit on white panels. Use the folded-paper lowercase b mark in public/logo.svg for small navigation and favicon, and its clay companion for larger artwork. No old hand-drawn characters, neon, glossy plastic, gradients or glass effects.
+
+Website tokens live in src/styles/global.css. Use warm cream #FFF9F3, white panels, ink #141A22, secondary text #485360 / #596572, orange #FF6B00 fills with dark #231307 labels, and #A84400 for accent text. Cards use 20px corners, dialogs 24px, and action buttons pill corners. Use restrained shadows. The owner requested website animation on 2026-10-03: allow a gentle hero drift while visible, finite section entrances, and small hover responses. Keep text stable and disable motion when reduced motion is requested. This website revision supersedes the older radius, text-on-orange and illustration rules above; printed document rules do not apply to website cards.
 
 Photos: warm, human, real freelancers, coffee shops, small businesses.
 Never: corporate stock photos, skyscrapers, people in suits, blue backgrounds.

@@ -36,9 +36,9 @@ const faqs = [
     <div class="max-w-3xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
       <a href="/" class="flex items-center gap-2.5 group">
         <img src="/logo.svg" alt="BillNgai" class="w-7 h-7" />
-        <span class="font-extrabold text-slate-900 text-sm">บิลง่าย <span class="text-slate-400 font-bold">BillNgai</span></span>
+        <span class="font-bold text-slate-900 text-sm">บิลง่าย <span class="text-text-muted font-bold">BillNgai</span></span>
       </a>
-      <a href="/" class="text-xs font-semibold text-slate-500 hover:text-primary transition-colors inline-flex items-center gap-1.5">
+      <a href="/" class="text-xs font-semibold text-text-muted hover:text-accent-ink transition-colors inline-flex items-center gap-1.5">
         <ArrowLeft size={13} />
         กลับหน้าแรก
       </a>
@@ -49,7 +49,7 @@ const faqs = [
     <!-- Hero -->
     <section class="bg-[#FFF9F3] border-b border-border-custom">
       <div class="max-w-3xl mx-auto px-4 sm:px-6 py-12 md:py-16 text-center space-y-3">
-        <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">ศูนย์ช่วยเหลือ BillNgai</h1>
+        <h1 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">ศูนย์ช่วยเหลือ BillNgai</h1>
         <p class="text-slate-600 text-sm md:text-base leading-relaxed">
           ติดตรงไหนบอกได้เลย มีคนอ่านทุกข้อความจริง ๆ<br class="hidden sm:block" />
           ด้านล่างมีวิธีแก้ปัญหาที่เจอบ่อย ถ้าไม่ตรงกับของคุณ ทักแอดมินได้ทันที
@@ -60,8 +60,8 @@ const faqs = [
     <!-- ติดต่อ (บล็อกหลัก — ต้องเห็นทันทีไม่ต้องเลื่อนจอ) -->
     <section class="max-w-3xl mx-auto px-4 sm:px-6 py-10 md:py-12">
       <div class="text-center space-y-2 mb-7">
-        <h2 class="text-xl md:text-2xl font-extrabold text-slate-900">ติดต่อเราได้ 2 ทาง</h2>
-        <p class="text-sm text-slate-500 leading-relaxed">
+        <h2 class="text-xl md:text-2xl font-bold text-slate-900">ติดต่อเราได้ 2 ทาง</h2>
+        <p class="text-sm text-text-muted leading-relaxed">
           ทักมาได้ทุกเรื่อง ปัญหาการติดตั้ง การใช้งาน รหัส Pro หรือแค่อยากถามเฉย ๆ<br class="hidden sm:block" />
           คนตอบเป็นคนทำแอปเอง ไม่ใช่บอท
         </p>
@@ -70,40 +70,40 @@ const faqs = [
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch">
         <!-- LINE -->
         <div class="bg-[#FFF9F3] border border-primary/25 rounded-md p-5 flex flex-col text-center">
-          <h3 class="text-base font-extrabold text-slate-900">LINE</h3>
-          <p class="text-[11px] text-primary font-semibold mt-0.5 mb-4">เร็วที่สุด แนะนำทางนี้</p>
+          <h3 class="text-base font-bold text-slate-900">LINE</h3>
+          <p class="text-[11px] text-accent-ink font-semibold mt-0.5 mb-4">เร็วที่สุด แนะนำทางนี้</p>
           <a
             href={product.lineUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-bold text-white bg-primary hover:bg-primary-hover rounded-sm shadow-sm transition-all active:scale-98"
+            class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-bold text-on-primary bg-primary hover:bg-primary-hover rounded-full shadow-sm transition-all active:scale-98"
           >
             <MessageCircle size={14} />
             ทักแอดมินทาง LINE
           </a>
-          <p class="text-[11px] text-slate-500 mt-2.5 leading-normal">ปกติตอบภายในไม่กี่นาที ช้าสุดไม่เกิน 24 ชั่วโมง</p>
-          <p class="text-[10px] text-slate-400 mt-auto pt-2 leading-normal">เปิดจากคอมพิวเตอร์ สแกน QR ในหน้า LINE ด้วยมือถือได้</p>
+          <p class="text-[11px] text-text-muted mt-2.5 leading-normal">ปกติตอบภายในไม่กี่นาที ช้าสุดไม่เกิน 24 ชั่วโมง</p>
+          <p class="text-[10px] text-text-muted mt-auto pt-2 leading-normal">เปิดจากคอมพิวเตอร์ สแกน QR ในหน้า LINE ด้วยมือถือได้</p>
         </div>
 
         <!-- อีเมล -->
         <div class="bg-[#FFF9F3] border border-primary/25 rounded-md p-5 flex flex-col text-center">
-          <h3 class="text-base font-extrabold text-slate-900">อีเมล</h3>
-          <p class="text-[11px] text-slate-500 font-semibold mt-0.5 mb-4">ไม่มี LINE ก็ส่งอีเมลมาได้</p>
+          <h3 class="text-base font-bold text-slate-900">อีเมล</h3>
+          <p class="text-[11px] text-text-muted font-semibold mt-0.5 mb-4">ไม่มี LINE ก็ส่งอีเมลมาได้</p>
           <a
             href={`mailto:${SUPPORT_EMAIL}`}
-            class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-bold text-white bg-primary hover:bg-primary-hover rounded-sm shadow-sm transition-all active:scale-98"
+            class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-bold text-on-primary bg-primary hover:bg-primary-hover rounded-full shadow-sm transition-all active:scale-98"
           >
             <Mail size={14} />
             ส่งอีเมลหาเรา
           </a>
           <p class="text-[11px] text-slate-600 font-semibold mt-2.5 select-all break-all">{SUPPORT_EMAIL}</p>
-          <p class="text-[11px] text-slate-500 mt-1 leading-normal">เราอ่านทุกฉบับ แต่ตอบช้ากว่าทาง LINE</p>
+          <p class="text-[11px] text-text-muted mt-1 leading-normal">เราอ่านทุกฉบับ แต่ตอบช้ากว่าทาง LINE</p>
         </div>
       </div>
 
       <!-- บรรทัดอังกฤษบรรทัดเดียว (สำหรับ reviewer) — ห้ามแปลทั้งหน้า ห้ามเพิ่มที่อื่น -->
-      <p class="text-[11px] text-slate-400 text-center mt-5 leading-relaxed">
-        Support is available in Thai and English. Email <a href={`mailto:${SUPPORT_EMAIL}`} class="underline hover:text-primary">{SUPPORT_EMAIL}</a> or message us on LINE.
+      <p class="text-[11px] text-text-muted text-center mt-5 leading-relaxed">
+        Support is available in Thai and English. Email <a href={`mailto:${SUPPORT_EMAIL}`} class="underline hover:text-accent-ink">{SUPPORT_EMAIL}</a> or message us on LINE.
       </p>
     </section>
 
@@ -112,26 +112,26 @@ const faqs = [
     <!-- ทักมาแล้วบอกอะไรบ้าง -->
     <section class="border-y border-border-custom bg-white">
       <div class="max-w-3xl mx-auto px-4 sm:px-6 py-10">
-        <h2 class="text-lg font-extrabold text-slate-900 mb-3">บอกข้อมูลพวกนี้มาด้วย จะช่วยได้เร็วขึ้น</h2>
+        <h2 class="text-lg font-bold text-slate-900 mb-3">บอกข้อมูลพวกนี้มาด้วย จะช่วยได้เร็วขึ้น</h2>
         <ul class="space-y-1.5 text-sm text-slate-600 list-disc pl-5">
           <li>เครื่องที่ใช้ — Mac หรือ Windows</li>
           <li>โหลดแอปมาจากไหน — App Store หรือเว็บของเรา</li>
           <li>อาการที่เจอ เล่าสั้น ๆ ก็พอ</li>
           <li>ถ้ามีข้อความเตือนขึ้นจอ ส่งสกรีนช็อตมาด้วยได้</li>
         </ul>
-        <p class="text-xs text-slate-400 mt-3">ไม่มีข้อมูลพวกนี้ก็ทักมาได้ ไม่ต้องเตรียมอะไรก่อน</p>
+        <p class="text-xs text-text-muted mt-3">ไม่มีข้อมูลพวกนี้ก็ทักมาได้ ไม่ต้องเตรียมอะไรก่อน</p>
       </div>
     </section>
 
     <!-- FAQ -->
     <section class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
-      <h2 class="text-xl md:text-2xl font-extrabold text-slate-900 mb-6">เรื่องที่ถามกันบ่อย</h2>
+      <h2 class="text-xl md:text-2xl font-bold text-slate-900 mb-6">เรื่องที่ถามกันบ่อย</h2>
 
       <div class="space-y-2.5">
         <details class="group bg-white border border-border-custom rounded-md" open>
           <summary class="cursor-pointer list-none px-4 py-3.5 text-sm font-bold text-slate-900 flex items-center justify-between gap-3">
             <span>เปิดแอปครั้งแรกแล้ว Mac ขึ้นเตือน</span>
-            <span class="text-slate-400 group-open:rotate-45 transition-transform shrink-0 text-base leading-none">+</span>
+            <span class="text-text-muted group-open:rotate-45 transition-transform shrink-0 text-base leading-none">+</span>
           </summary>
           <div class="px-4 pb-4 text-sm text-slate-600 space-y-2.5 leading-relaxed border-t border-border-custom pt-3">
             <p>คำแนะนำ App Store ด้านล่างใช้เฉพาะผู้ที่มีเวอร์ชันนั้นอยู่แล้ว ไม่ใช่ประกาศอนุมัติ 2.0.12 ตัวติดตั้งบนเว็บรุ่น {product.downloads.mac.version} ต้องใช้ macOS 12 Monterey ขึ้นไป เป็น Universal สำหรับ Intel และ Apple Silicon</p>
@@ -149,7 +149,7 @@ const faqs = [
         <details class="group bg-white border border-border-custom rounded-md">
           <summary class="cursor-pointer list-none px-4 py-3.5 text-sm font-bold text-slate-900 flex items-center justify-between gap-3">
             <span>เปิดใช้งาน Pro ยังไง</span>
-            <span class="text-slate-400 group-open:rotate-45 transition-transform shrink-0 text-base leading-none">+</span>
+            <span class="text-text-muted group-open:rotate-45 transition-transform shrink-0 text-base leading-none">+</span>
           </summary>
           <div class="px-4 pb-4 text-sm text-slate-600 space-y-2.5 leading-relaxed border-t border-border-custom pt-3">
             <p>ขั้นตอนต่างกันตามเวอร์ชันที่ใช้ เลือกหัวข้อที่ตรงกับคุณ</p>
@@ -169,17 +169,17 @@ const faqs = [
               <li>วางรหัส แล้วกด "เปิดใช้งานรหัส"</li>
             </ol>
             <p>เท่านี้ใช้ Pro ได้ทันที รหัสเดียวใช้ได้กับทุกเครื่องของคุณเอง อัปเดตแอปเป็นเวอร์ชันใหม่แล้วรหัสยังใช้ต่อได้ ไม่ต้องขอใหม่</p>
-            <p class="text-[11px] text-slate-400">ช่องวางรหัสมีเฉพาะเวอร์ชันเว็บ — เวอร์ชัน Mac App Store ไม่มีช่องนี้และไม่ต้องใช้รหัสใด ๆ</p>
+            <p class="text-[11px] text-text-muted">ช่องวางรหัสมีเฉพาะเวอร์ชันเว็บ — เวอร์ชัน Mac App Store ไม่มีช่องนี้และไม่ต้องใช้รหัสใด ๆ</p>
           </div>
         </details>
 
         <details class="group bg-white border border-border-custom rounded-md">
           <summary class="cursor-pointer list-none px-4 py-3.5 text-sm font-bold text-slate-900 flex items-center justify-between gap-3">
             <span>รหัส Pro หาย ทำยังไง</span>
-            <span class="text-slate-400 group-open:rotate-45 transition-transform shrink-0 text-base leading-none">+</span>
+            <span class="text-text-muted group-open:rotate-45 transition-transform shrink-0 text-base leading-none">+</span>
           </summary>
           <div class="px-4 pb-4 text-sm text-slate-600 space-y-2.5 leading-relaxed border-t border-border-custom pt-3">
-            <p class="text-[11px] text-slate-400">ข้อนี้สำหรับเวอร์ชันเว็บเท่านั้น — เวอร์ชัน Mac App Store ไม่มีรหัสตั้งแต่แรก กด "กู้คืนการซื้อ" ได้เลย</p>
+            <p class="text-[11px] text-text-muted">ข้อนี้สำหรับเวอร์ชันเว็บเท่านั้น — เวอร์ชัน Mac App Store ไม่มีรหัสตั้งแต่แรก กด "กู้คืนการซื้อ" ได้เลย</p>
             <p>ทักมาทาง LINE บอกอีเมลหรือชื่อที่เคยแจ้งไว้ เราเช็คจากประวัติแล้วส่งรหัสเดิมของคุณให้ใหม่ ไม่มีค่าใช้จ่ายเพิ่ม</p>
           </div>
         </details>
@@ -187,7 +187,7 @@ const faqs = [
         <details class="group bg-white border border-border-custom rounded-md">
           <summary class="cursor-pointer list-none px-4 py-3.5 text-sm font-bold text-slate-900 flex items-center justify-between gap-3">
             <span>ย้ายไปเครื่องใหม่ ข้อมูลกับ Pro จะเป็นยังไง</span>
-            <span class="text-slate-400 group-open:rotate-45 transition-transform shrink-0 text-base leading-none">+</span>
+            <span class="text-text-muted group-open:rotate-45 transition-transform shrink-0 text-base leading-none">+</span>
           </summary>
           <div class="px-4 pb-4 text-sm text-slate-600 space-y-2.5 leading-relaxed border-t border-border-custom pt-3">
             <p class="font-semibold text-slate-800">ใช้ BillNgai Local (ไม่ได้ซื้อ Pro)</p>
@@ -196,14 +196,14 @@ const faqs = [
             <p>ลงแอปจาก App Store ด้วย Apple ID เดิม แล้วกด "กู้คืนการซื้อ" Pro จะกลับมาเอง</p>
             <p class="font-semibold text-slate-800">ใช้ Pro เวอร์ชันเว็บ</p>
             <p>ติดตั้งแอปในเครื่องใหม่ แล้ววางรหัสเดิมอีกรอบ (ตั้งค่า → พื้นที่ทำงาน → ดูแพ็กเกจ Pro → วางรหัส) ไม่ต้องขอรหัสใหม่</p>
-            <p class="text-[11px] text-slate-400">ส่วนข้อมูลบิลของคุณ ดูหัวข้อ "ข้อมูลจะหายไหม ถ้าคอมพัง"</p>
+            <p class="text-[11px] text-text-muted">ส่วนข้อมูลบิลของคุณ ดูหัวข้อ "ข้อมูลจะหายไหม ถ้าคอมพัง"</p>
           </div>
         </details>
 
         <details class="group bg-white border border-border-custom rounded-md">
           <summary class="cursor-pointer list-none px-4 py-3.5 text-sm font-bold text-slate-900 flex items-center justify-between gap-3">
             <span>ข้อมูลจะหายไหม ถ้าคอมพัง</span>
-            <span class="text-slate-400 group-open:rotate-45 transition-transform shrink-0 text-base leading-none">+</span>
+            <span class="text-text-muted group-open:rotate-45 transition-transform shrink-0 text-base leading-none">+</span>
           </summary>
           <div class="px-4 pb-4 text-sm text-slate-600 space-y-2.5 leading-relaxed border-t border-border-custom pt-3">
             <p>สำเนาอัตโนมัติในเครื่องอาจหายพร้อมดิสก์ เก็บฐานข้อมูล JSON และชุดไฟล์หลักฐานแยกกันนอกดิสก์เดิม JSON ไม่มีไฟล์แนบอยู่ข้างใน เก็บ PDF ต้นฉบับไว้ด้วยก่อนอัปเดตหรือย้ายเครื่อง</p>
@@ -218,7 +218,7 @@ const faqs = [
         <details class="group bg-white border border-border-custom rounded-md">
           <summary class="cursor-pointer list-none px-4 py-3.5 text-sm font-bold text-slate-900 flex items-center justify-between gap-3">
             <span>AI แปลง TOR เป็นใบเสนอราคา ใช้ยังไง</span>
-            <span class="text-slate-400 group-open:rotate-45 transition-transform shrink-0 text-base leading-none">+</span>
+            <span class="text-text-muted group-open:rotate-45 transition-transform shrink-0 text-base leading-none">+</span>
           </summary>
           <div class="px-4 pb-4 text-sm text-slate-600 space-y-2.5 leading-relaxed border-t border-border-custom pt-3">
             <p>ตอนนี้ AI แปลง TOR มีเฉพาะเวอร์ชัน macOS ที่โหลดจากเว็บของเรา เวอร์ชันใน Mac App Store และเวอร์ชัน Windows ยังไม่มีฟีเจอร์นี้</p>
@@ -235,7 +235,7 @@ const faqs = [
         <details class="group bg-white border border-border-custom rounded-md">
           <summary class="cursor-pointer list-none px-4 py-3.5 text-sm font-bold text-slate-900 flex items-center justify-between gap-3">
             <span>เวอร์ชัน App Store กับเวอร์ชันเว็บ ต่างกันยังไง</span>
-            <span class="text-slate-400 group-open:rotate-45 transition-transform shrink-0 text-base leading-none">+</span>
+            <span class="text-text-muted group-open:rotate-45 transition-transform shrink-0 text-base leading-none">+</span>
           </summary>
           <div class="px-4 pb-4 text-sm text-slate-600 space-y-2.5 leading-relaxed border-t border-border-custom pt-3">
             <p>รุ่น 2.0.12 มีทั้ง Mac Direct และ Windows Beta (64 บิต) จากเว็บ ตัวติดตั้ง Windows ยังไม่มีลายเซ็นดิจิทัล และยังไม่ทดสอบ Google Drive จริงบน Windows สำรองข้อมูลก่อนอัปเดต หากระบบเตือนความปลอดภัย ให้หยุดและติดต่อฝ่ายช่วยเหลือ ส่วน Mac App Store ยังรออัปเดต</p>
@@ -250,7 +250,7 @@ const faqs = [
         <details class="group bg-white border border-border-custom rounded-md">
           <summary class="cursor-pointer list-none px-4 py-3.5 text-sm font-bold text-slate-900 flex items-center justify-between gap-3">
             <span>ใช้แทนนักบัญชีได้ไหม</span>
-            <span class="text-slate-400 group-open:rotate-45 transition-transform shrink-0 text-base leading-none">+</span>
+            <span class="text-text-muted group-open:rotate-45 transition-transform shrink-0 text-base leading-none">+</span>
           </summary>
           <div class="px-4 pb-4 text-sm text-slate-600 space-y-2.5 leading-relaxed border-t border-border-custom pt-3">
             <p>ไม่ได้ BillNgai ช่วยจัดเอกสาร ไม่ใช่สำนักงานบัญชีหรือที่ปรึกษาภาษี การตรวจด้วย AI และการทดสอบซอฟต์แวร์ไม่ใช่การรับรองโดยผู้ประกอบวิชาชีพ</p>
@@ -264,8 +264,8 @@ const faqs = [
     <section class="bg-[#FFF9F3] border-t border-border-custom">
       <div class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
         <div class="text-center space-y-2 mb-6">
-          <h2 class="text-xl font-extrabold text-slate-900">ยังไม่หาย ติดต่อเราได้เลย</h2>
-          <p class="text-sm text-slate-500 leading-relaxed">
+          <h2 class="text-xl font-bold text-slate-900">ยังไม่หาย ติดต่อเราได้เลย</h2>
+          <p class="text-sm text-text-muted leading-relaxed">
             ไม่ต้องเกรงใจ ปัญหาเล็กแค่ไหนก็ถามได้<br class="hidden sm:block" />
             เราอยากให้คุณกลับไปออกบิลต่อได้เร็วที่สุด
           </p>
@@ -273,35 +273,35 @@ const faqs = [
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch">
           <div class="bg-white border border-primary/25 rounded-md p-5 flex flex-col text-center">
-            <h3 class="text-base font-extrabold text-slate-900 mb-3">LINE</h3>
+            <h3 class="text-base font-bold text-slate-900 mb-3">LINE</h3>
             <a
               href={product.lineUrl}
               target="_blank"
               rel="noopener noreferrer"
-              class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-bold text-white bg-primary hover:bg-primary-hover rounded-sm shadow-sm transition-all active:scale-98"
+              class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-bold text-on-primary bg-primary hover:bg-primary-hover rounded-full shadow-sm transition-all active:scale-98"
             >
               <MessageCircle size={14} />
               ทักแอดมินทาง LINE
             </a>
-            <p class="text-[11px] text-slate-500 mt-2.5 leading-normal">ปกติตอบภายในไม่กี่นาที ช้าสุดไม่เกิน 24 ชั่วโมง</p>
+            <p class="text-[11px] text-text-muted mt-2.5 leading-normal">ปกติตอบภายในไม่กี่นาที ช้าสุดไม่เกิน 24 ชั่วโมง</p>
           </div>
 
           <div class="bg-white border border-primary/25 rounded-md p-5 flex flex-col text-center">
-            <h3 class="text-base font-extrabold text-slate-900 mb-3">อีเมล</h3>
+            <h3 class="text-base font-bold text-slate-900 mb-3">อีเมล</h3>
             <a
               href={`mailto:${SUPPORT_EMAIL}`}
-              class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-bold text-white bg-primary hover:bg-primary-hover rounded-sm shadow-sm transition-all active:scale-98"
+              class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-bold text-on-primary bg-primary hover:bg-primary-hover rounded-full shadow-sm transition-all active:scale-98"
             >
               <Mail size={14} />
               ส่งอีเมลหาเรา
             </a>
             <p class="text-[11px] text-slate-600 font-semibold mt-2.5 select-all break-all">{SUPPORT_EMAIL}</p>
-            <p class="text-[11px] text-slate-500 mt-1 leading-normal">เราอ่านทุกฉบับ แต่ตอบช้ากว่าทาง LINE</p>
+            <p class="text-[11px] text-text-muted mt-1 leading-normal">เราอ่านทุกฉบับ แต่ตอบช้ากว่าทาง LINE</p>
           </div>
         </div>
 
-        <p class="text-[11px] text-slate-400 text-center mt-5 leading-relaxed">
-          Support is available in Thai and English. Email <a href={`mailto:${SUPPORT_EMAIL}`} class="underline hover:text-primary">{SUPPORT_EMAIL}</a> or message us on LINE.
+        <p class="text-[11px] text-text-muted text-center mt-5 leading-relaxed">
+          Support is available in Thai and English. Email <a href={`mailto:${SUPPORT_EMAIL}`} class="underline hover:text-accent-ink">{SUPPORT_EMAIL}</a> or message us on LINE.
         </p>
       </div>
     </section>
