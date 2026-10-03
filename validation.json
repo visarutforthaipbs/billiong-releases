@@ -24,7 +24,24 @@
     "production_console_errors": []
   },
   "worker": "Implementation and smaller review timed out without proposals; manager completed and validated local changes.",
-  "deployment": "none",
+  "deployment": {
+    "status": "production_verified",
+    "date": "2026-10-03",
+    "source_commit": "f232c51460b17b19d0544f4bfb2d6f263e8a7803",
+    "id": "40acdfb6-9478-4a91-8e92-1fc8bdd1496b",
+    "url": "https://billiong-landing.pages.dev/",
+    "deployment_url": "https://40acdfb6.billiong-landing.pages.dev",
+    "previous_production_id": "7af09659-3175-4a40-9708-15a14a5b5c01",
+    "live_checks": {
+      "html_matches_tested_build": true,
+      "all_clay_images_loaded": true,
+      "horizontal_overflow": false,
+      "download_dialog": "both current Mac/Windows buttons visible; details collapsed",
+      "hero_motion": "clay-drift runs onscreen and pauses offscreen",
+      "console_errors": []
+    },
+    "screenshot": "review/2026-10-03-download/live-download.jpg"
+  },
   "meshy": {
     "generated_images": 11,
     "distinct_feature_images": 9,
@@ -63,7 +80,7 @@
       "download_dialog": "open and Escape dismiss passed"
     },
     "reduced_motion": "live preference lifecycle tested with isolated fixture; CSS disables all animation and transitions",
-    "deployment": "none"
+    "deployment": "40acdfb6-9478-4a91-8e92-1fc8bdd1496b"
   },
   "download_dialog": {
     "date": "2026-10-03",
@@ -96,6 +113,6 @@
     "release_checks": "passed",
     "worker": "MiMo timeout; no proposal integrated; manager implemented",
     "additional_meshy_credits": 0,
-    "deployment": "none"
+    "deployment": "40acdfb6-9478-4a91-8e92-1fc8bdd1496b"
   }
 }
