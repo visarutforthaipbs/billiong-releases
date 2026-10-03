@@ -11,8 +11,8 @@ interface Props {
 }
 
 const {
-	title = "บิลง่าย (BillNgai) 2.0.12 สำหรับ Mac และ Windows Beta — เอกสารสำหรับฟรีแลนซ์ไทย",
-	description = "BillNgai Mac 2.0.12: ใบเสนอราคา ใบแจ้งหนี้ และใบเสร็จธรรมดาสำหรับผู้ไม่จด VAT รับเต็มจำนวนเป็นเงินบาท ไม่รองรับใบกำกับภาษี พักประมาณการภาษีและ e-Tax; Windows Beta ยังไม่มีลายเซ็นดิจิทัล อ่านข้อจำกัดก่อนอัปเดต",
+	title = "บิลง่าย (BillNgai) 2.0.13 สำหรับ Mac และ Windows Beta — เอกสารสำหรับฟรีแลนซ์ไทย",
+	description = "BillNgai Mac 2.0.13: ใบเสนอราคา ใบแจ้งหนี้ และใบเสร็จธรรมดาสำหรับผู้ไม่จด VAT รับเต็มจำนวนเป็นเงินบาท ไม่รองรับใบกำกับภาษี พักประมาณการภาษีและ e-Tax; Windows Beta ยังไม่มีลายเซ็นดิจิทัล อ่านข้อจำกัดก่อนอัปเดต",
 	variant = 'product'
 } = Astro.props;
 
@@ -31,12 +31,12 @@ const schemaMarkup = {
 	"image": new URL("/assets/brand/clay/logo-b-clay.webp", Astro.site || "https://billiong-landing.pages.dev").href,
 	"url": new URL(Astro.url.pathname, Astro.site || "https://billiong-landing.pages.dev").href,
   "featureList": [
-    "Mac Direct 2.0.12: ใบเสนอราคา ใบแจ้งหนี้ และข้อมูลรายรับในเครื่อง",
+    "Mac Direct 2.0.13: ใบเสนอราคา ใบแจ้งหนี้ และข้อมูลรายรับในเครื่อง",
     "ใบเสร็จธรรมดา: ผู้ยืนยันว่าไม่จด VAT รับเต็มจำนวนเป็นเงินบาทเท่านั้น",
     "ผู้ใช้ตรวจภาษีหัก ณ ที่จ่ายก่อนออกใบเสร็จ ไม่ใช้อัตรา 3% อัตโนมัติ",
     "จัดประเภทเงินได้ได้ใน Local โดยไม่ต้องซื้อ Pro",
     "พักประมาณการภาษีและ e-Tax; Pro ซิงก์ผ่าน Google Drive ของผู้ใช้เอง",
-    "Windows 2.0.12 Beta แบบ 64 บิต ยังไม่มีลายเซ็นดิจิทัล; Mac App Store ยังรออัปเดต",
+    "Windows 2.0.13 Beta แบบ 64 บิต ยังไม่มีลายเซ็นดิจิทัล; Mac App Store ยังรออัปเดต",
     "Pro: ซิงก์ Google Drive หลายเครื่องและโมดูล AI ในเครื่อง"
   ],
   ...(variant === 'support' ? {} : {
