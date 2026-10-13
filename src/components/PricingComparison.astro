@@ -45,9 +45,9 @@ import { product } from '../config/product';
           <div class="col-span-4 sm:col-span-3 text-center text-accent-ink flex flex-col items-center justify-center bg-primary/5 py-2 rounded-full border border-primary/20">
             <span class="text-accent-ink flex items-center gap-1 font-bold">
               <Check size={14} class="shrink-0" />
-              <span>Local {product.prices.local.earlyBirdLabel}</span>
+              <span>Local {product.prices.local.label}</span>
             </span>
-            <span class="text-[9px] text-accent-ink/80 font-medium">Early Bird · Pro {product.prices.pro.earlyBirdLabel} ครั้งเดียว</span>
+            <span class="text-[9px] text-accent-ink/80 font-medium">Pro {product.prices.pro.label} ครั้งเดียว ไม่มีรายเดือน</span>
           </div>
         </div>
 
@@ -102,10 +102,10 @@ import { product } from '../config/product';
     <div class="mt-8 bg-[#ece7dc]/45 border border-border-custom rounded-md p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="space-y-1 text-center sm:text-left">
         <span class="text-xs font-bold text-text-muted uppercase tracking-wider block">ไม่มีค่ารายเดือน</span>
-        <span class="text-base sm:text-lg font-bold text-text-dark block">BillNgai Local {product.prices.local.earlyBirdLabel} — ดาวน์โหลดแล้วใช้ได้ทันที</span>
+        <span class="text-base sm:text-lg font-bold text-text-dark block">BillNgai Local {product.prices.local.label} — ดาวน์โหลดจาก App Store แล้วใช้ได้ทันที</span>
       </div>
       <a href="#download" class="inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-bold text-on-primary bg-primary hover:bg-primary-hover rounded-full shadow-sm transition-all active:scale-98 cursor-pointer w-full sm:w-auto">
-        <span>ดาวน์โหลดและเปิดใช้ทันที</span>
+        <span>ดาวน์โหลดฟรีบน App Store</span>
         <ArrowRight size={15} />
       </a>
     </div>

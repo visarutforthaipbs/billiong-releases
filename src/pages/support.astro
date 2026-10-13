@@ -14,13 +14,13 @@ const faqs = [
   {
     q: 'เปิดแอปครั้งแรกแล้ว Mac ขึ้นเตือน',
     open: true,
-    note: 'เจอเฉพาะคนที่โหลดแอปจากเว็บของเรา — โหลดจาก Mac App Store ไม่เจอขั้นตอนนี้',
+    note: 'เจอเฉพาะคนที่เคยติดตั้งจากเว็บของเรา (รุ่นสุดท้าย 2.0.15) — โหลดจาก App Store ไม่เจอขั้นตอนนี้',
   },
   { q: 'เปิดใช้งาน Pro ยังไง' },
   { q: 'รหัส Pro หาย ทำยังไง' },
   { q: 'ย้ายไปเครื่องใหม่ ข้อมูลกับ Pro จะเป็นยังไง' },
   { q: 'ข้อมูลจะหายไหม ถ้าคอมพัง' },
-  { q: 'AI แปลง TOR เป็นใบเสนอราคา ใช้ยังไง' },
+  { q: 'AI แปลง TOR หายไปไหน' },
   { q: 'เวอร์ชัน App Store กับเวอร์ชันเว็บ ต่างกันยังไง' },
   { q: 'ใช้แทนนักบัญชีได้ไหม' },
 ];
@@ -114,7 +114,7 @@ const faqs = [
       <div class="max-w-3xl mx-auto px-4 sm:px-6 py-10">
         <h2 class="text-lg font-bold text-slate-900 mb-3">บอกข้อมูลพวกนี้มาด้วย จะช่วยได้เร็วขึ้น</h2>
         <ul class="space-y-1.5 text-sm text-slate-600 list-disc pl-5">
-          <li>เครื่องที่ใช้ — Mac หรือ Windows</li>
+          <li>เครื่องที่ใช้ — Mac, iPhone หรือ iPad (หรือ Windows สำหรับรุ่นเดิม)</li>
           <li>โหลดแอปมาจากไหน — App Store หรือเว็บของเรา</li>
           <li>อาการที่เจอ เล่าสั้น ๆ ก็พอ</li>
           <li>ถ้ามีข้อความเตือนขึ้นจอ ส่งสกรีนช็อตมาด้วยได้</li>
@@ -134,14 +134,14 @@ const faqs = [
             <span class="text-text-muted group-open:rotate-45 transition-transform shrink-0 text-base leading-none">+</span>
           </summary>
           <div class="px-4 pb-4 text-sm text-slate-600 space-y-2.5 leading-relaxed border-t border-border-custom pt-3">
-            <p>คำแนะนำ App Store ด้านล่างใช้เฉพาะผู้ที่มีเวอร์ชันนั้นอยู่แล้ว ไม่ใช่ประกาศอนุมัติ 2.0.12 ตัวติดตั้งบนเว็บรุ่น {product.downloads.mac.version} ต้องใช้ macOS 12 Monterey ขึ้นไป เป็น Universal สำหรับ Intel และ Apple Silicon</p>
-            <p class="font-semibold text-slate-800">วิธีติดตั้งจากเว็บ</p>
+            <p>สำหรับผู้ที่เคยติดตั้งจากเว็บของเรา (รุ่นสุดท้าย 2.0.15) เท่านั้น — ตอนนี้ดาวน์โหลดและอัปเดตผ่าน App Store ไม่เจอขั้นตอนนี้ ตัวติดตั้งบนเว็บรุ่นเดิมต้องใช้ macOS 12 Monterey ขึ้นไป เป็น Universal สำหรับ Intel และ Apple Silicon</p>
+            <p class="font-semibold text-slate-800">วิธีติดตั้ง (ผู้ที่มีไฟล์ติดตั้งจากเว็บรุ่นเดิม)</p>
             <ol class="list-decimal pl-5 space-y-1">
               <li>เปิดตัวติดตั้ง แล้วลาก BillNgai ไปที่ Applications</li>
               <li>หากอัปเดตจากรุ่นเดิม ให้ปิด BillNgai ก่อนแล้วเลือกแทนที่แอป</li>
               <li>เปิด BillNgai จาก Applications หาก macOS ถามยืนยันว่าเป็นแอปที่ดาวน์โหลดจากอินเทอร์เน็ต ให้กด “เปิด”</li>
             </ol>
-            <p>ตัวติดตั้งบนเว็บรุ่น {product.downloads.mac.version} ลงนามโดยนักพัฒนาและผ่านการตรวจ notarization ของ Apple แล้ว</p>
+            <p>ตัวติดตั้งบนเว็บรุ่น 2.0.15 ลงนามโดยนักพัฒนาและผ่านการตรวจ notarization ของ Apple แล้ว</p>
             <p>หากขึ้นว่า “มีมัลแวร์”, “แอปเสียหาย” หรือไม่สามารถตรวจสอบนักพัฒนาได้ ให้หยุดเปิดแอปและส่งภาพข้อความเตือนมาทางช่องทางช่วยเหลือด้านบน เพื่อให้เราตรวจไฟล์และรุ่นที่ติดตั้ง ไม่ต้องปิดระบบความปลอดภัยของ Mac ครับ</p>
           </div>
         </details>
@@ -153,7 +153,7 @@ const faqs = [
           </summary>
           <div class="px-4 pb-4 text-sm text-slate-600 space-y-2.5 leading-relaxed border-t border-border-custom pt-3">
             <p>ขั้นตอนต่างกันตามเวอร์ชันที่ใช้ เลือกหัวข้อที่ตรงกับคุณ</p>
-            <p class="font-semibold text-slate-800">เวอร์ชัน Mac App Store</p>
+            <p class="font-semibold text-slate-800">เวอร์ชัน App Store</p>
             <p>Pro ผูกกับ Apple ID ของคุณอัตโนมัติ ไม่มีรหัสให้กรอก ถ้าลงแอปใหม่แล้ว Pro ยังไม่กลับมา ทำแบบนี้</p>
             <ol class="list-decimal pl-5 space-y-1">
               <li>เปิด BillNgai → ตั้งค่า → พื้นที่ทำงาน</li>
@@ -161,7 +161,7 @@ const faqs = [
               <li>กด "กู้คืนการซื้อ"</li>
             </ol>
             <p>ใช้ Apple ID เดิมที่ซื้อไว้ Pro จะกลับมาเอง ทำแล้วยังไม่กลับมา ทักแอดมินทาง LINE ได้เลย</p>
-            <p class="font-semibold text-slate-800">เวอร์ชันเว็บ (โหลดจากเว็บของเรา)</p>
+            <p class="font-semibold text-slate-800">เวอร์ชันเว็บ (ผู้ที่เคยโหลดจากเว็บของเรา)</p>
             <p>ผู้ใช้เวอร์ชันเว็บจะมีรหัส Pro ของตัวเอง (ได้รับทาง LINE ตอนเปิดใช้ครั้งแรก) วิธีใส่รหัสที่มีอยู่</p>
             <ol class="list-decimal pl-5 space-y-1">
               <li>เปิด BillNgai → ตั้งค่า → พื้นที่ทำงาน</li>
@@ -169,7 +169,7 @@ const faqs = [
               <li>วางรหัส แล้วกด "เปิดใช้งานรหัส"</li>
             </ol>
             <p>เท่านี้ใช้ Pro ได้ทันที รหัสเดียวใช้ได้กับทุกเครื่องของคุณเอง อัปเดตแอปเป็นเวอร์ชันใหม่แล้วรหัสยังใช้ต่อได้ ไม่ต้องขอใหม่</p>
-            <p class="text-[11px] text-text-muted">ช่องวางรหัสมีเฉพาะเวอร์ชันเว็บ — เวอร์ชัน Mac App Store ไม่มีช่องนี้และไม่ต้องใช้รหัสใด ๆ</p>
+            <p class="text-[11px] text-text-muted">ช่องวางรหัสมีเฉพาะเวอร์ชันเว็บ — เวอร์ชัน App Store ไม่มีช่องนี้และไม่ต้องใช้รหัสใด ๆ</p>
           </div>
         </details>
 
@@ -179,7 +179,7 @@ const faqs = [
             <span class="text-text-muted group-open:rotate-45 transition-transform shrink-0 text-base leading-none">+</span>
           </summary>
           <div class="px-4 pb-4 text-sm text-slate-600 space-y-2.5 leading-relaxed border-t border-border-custom pt-3">
-            <p class="text-[11px] text-text-muted">ข้อนี้สำหรับเวอร์ชันเว็บเท่านั้น — เวอร์ชัน Mac App Store ไม่มีรหัสตั้งแต่แรก กด "กู้คืนการซื้อ" ได้เลย</p>
+            <p class="text-[11px] text-text-muted">ข้อนี้สำหรับเวอร์ชันเว็บเท่านั้น — เวอร์ชัน App Store ไม่มีรหัสตั้งแต่แรก กด "กู้คืนการซื้อ" ได้เลย</p>
             <p>ทักมาทาง LINE บอกอีเมลหรือชื่อที่เคยแจ้งไว้ เราเช็คจากประวัติแล้วส่งรหัสเดิมของคุณให้ใหม่ ไม่มีค่าใช้จ่ายเพิ่ม</p>
           </div>
         </details>
@@ -192,7 +192,7 @@ const faqs = [
           <div class="px-4 pb-4 text-sm text-slate-600 space-y-2.5 leading-relaxed border-t border-border-custom pt-3">
             <p class="font-semibold text-slate-800">ใช้ BillNgai Local (ไม่ได้ซื้อ Pro)</p>
             <p>ติดตั้งแอปในเครื่องใหม่ได้เลย ไม่ต้องทำอะไรเพิ่ม</p>
-            <p class="font-semibold text-slate-800">ใช้ Pro เวอร์ชัน Mac App Store</p>
+            <p class="font-semibold text-slate-800">ใช้ Pro เวอร์ชัน App Store</p>
             <p>ลงแอปจาก App Store ด้วย Apple ID เดิม แล้วกด "กู้คืนการซื้อ" Pro จะกลับมาเอง</p>
             <p class="font-semibold text-slate-800">ใช้ Pro เวอร์ชันเว็บ</p>
             <p>ติดตั้งแอปในเครื่องใหม่ แล้ววางรหัสเดิมอีกรอบ (ตั้งค่า → พื้นที่ทำงาน → ดูแพ็กเกจ Pro → วางรหัส) ไม่ต้องขอรหัสใหม่</p>
@@ -207,9 +207,9 @@ const faqs = [
           </summary>
           <div class="px-4 pb-4 text-sm text-slate-600 space-y-2.5 leading-relaxed border-t border-border-custom pt-3">
             <p>สำเนาอัตโนมัติในเครื่องอาจหายพร้อมดิสก์ เก็บฐานข้อมูล JSON และชุดไฟล์หลักฐานแยกกันนอกดิสก์เดิม JSON ไม่มีไฟล์แนบอยู่ข้างใน เก็บ PDF ต้นฉบับไว้ด้วยก่อนอัปเดตหรือย้ายเครื่อง</p>
-            <p>รุ่น 2.0.13 เปิดอ่านข้อมูลเอกสารเก่าที่เก็บไว้ได้ โดยไม่ต้องยกเลิก เอกสารที่ไม่มีสำเนาข้อมูล ณ วันออกยังพิมพ์/แชร์ใหม่ไม่ได้ การเก็บเข้าคลังเปลี่ยนแค่การแสดงรายการ ไม่ใช่การยกเลิกเอกสารหรือคืนเงิน</p>
+            <p>รุ่นปัจจุบัน (2.1.0) เปิดอ่านข้อมูลเอกสารเก่าที่เก็บไว้ได้ โดยไม่ต้องยกเลิก เอกสารที่ไม่มีสำเนาข้อมูล ณ วันออกยังพิมพ์/แชร์ใหม่ไม่ได้ การเก็บเข้าคลังเปลี่ยนแค่การแสดงรายการ ไม่ใช่การยกเลิกเอกสารหรือคืนเงิน</p>
             <p>ใบแจ้งหนี้เก่าค้างรับบางรายการทบทวนการรับเงินได้ ต้องมีหลักฐานและยืนยันข้อมูลครบ รองรับเฉพาะรับเต็มจำนวนเป็นเงินบาทและไม่จด VAT การรับเงินที่ทบทวนแล้วบันทึกแยกจากต้นฉบับ จากนั้นเลือกออกใบเสร็จธรรมดาใหม่ด้วยวันที่ออกวันนี้ ไม่ใช่การสร้างใบเสร็จเดิมย้อนหลัง หากข้อมูลขัดแย้งหรือไม่ครบ ติดต่อฝ่ายช่วยเหลือและผู้เชี่ยวชาญก่อนดำเนินการ</p>
-            <p>Mac Direct 2.0.13: Pro ซิงก์ผ่าน Google Drive ได้แล้ว เชื่อมต่อที่ ตั้งค่า → ข้อมูลและสำรอง ด้วยรหัส Pro เดิม ซิงก์รุ่นเดิมหยุดใช้แล้ว ข้อมูลเดิมใน Drive ไม่ถูกลบ อย่าลบข้อมูลเดิมในเครื่อง</p>
+            <p>Pro ซิงก์ผ่าน Google Drive ได้แล้ว เชื่อมต่อที่ ตั้งค่า → ข้อมูลและสำรอง ผู้ใช้ Pro รหัสเดิมใช้รหัสเดิมได้เลย ซิงก์รุ่นเดิมหยุดใช้แล้ว ข้อมูลเดิมใน Drive ไม่ถูกลบ อย่าลบข้อมูลเดิมในเครื่อง</p>
             <p>ข้อมูลของคุณอยู่ในเครื่องคุณ เราไม่มีเซิร์ฟเวอร์เก็บบิลหรือข้อมูลลูกค้าของคุณ</p>
             <p class="font-semibold text-slate-800">กู้คืนไม่สำเร็จ ทักมาทาง LINE อย่าเพิ่งลบอะไรทิ้ง</p>
           </div>
@@ -217,18 +217,13 @@ const faqs = [
 
         <details class="group bg-white border border-border-custom rounded-md">
           <summary class="cursor-pointer list-none px-4 py-3.5 text-sm font-bold text-slate-900 flex items-center justify-between gap-3">
-            <span>AI แปลง TOR เป็นใบเสนอราคา ใช้ยังไง</span>
+            <span>AI แปลง TOR หายไปไหน</span>
             <span class="text-text-muted group-open:rotate-45 transition-transform shrink-0 text-base leading-none">+</span>
           </summary>
           <div class="px-4 pb-4 text-sm text-slate-600 space-y-2.5 leading-relaxed border-t border-border-custom pt-3">
-            <p>ตอนนี้ AI แปลง TOR มีเฉพาะเวอร์ชัน macOS ที่โหลดจากเว็บของเรา เวอร์ชันใน Mac App Store และเวอร์ชัน Windows ยังไม่มีฟีเจอร์นี้</p>
-            <ul class="list-disc pl-5 space-y-1">
-              <li>เป็นโมดูลแยก ต้องโหลดเพิ่มประมาณ 2GB</li>
-              <li>ผู้ใช้ Pro เวอร์ชันเว็บขอลิงก์โหลดโมดูลได้ทาง LINE</li>
-              <li>ทำงานในเครื่องล้วน ๆ ไม่ต้องต่อเน็ตตอนใช้ ข้อมูลไม่ออกจากเครื่องคุณ</li>
-              <li>นำเข้าไฟล์ TOR เป็น PDF หรือ TXT ได้ ถ้าเป็นไฟล์ Word แปลงเป็น PDF ก่อน</li>
-            </ul>
-            <p>ติดตั้งโมดูลแล้วแอปยังไม่เห็น ทักมาทาง LINE เราช่วยไล่ทีละขั้นให้</p>
+            <p>ฟีเจอร์ AI แปลง TOR ถูกถอดออกจากแอปแล้วตามการตัดสินใจผลิตภัณฑ์ล่าสุด และไม่มีให้ใช้ในช่องทางใดอีก (ทั้ง App Store และรุ่นเว็บ)</p>
+            <p>ผู้ที่เคยติดตั้งโมดูลไว้ในรุ่นเว็บ macOS ยังใช้ในรุ่นเดิมของตัวเองได้ แต่ไม่มีการอัปเดตหรือแจกโมดูลเพิ่ม</p>
+            <p>มีคำถามเรื่องเอกสาร TOR เดิม ทักมาทาง LINE ได้เลย</p>
           </div>
         </details>
 
@@ -238,10 +233,10 @@ const faqs = [
             <span class="text-text-muted group-open:rotate-45 transition-transform shrink-0 text-base leading-none">+</span>
           </summary>
           <div class="px-4 pb-4 text-sm text-slate-600 space-y-2.5 leading-relaxed border-t border-border-custom pt-3">
-            <p>รุ่น 2.0.13 มีทั้ง Mac Direct และ Windows Beta (64 บิต) จากเว็บ ตัวติดตั้ง Windows ยังไม่มีลายเซ็นดิจิทัล ซิงก์ Google Drive ผ่านการทดสอบพื้นฐานบน Mac และ Windows แล้ว แต่ยังมีข้อจำกัดเรื่องสถานะหลังยกเลิกการเข้าสู่ระบบและการปิดแอป สำรองข้อมูลก่อนอัปเดต หากระบบเตือนความปลอดภัย ให้หยุดและติดต่อฝ่ายช่วยเหลือ ส่วน Mac App Store ยังรออัปเดต</p>
+            <p>ตอนนี้รุ่นปัจจุบันคือ 2.1.0 บน App Store (iPhone, iPad และ Mac) — ดาวน์โหลดและอัปเดตผ่าน App Store เท่านั้น ส่วนเวอร์ชันเว็บ (Mac 2.0.15 และ Windows 2.0.13 Beta) หยุดแจกแล้ว ไม่มีไฟล์ติดตั้งใหม่ ผู้ที่ใช้อยู่ยังใช้งานต่อได้ สำรองข้อมูลก่อนอัปเดตหรือย้ายเครื่อง</p>
             <ul class="list-disc pl-5 space-y-1">
-              <li><strong class="text-slate-800">เวอร์ชัน Mac App Store</strong> — ช่องทางซื้อและกู้คืน Pro ใช้ Apple ID ไม่ใช้รหัสจากเว็บ สถานะ 2.0.12 ยังรออัปเดต</li>
-              <li><strong class="text-slate-800">เวอร์ชัน Mac Direct</strong> — อ่านข้อจำกัดใบเสร็จ ภาษี และคลาวด์ด้านบน Pro มีโมดูล AI แยก</li>
+              <li><strong class="text-slate-800">เวอร์ชัน App Store (2.1.0)</strong> — ช่องทางปัจจุบัน ครอบคลุม iPhone, iPad และ Mac ช่องทางซื้อและกู้คืน Pro ใช้ Apple ID ไม่มีรหัส</li>
+              <li><strong class="text-slate-800">เวอร์ชันเว็บ (เดิม)</strong> — Mac 2.0.15 / Windows 2.0.13 Beta หยุดแจกแล้ว ใช้รหัส Pro เดิม ยังใช้งานต่อได้แต่ไม่มีอัปเดตใหม่</li>
             </ul>
             <p>ใช้เวอร์ชันไหนอยู่ก็ทักมาถามได้เหมือนกัน เราดูแลทั้งสองแบบ</p>
           </div>
@@ -253,7 +248,7 @@ const faqs = [
             <span class="text-text-muted group-open:rotate-45 transition-transform shrink-0 text-base leading-none">+</span>
           </summary>
           <div class="px-4 pb-4 text-sm text-slate-600 space-y-2.5 leading-relaxed border-t border-border-custom pt-3">
-            <p>ไม่ได้ BillNgai ช่วยจัดเอกสาร ไม่ใช่สำนักงานบัญชีหรือที่ปรึกษาภาษี การตรวจด้วย AI และการทดสอบซอฟต์แวร์ไม่ใช่การรับรองโดยผู้ประกอบวิชาชีพ</p>
+            <p>ไม่ได้ BillNgai ช่วยจัดเอกสาร ไม่ใช่สำนักงานบัญชีหรือที่ปรึกษาภาษี การทดสอบซอฟต์แวร์ไม่ใช่การรับรองโดยผู้ประกอบวิชาชีพ</p>
             <p>ก่อนยื่นจริง ตรวจกับนักบัญชีหรือกรมสรรพากรอีกรอบเสมอ</p>
           </div>
         </details>

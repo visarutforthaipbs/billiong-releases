@@ -2,7 +2,7 @@
 import { Check, Download, Sparkles, Cloud, ShieldCheck, ArrowRight } from '@lucide/astro';
 import { product } from '../config/product';
 
-// Local is free. Pro (one-time) adds Google Drive sync across Macs and the offline AI add-on.
+// Local is free. Pro is a one-time in-app purchase (Apple ID) that adds Google Drive sync across devices.
 
 const localFeatures = [
   "ใบเสนอราคาและใบแจ้งหนี้ — ตรวจข้อมูลก่อนใช้",
@@ -17,8 +17,8 @@ const proFeatures = [
   "ทุกอย่างที่มีใน Local",
   "ซิงก์ Google Drive หลายเครื่อง — ข้อมูลเก็บใน Drive ของคุณเอง",
   "เลขเอกสารไม่ซ้ำระหว่างเครื่อง แก้ข้อมูลชนกันเก็บทั้งสองฉบับให้เลือก",
-  "สูงสุด 3 บัญชี Google ต่อรหัส · ออกเอกสารต้องต่ออินเทอร์เน็ต",
-  "AI แปลง TOR เป็นใบเสนอราคา ประมวลผลในเครื่อง (ติดตั้งโมดูลแยก)",
+  "ใช้ได้ทุกเครื่องที่ล็อกอิน Apple ID เดียวกัน · ออกเอกสารต้องต่ออินเทอร์เน็ต",
+  "ซื้อครั้งเดียวในแอปผ่าน Apple ID · กู้คืนการซื้อได้ทุกเครื่อง",
   "ข้อจำกัดใบเสร็จและภาษีเหมือน Local",
 ];
 ---
@@ -29,17 +29,17 @@ const proFeatures = [
     <!-- Header -->
     <div class="text-center max-w-2xl mx-auto mb-14 space-y-4" data-motion="reveal">
       <span class="text-xs font-bold text-accent-ink bg-primary/10 border border-primary/20 px-3 py-1 rounded-full uppercase tracking-wider">
-        Mac Direct 2.0.13
+        บน App Store — 2.1.0
       </span>
       <h2 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight leading-tight">
         สองแพ็กเกจ จ่ายครั้งเดียว ไม่มีรายเดือน
       </h2>
       <p class="text-text-muted text-sm md:text-base leading-relaxed">
-        อ่านข้อจำกัด 2.0.13 ก่อนเลือกแพ็กเกจ<br class="hidden sm:block" />
+        อ่านข้อจำกัดก่อนเลือกแพ็กเกจ<br class="hidden sm:block" />
         ไม่ว่าแพ็กเกจไหน <strong class="text-slate-900 font-semibold">BillNgai ไม่เก็บเอกสารลูกค้าบนเซิร์ฟเวอร์เรา</strong>
       </p>
       <p class="text-text-muted text-xs md:text-sm leading-relaxed">
-        Local สำหรับใช้เครื่องเดียว · Pro เพิ่มซิงก์ Google Drive หลายเครื่องและโมดูล AI
+        Local สำหรับใช้เครื่องเดียว · Pro เพิ่มซิงก์ Google Drive หลายเครื่อง
       </p>
     </div>
 
@@ -56,10 +56,10 @@ const proFeatures = [
 
         <div class="mb-6">
           <div class="flex items-baseline gap-2">
-            <span class="text-4xl font-bold text-slate-900 font-display">{product.prices.local.earlyBirdLabel}</span>
+            <span class="text-4xl font-bold text-slate-900 font-display">{product.prices.local.label}</span>
             <span class="text-xs font-bold text-on-primary bg-primary px-2 py-0.5 rounded-full uppercase tracking-wide">ฟรี 100%</span>
           </div>
-          <p class="text-[11px] text-text-muted mt-1.5">ดาวน์โหลดฟรี ใช้ได้ตลอด — ข้อมูลอยู่ในเครื่องคุณ</p>
+          <p class="text-[11px] text-text-muted mt-1.5">ดาวน์โหลดฟรีจาก App Store ใช้ได้ตลอด — ข้อมูลอยู่ในเครื่องคุณ</p>
         </div>
 
         <ul class="space-y-2.5 text-sm text-slate-600 flex-1">
@@ -83,21 +83,21 @@ const proFeatures = [
       <!-- Pro -->
       <div class="bg-white border-2 border-primary/60 rounded-md p-6 sm:p-8 shadow-md flex flex-col relative overflow-hidden" data-motion="reveal" data-motion-order="1">
         <span class="self-start mb-4 text-[10px] font-bold text-accent-ink bg-white border border-primary/30 px-2.5 py-1 rounded-full uppercase tracking-wider">
-          ซื้อสิทธิ์ Early Bird
+          ซื้อครั้งเดียว ไม่มีรายเดือน
         </span>
         <div class="flex items-center gap-2 mb-1">
           <Sparkles size={18} class="text-accent-ink shrink-0" />
           <h3 class="text-lg font-bold text-slate-900">BillNgai Pro</h3>
-          <span class="text-[10px] font-bold text-text-muted">Sync + AI</span>
+          <span class="text-[10px] font-bold text-text-muted">Sync</span>
         </div>
-        <p class="text-xs text-text-muted mb-5">ใช้ข้อมูลชุดเดียวกันบนหลายเครื่องผ่าน Google Drive ของคุณ และ AI ช่วยร่างใบเสนอราคาในเครื่อง</p>
+        <p class="text-xs text-text-muted mb-5">ใช้ข้อมูลชุดเดียวกันบนหลายเครื่องผ่าน Google Drive ของคุณเอง</p>
 
         <div class="mb-6">
           <div class="flex items-baseline gap-2">
-            <span class="text-4xl font-bold text-slate-900 font-display">{product.prices.pro.earlyBirdLabel}</span>
-            <span class="text-xs font-bold text-on-primary bg-primary px-2 py-0.5 rounded-full uppercase tracking-wide">Early Bird</span>
+            <span class="text-4xl font-bold text-slate-900 font-display">{product.prices.pro.label}</span>
+            <span class="text-xs font-bold text-on-primary bg-primary px-2 py-0.5 rounded-full uppercase tracking-wide">ครั้งเดียว</span>
           </div>
-          <p class="text-[11px] text-text-muted mt-1.5">จ่ายครั้งเดียว ไม่มีรายเดือน — ราคาเต็ม <span class="font-display">{product.prices.pro.fullLabel}</span> หลังช่วงเปิดตัว</p>
+          <p class="text-[11px] text-text-muted mt-1.5">ซื้อในแอปผ่าน Apple ID จ่ายครั้งเดียว ไม่มีรายเดือน — กู้คืนการซื้อได้ทุกเครื่อง</p>
         </div>
 
         <ul class="space-y-2.5 text-sm text-slate-600 flex-1">
@@ -111,14 +111,14 @@ const proFeatures = [
 
         <div class="mt-5 flex items-start gap-2 text-[11px] text-text-muted bg-white/70 border border-border-custom rounded-md p-3">
           <Cloud size={13} class="text-accent-ink shrink-0 mt-0.5" />
-          <span><strong class="text-slate-700">ผู้ใช้ Pro เดิม:</strong> อัปเดตเป็น 2.0.13 ได้โดยใช้รหัสเดิม การเชื่อมต่อซิงก์ที่มีอยู่ยังใช้ต่อได้</span>
+          <span><strong class="text-slate-700">ผู้ใช้ Pro เดิม (รหัสจากรุ่นเว็บ):</strong> ซิงก์ต่อได้ตามเดิมด้วยรหัสเดิม ไม่ต้องซื้อใหม่</span>
         </div>
 
         <a
           href="#pro-order"
           class="mt-4 w-full inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-bold text-accent-ink bg-white border-2 border-primary hover:bg-primary hover:text-on-primary rounded-full shadow-sm transition-all active:scale-98 cursor-pointer"
         >
-          <span>ซื้อ Pro Early Bird {product.prices.pro.earlyBirdLabel}</span>
+          <span>ซื้อ Pro ในแอป {product.prices.pro.label}</span>
           <ArrowRight size={15} />
         </a>
       </div>

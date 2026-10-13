@@ -1,10 +1,7 @@
 ---
-import { Download, ChevronDown, X } from '@lucide/astro';
+import { ChevronDown, X } from '@lucide/astro';
 import { product } from '../config/product';
 import ReleaseNotice from './ReleaseNotice.astro';
-
-interface Props { urls: { mac: string; windows: string } }
-const { urls } = Astro.props;
 ---
 
 <dialog id="download-dialog" class="download-dialog" aria-labelledby="download-dialog-title" aria-describedby="download-dialog-description">
@@ -12,22 +9,17 @@ const { urls } = Astro.props;
     <header class="download-dialog-header">
       <img src="/assets/brand/clay/logo-b-clay.webp" alt="" width="640" height="640" class="download-dialog-art" />
       <div>
-        <h2 id="download-dialog-title">ดาวน์โหลดบิลง่าย</h2>
-        <p id="download-dialog-description">Local ใช้ฟรี · ข้อมูลอยู่ในเครื่องคุณ</p>
+        <h2 id="download-dialog-title">ดาวน์โหลดบิลง่ายบน App Store</h2>
+        <p id="download-dialog-description">ฟรี · ใช้ได้บน iPhone, iPad และ Mac</p>
       </div>
       <button id="close-dialog-btn" type="button" aria-label="ปิดหน้าต่างดาวน์โหลด" class="download-dialog-close"><X size={20} /></button>
     </header>
 
     <div id="download-stage" class="download-actions">
-      <a id="download-confirm-btn" href={urls.mac} target="_blank" rel="noopener noreferrer" class="clay-button clay-button-primary download-action">
-        <Download size={22} />
-        <span><strong>ดาวน์โหลดสำหรับ Mac</strong><small>macOS {product.downloads.mac.version} · Intel / Apple Silicon</small></span>
+      <a id="download-confirm-btn" href={product.appStore.url} target="_blank" rel="noopener noreferrer" class="app-store-badge-link">
+        <img src={product.appStore.badgePath} alt="Download on the App Store" width="120" height="40" class="app-store-badge" />
       </a>
-      <a id="download-confirm-btn-win" href={urls.windows} target="_blank" rel="noopener noreferrer" class="clay-button clay-button-primary download-action">
-        <Download size={22} />
-        <span><strong>ดาวน์โหลดสำหรับ Windows</strong><small>{product.downloads.windows.version} Beta · 64 บิต</small></span>
-      </a>
-      <p class="download-compatibility">รองรับ {product.downloads.mac.minimumOS} ขึ้นไป<br />Windows Beta · ตัวติดตั้งยังไม่มีลายเซ็นดิจิทัล</p>
+      <p class="download-compatibility">{product.appStore.requirements} · อัปเดตอัตโนมัติผ่าน App Store</p>
     </div>
 
     <div class="download-dialog-notes">
@@ -36,15 +28,11 @@ const { urls } = Astro.props;
         <p><strong>สำรองข้อมูลและเก็บ PDF เดิมก่อนอัปเดต</strong></p>
       </div>
       <details class="download-details">
-        <summary>ข้อจำกัดและวิธีติดตั้ง<ChevronDown size={18} /></summary>
+        <summary>ข้อจำกัดและหมายเหตุสำหรับผู้ใช้รุ่นเว็บ<ChevronDown size={18} /></summary>
         <div class="download-details-content">
           <ReleaseNotice />
-          <p><strong>ติดตั้งบน Mac:</strong> เปิดไฟล์ .dmg แล้วลาก BillNgai ไปที่ Applications</p>
-          <p><strong>Windows:</strong> หากระบบเตือนความปลอดภัย ให้หยุดและติดต่อฝ่ายช่วยเหลือ</p>
-          <div class="download-fallbacks">
-            <p>โหลด Mac ไม่สำเร็จ? <a href={product.downloads.mac.github} target="_blank" rel="noopener noreferrer">ดาวน์โหลดไฟล์เดียวกันจาก GitHub</a></p>
-            <p>โหลด Windows ไม่สำเร็จ? <a href={product.downloads.windows.github} target="_blank" rel="noopener noreferrer">ดาวน์โหลดไฟล์เดียวกันจาก GitHub</a></p>
-          </div>
+          <p><strong>ผู้ใช้ที่เคยติดตั้งจากเว็บ (Mac 2.0.15 / Windows 2.0.13 Beta):</strong> รุ่นเว็บหยุดแจกแล้ว ยังใช้งานต่อได้และนำเข้าไฟล์สำรองในแอปจาก App Store ได้ สำรองข้อมูลก่อนย้ายเครื่อง</p>
+          <p><strong>ผู้ใช้ Pro รหัสเดิม:</strong> ซิงก์ต่อได้ตามเดิมด้วยรหัสเดิม ไม่ต้องซื้อใหม่ สอบถามได้ทาง LINE</p>
         </div>
       </details>
     </div>
@@ -61,11 +49,10 @@ const { urls } = Astro.props;
   .download-dialog-header p { margin-top: 6px; font-size: 13px; color: var(--color-text-muted); }
   .download-dialog-close { position: absolute; right: -8px; top: -8px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 50%; cursor: pointer; color: var(--color-text-muted); }
   .download-dialog-close:hover { background: var(--color-canvas); }
-  .download-actions { display: flex; flex-direction: column; gap: 10px; flex-shrink: 0; }
-  .download-action { width: 100%; min-height: 68px; border-radius: var(--radius-md); gap: 16px; padding: 12px 16px; justify-content: flex-start; text-align: left; }
-  .download-action svg { flex-shrink: 0; }
-  .download-action strong { display: block; font-size: 16px; }
-  .download-action small { display: block; font-size: 12px; font-weight: 400; margin-top: 3px; }
+  .download-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; flex-shrink: 0; }
+  .app-store-badge-link { display: inline-block; border-radius: 8px; transition: opacity .15s ease; }
+  .app-store-badge-link:hover { opacity: .85; }
+  .app-store-badge { width: 120px; height: 40px; display: block; }
   .download-compatibility { color: var(--color-text-muted); font-size: 12px; line-height: 1.6; }
   .download-dialog-notes { overflow-y: auto; min-height: 0; padding: 2px 4px 4px; margin: -2px -4px -4px; border-top: 1px solid var(--color-border-custom); }
   .download-short-notes { display: grid; gap: 8px; padding: 14px 0; color: var(--color-text-muted); font-size: 12px; line-height: 1.65; }
@@ -74,8 +61,6 @@ const { urls } = Astro.props;
   summary::-webkit-details-marker { display: none; }
   details[open] summary svg { transform: rotate(180deg); }
   .download-details-content { display: grid; gap: 14px; padding: 8px 0 4px; font-size: 13px; line-height: 1.65; color: var(--color-text-muted); }
-  .download-fallbacks { display: grid; gap: 8px; }
-  .download-fallbacks a { font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
   @media (max-width: 480px), (max-height: 640px) {
     .download-dialog { padding: 16px; }
     .download-dialog-shell { gap: 14px; max-height: calc(100dvh - 66px); }
@@ -83,8 +68,5 @@ const { urls } = Astro.props;
     .download-dialog-art { width: 64px; height: 64px; }
     h2 { font-size: 21px; }
     .download-dialog-header p { font-size: 12px; }
-    .download-action { min-height: 64px; gap: 12px; }
-    .download-action strong { font-size: 15px; }
-    .download-action small { font-size: 11px; }
   }
 </style>

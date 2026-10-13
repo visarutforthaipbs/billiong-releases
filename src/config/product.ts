@@ -1,43 +1,21 @@
 export const product = {
   name: "บิลง่าย (BillNgai)",
-  versionLabel: "BillNgai 2.0.13 · Mac และ Windows Beta",
+  versionLabel: "BillNgai 2.1.0 บน App Store — iPhone, iPad และ Mac",
   lineUrl: "https://lin.ee/pSl8nEH",
-  promptPayId: "0627283058",
+  appStore: {
+    url: "https://apps.apple.com/app/id6789503350",
+    badgePath: "/assets/brand/app-store-badge.svg",
+    requirements: "ต้องการ iOS 16 / iPadOS 16 / macOS 12 ขึ้นไป",
+  },
   prices: {
     local: {
-      earlyBird: "0",
-      earlyBirdLabel: "ฟรี",
-      fullLabel: "ฟรี",
-      qrPath: "/assets/brand/promptpay-599.svg",
+      price: "0",
+      label: "ฟรี",
     },
     pro: {
-      salesPaused: false,
-      earlyBird: "599.00",
-      earlyBirdLabel: "฿599",
-      fullLabel: "฿1,900",
-      qrPath: "/assets/brand/promptpay-599.svg",
-    },
-  },
-  downloads: {
-    mac: {
-      version: "2.0.13",
-      minimumOS: "macOS 12 Monterey",
-      github: "https://github.com/visarutforthaipbs/local-bill-apps/releases/download/v2.0.13/BillNgai-2.0.13-universal.dmg",
-      r2: "https://pub-4ed16d146bff4f168839661507e1748a.r2.dev/BillNgai-2.0.13-universal.dmg",
-    },
-    windows: {
-      version: "2.0.13",
-      github: "https://github.com/visarutforthaipbs/local-bill-apps/releases/download/v2.0.13-windows/BillNgai-2.0.13-x64-Setup.exe",
-      r2: "https://pub-4ed16d146bff4f168839661507e1748a.r2.dev/BillNgai-2.0.13-x64-Setup.exe",
+      price: "599.00",
+      label: "฿599",
+      note: "ซื้อในแอปครั้งเดียว ไม่มีรายเดือน",
     },
   },
 } as const;
-
-export type DownloadSource = "github" | "r2";
-
-export function getDownloadUrls(source: DownloadSource = "r2") {
-  return {
-    mac: product.downloads.mac[source],
-    windows: product.downloads.windows[source],
-  };
-}

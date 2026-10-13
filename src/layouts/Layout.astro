@@ -11,8 +11,8 @@ interface Props {
 }
 
 const {
-	title = "บิลง่าย (BillNgai) 2.0.13 สำหรับ Mac และ Windows Beta — เอกสารสำหรับฟรีแลนซ์ไทย",
-	description = "BillNgai Mac 2.0.13: ใบเสนอราคา ใบแจ้งหนี้ และใบเสร็จธรรมดาสำหรับผู้ไม่จด VAT รับเต็มจำนวนเป็นเงินบาท ไม่รองรับใบกำกับภาษี พักประมาณการภาษีและ e-Tax; Windows Beta ยังไม่มีลายเซ็นดิจิทัล อ่านข้อจำกัดก่อนอัปเดต",
+	title = "บิลง่าย (BillNgai) 2.1.0 บน App Store — iPhone, iPad และ Mac — เอกสารสำหรับฟรีแลนซ์ไทย",
+	description = "BillNgai 2.1.0 บน App Store: ใบเสนอราคา ใบแจ้งหนี้ และใบเสร็จธรรมดาสำหรับผู้ไม่จด VAT รับเต็มจำนวนเป็นเงินบาท ไม่รองรับใบกำกับภาษี พักประมาณการภาษีและ e-Tax ใช้ได้บน iPhone, iPad และ Mac อัปเดตอัตโนมัติผ่าน App Store",
 	variant = 'product'
 } = Astro.props;
 
@@ -24,35 +24,34 @@ const schemaMarkup = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "บิลง่าย (BillNgai)",
-  "softwareVersion": variant === 'support' ? undefined : `macOS ${product.downloads.mac.version}; Windows ${product.downloads.windows.version}`,
-  "operatingSystem": "macOS, Windows",
+  "softwareVersion": variant === 'support' ? undefined : "2.1.0",
+  "operatingSystem": "iOS, iPadOS, macOS",
   "applicationCategory": "BusinessApplication, FinanceApplication",
   "description": description,
 	"image": new URL("/assets/brand/clay/logo-b-clay.webp", Astro.site || "https://billiong-landing.pages.dev").href,
 	"url": new URL(Astro.url.pathname, Astro.site || "https://billiong-landing.pages.dev").href,
   "featureList": [
-    "Mac Direct 2.0.13: ใบเสนอราคา ใบแจ้งหนี้ และข้อมูลรายรับในเครื่อง",
+    "BillNgai 2.1.0 บน App Store: ใบเสนอราคา ใบแจ้งหนี้ และข้อมูลรายรับในเครื่อง ใช้ได้บน iPhone, iPad และ Mac",
     "ใบเสร็จธรรมดา: ผู้ยืนยันว่าไม่จด VAT รับเต็มจำนวนเป็นเงินบาทเท่านั้น",
-    "ผู้ใช้ตรวจภาษีหัก ณ ที่จ่ายก่อนออกใบเสร็จ ไม่ใช้อัตรา 3% อัตโนมัติ",
+    "ผู้ใช้ตรวจภาษีหัก ณ ที่จ่ายก่อนออกใบเสร็จ ไม่ใช่อัตรา 3% อัตโนมัติ",
     "จัดประเภทเงินได้ได้ใน Local โดยไม่ต้องซื้อ Pro",
     "พักประมาณการภาษีและ e-Tax; Pro ซิงก์ผ่าน Google Drive ของผู้ใช้เอง",
-    "Windows 2.0.13 Beta แบบ 64 บิต ยังไม่มีลายเซ็นดิจิทัล; Mac App Store ยังรออัปเดต",
-    "Pro: ซิงก์ Google Drive หลายเครื่องและโมดูล AI ในเครื่อง"
+    "Pro: ซิงก์ Google Drive หลายเครื่อง ซื้อครั้งเดียวในแอปผ่าน Apple ID"
   ],
   ...(variant === 'support' ? {} : {
   "offers": [
     {
       "@type": "Offer",
       "name": "BillNgai Local",
-      "price": localOffer.earlyBird,
+      "price": localOffer.price,
       "priceCurrency": "THB",
       "priceValidUntil": "2027-12-31",
       "availability": "https://schema.org/InStock"
     },
     {
       "@type": "Offer",
-      "name": "BillNgai Pro Early Bird",
-      "price": proOffer.earlyBird,
+      "name": "BillNgai Pro",
+      "price": proOffer.price,
       "priceCurrency": "THB",
       "priceValidUntil": "2027-12-31",
       "availability": "https://schema.org/InStock"
@@ -77,7 +76,7 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site || "https://billiong-land
 		<title>{title}</title>
 		<link rel="canonical" href={pageUrl} />
 		<meta name="description" content={description} />
-		<meta name="keywords" content="ใบเสร็จธรรมดา, ใบแจ้งหนี้, ใบเสนอราคา, ฟรีแลนซ์, macOS, Local-First, พร้อมเพย์ QR, BillNgai" />
+		<meta name="keywords" content="ใบเสร็จธรรมดา, ใบแจ้งหนี้, ใบเสนอราคา, ฟรีแลนซ์, iPhone, iPad, macOS, Local-First, พร้อมเพย์ QR, BillNgai" />
 		<meta name="robots" content="index, follow" />
 		
 		<!-- Open Graph / Facebook -->
